@@ -49,12 +49,11 @@
     .nav__list a:hover{ color:var(--text); background:rgba(255,255,255,.04); }
     .nav__list .cta{ color:#0c1a10; background:linear-gradient(180deg, var(--brand-2), var(--brand)); box-shadow:0 10px 18px rgba(46,125,50,.35); }
 
-    /* ===== Hero ===== */
+    /* ===== Hero (Slideshow) ===== */
     .hero{ position:relative; isolation:isolate; }
     .hero__inner{ display:grid; grid-template-columns: 1.2fr 1fr; align-items:center; min-height:62vh; }
-    .hero__media{ position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
-    .hero__media img{ width:100%; height:100%; object-fit:cover; }
-    .hero__media::after{ content:""; position:absolute; inset:0; background:linear-gradient(120deg, rgba(11,14,18,.1), rgba(11,14,18,.75)); }
+    .hero--slideshow{ grid-template-columns: 1.05fr 1fr; }
+    .hero__content{ display:flex; flex-direction:column; justify-content:center; }
     .hero h1{ font-size: clamp(32px, 4vw, 56px); line-height:1.04; margin:0 0 12px; letter-spacing:-.02em; }
     .hero p{ color:#cfd8e3; margin:0 0 20px; max-width:52ch; }
 
@@ -62,6 +61,21 @@
     .btn{ display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:14px; border:1px solid var(--edge); font-weight:700; }
     .btn--primary{ background: linear-gradient(180deg, var(--brand-2), var(--brand)); color:#0c1a10; border-color:transparent; box-shadow:0 10px 24px rgba(46,125,50,.35); }
     .btn--ghost{ background:rgba(255,255,255,.04); color:var(--text); }
+
+    /* Slideshow visuals */
+    .hero__slider{ position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--edge); min-height:380px; }
+    .slides{ height:100%; width:100%; position:relative; }
+    .slide{ position:absolute; inset:0; opacity:0; transform:scale(1.02); transition: opacity .6s ease, transform .6s ease; }
+    .slide.is-active{ opacity:1; transform:scale(1); z-index:1; }
+    .slide img{ width:100%; height:100%; object-fit:cover; }
+    .slide figcaption{ position:absolute; left:16px; bottom:16px; background:rgba(0,0,0,.45); color:#fff; padding:8px 12px; border-radius:10px; font-weight:600; backdrop-filter: blur(6px); }
+    .ctrl{ position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:50%; border:1px solid var(--edge); background:rgba(0,0,0,.35); color:#fff; font-size:22px; display:grid; place-items:center; cursor:pointer; user-select:none; }
+    .ctrl:hover{ background:rgba(0,0,0,.5); }
+    .ctrl.prev{ left:10px; }
+    .ctrl.next{ right:10px; }
+    .dots{ position:absolute; bottom:10px; left:0; right:0; display:flex; justify-content:center; gap:8px; }
+    .dot{ width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,.45); border:1px solid rgba(255,255,255,.7); cursor:pointer; }
+    .dot[aria-selected="true"]{ background:#fff; }
 
     /* ===== KPI ===== */
     .kpis{ display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:26px; }
@@ -104,6 +118,7 @@
       .grid-3{ grid-template-columns:1fr; }
       .kpis{ grid-template-columns:1fr; }
       .nav__list{ gap:10px; }
+      .hero__slider{ min-height:260px; }
     }
   </style>
 </head>
@@ -127,10 +142,10 @@
   </header>
 
   <main>
-    <!-- HERO -->
+    <!-- HERO (Slideshow) -->
     <section class="hero section">
-      <div class="wrap hero__inner">
-        <div>
+      <div class="wrap hero__inner hero--slideshow">
+        <div class="hero__content">
           <h1>Engineering &amp; Energy for Ghana’s Growth</h1>
           <p class="lead">We deliver bankable infrastructure and hybrid energy solutions with strong governance, HSE and stakeholder alignment.</p>
           <div class="row" style="margin-top:12px">
@@ -143,8 +158,27 @@
             <div class="kpi"><strong>132</strong><span>Small towns water supply under CWSP</span></div>
           </div>
         </div>
-        <div class="hero__media">
-          <img src="assets/img/uploads/hero-solar-corporate.jpg" alt="Modern solar facility with corporate campus" loading="eager" decoding="async"/>
+
+        <div class="hero__slider" aria-roledescription="carousel" aria-label="Featured visuals" tabindex="0">
+          <div class="slides" id="slides">
+            <figure class="slide is-active">
+              <img src="assets/img/uploads/hero-solar-corporate.jpg" alt="Modern solar facility with corporate campus" loading="eager" decoding="async"/>
+              <figcaption>Grid-scale Solar • Bankable &amp; Reliable</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar farm with BESS containers" loading="lazy" decoding="async"/>
+              <figcaption>Energy Storage (BESS) • Smarter Grids</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="Tain Hybrid Hydro–Solar site" loading="lazy" decoding="async"/>
+              <figcaption>Tain Hybrid Hydro–Solar • Flagship Project</figcaption>
+            </figure>
+          </div>
+
+          <button class="ctrl prev" aria-label="Previous slide" id="prev" type="button">‹</button>
+          <button class="ctrl next" aria-label="Next slide" id="next" type="button">›</button>
+
+          <div class="dots" role="tablist" aria-label="Choose slide" id="dots"></div>
         </div>
       </div>
     </section>
@@ -257,8 +291,66 @@
   </footer>
 
   <script>
-    // Safe year update
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== Slideshow logic (no deps) =====
+    (function(){
+      const root = document.querySelector('.hero__slider');
+      if(!root) return;
+      const slides = Array.from(root.querySelectorAll('.slide'));
+      const dotsWrap = root.querySelector('#dots');
+      const prev = root.querySelector('#prev');
+      const next = root.querySelector('#next');
+      let i = 0, timer = null, isPaused = false, touchStartX = 0;
+
+      function go(n){
+        slides[i].classList.remove('is-active');
+        dotsWrap.children[i]?.setAttribute('aria-selected','false');
+        i = (n + slides.length) % slides.length;
+        slides[i].classList.add('is-active');
+        dotsWrap.children[i]?.setAttribute('aria-selected','true');
+      }
+      function autoplay(){ timer && clearInterval(timer); timer = setInterval(()=>{ if(!isPaused) go(i+1); }, 5000); }
+
+      // Build dots
+      slides.forEach((_, idx)=>{
+        const b = document.createElement('button');
+        b.className = 'dot';
+        b.type = 'button';
+        b.setAttribute('role','tab');
+        b.setAttribute('aria-label', `Go to slide ${idx+1}`);
+        b.onclick = ()=> go(idx);
+        dotsWrap.appendChild(b);
+      });
+      dotsWrap.children[0]?.setAttribute('aria-selected','true');
+
+      prev?.addEventListener('click', ()=> go(i-1));
+      next?.addEventListener('click', ()=> go(i+1));
+
+      // Pause on hover / focus for accessibility
+      root.addEventListener('mouseenter', ()=> isPaused = true);
+      root.addEventListener('mouseleave', ()=> isPaused = false);
+      root.addEventListener('focusin', ()=> isPaused = true);
+      root.addEventListener('focusout', ()=> isPaused = false);
+
+      // Keyboard support
+      root.addEventListener('keydown', (e)=>{
+        if(e.key === 'ArrowLeft') go(i-1);
+        if(e.key === 'ArrowRight') go(i+1);
+      });
+
+      // Touch swipe
+      root.addEventListener('touchstart', (e)=>{ touchStartX = e.changedTouches[0].clientX; }, {passive:true});
+      root.addEventListener('touchend', (e)=>{
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if(Math.abs(dx) > 44){ dx > 0 ? go(i-1) : go(i+1); }
+      }, {passive:true});
+
+      autoplay();
+      // Expose small API if needed
+      root.__go = go;
+    })();
   </script>
 </body>
 </html>
