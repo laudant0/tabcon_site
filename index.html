@@ -1,43 +1,118 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Required meta -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- SEO -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tabcon Ghana — Engineering & Energy for Ghana’s Growth</title>
-  <meta name="description" content="Tabcon Ghana delivers bankable infrastructure and hybrid energy solutions with strong governance, HSE, and stakeholder alignment across Africa.">
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Tabcon Ghana — Engineering & Energy for Ghana’s Growth">
-  <meta property="og:description" content="Hybrid hydro–solar, infrastructure, water & environmental solutions across Africa.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/img/uploads/hero-solar-corporate.jpg">
-  <meta property="og:url" content="https://www.tabcongh.com/">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Icons (optional) -->
-  <link rel="icon" href="assets/img/favicon.ico">
+  <meta name="description" content="Tabcon Ghana delivers bankable infrastructure and hybrid energy solutions with strong governance, HSE and stakeholder alignment." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    /* ===== Base / Reset ===== */
+    :root{
+      --bg: #0b0e12;
+      --panel: #0f141b;
+      --muted:#6c7a89;
+      --text:#e9eef5;
+      --brand:#2E7D32; /* deep green */
+      --brand-2:#7fd37f; /* accent */
+      --card:#121821;
+      --edge: rgba(255,255,255,.08);
+      --radius: 18px;
+      --wrap: clamp(960px, 85vw, 1200px);
+      --shadow: 0 1px 0 rgba(255,255,255,.05) inset, 0 10px 30px rgba(0,0,0,.35);
+    }
+    *,*::before,*::after{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text); background: radial-gradient(1200px 600px at 70% -10%, rgba(46,125,50,.25), transparent 50%), var(--bg);
+      line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    img{ max-width:100%; display:block; border-radius: calc(var(--radius) - 6px); }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ width:var(--wrap); max-width:100%; margin-inline:auto; padding-inline:20px; }
+    .grid-2{ display:grid; grid-template-columns:1.1fr 1fr; gap:28px; }
+    .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+
+    /* ===== Header ===== */
+    .header{ position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.2) blur(10px); background:rgba(11,14,18,.6); border-bottom:1px solid var(--edge); }
+    .header__inner{ display:flex; align-items:center; justify-content:space-between; height:68px; }
+    .brand{ display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px; }
+    .logo{ width:120px; height:auto; border-radius:12px; box-shadow:0 6px 16px rgba(0,0,0,.25); }
+    .nav__list{ display:flex; gap:18px; list-style:none; margin:0; padding:0; }
+    .nav__list a{ padding:10px 12px; border-radius:12px; color:var(--muted); font-weight:600; }
+    .nav__list a:hover{ color:var(--text); background:rgba(255,255,255,.04); }
+    .nav__list .cta{ color:#0c1a10; background:linear-gradient(180deg, var(--brand-2), var(--brand)); box-shadow:0 10px 18px rgba(46,125,50,.35); }
+
+    /* ===== Hero ===== */
+    .hero{ position:relative; isolation:isolate; }
+    .hero__inner{ display:grid; grid-template-columns: 1.2fr 1fr; align-items:center; min-height:62vh; }
+    .hero__media{ position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+    .hero__media img{ width:100%; height:100%; object-fit:cover; }
+    .hero__media::after{ content:""; position:absolute; inset:0; background:linear-gradient(120deg, rgba(11,14,18,.1), rgba(11,14,18,.75)); }
+    .hero h1{ font-size: clamp(32px, 4vw, 56px); line-height:1.04; margin:0 0 12px; letter-spacing:-.02em; }
+    .hero p{ color:#cfd8e3; margin:0 0 20px; max-width:52ch; }
+
+    .row{ display:flex; gap:12px; flex-wrap:wrap; }
+    .btn{ display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:14px; border:1px solid var(--edge); font-weight:700; }
+    .btn--primary{ background: linear-gradient(180deg, var(--brand-2), var(--brand)); color:#0c1a10; border-color:transparent; box-shadow:0 10px 24px rgba(46,125,50,.35); }
+    .btn--ghost{ background:rgba(255,255,255,.04); color:var(--text); }
+
+    /* ===== KPI ===== */
+    .kpis{ display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:26px; }
+    .kpi{ background:var(--card); border:1px solid var(--edge); border-radius:16px; padding:14px 16px; box-shadow:var(--shadow); }
+    .kpi strong{ display:block; font-size:24px; }
+    .kpi span{ color:var(--muted); font-size:14px; }
+
+    /* ===== Cards / Sections ===== */
+    .section{ padding-block:56px; }
+    .section h2{ font-size: clamp(22px, 2.4vw, 34px); margin:0 0 10px; }
+    .lead{ color:#cfd8e3; }
+    .card{ background:var(--card); border:1px solid var(--edge); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; }
+    .card__body{ padding:16px; }
+    .card h3{ margin:0 0 6px; font-size:20px; }
+    .card p{ margin:0; color:#cfd8e3; }
+
+    /* ===== Featured ===== */
+    .featured{ align-items:center; }
+    .featured img{ height:100%; object-fit:cover; }
+
+    /* ===== Partners marquee ===== */
+    .partner-section{ padding-block:40px; border-top:1px solid var(--edge); border-bottom:1px solid var(--edge); background:linear-gradient(180deg, rgba(255,255,255,.03), transparent); }
+    .partner-track{ overflow:hidden; mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); }
+    .partner-row{ display:flex; align-items:center; gap:28px; padding-block:8px; animation: scroll 24s linear infinite; }
+    .partner-logo{ height:40px; width:auto; filter:none; opacity:.9; transition:opacity .2s ease; }
+    .partner-logo:hover{ opacity:1; }
+    @keyframes scroll { from { transform:translateX(0);} to { transform:translateX(-50%);} }
+
+    /* ===== Footer ===== */
+    .footer{ padding-block:28px; }
+    .foot-grid{ display:grid; grid-template-columns: 1fr auto auto; gap:24px; align-items:start; border-top:1px solid var(--edge); padding-top:24px; }
+    .foot-title{ font-size:14px; text-transform:uppercase; letter-spacing:.14em; color:var(--muted); margin:0 0 8px; }
+    .list--reset{ list-style:none; padding:0; margin:0; }
+    .foot-badge{ width:42px; height:42px; border-radius:12px; background:var(--brand); display:grid; place-items:center; font-weight:800; color:#0c1a10; box-shadow:0 8px 18px rgba(46,125,50,.35); }
+    .copy{ color:var(--muted); text-align:center; border-top:1px dashed var(--edge); padding-top:16px; margin-top:24px; font-size:14px; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 980px){
+      .grid-2, .hero__inner{ grid-template-columns:1fr; }
+      .grid-3{ grid-template-columns:1fr; }
+      .kpis{ grid-template-columns:1fr; }
+      .nav__list{ gap:10px; }
+    }
+  </style>
 </head>
-
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <header class="header" role="banner">
+  <header class="header">
     <div class="wrap header__inner">
-      <a class="brand" href="index.html" aria-label="Tabcon Ghana — Home">
-        <img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana logo" width="120" height="42" loading="eager" decoding="async">
+      <a class="brand" href="#">
+        <img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana logo" loading="eager" decoding="async"/>
       </a>
-
       <nav class="nav" aria-label="Primary">
         <ul class="nav__list">
           <li><a href="about.html">About</a></li>
@@ -51,182 +126,139 @@
     </div>
   </header>
 
-  <main id="main">
-    <!-- Hero -->
-    <section class="hero" aria-labelledby="hero-title">
-      <figure class="hero__bg">
-        <img
-          src="assets/img/uploads/hero-solar-corporate.jpg"
-          alt="Aerial view of a modern solar facility with corporate campus"
-          loading="eager"
-          decoding="async">
-      </figure>
-
-      <div class="wrap hero__content">
-        <h1 id="hero-title">Engineering &amp; Energy for Ghana’s Growth</h1>
-        <p>We deliver bankable infrastructure and hybrid energy solutions with strong governance, HSE, and stakeholder alignment.</p>
-        <div class="row">
-          <a class="btn btn--primary" href="projects.html">Explore Projects</a>
-          <a class="btn btn--ghost" href="about.html">About Tabcon</a>
+  <main>
+    <!-- HERO -->
+    <section class="hero section">
+      <div class="wrap hero__inner">
+        <div>
+          <h1>Engineering &amp; Energy for Ghana’s Growth</h1>
+          <p class="lead">We deliver bankable infrastructure and hybrid energy solutions with strong governance, HSE and stakeholder alignment.</p>
+          <div class="row" style="margin-top:12px">
+            <a class="btn btn--primary" href="projects.html">Explore Projects</a>
+            <a class="btn btn--ghost" href="about.html">About Tabcon</a>
+          </div>
+          <div class="kpis">
+            <div class="kpi"><strong>40+ yrs</strong><span>Multidisciplinary consulting</span></div>
+            <div class="kpi"><strong>700+ km</strong><span>Road construction incl. feeder roads</span></div>
+            <div class="kpi"><strong>132</strong><span>Small towns water supply under CWSP</span></div>
+          </div>
         </div>
-
-        <dl class="kpis" aria-label="Key performance indicators">
-          <div class="kpis__item">
-            <dt><strong>40+ yrs</strong></dt>
-            <dd>Multidisciplinary consulting</dd>
-          </div>
-          <div class="kpis__item">
-            <dt><strong>700+ km</strong></dt>
-            <dd>Road construction including feeder roads</dd>
-          </div>
-          <div class="kpis__item">
-            <dt><strong>132</strong></dt>
-            <dd>Small towns water supply under the Community Water &amp; Sanitation Programme</dd>
-          </div>
-        </dl>
+        <div class="hero__media">
+          <img src="assets/img/uploads/hero-solar-corporate.jpg" alt="Modern solar facility with corporate campus" loading="eager" decoding="async"/>
+        </div>
       </div>
     </section>
 
-    <!-- About -->
-    <section class="section about wrap grid-2" aria-labelledby="about-title">
-      <figure class="about__media">
-        <img
-          src="assets/img/uploads/ghana-body.jpg"
-          alt="Engineers reviewing plans with a Ghana map overlay"
-          loading="lazy"
-          decoding="async">
-      </figure>
-
-      <div class="about__content">
-        <h2 id="about-title">About Us</h2>
-        <p>Established 1983 (Lesotho) and 1988 (Ghana), we deliver infrastructure, energy, water, and environmental solutions across Africa.</p>
-        <a class="link" href="about.html" aria-label="Learn more about Tabcon Ghana">Learn more →</a>
+    <!-- ABOUT -->
+    <section class="section">
+      <div class="wrap grid-2">
+        <div>
+          <img src="assets/img/uploads/ghana-body.jpg" alt="Engineers with Ghana map overlay" loading="lazy" decoding="async"/>
+        </div>
+        <div>
+          <h2>About Us</h2>
+          <p class="lead">Established 1983 (Lesotho) and 1988 (Ghana). We deliver infrastructure, energy, water and environmental solutions across Africa.</p>
+          <p><a class="btn btn--ghost" href="about.html">Learn more →</a></p>
+        </div>
       </div>
     </section>
 
-    <!-- Services Cards -->
-    <section class="section wrap" aria-labelledby="services-title">
-      <h2 id="services-title" class="visually-hidden">Core Services</h2>
-      <div class="grid-3 cards">
-        <article class="card">
-          <figure class="card__media">
-            <img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Highway and bridge infrastructure" loading="lazy" decoding="async">
-          </figure>
-          <div class="card__body">
-            <h3>Engineering &amp; Infrastructure</h3>
-            <p>Roads, dams, hydroelectric systems, water supply, and environmental planning.</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <figure class="card__media">
-            <img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar panels with battery storage containers" loading="lazy" decoding="async">
-          </figure>
-          <div class="card__body">
-            <h3>Energy Development</h3>
-            <p>Hybrid hydro-solar, BESS, grid integration, and feasibility.</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <figure class="card__media">
-            <img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Engineers collaborating on project plans" loading="lazy" decoding="async">
-          </figure>
-          <div class="card__body">
-            <h3>Project Dev &amp; Management</h3>
-            <p>Feasibility, design, construction supervision, procurement, and finance.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Featured Project -->
-    <section class="section wrap grid-2" aria-labelledby="featured-title">
-      <figure class="featured__media">
-        <img
-          src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg"
-          alt="Tain Hybrid Hydro–Solar project site"
-          loading="lazy"
-          decoding="async">
-      </figure>
-
-      <div class="featured__content">
-        <h2 id="featured-title">Featured: Tain Hybrid Hydro–Solar</h2>
-        <p>
-          <strong>Stage 1:</strong> 55&nbsp;MW Solar PV + 6&nbsp;MW BESS<br>
-          <strong>Stage 2:</strong> 10&nbsp;MW Hydro–Solar Hybrid
-        </p>
-        <a class="link" href="projects.html">See details →</a>
-      </div>
-    </section>
-
-    <!-- Partners (marquee-ready) -->
-    <section class="partner-section" aria-labelledby="partners-title">
+    <!-- SERVICES -->
+    <section class="section">
       <div class="wrap">
-        <h2 id="partners-title" class="visually-hidden">Partners & Affiliates</h2>
-        <div class="partner-track" role="list" aria-label="Partner logos">
-          <div class="partner-row" role="listitem" aria-hidden="true"></div>
-          <!--
-            Populate via JS for a clean DOM and easy reuse:
-            window.PARTNERS = [
-              {src:'assets/img/partners/foid-color.png', alt:'FOID'},
-              {src:'assets/img/partners/bp-color.png', alt:'BP'},
-              ...
-            ];
-          -->
+        <div class="grid-3">
+          <article class="card">
+            <img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Highway and bridge infrastructure" loading="lazy" decoding="async"/>
+            <div class="card__body">
+              <h3>Engineering &amp; Infrastructure</h3>
+              <p>Roads, dams, hydroelectric systems, water supply, environmental planning.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar farm with BESS containers" loading="lazy" decoding="async"/>
+            <div class="card__body">
+              <h3>Energy Development</h3>
+              <p>Hybrid hydro‑solar, BESS, grid integration and feasibility.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Engineers collaborating on plans" loading="lazy" decoding="async"/>
+            <div class="card__body">
+              <h3>Project Dev &amp; Management</h3>
+              <p>Feasibility, design, construction supervision, procurement &amp; finance.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED -->
+    <section class="section">
+      <div class="wrap grid-2 featured">
+        <div>
+          <img src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="Tain Hybrid Hydro–Solar site" loading="lazy" decoding="async"/>
+        </div>
+        <div>
+          <h2>Featured: Tain Hybrid Hydro–Solar</h2>
+          <p><strong>Stage 1:</strong> 55 MW Solar PV + 6 MW BESS<br><strong>Stage 2:</strong> 10 MW Hydro–Solar Hybrid</p>
+          <p><a class="btn btn--ghost" href="projects.html">See details →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS (marquee) -->
+    <section class="partner-section">
+      <div class="wrap">
+        <div class="partner-track">
+          <div class="partner-row" id="partners">
+            <!-- Duplicate group for seamless loop -->
+            <img class="partner-logo" src="assets/img/partners/foid-color.png" alt="FOID" loading="lazy">
+            <img class="partner-logo" src="assets/img/partners/bp-color.png" alt="BP" loading="lazy">
+            <img class="partner-logo" src="assets/img/partners/gnpc-color.png" alt="GNPC" loading="lazy">
+            <img class="partner-logo" src="assets/img/partners/ecg-color.png" alt="ECG" loading="lazy">
+            <img class="partner-logo" src="assets/img/partners/vra-color.png" alt="VRA" loading="lazy">
+            <img class="partner-logo" src="assets/img/partners/foid-color.png" alt="FOID" loading="lazy">
+            <img class="partner-logo" src="assets/img/partners/bp-color.png" alt="BP" loading="lazy">
+            <img class="partner-logo" src="assets/img/partners/gnpc-color.png" alt="GNPC" loading="lazy">
+            <img class="partner-logo" src="assets/img/partners/ecg-color.png" alt="ECG" loading="lazy">
+            <img class="partner-logo" src="assets/img/partners/vra-color.png" alt="VRA" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer" role="contentinfo">
+  <footer class="footer">
     <div class="wrap foot-grid">
-      <div class="foot-brand">
-        <div class="foot-badge" aria-hidden="true">T</div>
-        <p>Tabcon Ghana • Hybrid Hydro–Solar</p>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div class="foot-badge">T</div>
+        <div>
+          <strong>Tabcon Ghana</strong><br>
+          <span class="muted">Hybrid Hydro–Solar</span>
+        </div>
       </div>
-
-      <nav class="foot-links" aria-label="Footer links">
-        <h2 class="foot-title">Links</h2>
+      <nav aria-label="Footer links">
+        <div class="foot-title">Links</div>
         <ul class="list--reset">
           <li><a href="about.html">About</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="partners.html">Partners</a></li>
         </ul>
       </nav>
-
-      <section class="foot-contact" aria-labelledby="contact-title">
-        <h2 id="contact-title" class="foot-title">Contact</h2>
+      <section>
+        <div class="foot-title">Contact</div>
         <ul class="list--reset">
           <li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li>
           <li><a href="tel:+233208116401">+233 (0)20 811 6401</a></li>
         </ul>
       </section>
     </div>
-
     <div class="copy">© <span id="year"></span> Tabcon Ghana</div>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    // Update year without blocking render
+    // Safe year update
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Example partners population (keep in main.js if preferred)
-    // window.PARTNERS && (function mountPartners(){
-    //   const row = document.querySelector('.partner-row');
-    //   if (!row || !Array.isArray(window.PARTNERS)) return;
-    //   window.PARTNERS.forEach(p => {
-    //     const img = document.createElement('img');
-    //     img.src = p.src;
-    //     img.alt = p.alt;
-    //     img.loading = 'lazy';
-    //     img.decoding = 'async';
-    //     img.className = 'partner-logo';
-    //     row.appendChild(img);
-    //   });
-    // })();
   </script>
-  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
