@@ -1,68 +1,179 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css"><title>Tabcon Ghana</title>
-</head><body><header class="wrap header">
-  <a class="brand" href="index.html"><img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana"></a>
-  <nav class="nav">
-    <a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="partners.html">Partners</a><a href="news.html">News</a><a href="contact.html" class="cta">Contact</a>
-  </nav>
-</header>
-<main>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tabcon Ghana — Engineering & Energy for Ghana’s Growth</title>
+  <meta name="description" content="Tabcon Ghana delivers bankable infrastructure and hybrid energy solutions with strong governance, HSE and stakeholder alignment." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0e12; --panel:#0f141b; --muted:#6c7a89; --text:#e9eef5; --brand:#2E7D32; --brand-2:#7fd37f;
+      --card:#121821; --edge:rgba(255,255,255,.08); --radius:18px; --wrap:clamp(960px,85vw,1200px);
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *,*::before,*::after{box-sizing:border-box;}
+    body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;}
+    a{text-decoration:none;color:inherit;}
+    .wrap{width:var(--wrap);max-width:100%;margin:auto;padding-inline:20px;}
+    
+    /* Header */
+    .header{position:sticky;top:0;background:rgba(11,14,18,.7);backdrop-filter:blur(10px);z-index:10;}
+    .header__inner{display:flex;justify-content:space-between;align-items:center;height:68px;}
+    .logo{width:120px;border-radius:12px;}
+    .nav__list{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+    .nav__list a{padding:10px 12px;border-radius:12px;color:var(--muted);font-weight:600;}
+    .nav__list a:hover{background:rgba(255,255,255,.05);color:var(--text);}
+    .nav__list .cta{background:linear-gradient(180deg,var(--brand-2),var(--brand));color:#0c1a10;}
+
+    /* Hero Slideshow */
+    .hero{position:relative;overflow:hidden;}
+    .slides{display:flex;width:100%;height:65vh;animation:slideAnim 24s infinite;}
+    .slide{min-width:100%;height:65vh;position:relative;}
+    .slide img{width:100%;height:100%;object-fit:cover;}
+    .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(11,14,18,.2),rgba(11,14,18,.75));}
+    @keyframes slideAnim{0%{transform:translateX(0);}20%{transform:translateX(0);}25%{transform:translateX(-100%);}45%{transform:translateX(-100%);}50%{transform:translateX(-200%);}70%{transform:translateX(-200%);}75%{transform:translateX(-300%);}95%{transform:translateX(-300%);}100%{transform:translateX(0);}}
+    .hero__content{position:absolute;top:0;left:0;z-index:2;width:100%;height:100%;display:flex;align-items:center;}
+    .hero__content-inner{max-width:var(--wrap);margin:auto;padding:20px;}
+    .hero h1{font-size:clamp(32px,4vw,56px);margin:0 0 12px;}
+    .hero p{max-width:50ch;color:#cfd8e3;}
+    .row{display:flex;gap:12px;margin-top:14px;}
+    .btn{padding:12px 16px;border-radius:14px;font-weight:700;}
+    .btn--primary{background:linear-gradient(180deg,var(--brand-2),var(--brand));color:#0c1a10;}
+    .btn--ghost{background:rgba(255,255,255,.08);}
+
+    /* KPI */
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;}
+    .kpi{background:var(--card);padding:14px;border-radius:14px;text-align:center;}
+    .kpi strong{display:block;font-size:24px;}
+    .kpi span{color:var(--muted);font-size:14px;}
+
+    /* Sections */
+    .section{padding-block:56px;}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .card{background:var(--card);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;}
+    .card__body{padding:16px;}
+    .card h3{margin:0 0 6px;}
+
+    /* Partners */
+    .partner-section{padding-block:40px;background:rgba(255,255,255,.02);}
+    .partner-track{display:flex;gap:28px;overflow:hidden;animation:scroll 20s linear infinite;}
+    .partner-logo{height:40px;}
+    @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+    /* Footer */
+    .footer{padding-block:28px;border-top:1px solid var(--edge);}
+    .foot-grid{display:grid;grid-template-columns:1fr auto auto;gap:24px;}
+    .foot-badge{width:42px;height:42px;border-radius:12px;background:var(--brand);display:grid;place-items:center;font-weight:800;color:#0c1a10;}
+    .copy{text-align:center;color:var(--muted);margin-top:20px;font-size:14px;}
+
+    @media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr;}.slides{height:50vh;}.slide{height:50vh;}}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="#"><img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana logo"></a>
+      <nav aria-label="Primary"><ul class="nav__list">
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="partners.html">Partners</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a class="cta" href="contact.html">Contact</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <!-- HERO SLIDESHOW -->
   <section class="hero">
-    <div class="bg"><img src="assets/img/uploads/hero-solar-corporate.jpg" alt="Solar corporate hero"></div>
-    <div class="wrap content">
-      <h1>Engineering &amp; Energy for Ghana’s Growth</h1>
-      <p>We deliver bankable infrastructure and hybrid energy solutions with strong governance, HSE and stakeholder alignment.</p>
-      <div class="row"><a class="btn primary" href="projects.html">Explore Projects</a> <a class="btn ghost" href="about.html">About Tabcon</a></div>
-      <div class="kpis">
-        <div><strong>40+ yrs</strong><span>multidisciplinary consulting</span></div>
-        <div><strong>700+ km</strong><span>Road construction including feader roads</span></div>
-        <div><strong>132</strong><span>Small towns water supply under the community water sanitation program</span></div>
+    <div class="slides">
+      <div class="slide"><img src="assets/img/uploads/hero-solar-corporate.jpg" alt="Solar facility"></div>
+      <div class="slide"><img src="assets/img/uploads/ghana-body.jpg" alt="Infrastructure"></div>
+      <div class="slide"><img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar farm"></div>
+      <div class="slide"><img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Highway"></div>
+    </div>
+    <div class="hero__content">
+      <div class="hero__content-inner">
+        <h1>Engineering &amp; Energy for Ghana’s Growth</h1>
+        <p>Delivering bankable infrastructure and hybrid energy solutions with strong governance, HSE and stakeholder alignment.</p>
+        <div class="row">
+          <a class="btn btn--primary" href="projects.html">Explore Projects</a>
+          <a class="btn btn--ghost" href="about.html">About Tabcon</a>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><strong>40+ yrs</strong><span>Multidisciplinary consulting</span></div>
+          <div class="kpi"><strong>700+ km</strong><span>Road construction incl. feeder roads</span></div>
+          <div class="kpi"><strong>132</strong><span>Small towns water supply under CWSP</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section wrap grid-2">
-    <img src="assets/img/uploads/ghana-body.jpg" alt="About Tabcon">
-    <div>
-      <h2>About Us</h2>
-      <p>Established 1983 (Lesotho) and 1988 (Ghana). We deliver infrastructure, energy, water and environmental solutions across Africa.</p>
-      <a class="link" href="about.html">Learn more →</a>
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="wrap grid-2">
+      <img src="assets/img/uploads/ghana-body.jpg" alt="About Tabcon">
+      <div>
+        <h2>About Us</h2>
+        <p>Established 1983 (Lesotho) and 1988 (Ghana). Delivering infrastructure, energy, water and environmental solutions across Africa.</p>
+        <p><a class="btn btn--ghost" href="about.html">Learn more →</a></p>
+      </div>
     </div>
   </section>
 
-  <section class="section wrap">
-    <div class="grid-3">
-      <article class="card"><img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt=""><div class="body"><h3>Engineering &amp; Infrastructure</h3><p>Roads, dams, hydroelectric systems, water supply, environmental planning.</p></div></article>
-      <article class="card"><img src="assets/img/uploads/IMG_7634-300x200.jpg" alt=""><div class="body"><h3>Energy Development</h3><p>Hybrid hydro‑solar, BESS, grid integration and feasibility.</p></div></article>
-      <article class="card"><img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt=""><div class="body"><h3>Project Dev &amp; Management</h3><p>Feasibility, design, construction supervision, procurement &amp; finance.</p></div></article>
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="wrap grid-3">
+      <article class="card"><img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Highway"><div class="card__body"><h3>Engineering &amp; Infrastructure</h3><p>Roads, dams, hydroelectric systems, water supply, environmental planning.</p></div></article>
+      <article class="card"><img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar farm"><div class="card__body"><h3>Energy Development</h3><p>Hybrid hydro-solar, BESS, grid integration and feasibility.</p></div></article>
+      <article class="card"><img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Project planning"><div class="card__body"><h3>Project Dev &amp; Management</h3><p>Feasibility, design, construction supervision, procurement &amp; finance.</p></div></article>
     </div>
   </section>
 
-  <section class="section wrap grid-2">
-    <img src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="Featured Project">
-    <div>
-      <h2>Featured: Tain Hybrid Hydro–Solar</h2>
-      <p><strong>Stage 1:</strong> 55 MW Solar PV + 6 MW BESS<br><strong>Stage 2:</strong> 10 MW Hydro–Solar Hybrid</p>
-      <a class="link" href="projects.html">See details →</a>
+  <!-- FEATURED -->
+  <section class="section">
+    <div class="wrap grid-2">
+      <img src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="Tain project">
+      <div>
+        <h2>Featured: Tain Hybrid Hydro–Solar</h2>
+        <p><strong>Stage 1:</strong> 55 MW Solar PV + 6 MW BESS<br><strong>Stage 2:</strong> 10 MW Hydro–Solar Hybrid</p>
+        <p><a class="btn btn--ghost" href="projects.html">See details →</a></p>
+      </div>
     </div>
   </section>
 
-  <section class="partner-section"><div class="wrap"><div class="partner-track"><div class="partner-row"></div></div></div></section>
-</main>
-<footer class="footer">
-  <div class="wrap foot-grid">
-    <div><div style="width:42px;height:42px;border-radius:12px;background:#2E7D32;display:inline-grid;place-items:center;font-weight:800;color:#fff">T</div>
-    <p>Tabcon Ghana • Hybrid Hydro–Solar</p></div>
-    <div><h5>Links</h5><ul style="list-style:none;padding:0;margin:0">
-      <li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="partners.html">Partners</a></li>
-    </ul></div>
-    <div><h5>Contact</h5><ul style="list-style:none;padding:0;margin:0">
-      <li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li><li>+233 (0)20 811 6401</li>
-    </ul></div>
-  </div>
-  <div class="copy">© Tabcon Ghana</div>
-</footer>
-<script src="assets/js/main.js"></script></body></html>
+  <!-- PARTNERS -->
+  <section class="partner-section">
+    <div class="wrap">
+      <div class="partner-track">
+        <img class="partner-logo" src="assets/img/partners/foid-color.png" alt="FOID">
+        <img class="partner-logo" src="assets/img/partners/bp-color.png" alt="BP">
+        <img class="partner-logo" src="assets/img/partners/gnpc-color.png" alt="GNPC">
+        <img class="partner-logo" src="assets/img/partners/ecg-color.png" alt="ECG">
+        <img class="partner-logo" src="assets/img/partners/vra-color.png" alt="VRA">
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap foot-grid">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="foot-badge">T</div>
+        <div><strong>Tabcon Ghana</strong><br><span>Hybrid Hydro–Solar</span></div>
+      </div>
+      <nav><div class="foot-title">Links</div><ul class="list--reset"><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="partners.html">Partners</a></li></ul></nav>
+      <div><div class="foot-title">Contact</div><ul class="list--reset"><li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li><li><a href="tel:+233208116401">+233 (0)20 811 6401</a></li></ul></div>
+    </div>
+    <div class="copy">© <span id="year"></span> Tabcon Ghana</div>
+  </footer>
+
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
