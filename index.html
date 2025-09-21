@@ -23,6 +23,10 @@
       --radius:16px;
       --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
       --shadow-lg: 0 10px 28px rgba(0,0,0,.10);
+      /* Instagram-like gradient for KPI tiles */
+      --ig1:#833ab4;  /* purple */
+      --ig2:#fd1d1d;  /* pink/red */
+      --ig3:#fcb045;  /* orange */
     }
     *,*::before,*::after{ box-sizing:border-box; }
     body{
@@ -33,7 +37,7 @@
     img{ max-width:100%; display:block; }
     .wrap{ width:var(--wrap); max-width:100%; margin-inline:auto; padding-inline:20px; }
 
-    /* Header (white + transparent vibes) */
+    /* Header */
     .header{
       position:sticky; top:0; z-index:20;
       backdrop-filter:saturate(1.2) blur(12px);
@@ -48,7 +52,7 @@
     }
     .nav__list a:hover{ background:rgba(2,6,23,.06); }
 
-    /* Hero Slideshow (keep your original images) */
+    /* Hero Slideshow */
     .hero{ position:relative; overflow:hidden; border-bottom:1px solid var(--edge); }
     .slides{ display:flex; width:100%; height:66vh; min-height:460px; animation:slideAnim 24s infinite; }
     .slide{ min-width:100%; height:66vh; position:relative; }
@@ -73,6 +77,7 @@
       color:#fff; text-shadow: 0 1px 10px rgba(0,0,0,.35);
     }
     .hero h1{ font-size: clamp(32px, 4.2vw, 56px); margin:0 0 10px; letter-spacing:-.02em; }
+    .hero .tagline{ margin:0 0 10px; font-weight:800; }
     .hero p{ max-width:60ch; color:#eef3f9; }
     .row{ display:flex; gap:12px; margin-top:14px; flex-wrap:wrap; }
     .btn{ padding:12px 16px; border-radius:12px; font-weight:800; border:1px solid transparent; box-shadow: var(--shadow-sm); }
@@ -81,10 +86,18 @@
 
     /* KPI */
     .kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:22px; }
-    .kpi{ background:rgba(255,255,255,.9); border:1px solid var(--edge); border-radius:12px; padding:14px;
-          box-shadow:var(--shadow-sm); backdrop-filter: blur(6px); }
-    .kpi strong{ display:block; font-size:24px; }
-    .kpi span{ color:white(--muted); font-size:14px; }
+    .kpi{
+      border-radius:12px;
+      padding:14px;
+      box-shadow:var(--shadow-sm);
+      backdrop-filter: blur(6px);
+      color:#fff;
+      text-align:center;
+      /* Instagram-style gradient background */
+      background: linear-gradient(135deg, var(--ig1), var(--ig2), var(--ig3));
+    }
+    .kpi strong{ display:block; font-size:24px; font-weight:800; }
+    .kpi span{ font-size:14px; }
 
     /* Sections */
     .section{ padding-block:56px; }
@@ -97,7 +110,14 @@
     .card__body{ padding:16px; }
     .card h3{ margin:0 0 6px; }
 
-    /* Footer (cool & clean) */
+    /* Home info blocks */
+    .home-grid{ display:grid; grid-template-columns: 1.2fr .8fr; gap:20px; }
+    .info{ background:rgba(255,255,255,.96); border:1px solid var(--edge); border-radius:16px; box-shadow:var(--shadow-lg); padding:20px; }
+    .info h2{ margin:0 0 8px; font-size:24px; }
+    .list{ margin:10px 0 0; color:#445064; }
+    .badge{ display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:800; background:#fff; border:1px solid var(--edge); color:#263041; }
+
+    /* Footer */
     .footer{
       padding-block:34px;
       background:
@@ -116,10 +136,8 @@
     .list--reset{ list-style:none; padding:0; margin:0; }
     .copy{ text-align:center; color:#7a8592; margin-top:22px; font-size:14px; }
 
-    /* Floating Contact (drops down) */
-    .contact-fab{
-      position:fixed; right:18px; bottom:18px; z-index:30;
-    }
+    /* Floating Contact */
+    .contact-fab{ position:fixed; right:18px; bottom:18px; z-index:30; }
     .contact-toggle{
       appearance:none; border:1px solid var(--edge);
       background:linear-gradient(180deg, var(--brand-2), var(--brand));
@@ -144,6 +162,7 @@
       .grid-2,.grid-3{ grid-template-columns:1fr; }
       .slides,.slide{ height:52vh; min-height:380px; }
       .foot-grid{ grid-template-columns: 1fr; }
+      .home-grid{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -175,6 +194,7 @@
     <div class="hero__content">
       <div class="hero__content-inner">
         <h1>Engineering &amp; Energy for Ghana’s Growth</h1>
+        <p class="tagline">“Building Africa’s Future Through Innovation and Sustainability’’</p>
         <p>Delivering bankable infrastructure and hybrid energy solutions with strong governance, HSE and stakeholder alignment.</p>
         <div class="row">
           <a class="btn btn--primary" href="projects.html">Explore Projects</a>
@@ -189,7 +209,38 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- QUICK INTRO + SPV HIGHLIGHT -->
+  <section class="section">
+    <div class="wrap home-grid">
+      <article class="info">
+        <h2>Tabcon Development Consultants</h2>
+        <p class="list">
+          Founded in 1983, Tabcon has decades of experience in <strong>infrastructure</strong>, <strong>water</strong>, <strong>energy</strong>, and <strong>environmental management</strong> across Africa — combining engineering depth with practical delivery and strong stakeholder alignment.
+        </p>
+        <p class="list" style="margin-top:12px;">
+          We work end-to-end: feasibility, design, procurement, construction supervision, and governance — with a track record across Ghana and the region.
+        </p>
+      </article>
+
+      <article class="info">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+          <h2 style="margin:0;">Tabcon Energy Limited <span class="badge">SPV</span></h2>
+        </div>
+        <p class="list">
+          Purpose-built vehicle created to implement Tabcon’s <strong>renewable energy projects</strong>.
+        </p>
+        <p class="list" style="margin-top:8px;">
+          <strong>Flagship:</strong> <em>Tain Hybrid Hydro-Solar Energy Project</em> — <strong>55&nbsp;MW Solar + 6&nbsp;MW BESS</strong>, followed by a <strong>10&nbsp;MW hydro-solar hybrid</strong> expansion to stabilize and green the grid.
+        </p>
+        <p class="list" style="margin-top:8px;">
+          Focus areas: utility-scale solar, storage integration, small hydro, and bankable grid connections.
+        </p>
+        <p style="margin-top:10px;"><a class="btn btn--ghost" href="projects.html">See Tain details →</a></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ABOUT TEASER -->
   <section class="section">
     <div class="wrap grid-2">
       <img src="assets/img/uploads/ghana-body.jpg" alt="About Tabcon">
@@ -201,7 +252,7 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- SERVICES TEASER -->
   <section class="section">
     <div class="wrap grid-3">
       <article class="card">
@@ -210,7 +261,7 @@
       </article>
       <article class="card">
         <img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar farm">
-        <div class="card__body"><h3>Energy Development</h3><p>Hybrid hydro-solar, BESS, grid integration and feasibility.</p></div>
+        <div class="card__body"><h3>Energy Development</h3><p>Renewable and hybrid systems including BESS & grid integration.</p></div>
       </article>
       <article class="card">
         <img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Project planning">
@@ -230,59 +281,6 @@
       </div>
     </div>
   </section>
-  <section class="Reference-section">
-<style>
-  <h3 class="partner-title">References</h3>
-
-    .partner-section{
-  padding:40px 0;
-  background:#fafafa;
-}
-.partner-title{
-  margin:0 0 16px;
-  font:700 14px/1.4 Inter,system-ui,sans-serif;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  color:#666;
-}
-.partner-track{overflow:hidden}
-.partner-row{
-  display:flex;
-  gap:72px;
-  align-items:center;
-  will-change:transform;
-  animation:partnerScroll 36s linear infinite;
-}
-.partner-item img{
-  height:80px;
-  max-width:220px;
-  object-fit:contain;
-  filter:none;           /* keep logos full color */
-  opacity:.95;
-  transition:opacity .2s ease, transform .2s ease;
-}
-.partner-item img:hover{
-  opacity:1;
-  transform:translateY(-2px);
-}
-@keyframes partnerScroll{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
-}
-
-  </style>
-<div class="wrap">
-<div class="partner-track">
-<div class="partner-row">
-<div class="partner-item"><img alt="Bui Power Authority" loading="lazy" src="./assets/img/partners/Partners/bui-power-authority.jpg?v=91"/></div>
-<div class="partner-item"><img alt="Lvs" loading="lazy" src="./assets/img/partners/Partners/lvs.jpg?v=91"/></div>
-<div class="partner-item"><img alt="Voith" loading="lazy" src="./assets/img/partners/Partners/voith.jpg?v=91"/></div>
-<div class="partner-item"><img alt="Wenco" loading="lazy" src="./assets/img/partners/Partners/wenco.jpg?v=91"/></div>
-</div>
-</div>
-</div>
-</section>
-
 
   <!-- Footer -->
   <footer class="footer">
@@ -313,51 +311,25 @@
     <div class="copy">© <span id="year"></span> Tabcon Ghana</div>
   </footer>
 
-  <!-- Floating Contact (drops down) -->
+  <!-- Floating Contact -->
   <div class="contact-fab">
     <button class="contact-toggle" id="contactToggle" type="button">Contact</button>
     <div class="contact-panel" id="contactPanel" aria-hidden="true">
       <header>Contact Tabcon</header>
-      <div class="item">
-        <div>
-          <a href="tel:+233208116401">+233 (0)20 811 6401</a>
-          <small>Call us</small>
-        </div>
-      </div>
-      <div class="item">
-        <div>
-          <a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a>
-          <small>Email us</small>
-        </div>
-      </div>
-      <div class="item">
-        <div>
-          <a href="contact.html">Open contact page →</a>
-          <small>Map, form & details</small>
-        </div>
-      </div>
+      <div class="item"><div><a href="tel:+233208116401">+233 (0)20 811 6401</a><small>Call us</small></div></div>
+      <div class="item"><div><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a><small>Email us</small></div></div>
+      <div class="item"><div><a href="contact.html">Open contact page →</a><small>Map, form & details</small></div></div>
     </div>
   </div>
 
   <script>
-    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Contact dropdown
     (function(){
-      const btn = document.getElementById('contactToggle');
-      const panel = document.getElementById('contactPanel');
-      if(!btn || !panel) return;
-      btn.addEventListener('click', ()=>{
-        const open = panel.classList.toggle('open');
-        panel.setAttribute('aria-hidden', String(!open));
-      });
-      // close on outside click
-      document.addEventListener('click', (e)=>{
-        if(!panel.contains(e.target) && e.target !== btn){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }
-      });
-      // escape close
-      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape'){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }});
+      const btn=document.getElementById('contactToggle');const panel=document.getElementById('contactPanel');
+      if(!btn||!panel) return;
+      btn.addEventListener('click',()=>{const open=panel.classList.toggle('open');panel.setAttribute('aria-hidden',String(!open));});
+      document.addEventListener('click',(e)=>{if(!panel.contains(e.target)&&e.target!==btn){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');}});
+      document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');}});
     })();
   </script>
 </body>
