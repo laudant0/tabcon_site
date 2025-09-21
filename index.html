@@ -13,85 +13,158 @@
 
   <style>
     :root{
-      --bg:#0b0e12; --panel:#0f141b; --muted:#6c7a89; --text:#e9eef5; --brand:#2E7D32; --brand-2:#7fd37f;
-      --card:#121821; --edge:rgba(255,255,255,.08); --radius:18px; --wrap:clamp(960px,85vw,1200px);
-      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --bg:#ffffff;
+      --glass: rgba(255,255,255,.75);
+      --edge: rgba(17,24,39,.08);
+      --muted:#5b6673;
+      --text:#0b1220;
+      --brand:#2E7D32; --brand-2:#7fd37f;
+      --wrap: clamp(960px, 86vw, 1200px);
+      --radius:16px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
+      --shadow-lg: 0 10px 28px rgba(0,0,0,.10);
     }
-    *,*::before,*::after{box-sizing:border-box;}
-    body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;}
-    a{text-decoration:none;color:inherit;}
-    .wrap{width:var(--wrap);max-width:100%;margin:auto;padding-inline:20px;}
-    
-    /* Header */
-    .header{position:sticky;top:0;background:rgba(11,14,18,.7);backdrop-filter:blur(10px);z-index:10;}
-    .header__inner{display:flex;justify-content:space-between;align-items:center;height:68px;}
-    .logo{width:120px;border-radius:12px;}
-    .nav__list{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
-    .nav__list a{padding:10px 12px;border-radius:12px;color:var(--muted);font-weight:600;}
-    .nav__list a:hover{background:rgba(255,255,255,.05);color:var(--text);}
-    .nav__list .cta{background:linear-gradient(180deg,var(--brand-2),var(--brand));color:#0c1a10;}
+    *,*::before,*::after{ box-sizing:border-box; }
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text); background:var(--bg); line-height:1.6;
+    }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+    .wrap{ width:var(--wrap); max-width:100%; margin-inline:auto; padding-inline:20px; }
 
-    /* Hero Slideshow */
-    .hero{position:relative;overflow:hidden;}
-    .slides{display:flex;width:100%;height:65vh;animation:slideAnim 24s infinite;}
-    .slide{min-width:100%;height:65vh;position:relative;}
-    .slide img{width:100%;height:100%;object-fit:cover;}
-    .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(11,14,18,.2),rgba(11,14,18,.75));}
-    @keyframes slideAnim{0%{transform:translateX(0);}20%{transform:translateX(0);}25%{transform:translateX(-100%);}45%{transform:translateX(-100%);}50%{transform:translateX(-200%);}70%{transform:translateX(-200%);}75%{transform:translateX(-300%);}95%{transform:translateX(-300%);}100%{transform:translateX(0);}}
-    .hero__content{position:absolute;top:0;left:0;z-index:2;width:100%;height:100%;display:flex;align-items:center;}
-    .hero__content-inner{max-width:var(--wrap);margin:auto;padding:20px;}
-    .hero h1{font-size:clamp(32px,4vw,56px);margin:0 0 12px;}
-    .hero p{max-width:50ch;color:#cfd8e3;}
-    .row{display:flex;gap:12px;margin-top:14px;}
-    .btn{padding:12px 16px;border-radius:14px;font-weight:700;}
-    .btn--primary{background:linear-gradient(180deg,var(--brand-2),var(--brand));color:#0c1a10;}
-    .btn--ghost{background:rgba(255,255,255,.08);}
+    /* Header (white + transparent vibes) */
+    .header{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter:saturate(1.2) blur(12px);
+      background:var(--glass);
+      border-bottom:1px solid var(--edge);
+    }
+    .header__inner{ display:flex; align-items:center; justify-content:space-between; height:72px; }
+    .logo{ width:120px; height:auto; }
+    .nav__list{ list-style:none; display:flex; gap:18px; margin:0; padding:0; }
+    .nav__list a{
+      padding:10px 12px; border-radius:10px; font-weight:600; color:#263041;
+    }
+    .nav__list a:hover{ background:rgba(2,6,23,.06); }
+
+    /* Hero Slideshow (keep your original images) */
+    .hero{ position:relative; overflow:hidden; border-bottom:1px solid var(--edge); }
+    .slides{ display:flex; width:100%; height:66vh; min-height:460px; animation:slideAnim 24s infinite; }
+    .slide{ min-width:100%; height:66vh; position:relative; }
+    .slide img{ width:100%; height:100%; object-fit:cover; }
+    .slide::after{
+      content:""; position:absolute; inset:0;
+      background: linear-gradient(120deg, rgba(255,255,255,.02), rgba(0,0,0,.28));
+      pointer-events:none;
+    }
+    @keyframes slideAnim{
+      0%,20%{ transform:translateX(0); }
+      25%,45%{ transform:translateX(-100%); }
+      50%,70%{ transform:translateX(-200%); }
+      75%,95%{ transform:translateX(-300%); }
+      100%{ transform:translateX(0); }
+    }
+    .hero__content{
+      position:absolute; inset:0; display:flex; align-items:center; pointer-events:none;
+    }
+    .hero__content-inner{
+      max-width:var(--wrap); margin:auto; padding:20px; pointer-events:auto;
+      color:#fff; text-shadow: 0 1px 10px rgba(0,0,0,.35);
+    }
+    .hero h1{ font-size: clamp(32px, 4.2vw, 56px); margin:0 0 10px; letter-spacing:-.02em; }
+    .hero p{ max-width:60ch; color:#eef3f9; }
+    .row{ display:flex; gap:12px; margin-top:14px; flex-wrap:wrap; }
+    .btn{ padding:12px 16px; border-radius:12px; font-weight:800; border:1px solid transparent; box-shadow: var(--shadow-sm); }
+    .btn--primary{ background:linear-gradient(180deg, var(--brand-2), var(--brand)); color:#0e1a11; }
+    .btn--ghost{ background:rgba(255,255,255,.92); color:#0b1220; border-color:var(--edge); }
 
     /* KPI */
-    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;}
-    .kpi{background:var(--card);padding:14px;border-radius:14px;text-align:center;}
-    .kpi strong{display:block;font-size:24px;}
-    .kpi span{color:var(--muted);font-size:14px;}
+    .kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:22px; }
+    .kpi{ background:rgba(255,255,255,.9); border:1px solid var(--edge); border-radius:12px; padding:14px;
+          box-shadow:var(--shadow-sm); backdrop-filter: blur(6px); }
+    .kpi strong{ display:block; font-size:24px; }
+    .kpi span{ color:var(--muted); font-size:14px; }
 
     /* Sections */
-    .section{padding-block:56px;}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-    .card{background:var(--card);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;}
-    .card__body{padding:16px;}
-    .card h3{margin:0 0 6px;}
+    .section{ padding-block:56px; }
+    .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center; }
+    .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .card{
+      background:rgba(255,255,255,.92); border:1px solid var(--edge);
+      border-radius:16px; overflow:hidden; box-shadow: var(--shadow-lg);
+    }
+    .card__body{ padding:16px; }
+    .card h3{ margin:0 0 6px; }
 
-    /* Partners */
-    .partner-section{padding-block:40px;background:rgba(255,255,255,.02);}
-    .partner-track{display:flex;gap:28px;overflow:hidden;animation:scroll 20s linear infinite;}
-    .partner-logo{height:40px;}
-    @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+    /* Footer (cool & clean) */
+    .footer{
+      padding-block:34px;
+      background:
+        radial-gradient(800px 300px at 85% -20%, rgba(46,125,50,.08), transparent 50%),
+        #f8fafb;
+      border-top:1px solid var(--edge);
+    }
+    .foot-grid{ display:grid; grid-template-columns: 1.2fr auto auto; gap:28px; align-items:start; }
+    .foot-badge{
+      width:44px;height:44px;border-radius:12px;
+      background:linear-gradient(180deg, var(--brand-2), var(--brand));
+      display:grid; place-items:center; color:#0b1220; font-weight:900;
+      box-shadow: var(--shadow-lg);
+    }
+    .foot-title{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+    .list--reset{ list-style:none; padding:0; margin:0; }
+    .copy{ text-align:center; color:#7a8592; margin-top:22px; font-size:14px; }
 
-    /* Footer */
-    .footer{padding-block:28px;border-top:1px solid var(--edge);}
-    .foot-grid{display:grid;grid-template-columns:1fr auto auto;gap:24px;}
-    .foot-badge{width:42px;height:42px;border-radius:12px;background:var(--brand);display:grid;place-items:center;font-weight:800;color:#0c1a10;}
-    .copy{text-align:center;color:var(--muted);margin-top:20px;font-size:14px;}
+    /* Floating Contact (drops down) */
+    .contact-fab{
+      position:fixed; right:18px; bottom:18px; z-index:30;
+    }
+    .contact-toggle{
+      appearance:none; border:1px solid var(--edge);
+      background:linear-gradient(180deg, var(--brand-2), var(--brand));
+      color:#0e1a11; font-weight:900; border-radius:999px; padding:12px 16px;
+      box-shadow: var(--shadow-lg); cursor:pointer;
+    }
+    .contact-panel{
+      position:absolute; right:0; bottom:58px; width:280px;
+      background:rgba(255,255,255,.98); border:1px solid var(--edge);
+      border-radius:14px; box-shadow: var(--shadow-lg);
+      overflow:hidden; opacity:0; transform:translateY(8px); pointer-events:none;
+      transition: opacity .2s ease, transform .2s ease;
+      backdrop-filter: blur(6px);
+    }
+    .contact-panel.open{ opacity:1; transform:translateY(0); pointer-events:auto; }
+    .contact-panel header{ padding:12px 14px; font-weight:800; border-bottom:1px solid var(--edge); }
+    .contact-panel .item{ display:flex; align-items:center; gap:10px; padding:12px 14px; border-top:1px solid var(--edge); }
+    .contact-panel .item a{ font-weight:700; }
+    .contact-panel .item small{ color:var(--muted); display:block; margin-top:2px; }
 
-    @media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr;}.slides{height:50vh;}.slide{height:50vh;}}
+    @media (max-width: 980px){
+      .grid-2,.grid-3{ grid-template-columns:1fr; }
+      .slides,.slide{ height:52vh; min-height:380px; }
+      .foot-grid{ grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
   <header class="header">
     <div class="wrap header__inner">
       <a href="#"><img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana logo"></a>
-      <nav aria-label="Primary"><ul class="nav__list">
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <!-- Partners removed from top nav -->
-        <li><a href="news.html">News</a></li>
-        <li><a class="cta" href="contact.html">Contact</a></li>
-      </ul></nav>
+      <nav aria-label="Primary">
+        <ul class="nav__list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <!-- Partners removed from top nav -->
+          <li><a href="news.html">News</a></li>
+          <!-- Contact removed from top nav -->
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <!-- HERO SLIDESHOW -->
+  <!-- HERO SLIDESHOW (kept your exact images) -->
   <section class="hero">
     <div class="slides">
       <div class="slide"><img src="assets/img/uploads/hero-solar-corporate.jpg" alt="Solar facility"></div>
@@ -131,37 +204,108 @@
   <!-- SERVICES -->
   <section class="section">
     <div class="wrap grid-3">
-      <article class="card"><img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Highway"><div class="card__body"><h3>Engineering &amp; Infrastructure</h3><p>Roads, dams, hydroelectric systems, water supply, environmental planning.</p></div></article>
-      <article class="card"><img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar farm"><div class="card__body"><h3>Energy Development</h3><p>Hybrid hydro-solar, BESS, grid integration and feasibility.</p></div></article>
-      <article class="card"><img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Project planning"><div class="card__body"><h3>Project Dev &amp; Management</h3><p>Feasibility, design, construction supervision, procurement &amp; finance.</p></div></article>
+      <article class="card">
+        <img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Highway">
+        <div class="card__body"><h3>Engineering &amp; Infrastructure</h3><p>Roads, dams, hydroelectric systems, water supply, environmental planning.</p></div>
+      </article>
+      <article class="card">
+        <img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar farm">
+        <div class="card__body"><h3>Energy Development</h3><p>Hybrid hydro-solar, BESS, grid integration and feasibility.</p></div>
+      </article>
+      <article class="card">
+        <img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Project planning">
+        <div class="card__body"><h3>Project Dev &amp; Management</h3><p>Feasibility, design, construction supervision, procurement &amp; finance.</p></div>
+      </article>
     </div>
   </section>
 
-  <!-- PARTNERS -->
-  <section class="partner-section">
-    <div class="wrap">
-      <div class="partner-track">
-        <img class="partner-logo" src="assets/img/partners/foid-color.png" alt="FOID">
-        <img class="partner-logo" src="assets/img/partners/bp-color.png" alt="BP">
-        <img class="partner-logo" src="assets/img/partners/gnpc-color.png" alt="GNPC">
-        <img class="partner-logo" src="assets/img/partners/ecg-color.png" alt="ECG">
-        <img class="partner-logo" src="assets/img/partners/vra-color.png" alt="VRA">
+  <!-- FEATURED -->
+  <section class="section">
+    <div class="wrap grid-2">
+      <img src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="Tain project">
+      <div>
+        <h2>Featured: Tain Hybrid Hydro–Solar</h2>
+        <p><strong>Stage 1:</strong> 55 MW Solar PV + 6 MW BESS<br><strong>Stage 2:</strong> 10 MW Hydro–Solar Hybrid</p>
+        <p><a class="btn btn--ghost" href="projects.html">See details →</a></p>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="wrap foot-grid">
-      <div style="display:flex;align-items:center;gap:12px;">
+      <div style="display:flex; align-items:center; gap:12px;">
         <div class="foot-badge">T</div>
-        <div><strong>Tabcon Ghana</strong><br><span>Hybrid Hydro–Solar</span></div>
+        <div>
+          <strong>Tabcon Ghana</strong><br>
+          <span style="color:var(--muted)">Hybrid Hydro–Solar</span>
+        </div>
       </div>
-      <nav><div class="foot-title">Links</div><ul class="list--reset"><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="partners.html">Partners</a></li></ul></nav>
-      <div><div class="foot-title">Contact</div><ul class="list--reset"><li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li><li><a href="tel:+233208116401">+233 (0)20 811 6401</a></li></ul></div>
+      <nav aria-label="Footer links">
+        <div class="foot-title">Links</div>
+        <ul class="list--reset">
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </nav>
+      <section>
+        <div class="foot-title">Contact</div>
+        <ul class="list--reset">
+          <li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li>
+          <li><a href="tel:+233208116401">+233 (0)20 811 6401</a></li>
+        </ul>
+      </section>
     </div>
     <div class="copy">© <span id="year"></span> Tabcon Ghana</div>
   </footer>
 
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <!-- Floating Contact (drops down) -->
+  <div class="contact-fab">
+    <button class="contact-toggle" id="contactToggle" type="button">Contact</button>
+    <div class="contact-panel" id="contactPanel" aria-hidden="true">
+      <header>Contact Tabcon</header>
+      <div class="item">
+        <div>
+          <a href="tel:+233208116401">+233 (0)20 811 6401</a>
+          <small>Call us</small>
+        </div>
+      </div>
+      <div class="item">
+        <div>
+          <a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a>
+          <small>Email us</small>
+        </div>
+      </div>
+      <div class="item">
+        <div>
+          <a href="contact.html">Open contact page →</a>
+          <small>Map, form & details</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Contact dropdown
+    (function(){
+      const btn = document.getElementById('contactToggle');
+      const panel = document.getElementById('contactPanel');
+      if(!btn || !panel) return;
+      btn.addEventListener('click', ()=>{
+        const open = panel.classList.toggle('open');
+        panel.setAttribute('aria-hidden', String(!open));
+      });
+      // close on outside click
+      document.addEventListener('click', (e)=>{
+        if(!panel.contains(e.target) && e.target !== btn){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }
+      });
+      // escape close
+      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape'){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }});
+    })();
+  </script>
 </body>
 </html>
