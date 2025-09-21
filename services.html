@@ -1,57 +1,227 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css"><title>Tabcon Ghana</title>
-</head><body><header class="wrap header">
-  <a class="brand" href="index.html"><img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana"></a>
-  <nav class="nav">
-    <a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="partners.html">Partners</a><a href="news.html">News</a><a href="contact.html" class="cta">Contact</a>
-  </nav>
-</header><main><section class='hero'><div class='bg'><img src='assets/img/uploads/Dl66b83XgAE3LX0.jpg' alt=''></div><div class='wrap content'><h1></h1></div></section>
-    <section class="section wrap">
-      <h1>Our Services</h1>
-      <div class="grid-3">
-        <div class="card"><div class="body">
-          <h3>Engineering &amp; Infrastructure</h3>
-          <p>Feasibility, design and supervision for roads, bridges, dams, water supply, drainage and environmental planning. Robust standards, practical constructability.</p>
-          <ul>
-            <li>Hydraulic &amp; civil structures</li>
-            <li>Water &amp; wastewater systems</li>
-            <li>Transport &amp; access infrastructure</li>
-          </ul>
-        </div></div>
-        <div class="card"><div class="body">
-          <h3>Energy Development</h3>
-          <p>Hybrid hydro‑solar solutions with battery energy storage (BESS). Grid studies, permitting and bankable technical packages.</p>
-          <ul>
-            <li>Solar PV (ground &amp; floating)</li>
-            <li>BESS integration &amp; control</li>
-            <li>Grid connection &amp; interconnection studies</li>
-          </ul>
-        </div></div>
-        <div class="card"><div class="body">
-          <h3>Project Delivery &amp; Advisory</h3>
-          <p>Owner’s engineer, EPCM, procurement and PMO support. Governance, HSE, ESG and stakeholder engagement embedded.</p>
-          <ul>
-            <li>Owner’s Engineer / EPCM</li>
-            <li>Procurement &amp; contract management</li>
-            <li>HSE, ESG, community engagement</li>
-          </ul>
-        </div></div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services — Tabcon Ghana</title>
+  <meta name="description" content="Multidisciplinary consulting: engineering & infrastructure, energy development, and project development & management." />
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#ffffff; --glass: rgba(255,255,255,.75); --edge: rgba(17,24,39,.08);
+      --muted:#5b6673; --text:#0b1220; --brand:#2E7D32; --brand-2:#7fd37f;
+      --wrap: clamp(960px, 86vw, 1200px); --radius:16px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,.06); --shadow-lg: 0 10px 28px rgba(0,0,0,.10);
+    }
+    *,*::before,*::after{ box-sizing:border-box; }
+    body{ margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; color:var(--text); background:var(--bg); line-height:1.6; }
+    a{ color:inherit; text-decoration:none; } img{ max-width:100%; display:block; border-radius:12px; }
+    .wrap{ width:var(--wrap); max-width:100%; margin-inline:auto; padding-inline:20px; }
+
+    /* Header */
+    .header{ position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.2) blur(12px); background:var(--glass); border-bottom:1px solid var(--edge); }
+    .header__inner{ display:flex; align-items:center; justify-content:space-between; height:72px; }
+    .logo{ width:120px; height:auto; }
+    .nav__list{ list-style:none; display:flex; gap:18px; margin:0; padding:0; }
+    .nav__list a{ padding:10px 12px; border-radius:10px; font-weight:600; color:#263041; }
+    .nav__list a:hover{ background:rgba(2,6,23,.06); }
+    .nav__list a.is-active{ background:rgba(2,6,23,.08); color:#0b1220; }
+
+    /* Page Hero */
+    .page-hero{ padding:56px 0; border-bottom:1px solid var(--edge); background:linear-gradient(180deg, rgba(46,125,50,.06), transparent); }
+    .page-hero h1{ margin:0; font-size:clamp(28px,3.6vw,44px); letter-spacing:-.02em; }
+    .page-hero p{ margin:.6rem 0 0; color:var(--muted); max-width:70ch; }
+
+    /* Sections */
+    .section{ padding-block:56px; }
+    .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center; }
+    .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+
+    /* Cards */
+    .card{ background:rgba(255,255,255,.92); border:1px solid var(--edge); border-radius:16px; overflow:hidden; box-shadow: var(--shadow-lg); }
+    .card__body{ padding:16px; }
+    .muted{ color:var(--muted); }
+    .pill{ display:inline-block; padding:6px 10px; border:1px solid var(--edge); border-radius:999px; font-weight:700; background:#fff; margin:4px 6px 0 0; }
+
+    /* Footer */
+    .footer{ padding-block:34px; background: radial-gradient(800px 300px at 85% -20%, rgba(46,125,50,.08), transparent 50%), #f8fafb; border-top:1px solid var(--edge); }
+    .foot-grid{ display:grid; grid-template-columns: 1.2fr auto auto; gap:28px; align-items:start; }
+    .foot-badge{ width:44px;height:44px;border-radius:12px; background:linear-gradient(180deg, var(--brand-2), var(--brand)); display:grid; place-items:center; color:#0b1220; font-weight:900; box-shadow: var(--shadow-lg); }
+    .foot-title{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+    .list--reset{ list-style:none; padding:0; margin:0; }
+    .copy{ text-align:center; color:#7a8592; margin-top:22px; font-size:14px; }
+
+    /* Floating Contact */
+    .contact-fab{ position:fixed; right:18px; bottom:18px; z-index:30; }
+    .contact-toggle{ appearance:none; border:1px solid var(--edge); background:linear-gradient(180deg, var(--brand-2), var(--brand)); color:#0e1a11; font-weight:900; border-radius:999px; padding:12px 16px; box-shadow: var(--shadow-lg); cursor:pointer; }
+    .contact-panel{ position:absolute; right:0; bottom:58px; width:280px; background:rgba(255,255,255,.98); border:1px solid var(--edge); border-radius:14px; box-shadow: var(--shadow-lg); overflow:hidden; opacity:0; transform:translateY(8px); pointer-events:none; transition: opacity .2s ease, transform .2s ease; backdrop-filter: blur(6px); }
+    .contact-panel.open{ opacity:1; transform:translateY(0); pointer-events:auto; }
+    .contact-panel header{ padding:12px 14px; font-weight:800; border-bottom:1px solid var(--edge); }
+    .contact-panel .item{ display:flex; align-items:center; gap:10px; padding:12px 14px; border-top:1px solid var(--edge); }
+    .contact-panel .item a{ font-weight:700; }
+    .contact-panel .item small{ color:var(--muted); display:block; margin-top:2px; }
+
+    @media (max-width: 980px){
+      .grid-2{ grid-template-columns:1fr; }
+      .grid-3{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="index.html"><img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana logo"></a>
+      <nav aria-label="Primary">
+        <ul class="nav__list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html" class="is-active">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="wrap">
+      <h1>Services</h1>
+      <p>Multidisciplinary consulting across engineering, energy, water and environmental planning — from feasibility to delivery.</p>
+    </div>
+  </section>
+
+  <main>
+    <!-- Service Pillars -->
+    <section class="section">
+      <div class="wrap grid-3">
+        <!-- Engineering & Infrastructure -->
+        <article class="card">
+          <img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Road & bridge works">
+          <div class="card__body">
+            <h2 style="margin:0 0 6px">Engineering & Infrastructure</h2>
+            <p class="muted">Roads, bridges, dams, hydro, water supply and environmental planning with constructability and lifecycle cost at the core.</p>
+            <div aria-label="Capabilities">
+              <span class="pill">Roads & Bridges</span>
+              <span class="pill">Dams & Hydro</span>
+              <span class="pill">Water Supply</span>
+              <span class="pill">Env. Planning</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Energy Development -->
+        <article class="card">
+          <img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar + storage">
+          <div class="card__body">
+            <h2 style="margin:0 0 6px">Energy Development</h2>
+            <p class="muted">Hybrid hydro-solar, BESS, grid integration and bankable interconnection studies for reliable, dispatchable power.</p>
+            <div aria-label="Capabilities">
+              <span class="pill">PV + BESS</span>
+              <span class="pill">Hybrid Hydro-Solar</span>
+              <span class="pill">Grid Studies</span>
+              <span class="pill">O&M Frameworks</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Development & Management -->
+        <article class="card">
+          <img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Project team">
+          <div class="card__body">
+            <h2 style="margin:0 0 6px">Project Dev & Management</h2>
+            <p class="muted">Feasibility, detailed design, construction supervision, procurement & finance — delivering bankable outcomes.</p>
+            <div aria-label="Capabilities">
+              <span class="pill">Feasibility</span>
+              <span class="pill">Design</span>
+              <span class="pill">Supervision</span>
+              <span class="pill">Procurement & Finance</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
-</main><footer class="footer">
-  <div class="wrap foot-grid">
-    <div><div style="width:42px;height:42px;border-radius:12px;background:#2E7D32;display:inline-grid;place-items:center;font-weight:800;color:#fff">T</div>
-    <p>Tabcon Ghana • Hybrid Hydro–Solar</p></div>
-    <div><h5>Links</h5><ul style="list-style:none;padding:0;margin:0">
-      <li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="partners.html">Partners</a></li>
-    </ul></div>
-    <div><h5>Contact</h5><ul style="list-style:none;padding:0;margin:0">
-      <li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li><li>+233 (0)20 811 6401</li>
-    </ul></div>
+
+    <!-- Process (How we deliver) -->
+    <section class="section">
+      <div class="wrap grid-2">
+        <div>
+          <h2>How We Deliver</h2>
+          <ol class="muted" style="padding-left:18px; margin-top:8px">
+            <li><strong>Feasibility & Stakeholders:</strong> Define scope, risk and ESG constraints with utilities, regulators and communities.</li>
+            <li><strong>Design & Bankability:</strong> Standards-compliant designs, constructability, cost and schedule control.</li>
+            <li><strong>Procurement & Contracts:</strong> Transparent tendering, commercial structures and lender-ready docs.</li>
+            <li><strong>Supervision & HSE:</strong> Zero-harm protocols, QA/QC and performance verification.</li>
+          </ol>
+        </div>
+        <img src="assets/img/uploads/hero-solar-corporate.jpg" alt="Delivery framework">
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="wrap grid-2">
+        <div>
+          <h2>Ready to scope your project?</h2>
+          <p class="muted">From grid studies to EPC supervision, we align stakeholders and deliver resilient systems — on time, to spec, safely.</p>
+          <p>
+            <a class="pill" href="projects.html">See Projects →</a>
+            <a class="pill" href="news.html">Latest News</a>
+          </p>
+        </div>
+        <img src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="Site inspection">
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap foot-grid">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div class="foot-badge">T</div>
+        <div><strong>Tabcon Ghana</strong><br><span style="color:var(--muted)">Hybrid Hydro–Solar</span></div>
+      </div>
+      <nav aria-label="Footer links">
+        <div class="foot-title">Links</div>
+        <ul class="list--reset">
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </nav>
+      <section>
+        <div class="foot-title">Contact</div>
+        <ul class="list--reset">
+          <li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li>
+          <li><a href="tel:+233208116401">+233 (0)20 811 6401</a></li>
+        </ul>
+      </section>
+    </div>
+    <div class="copy">© <span id="year"></span> Tabcon Ghana</div>
+  </footer>
+
+  <!-- Floating Contact -->
+  <div class="contact-fab">
+    <button class="contact-toggle" id="contactToggle" type="button">Contact</button>
+    <div class="contact-panel" id="contactPanel" aria-hidden="true">
+      <header>Contact Tabcon</header>
+      <div class="item"><div><a href="tel:+233208116401">+233 (0)20 811 6401</a><small>Call us</small></div></div>
+      <div class="item"><div><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a><small>Email us</small></div></div>
+      <div class="item"><div><a href="contact.html">Open contact page →</a><small>Map, form & details</small></div></div>
+    </div>
   </div>
-  <div class="copy">© Tabcon Ghana</div>
-</footer>
-<script src="assets/js/main.js"></script></body></html>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function(){
+      const btn = document.getElementById('contactToggle');
+      const panel = document.getElementById('contactPanel');
+      if(!btn||!panel) return;
+      btn.addEventListener('click', ()=>{ const open=panel.classList.toggle('open'); panel.setAttribute('aria-hidden', String(!open)); });
+      document.addEventListener('click', (e)=>{ if(!panel.contains(e.target) && e.target!==btn){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }});
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }});
+    })();
+  </script>
+</body>
+</html>
