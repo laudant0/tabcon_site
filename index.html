@@ -230,21 +230,53 @@
       </div>
     </div>
   </section>
-  <section class="partner-section">
+  <section class="Reference-section">
 <style>
-    .partner-section{padding:40px 0;background:#fafafa}
-    .partner-track{overflow:hidden}
-    .partner-row{display:flex;gap:63px;align-items:center;will-change:transform;animation:partnerScroll 36s linear infinite}
-    .partner-item img{height:63px;max-width:180px;object-fit:contain;filter:colored(1);opacity:.9}
-    .partner-item img:hover{filter:none;opacity:1}
-    @keyframes partnerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  <h3 class="partner-title">References</h3>
+
+    .partner-section{
+  padding:40px 0;
+  background:#fafafa;
+}
+.partner-title{
+  margin:0 0 16px;
+  font:700 14px/1.4 Inter,system-ui,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:#666;
+}
+.partner-track{overflow:hidden}
+.partner-row{
+  display:flex;
+  gap:72px;
+  align-items:center;
+  will-change:transform;
+  animation:partnerScroll 36s linear infinite;
+}
+.partner-item img{
+  height:80px;
+  max-width:220px;
+  object-fit:contain;
+  filter:none;           /* keep logos full color */
+  opacity:.95;
+  transition:opacity .2s ease, transform .2s ease;
+}
+.partner-item img:hover{
+  opacity:1;
+  transform:translateY(-2px);
+}
+@keyframes partnerScroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
   </style>
 <div class="wrap">
 <div class="partner-track">
 <div class="partner-row">
 <div class="partner-item"><img alt="Bui Power Authority" loading="lazy" src="./assets/img/partners/Partners/bui-power-authority.jpg?v=91"/></div>
 <div class="partner-item"><img alt="Lvs" loading="lazy" src="./assets/img/partners/Partners/lvs.jpg?v=91"/></div>
-<div class="partner-item"><img alt="Voith" loading="lazy" src="./assets/img/partners/Partners/voith%turbo%16-9.jpg?v=91"/></div>
+<div class="partner-item"><img alt="Voith" loading="lazy" src="./assets/img/partners/Partners/voith.jpg?v=91"/></div>
 <div class="partner-item"><img alt="Wenco" loading="lazy" src="./assets/img/partners/Partners/wenco.jpg?v=91"/></div>
 </div>
 </div>
