@@ -1,0 +1,31 @@
+/* Active nav state */
+.nav__list a.is-active{ background:rgba(2,6,23,.08); color:#0b1220; }
+
+/* Generic page hero (for inner pages) */
+.page-hero{
+  padding:56px 0; border-bottom:1px solid var(--edge);
+  background:linear-gradient(180deg, rgba(46,125,50,.06), transparent);
+}
+.page-hero h1{ margin:0; font-size:clamp(28px,3.6vw,44px); letter-spacing:-.02em; }
+.page-hero p{ margin:.6rem 0 0; color:var(--muted); max-width:70ch; }
+
+/* Content wrappers reused across pages */
+.section{ padding-block:56px; }
+.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
+.grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.card{ background:rgba(255,255,255,.92); border:1px solid var(--edge); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-lg); }
+.card__body{ padding:16px; }
+
+/* Optional “References” marquee (if you want it on inner pages) */
+.partner-section{ padding:40px 0; background:#fafafa; }
+.partner-title{ margin:0 0 16px; font:700 14px/1.4 Inter,system-ui,sans-serif; text-transform:uppercase; letter-spacing:.12em; color:#666; }
+.partner-track{ overflow:hidden }
+.partner-row{ display:flex; gap:72px; align-items:center; will-change:transform; animation:partnerScroll 36s linear infinite; }
+.partner-item img{ height:80px; max-width:220px; object-fit:contain; filter:none; opacity:.95; transition:opacity .2s, transform .2s; }
+.partner-item img:hover{ opacity:1; transform:translateY(-2px); }
+@keyframes partnerScroll{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* Responsive */
+@media (max-width: 980px){
+  .grid-2,.grid-3{ grid-template-columns:1fr; }
+}
