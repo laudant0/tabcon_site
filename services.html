@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Services — Tabcon Ghana</title>
-  <meta name="description" content="Multidisciplinary consulting: engineering & infrastructure, energy development, and project development & management." />
+  <title>Projects — Tabcon Ghana</title>
+  <meta name="description" content="Explore Tabcon Ghana’s featured and completed projects across infrastructure, energy, and water." />
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
@@ -15,7 +15,7 @@
       --shadow-sm: 0 2px 8px rgba(0,0,0,.06); --shadow-lg: 0 10px 28px rgba(0,0,0,.10);
     }
     *,*::before,*::after{ box-sizing:border-box; }
-    body{ margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; color:var(--text); background:var(--bg); line-height:1.6; }
+    body{ margin:0; font-family:Inter,system-ui,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
     a{ color:inherit; text-decoration:none; } img{ max-width:100%; display:block; border-radius:12px; }
     .wrap{ width:var(--wrap); max-width:100%; margin-inline:auto; padding-inline:20px; }
 
@@ -42,7 +42,6 @@
     .card{ background:rgba(255,255,255,.92); border:1px solid var(--edge); border-radius:16px; overflow:hidden; box-shadow: var(--shadow-lg); }
     .card__body{ padding:16px; }
     .muted{ color:var(--muted); }
-    .pill{ display:inline-block; padding:6px 10px; border:1px solid var(--edge); border-radius:999px; font-weight:700; background:#fff; margin:4px 6px 0 0; }
 
     /* Footer */
     .footer{ padding-block:34px; background: radial-gradient(800px 300px at 85% -20%, rgba(46,125,50,.08), transparent 50%), #f8fafb; border-top:1px solid var(--edge); }
@@ -62,7 +61,7 @@
     .contact-panel .item a{ font-weight:700; }
     .contact-panel .item small{ color:var(--muted); display:block; margin-top:2px; }
 
-    @media (max-width: 980px){
+    @media(max-width:980px){
       .grid-2{ grid-template-columns:1fr; }
       .grid-3{ grid-template-columns:1fr; }
     }
@@ -76,101 +75,62 @@
       <nav aria-label="Primary">
         <ul class="nav__list">
           <li><a href="about.html">About</a></li>
-          <li><a href="services.html" class="is-active">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html" class="is-active">Projects</a></li>
           <li><a href="news.html">News</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Page Hero -->
   <section class="page-hero">
     <div class="wrap">
-      <h1>Services</h1>
-      <p>Multidisciplinary consulting across engineering, energy, water and environmental planning — from feasibility to delivery.</p>
+      <h1>Projects</h1>
+      <p>From grid-scale solar to rural water supply, explore our portfolio of bankable infrastructure and energy solutions.</p>
     </div>
   </section>
 
   <main>
-    <!-- Service Pillars -->
+    <!-- Featured Project -->
     <section class="section">
-      <div class="wrap grid-3">
-        <!-- Engineering & Infrastructure -->
-        <article class="card">
-          <img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Road & bridge works">
-          <div class="card__body">
-            <h2 style="margin:0 0 6px">Engineering & Infrastructure</h2>
-            <p class="muted">Roads, bridges, dams, hydro, water supply and environmental planning with constructability and lifecycle cost at the core.</p>
-            <div aria-label="Capabilities">
-              <span class="pill">Roads & Bridges</span>
-              <span class="pill">Dams & Hydro</span>
-              <span class="pill">Water Supply</span>
-              <span class="pill">Env. Planning</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Energy Development -->
-        <article class="card">
-          <img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar + storage">
-          <div class="card__body">
-            <h2 style="margin:0 0 6px">Energy Development</h2>
-            <p class="muted">Hybrid hydro-solar, BESS, grid integration and bankable interconnection studies for reliable, dispatchable power.</p>
-            <div aria-label="Capabilities">
-              <span class="pill">PV + BESS</span>
-              <span class="pill">Hybrid Hydro-Solar</span>
-              <span class="pill">Grid Studies</span>
-              <span class="pill">O&M Frameworks</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project Development & Management -->
-        <article class="card">
-          <img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Project team">
-          <div class="card__body">
-            <h2 style="margin:0 0 6px">Project Dev & Management</h2>
-            <p class="muted">Feasibility, detailed design, construction supervision, procurement & finance — delivering bankable outcomes.</p>
-            <div aria-label="Capabilities">
-              <span class="pill">Feasibility</span>
-              <span class="pill">Design</span>
-              <span class="pill">Supervision</span>
-              <span class="pill">Procurement & Finance</span>
-            </div>
-          </div>
-        </article>
+      <div class="wrap grid-2">
+        <img src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="Tain Hybrid Hydro–Solar">
+        <div>
+          <h2>Featured: Tain Hybrid Hydro–Solar</h2>
+          <p class="muted"><strong>Stage 1:</strong> 55 MW Solar PV + 6 MW BESS<br><strong>Stage 2:</strong> 10 MW Hydro–Solar Hybrid</p>
+          <p class="muted">This flagship hybrid project demonstrates Tabcon’s ability to blend renewables and storage for stable, reliable power. With strong governance and bankable design, it aligns stakeholders and lenders alike.</p>
+        </div>
       </div>
     </section>
 
-    <!-- Process (How we deliver) -->
+    <!-- Other Projects -->
     <section class="section">
-      <div class="wrap grid-2">
-        <div>
-          <h2>How We Deliver</h2>
-          <ol class="muted" style="padding-left:18px; margin-top:8px">
-            <li><strong>Feasibility & Stakeholders:</strong> Define scope, risk and ESG constraints with utilities, regulators and communities.</li>
-            <li><strong>Design & Bankability:</strong> Standards-compliant designs, constructability, cost and schedule control.</li>
-            <li><strong>Procurement & Contracts:</strong> Transparent tendering, commercial structures and lender-ready docs.</li>
-            <li><strong>Supervision & HSE:</strong> Zero-harm protocols, QA/QC and performance verification.</li>
-          </ol>
+      <div class="wrap">
+        <h2>Other Selected Projects</h2>
+        <div class="grid-3" style="margin-top:20px">
+          <article class="card">
+            <img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Road project">
+            <div class="card__body">
+              <h3>Road Infrastructure</h3>
+              <p class="muted">700+ km of feeder and trunk roads designed and supervised under multiple contracts since 1988.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar + BESS">
+            <div class="card__body">
+              <h3>Solar + BESS</h3>
+              <p class="muted">Grid-tied solar PV with integrated battery storage for improved dispatchability and grid resilience.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Water supply">
+            <div class="card__body">
+              <h3>Community Water Supply</h3>
+              <p class="muted">132 small towns water supply projects under the Community Water & Sanitation Program.</p>
+            </div>
+          </article>
         </div>
-        <img src="assets/img/uploads/hero-solar-corporate.jpg" alt="Delivery framework">
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section">
-      <div class="wrap grid-2">
-        <div>
-          <h2>Ready to scope your project?</h2>
-          <p class="muted">From grid studies to EPC supervision, we align stakeholders and deliver resilient systems — on time, to spec, safely.</p>
-          <p>
-            <a class="pill" href="projects.html">See Projects →</a>
-            <a class="pill" href="news.html">Latest News</a>
-          </p>
-        </div>
-        <img src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="Site inspection">
       </div>
     </section>
   </main>
@@ -186,7 +146,7 @@
         <div class="foot-title">Links</div>
         <ul class="list--reset">
           <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="news.html">News</a></li>
         </ul>
       </nav>
@@ -215,12 +175,11 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     (function(){
-      const btn = document.getElementById('contactToggle');
-      const panel = document.getElementById('contactPanel');
+      const btn=document.getElementById('contactToggle');const panel=document.getElementById('contactPanel');
       if(!btn||!panel) return;
-      btn.addEventListener('click', ()=>{ const open=panel.classList.toggle('open'); panel.setAttribute('aria-hidden', String(!open)); });
-      document.addEventListener('click', (e)=>{ if(!panel.contains(e.target) && e.target!==btn){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }});
-      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }});
+      btn.addEventListener('click',()=>{const open=panel.classList.toggle('open');panel.setAttribute('aria-hidden',String(!open));});
+      document.addEventListener('click',(e)=>{if(!panel.contains(e.target)&&e.target!==btn){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');}});
+      document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');}});
     })();
   </script>
 </body>
