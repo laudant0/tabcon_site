@@ -1,128 +1,120 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects — Tabcon Ghana</title>
-  <meta name="description" content="Picture-led view of Tabcon Ghana projects across infrastructure, energy and water." />
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="description" content="Tabcon Ghana projects — energy, infrastructure, water, environment across Africa for 40+ years." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#ffffff; --glass: rgba(255,255,255,.75); --edge: rgba(17,24,39,.08);
-      --muted:#5b6673; --text:#0b1220; --brand:#2E7D32; --brand-2:#7fd37f;
-      --wrap: clamp(960px, 86vw, 1200px); --radius:16px;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,.06); --shadow-lg: 0 10px 28px rgba(0,0,0,.10);
+      --bg:#ffffff;
+      --glass: rgba(255,255,255,.75);
+      --edge: rgba(17,24,39,.08);
+      --muted:#5b6673;
+      --text:#0b1220;
+      --brand:#2E7D32; --brand-2:#7fd37f;
+      --wrap: clamp(960px, 86vw, 1200px);
+      --radius:16px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
+      --shadow-lg: 0 10px 28px rgba(0,0,0,.10);
     }
     *,*::before,*::after{ box-sizing:border-box; }
-    body{ margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--text); line-height:1.6; }
-    a{ color:inherit; text-decoration:none; } img{ max-width:100%; display:block; border-radius:12px; }
+    body{ margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; color:var(--text); background:var(--bg); line-height:1.6; }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
     .wrap{ width:var(--wrap); max-width:100%; margin-inline:auto; padding-inline:20px; }
 
-    /* Header */
-    .header{ position:sticky; top:0; z-index:30; backdrop-filter:saturate(1.2) blur(12px); background:var(--glass); border-bottom:1px solid var(--edge); }
+    /* Header (same as index) */
+    .header{ position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.2) blur(12px); background:var(--glass); border-bottom:1px solid var(--edge); }
     .header__inner{ display:flex; align-items:center; justify-content:space-between; height:72px; }
     .logo{ width:120px; height:auto; }
     .nav__list{ list-style:none; display:flex; gap:18px; margin:0; padding:0; }
     .nav__list a{ padding:10px 12px; border-radius:10px; font-weight:600; color:#263041; }
     .nav__list a:hover{ background:rgba(2,6,23,.06); }
-    .nav__list a.is-active{ background:rgba(2,6,23,.08); color:#0b1220; }
 
-    /* Collage Hero */
-    .collage{
-      position:relative; border-bottom:1px solid var(--edge); background:#f6f8f9;
-      padding:18px 0 56px;
-    }
-    .collage .wrap{ position:relative; z-index:2; }
-    .collage h1{ margin:0 0 8px; font-size:clamp(28px,3.6vw,44px); letter-spacing:-.02em; }
-    .collage p{ margin:0; color:var(--muted); }
-    .collage-grid{
-      margin-top:18px; display:grid; gap:10px;
-      grid-template-columns: 2fr 1fr 1.2fr; grid-auto-rows: 180px;
-    }
-    .collage-grid figure{ margin:0; position:relative; overflow:hidden; border-radius:14px; }
-    .collage-grid img{ width:100%; height:100%; object-fit:cover; transition: transform .5s ease; }
-    .collage-grid figure:hover img{ transform:scale(1.04); }
-    .span-2x{ grid-row: span 2; }
-    .span-2w{ grid-column: span 2; }
-    .chip{
-      position:absolute; left:10px; bottom:10px; background:rgba(255,255,255,.9);
-      border:1px solid var(--edge); border-radius:999px; padding:6px 10px; font-weight:800; font-size:12px;
-    }
+    /* Hero banner */
+    .hero{ position:relative; height:42vh; min-height:300px; overflow:hidden; border-bottom:1px solid var(--edge); }
+    .hero img{ width:100%; height:100%; object-fit:cover; }
+    .hero::after{ content:""; position:absolute; inset:0; background:linear-gradient(120deg, rgba(0,0,0,.45), rgba(0,0,0,.25)); }
+    .hero__content{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; text-align:center; z-index:2; }
+    .hero__content h1{ font-size:clamp(32px,4vw,52px); margin:0; }
+    .hero__content p{ margin:.5rem 0 0; color:#eef3f9; }
 
-    /* Featured (sticky copy beside big image) */
+    /* Section */
     .section{ padding-block:56px; }
-    .featured{ display:grid; grid-template-columns: 1.15fr 1fr; gap:28px; align-items:start; }
-    .sticky{ position:sticky; top:90px; align-self:start; }
-    .muted{ color:var(--muted); }
-    .btn{ display:inline-block; padding:10px 14px; border-radius:999px; border:1px solid var(--edge); background:#fff; font-weight:800; }
-    .btn:hover{ background:#f5f7f9; }
+    .section h2{ margin:0 0 10px; font-size:clamp(22px,2.4vw,32px); }
+    .section .lead{ color:var(--muted); margin:0 0 20px; }
 
-    /* Filter + Masonry gallery */
-    .toolbar{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
-    .pills{ display:flex; gap:8px; flex-wrap:wrap; }
-    .pill{ padding:8px 12px; border-radius:999px; border:1px solid var(--edge); background:#fff; font-weight:800; cursor:pointer; }
-    .pill[aria-pressed="true"]{ background:linear-gradient(180deg, var(--brand-2), var(--brand)); border-color:transparent; color:#0e1a11; }
-    .masonry{
-      column-count: 3; column-gap: 16px;
+    /* Gallery grid (picture-heavy) */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:18px;
     }
     .tile{
-      break-inside: avoid; margin:0 0 16px; position:relative; cursor:zoom-in;
-      border-radius:16px; overflow:hidden; box-shadow:var(--shadow-lg); border:1px solid var(--edge);
+      grid-column: span 4; /* default 3-up */
+      display:flex; flex-direction:column;
+      background:rgba(255,255,255,.96);
+      border:1px solid var(--edge);
+      border-radius:16px; overflow:hidden;
+      box-shadow:var(--shadow-lg);
     }
-    .tile img{ width:100%; height:auto; display:block; }
-    .tile figcaption{
-      position:absolute; left:10px; bottom:10px; background:rgba(0,0,0,.55); color:#fff; padding:6px 10px;
-      border-radius:10px; font-weight:700; backdrop-filter:blur(4px);
+    .tile--wide{ grid-column: span 6; }  /* for hero-ish cards */
+    .tile__media{
+      position:relative; aspect-ratio: 16/9; background:linear-gradient(135deg,#f7fafc,#eef3f9);
     }
-    .tile[data-tags]{ transition:opacity .2s ease, transform .2s ease; }
+    .tile__media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .tile__body{ padding:16px 16px 18px; }
+    .tile__title{ margin:0 0 6px; font-size:18px; font-weight:800; letter-spacing:.1px; }
+    .tile__meta{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px; }
+    .badge{
+      font-size:12px; font-weight:700;
+      padding:6px 8px; border-radius:999px;
+      border:1px solid var(--edge); background:#fff; color:#243041;
+    }
+    .badge--brand{
+      background:linear-gradient(180deg, var(--brand-2), var(--brand));
+      color:#0b1220; border-color:transparent;
+    }
+    .tile__desc{ margin:0; color:#445064; }
 
-    /* Lightbox */
-    .lightbox{
-      position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.7);
-      z-index:40; padding:20px;
-    }
-    .lightbox.open{ display:flex; }
-    .lightbox img{ max-width:min(1200px,92vw); max-height:85vh; border-radius:14px; box-shadow:0 20px 50px rgba(0,0,0,.5); }
-    .lightbox .close{
-      position:absolute; top:14px; right:14px; width:40px; height:40px; border-radius:50%; border:1px solid #ffffff55; color:#fff;
-      background:rgba(255,255,255,.12); display:grid; place-items:center; font-size:22px; cursor:pointer;
-    }
+    /* Category headings */
+    .rule{ height:1px; background:var(--edge); margin:32px 0 22px; }
 
     /* Footer */
-    .footer{ padding-block:34px; background: radial-gradient(800px 300px at 85% -20%, rgba(46,125,50,.08), transparent 50%), #f8fafb; border-top:1px solid var(--edge); }
-    .foot-grid{ display:grid; grid-template-columns: 1.2fr auto auto; gap:28px; align-items:start; }
-    .foot-badge{ width:44px;height:44px;border-radius:12px; background:linear-gradient(180deg, var(--brand-2), var(--brand)); display:grid; place-items:center; color:#0b1220; font-weight:900; box-shadow: var(--shadow-lg); }
+    .footer{ padding-block:34px; background:#f8fafb; border-top:1px solid var(--edge); }
+    .foot-grid{ display:grid; grid-template-columns:1.2fr auto auto; gap:28px; align-items:start; }
+    .foot-badge{ width:44px; height:44px; border-radius:12px; background:linear-gradient(180deg,var(--brand-2),var(--brand)); display:grid; place-items:center; color:#0b1220; font-weight:900; box-shadow:var(--shadow-lg); }
     .foot-title{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
     .list--reset{ list-style:none; padding:0; margin:0; }
     .copy{ text-align:center; color:#7a8592; margin-top:22px; font-size:14px; }
 
     /* Floating Contact */
-    .contact-fab{ position:fixed; right:18px; bottom:18px; z-index:50; }
+    .contact-fab{ position:fixed; right:18px; bottom:18px; z-index:30; }
     .contact-toggle{ appearance:none; border:1px solid var(--edge); background:linear-gradient(180deg, var(--brand-2), var(--brand)); color:#0e1a11; font-weight:900; border-radius:999px; padding:12px 16px; box-shadow: var(--shadow-lg); cursor:pointer; }
-    .contact-panel{ position:absolute; right:0; bottom:58px; width:280px; background:rgba(255,255,255,.98); border:1px solid var(--edge); border-radius:14px; box-shadow: var(--shadow-lg); overflow:hidden; opacity:0; transform:translateY(8px); pointer-events:none; transition: opacity .2s ease, transform .2s ease; backdrop-filter: blur(6px); }
+    .contact-panel{ position:absolute; right:0; bottom:58px; width:280px; background:#fff; border:1px solid var(--edge); border-radius:14px; box-shadow: var(--shadow-lg); overflow:hidden; opacity:0; transform:translateY(8px); pointer-events:none; transition: opacity .2s ease, transform .2s ease; backdrop-filter: blur(6px); }
     .contact-panel.open{ opacity:1; transform:translateY(0); pointer-events:auto; }
     .contact-panel header{ padding:12px 14px; font-weight:800; border-bottom:1px solid var(--edge); }
-    .contact-panel .item{ display:flex; align-items:center; gap:10px; padding:12px 14px; border-top:1px solid var(--edge); }
+    .contact-panel .item{ padding:12px 14px; border-top:1px solid var(--edge); }
     .contact-panel .item a{ font-weight:700; }
     .contact-panel .item small{ color:var(--muted); display:block; margin-top:2px; }
 
-    @media (max-width:1100px){
-      .collage-grid{ grid-template-columns: 1.4fr 1fr; grid-auto-rows: 160px; }
-      .featured{ grid-template-columns:1fr; }
-      .sticky{ position:static; }
+    @media (max-width: 1100px) {
+      .tile{ grid-column: span 6; } /* 2-up */
+      .tile--wide{ grid-column: span 12; }
     }
-    @media (max-width:900px){
-      .masonry{ column-count: 2; }
-    }
-    @media (max-width:600px){
-      .collage-grid{ grid-template-columns:1fr; grid-auto-rows: 160px; }
-      .masonry{ column-count: 1; }
+    @media (max-width: 640px) {
+      .tile{ grid-column: span 12; }
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header class="header">
     <div class="wrap header__inner">
       <a href="index.html"><img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana logo"></a>
@@ -130,103 +122,306 @@
         <ul class="nav__list">
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html" class="is-active">Projects</a></li>
+          <li><a href="projects.html">Projects</a></li>
           <li><a href="news.html">News</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Collage Hero (uses ONLY your existing images) -->
-  <section class="collage">
-    <div class="wrap">
-      <h1>Projects</h1>
-      <p>Picture-led showcase of infrastructure, energy and water delivery across Ghana.</p>
-      <div class="collage-grid" aria-hidden="true">
-        <figure class="span-2x"><img src="assets/img/uploads/hero-solar-corporate.jpg" alt=""><span class="chip">Solar + Grid</span></figure>
-        <figure><img src="assets/img/uploads/IMG_7634-300x200.jpg" alt=""><span class="chip">BESS</span></figure>
-        <figure class="span-2w"><img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt=""><span class="chip">Roads</span></figure>
-        <figure><img src="assets/img/uploads/ghana-body.jpg" alt=""><span class="chip">Planning</span></figure>
-        <figure><img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt=""><span class="chip">Supervision</span></figure>
+  <!-- HERO -->
+  <section class="hero">
+    <img src="assets/img/uploads/hero-solar-corporate.jpg" alt="Projects hero">
+    <div class="hero__content">
+      <div>
+        <h1>Our Track Record</h1>
+        <p>Over 40 years delivering energy, infrastructure, water & environment across Africa.</p>
       </div>
     </div>
   </section>
 
-  <main>
-    <!-- Featured project (big picture + sticky copy) -->
-    <section class="section">
-      <div class="wrap featured">
-        <img src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="Tain Hybrid Hydro–Solar">
-        <div class="sticky">
-          <h2>Featured: Tain Hybrid Hydro–Solar</h2>
-          <p class="muted"><strong>Stage 1:</strong> 55 MW Solar PV + 6 MW BESS<br><strong>Stage 2:</strong> 10 MW Hydro–Solar Hybrid</p>
-          <p class="muted">Our flagship hybrid demonstrates reliable, bankable power by blending renewable generation with storage and robust interconnection.</p>
-          <a class="btn" href="news.html">Project updates →</a>
-        </div>
-      </div>
-    </section>
+  <!-- ONGOING / FLAGSHIP -->
+  <section class="section">
+    <div class="wrap">
+      <h2>Ongoing & Flagship</h2>
+      <p class="lead">Selected major programmes we’re developing or supporting today.</p>
 
-    <!-- Filter + Masonry Photo Grid -->
-    <section class="section">
-      <div class="wrap">
-        <div class="toolbar">
-          <h2 style="margin:0">Gallery</h2>
-          <div class="pills" role="toolbar" aria-label="Filter gallery">
-            <button class="pill" data-filter="all" aria-pressed="true">All</button>
-            <button class="pill" data-filter="energy">Energy</button>
-            <button class="pill" data-filter="infrastructure">Infrastructure</button>
-            <button class="pill" data-filter="water">Water</button>
+      <div class="gallery">
+        <!-- Tain Hybrid Hydro–Solar (Ghana, Ongoing) -->
+        <article class="tile tile--wide">
+          <div class="tile__media">
+            <img src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="Tain Hybrid Hydro–Solar site">
           </div>
-        </div>
+          <div class="tile__body">
+            <h3 class="tile__title">Tain Hybrid Hydro–Solar Project</h3>
+            <div class="tile__meta">
+              <span class="badge badge--brand">Ghana</span>
+              <span class="badge">Ongoing</span>
+              <span class="badge">55 MW Solar + 6 MW BESS</span>
+              <span class="badge">10 MW Hydro–Solar</span>
+            </div>
+            <p class="tile__desc">Hybrid generation hub combining grid-scale solar PV, battery storage and small hydro to stabilize local supply.</p>
+          </div>
+        </article>
 
-        <div class="masonry" id="gallery">
-          <!-- Use your existing images only; repeat as needed -->
-          <figure class="tile" data-tags="energy" data-src="assets/img/uploads/hero-solar-corporate.jpg">
-            <img src="assets/img/uploads/hero-solar-corporate.jpg" alt="Grid-scale solar">
-            <figcaption>Grid-scale Solar</figcaption>
-          </figure>
-
-          <figure class="tile" data-tags="energy" data-src="assets/img/uploads/IMG_7634-300x200.jpg">
-            <img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Battery energy storage">
-            <figcaption>Battery Energy Storage</figcaption>
-          </figure>
-
-          <figure class="tile" data-tags="infrastructure" data-src="assets/img/uploads/Dl66b83XgAE3LX0.jpg">
-            <img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Highway corridor">
-            <figcaption>Highway Corridor</figcaption>
-          </figure>
-
-          <figure class="tile" data-tags="water" data-src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg">
-            <img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Community water program">
-            <figcaption>Community Water Program</figcaption>
-          </figure>
-
-          <figure class="tile" data-tags="infrastructure" data-src="assets/img/uploads/ghana-body.jpg">
-            <img src="assets/img/uploads/ghana-body.jpg" alt="Planning & environmental">
-            <figcaption>Planning & Environmental</figcaption>
-          </figure>
-
-          <!-- Duplicate a few for a richer gallery feel (still your images) -->
-          <figure class="tile" data-tags="energy" data-src="assets/img/uploads/hero-solar-corporate.jpg">
-            <img src="assets/img/uploads/hero-solar-corporate.jpg" alt="PV arrays">
-            <figcaption>PV Arrays</figcaption>
-          </figure>
-
-          <figure class="tile" data-tags="infrastructure" data-src="assets/img/uploads/Dl66b83XgAE3LX0.jpg">
-            <img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Bridge & roads">
-            <figcaption>Bridges & Roads</figcaption>
-          </figure>
-
-          <figure class="tile" data-tags="energy" data-src="assets/img/uploads/IMG_7634-300x200.jpg">
-            <img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="BESS yard">
-            <figcaption>BESS Yard</figcaption>
-          </figure>
-        </div>
+        <!-- You can duplicate this pattern for any other active works in future -->
       </div>
-    </section>
-  </main>
 
-  <!-- Footer -->
+      <div class="rule"></div>
+      <h2>Past Projects</h2>
+      <p class="lead">A snapshot of multi-sector delivery across the region.</p>
+
+      <!-- ENERGY & POWER -->
+      <h3 style="margin:10px 0 8px;">Energy & Power</h3>
+      <div class="gallery" style="margin-bottom:20px;">
+        <!-- Bui HEP -->
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/uploads/ghana-body.jpg" alt="Bui Hydro-Electric Power visuals">
+          </div>
+          <div class="tile__body">
+            <h3 class="tile__title">Bui Hydro-Electric Power Project</h3>
+            <div class="tile__meta">
+              <span class="badge badge--brand">Ghana</span>
+              <span class="badge">1999–2005</span>
+              <span class="badge">400 MW</span>
+            </div>
+            <p class="tile__desc">Design and tendering support for Ghana’s landmark hydro facility on the Black Volta.</p>
+          </div>
+        </article>
+
+        <!-- Lesotho Highlands -->
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Lesotho Highlands hydro scheme">
+          </div>
+          <div class="tile__body">
+            <h3 class="tile__title">Lesotho Highlands Hydroelectric Scheme</h3>
+            <div class="tile__meta">
+              <span class="badge">Lesotho</span>
+              <span class="badge">1983–1989</span>
+            </div>
+            <p class="tile__desc">Feasibility, design and supervision on one of Southern Africa’s most significant water/energy transfers.</p>
+          </div>
+        </article>
+
+        <!-- WAGP -->
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="West African Gas Pipeline infrastructure">
+          </div>
+          <div class="tile__body">
+            <h3 class="tile__title">West African Gas Pipeline</h3>
+            <div class="tile__meta">
+              <span class="badge">Ghana–Togo–Benin</span>
+              <span class="badge">2000–2004</span>
+              <span class="badge">Chevron</span>
+            </div>
+            <p class="tile__desc">Survey and planning support for regional gas transmission across three countries.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- TRANSPORTATION & ROADS -->
+      <h3 style="margin:10px 0 8px;">Transportation & Roads</h3>
+      <div class="gallery" style="margin-bottom:20px;">
+        <!-- Accra–Kumasi -->
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Accra–Kumasi Highway">
+          </div>
+          <div class="tile__body">
+            <h3 class="tile__title">Accra–Kumasi Highway Dualization</h3>
+            <div class="tile__meta">
+              <span class="badge badge--brand">Ghana</span>
+              <span class="badge">2002–2010</span>
+              <span class="badge">250 km</span>
+            </div>
+            <p class="tile__desc">Dualization, engineering and supervision on Ghana’s busiest corridor.</p>
+          </div>
+        </article>
+
+        <!-- Achimota–Ofankor -->
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Achimota–Ofankor Expressway">
+          </div>
+          <div class="tile__body">
+            <h3 class="tile__title">Achimota–Ofankor Expressway</h3>
+            <div class="tile__meta">
+              <span class="badge badge--brand">Ghana</span>
+              <span class="badge">2002–2004</span>
+              <span class="badge">6.3 km</span>
+            </div>
+            <p class="tile__desc">Urban expressway upgrade improving Greater Accra mobility.</p>
+          </div>
+        </article>
+
+        <!-- Caxito–Bom Jesus -->
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Caxito–Bom Jesus Road">
+          </div>
+          <div class="tile__body">
+            <h3 class="tile__title">Caxito–Bom Jesus Road</h3>
+            <div class="tile__meta">
+              <span class="badge">Angola</span>
+              <span class="badge">2000</span>
+              <span class="badge">97 km</span>
+            </div>
+            <p class="tile__desc">Construction supervision of a key regional link north of Luanda.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- WATER & SANITATION -->
+      <h3 style="margin:10px 0 8px;">Water & Sanitation</h3>
+      <div class="gallery" style="margin-bottom:20px;">
+        <!-- SRWSP -->
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/uploads/ghana-body.jpg" alt="Rural water and sanitation works">
+          </div>
+          <div class="tile__body">
+            <h3 class="tile__title">Sustainable Rural Water & Sanitation Project</h3>
+            <div class="tile__meta">
+              <span class="badge badge--brand">Ghana</span>
+              <span class="badge">2012–2015</span>
+              <span class="badge">World Bank</span>
+            </div>
+            <p class="tile__desc">200 boreholes and 13 small-town systems with community O&M frameworks.</p>
+          </div>
+        </article>
+
+        <!-- Peri-Urban & Rural -->
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/uploads/ghana-body.jpg" alt="Peri-urban water supply">
+          </div>
+          <div class="tile__body">
+            <h3 class="tile__title">Peri-Urban & Rural Water Supply</h3>
+            <div class="tile__meta">
+              <span class="badge badge--brand">Ghana</span>
+              <span class="badge">2011–2014</span>
+              <span class="badge">AFD-funded</span>
+            </div>
+            <p class="tile__desc">Design and delivery for 8 towns, strengthening municipal service reliability.</p>
+          </div>
+        </article>
+
+        <!-- Community Water Projects -->
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/uploads/ghana-body.jpg" alt="Community water projects">
+          </div>
+          <div class="tile__body">
+            <h3 class="tile__title">Community Water Projects</h3>
+            <div class="tile__meta">
+              <span class="badge badge--brand">Ghana</span>
+              <span class="badge">1996–2000</span>
+              <span class="badge">6 towns</span>
+            </div>
+            <p class="tile__desc">Boreholes and O&amp;M training frameworks to sustain safe water access.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- ENVIRONMENT & RESOURCES -->
+      <h3 style="margin:10px 0 8px;">Environment & Resources</h3>
+      <div class="gallery" style="margin-bottom:20px;">
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Afforestation project">
+          </div>
+          <div class="tile__body">
+            <h3 class="tile__title">Afforestation & Fuelwood Project</h3>
+            <div class="tile__meta">
+              <span class="badge">Lesotho</span>
+              <span class="badge">1983</span>
+            </div>
+            <p class="tile__desc">Community woodlots & land rehabilitation to reduce fuelwood pressure.</p>
+          </div>
+        </article>
+
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Charcoal & afforestation Angola">
+          </div>
+          <div class="tile__body">
+            <h3 class="tile__title">Charcoal & Afforestation Program</h3>
+            <div class="tile__meta">
+              <span class="badge">Angola</span>
+              <span class="badge">1989</span>
+            </div>
+            <p class="tile__desc">Sustainable biomass and afforestation planning post-conflict.</p>
+          </div>
+        </article>
+
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="SADCC renewable energy studies">
+          </div>
+          <div class="tile__body">
+            <h3 class="tile__title">SADCC Renewable Energy Studies</h3>
+            <div class="tile__meta">
+              <span class="badge">Southern Africa</span>
+              <span class="badge">1990</span>
+            </div>
+            <p class="tile__desc">Regional studies on renewable resource baselines and opportunities.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- TOURISM & INFRASTRUCTURE -->
+      <h3 style="margin:10px 0 8px;">Tourism & Infrastructure</h3>
+      <div class="gallery">
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/uploads/ghana-body.jpg" alt="Nkonsia Airport & Aero City">
+          </div>
+          <div class="tile__body">
+            <h3 class="tile__title">Nkonsia Regional Airport & Aero City</h3>
+            <div class="tile__meta">
+              <span class="badge badge--brand">Ghana</span>
+              <span class="badge">Proposed</span>
+            </div>
+            <p class="tile__desc">Integrated airfield and mixed-use district concept to catalyze regional growth.</p>
+          </div>
+        </article>
+
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/uploads/ghana-body.jpg" alt="Cultural Village Lesotho">
+          </div>
+          <div class="tile__body">
+            <h3 class="tile__title">Cultural Village & Tourism Centre</h3>
+            <div class="tile__meta">
+              <span class="badge">Lesotho</span>
+              <span class="badge">1990</span>
+            </div>
+            <p class="tile__desc">Destination planning and infrastructure for heritage-driven tourism.</p>
+          </div>
+        </article>
+
+        <article class="tile">
+          <div class="tile__media">
+            <img src="assets/img/uploads/ghana-body.jpg" alt="National Hotel & Tourism Training Institute">
+          </div>
+          <div class="tile__body">
+            <h3 class="tile__title">National Hotel & Tourism Training Institute</h3>
+            <div class="tile__meta">
+              <span class="badge badge--brand">Ghana</span>
+              <span class="badge">1998</span>
+            </div>
+            <p class="tile__desc">Facility planning, curricula alignment and delivery oversight.</p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="wrap foot-grid">
       <div style="display:flex; align-items:center; gap:12px;">
@@ -237,7 +432,7 @@
         <div class="foot-title">Links</div>
         <ul class="list--reset">
           <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
           <li><a href="news.html">News</a></li>
         </ul>
       </nav>
@@ -257,66 +452,20 @@
     <button class="contact-toggle" id="contactToggle" type="button">Contact</button>
     <div class="contact-panel" id="contactPanel" aria-hidden="true">
       <header>Contact Tabcon</header>
-      <div class="item"><div><a href="tel:+233208116401">+233 (0)20 811 6401</a><small>Call us</small></div></div>
-      <div class="item"><div><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a><small>Email us</small></div></div>
-      <div class="item"><div><a href="contact.html">Open contact page →</a><small>Map, form & details</small></div></div>
+      <div class="item"><a href="tel:+233208116401">+233 (0)20 811 6401</a><small>Call us</small></div>
+      <div class="item"><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a><small>Email us</small></div>
+      <div class="item"><a href="contact.html">Open contact page →</a><small>Map, form & details</small></div>
     </div>
   </div>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
-    <button class="close" id="lbClose" aria-label="Close">×</button>
-    <img id="lbImg" alt="">
-  </div>
-
   <script>
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Contact dropdown
+    document.getElementById('year').textContent=new Date().getFullYear();
     (function(){
-      const btn=document.getElementById('contactToggle'), panel=document.getElementById('contactPanel');
+      const btn=document.getElementById('contactToggle');const panel=document.getElementById('contactPanel');
       if(!btn||!panel) return;
-      btn.addEventListener('click', ()=>{ const open=panel.classList.toggle('open'); panel.setAttribute('aria-hidden', String(!open)); });
-      document.addEventListener('click', (e)=>{ if(!panel.contains(e.target) && e.target!==btn){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }});
-      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }});
-    })();
-
-    // Gallery filter
-    (function(){
-      const pills = Array.from(document.querySelectorAll('.pill[data-filter]'));
-      const tiles = Array.from(document.querySelectorAll('.tile'));
-      function apply(filter){
-        tiles.forEach(t=>{
-          const tags = (t.getAttribute('data-tags')||'').split(/\s+/);
-          const show = (filter==='all') || tags.includes(filter);
-          t.style.opacity = show ? '1' : '.15';
-          t.style.transform = show ? 'none' : 'scale(.98)';
-          t.style.pointerEvents = show ? 'auto' : 'none';
-        });
-      }
-      pills.forEach(p=>{
-        p.addEventListener('click', ()=>{
-          pills.forEach(x=>x.setAttribute('aria-pressed','false'));
-          p.setAttribute('aria-pressed','true');
-          apply(p.dataset.filter);
-        });
-      });
-    })();
-
-    // Lightbox
-    (function(){
-      const lb = document.getElementById('lightbox');
-      const img = document.getElementById('lbImg');
-      const close = document.getElementById('lbClose');
-      document.getElementById('gallery').addEventListener('click', (e)=>{
-        const fig = e.target.closest('.tile'); if(!fig) return;
-        const src = fig.getAttribute('data-src'); if(!src) return;
-        img.src = src; lb.classList.add('open');
-      });
-      close.addEventListener('click', ()=> lb.classList.remove('open'));
-      lb.addEventListener('click', (e)=>{ if(e.target===lb) lb.classList.remove('open'); });
-      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') lb.classList.remove('open'); });
+      btn.addEventListener('click',()=>{const open=panel.classList.toggle('open');panel.setAttribute('aria-hidden',String(!open));});
+      document.addEventListener('click',(e)=>{if(!panel.contains(e.target)&&e.target!==btn){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');}});
+      document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');}});
     })();
   </script>
 </body>
