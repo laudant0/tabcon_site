@@ -36,21 +36,25 @@
     .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;}
     .slide img{width:100%;height:100%;object-fit:cover;}
     .slide.active{opacity:1;z-index:1;}
-    .hero__content{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;z-index:2;color:#fff;background:linear-gradient(120deg,rgba(0,0,0,.5),rgba(0,0,0,.1));}
+    .hero__content{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;z-index:2;color:#fff;background:linear-gradient(120deg,rgba(0,0,0,.45),rgba(0,0,0,.12));}
     .hero__content-inner{max-width:var(--wrap);margin:auto;padding:20px;}
     .hero h1{font-size:clamp(32px,4vw,56px);margin:0 0 12px;}
-    .hero p{max-width:50ch;}
+    .hero p{max-width:60ch;}
     .row{display:flex;gap:12px;margin-top:14px;}
     .btn{padding:12px 16px;border-radius:8px;font-weight:700;}
     .btn--primary{background:linear-gradient(180deg,var(--brand-2),var(--brand));color:#fff;border:none;}
     .btn--ghost{background:#fff;color:#222;border:1px solid #ccc;}
 
-    /* Dots */
-    .dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3;}
-    .dot{width:12px;height:12px;border-radius:50%;background:#ddd;cursor:pointer;}
-    .dot.active{background:var(--brand);}
+    /* Dots & arrows */
+    .dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3;}
+    .dot{width:12px;height:12px;border-radius:50%;background:#ddd;border:1px solid #cfd8e3;cursor:pointer;}
+    .dot.active{background:var(--brand);border-color:var(--brand);}
+    .ctrl{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:#ffffff;box-shadow:0 6px 16px rgba(0,0,0,.15);border:1px solid #e6eaf0;display:grid;place-items:center;font-size:22px;color:#0b0e12;z-index:3}
+    .ctrl.prev{left:16px}
+    .ctrl.next{right:16px}
 
     /* KPI */
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;}
     .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;}
     .kpi{background:#f9f9f9;padding:14px;border-radius:8px;text-align:center;box-shadow:0 2px 4px rgba(0,0,0,.05);}
     .kpi strong{display:block;font-size:24px;}
@@ -97,11 +101,14 @@
   <!-- HERO SLIDESHOW -->
   <section class="hero">
     <div class="slides">
-      <div class="slide active"><img src="assets/img/hero/slide1.jpg" alt="Hybrid hydro–solar arrays"></div>
-      <div class="slide"><img src="assets/img/hero/slide2.jpg" alt="Battery energy storage (BESS)"></div>
-      <div class="slide"><img src="assets/img/hero/slide3.jpg" alt="Road and bridge engineering"></div>
-      <div class="slide"><img src="assets/img/hero/slide4.jpg" alt="Water & environmental planning"></div>
+      <div class="slide active"><img src="assets/img/hero/slide1.jpg" alt="Hybrid hydro–solar arrays" loading="eager" decoding="async"></div>
+      <div class="slide"><img src="assets/img/hero/slide2.jpg" alt="Battery energy storage (BESS)" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="assets/img/hero/slide3.jpg" alt="Road and bridge engineering" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="assets/img/hero/slide4.jpg" alt="Water & environmental planning" loading="lazy" decoding="async"></div>
     </div>
+    <button class="ctrl prev" aria-label="Previous slide" type="button">‹</button>
+    <button class="ctrl next" aria-label="Next slide" type="button">›</button>
+    <div class="dots" role="tablist" aria-label="Choose slide"></div>
     <div class="hero__content">
       <div class="hero__content-inner">
         <h1>Engineering &amp; Energy for Ghana’s Growth</h1>
@@ -148,7 +155,7 @@
         <figure class="partner"><img class="partner-logo" src="assets/img/partners/Bui-power-authority.jpg" alt="Bui Power Authority"><figcaption>Bui Power Authority</figcaption></figure>
         <figure class="partner"><img class="partner-logo" src="assets/img/partners/LVS.jpg" alt="LVS"><figcaption>LVS</figcaption></figure>
         <figure class="partner"><img class="partner-logo" src="assets/img/partners/SF.JPG" alt="SF"><figcaption>SF</figcaption></figure>
-        <figure class="partner"><img class="partner-logo" src="assets/img/partners/Voith%Turbo%16-9.jpg" alt="Voith Turbo"><figcaption>Voith Turbo</figcaption></figure>
+        <figure class="partner"><img class="partner-logo" src="assets/img/partners/Voith Turbo 16-9.jpg" alt="Voith Turbo"><figcaption>Voith Turbo</figcaption></figure>
         <figure class="partner"><img class="partner-logo" src="assets/img/partners/Wenco.jpg" alt="Wenco"><figcaption>Wenco</figcaption></figure>
       </div>
     </div>
@@ -168,13 +175,50 @@
 
   <script>
     document.getElementById('year').textContent=new Date().getFullYear();
-    // Simple slideshow logic
-    const slides=document.querySelectorAll('.slide');
-    const dots=document.querySelector('.dots');
-    let idx=0;
-    slides.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.addEventListener('click',()=>show(i));dots.appendChild(d)});
-    function show(n){slides[idx].classList.remove('active');dots.children[idx].classList.remove('active');idx=n;slides[idx].classList.add('active');dots.children[idx].classList.add('active');}
-    setInterval(()=>show((idx+1)%slides.length),5000);
+
+    // Accessible, pausable slideshow
+    (function(){
+      const slides=[...document.querySelectorAll('.slide')];
+      const dotsWrap=document.querySelector('.dots');
+      const prev=document.querySelector('.ctrl.prev');
+      const next=document.querySelector('.ctrl.next');
+      const stage=document.querySelector('.hero');
+      let idx=0, timer=null, paused=false;
+
+      function show(n){
+        slides[idx]?.classList.remove('active');
+        dotsWrap?.children[idx]?.classList.remove('active');
+        idx=(n+slides.length)%slides.length;
+        slides[idx]?.classList.add('active');
+        dotsWrap?.children[idx]?.classList.add('active');
+      }
+      function play(){ stop(); timer=setInterval(()=>{ if(!paused) show(idx+1); }, 5000); }
+      function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+
+      // Build dots
+      slides.forEach((_,i)=>{ const b=document.createElement('button'); b.className='dot'+(i===0?' active':''); b.type='button'; b.setAttribute('role','tab'); b.setAttribute('aria-label',`Go to slide ${i+1}`); b.addEventListener('click',()=>show(i)); dotsWrap.appendChild(b); });
+
+      // Controls
+      prev?.addEventListener('click',()=>show(idx-1));
+      next?.addEventListener('click',()=>show(idx+1));
+
+      // Pause on hover/focus
+      stage.addEventListener('mouseenter',()=>paused=true);
+      stage.addEventListener('mouseleave',()=>paused=false);
+      stage.addEventListener('focusin',()=>paused=true);
+      stage.addEventListener('focusout',()=>paused=false);
+
+      // Keyboard arrows
+      window.addEventListener('keydown',(e)=>{ if(e.key==='ArrowLeft') show(idx-1); if(e.key==='ArrowRight') show(idx+1); });
+
+      // Respect reduced motion
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(!reduce.matches && slides.length>1) play();
+      else show(0);
+
+      // Pause when tab inactive
+      document.addEventListener('visibilitychange',()=>{ if(document.hidden) stop(); else if(!reduce.matches) play(); });
+    })();
   </script>
 </body>
 </html>
