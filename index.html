@@ -33,11 +33,13 @@
 
     /* Hero Slideshow */
     .hero{position:relative;overflow:hidden;}
-    .slides{display:flex;width:100%;height:65vh;animation:slideAnim 24s infinite;}
-    .slide{min-width:100%;height:65vh;position:relative;}
+    .slides{display:flex;width:400%;height:70vh;animation:slideAnim 24s infinite;}
+    .slide{width:100%;height:70vh;position:relative;flex-shrink:0;}
     .slide img{width:100%;height:100%;object-fit:cover;}
     .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(11,14,18,.2),rgba(11,14,18,.75));}
-    @keyframes slideAnim{0%{transform:translateX(0);}20%{transform:translateX(0);}25%{transform:translateX(-100%);}45%{transform:translateX(-100%);}50%{transform:translateX(-200%);}70%{transform:translateX(-200%);}75%{transform:translateX(-300%);}95%{transform:translateX(-300%);}100%{transform:translateX(0);}}
+    @keyframes slideAnim{
+      0%,20%{transform:translateX(0);} 25%,45%{transform:translateX(-100%);} 50%,70%{transform:translateX(-200%);} 75%,95%{transform:translateX(-300%);} 100%{transform:translateX(0);}
+    }
     .hero__content{position:absolute;top:0;left:0;z-index:2;width:100%;height:100%;display:flex;align-items:center;}
     .hero__content-inner{max-width:var(--wrap);margin:auto;padding:20px;}
     .hero h1{font-size:clamp(32px,4vw,56px);margin:0 0 12px;}
@@ -61,12 +63,6 @@
     .card__body{padding:16px;}
     .card h3{margin:0 0 6px;}
 
-    /* Partners */
-    .partner-section{padding-block:40px;background:rgba(255,255,255,.02);}
-    .partner-track{display:flex;gap:28px;overflow:hidden;animation:scroll 20s linear infinite;}
-    .partner-logo{height:40px;}
-    @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-
     /* Footer */
     .footer{padding-block:28px;border-top:1px solid var(--edge);}
     .foot-grid{display:grid;grid-template-columns:1fr auto auto;gap:24px;}
@@ -74,6 +70,18 @@
     .copy{text-align:center;color:var(--muted);margin-top:20px;font-size:14px;}
 
     @media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr;}.slides{height:50vh;}.slide{height:50vh;}}
+  
+
+    /* Partners (visible grid) */
+    .partner-section{padding-block:40px;border-top:1px solid var(--edge);border-bottom:1px solid var(--edge);background:rgba(255,255,255,.02);} 
+    .partner-wrap{width:var(--wrap);max-width:100%;margin:auto;padding-inline:20px;}
+    .partner-grid{display:flex;flex-wrap:wrap;gap:28px;align-items:center}
+    .partner-logo{height:44px;max-width:180px;object-fit:contain;filter:none;opacity:.98}
+
+    /* Footer CTA */
+    .foot-cta{display:flex;justify-content:center;margin-top:14px}
+    .btn{padding:12px 16px;border-radius:14px;font-weight:700}
+    .btn--primary{background:linear-gradient(180deg,var(--brand-2),var(--brand));color:#0c1a10}
   </style>
 </head>
 <body>
@@ -84,9 +92,8 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="projects.html">Projects</a></li>
-        <li><a href="partners.html">Partners</a></li>
         <li><a href="news.html">News</a></li>
-        <li><a class="cta" href="contact.html">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul></nav>
     </div>
   </header>
@@ -149,15 +156,15 @@
     </div>
   </section>
 
-  <!-- PARTNERS -->
+  <!-- PARTNERS (always visible) -->
   <section class="partner-section">
-    <div class="wrap">
-      <div class="partner-track">
-        <img class="partner-logo" src="assets/img/partners/foid-color.png" alt="FOID">
-        <img class="partner-logo" src="assets/img/partners/bp-color.png" alt="BP">
-        <img class="partner-logo" src="assets/img/partners/gnpc-color.png" alt="GNPC">
-        <img class="partner-logo" src="assets/img/partners/ecg-color.png" alt="ECG">
-        <img class="partner-logo" src="assets/img/partners/vra-color.png" alt="VRA">
+    <div class="partner-wrap">
+      <div class="partner-grid">
+        <img class="partner-logo" src="assets/img/partners/foid-color.png" alt="FOID" loading="lazy" decoding="async">
+        <img class="partner-logo" src="assets/img/partners/bp-color.png" alt="BP" loading="lazy" decoding="async">
+        <img class="partner-logo" src="assets/img/partners/gnpc-color.png" alt="GNPC" loading="lazy" decoding="async">
+        <img class="partner-logo" src="assets/img/partners/ecg-color.png" alt="ECG" loading="lazy" decoding="async">
+        <img class="partner-logo" src="assets/img/partners/vra-color.png" alt="VRA" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -168,9 +175,10 @@
         <div class="foot-badge">T</div>
         <div><strong>Tabcon Ghana</strong><br><span>Hybrid Hydro–Solar</span></div>
       </div>
-      <nav><div class="foot-title">Links</div><ul class="list--reset"><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="partners.html">Partners</a></li></ul></nav>
+      <nav><div class="foot-title">Links</div><ul class="list--reset"><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li></ul></nav>
       <div><div class="foot-title">Contact</div><ul class="list--reset"><li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li><li><a href="tel:+233208116401">+233 (0)20 811 6401</a></li></ul></div>
     </div>
+    <div class="foot-cta"><a class="btn btn--primary" href="contact.html">Contact Tabcon</a></div>
     <div class="copy">© <span id="year"></span> Tabcon Ghana</div>
   </footer>
 
