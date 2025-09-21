@@ -12,44 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    <head>
-  <style>
-    /* all your existing desktop styles … */
-
-    /* ===== MOBILE OVERRIDES START HERE ===== */
-    @media (max-width: 980px){
-      .wrap{ padding-inline:16px; }
-      .section{ padding-block:38px; }
-
-      .header__inner{ height:64px; }
-      .logo{ width:104px; }
-
-      /* mobile nav */
-      .nav__list{ 
-        position:fixed; inset:64px 0 auto 0;
-        background:rgba(255,255,255,.98);
-        border-top:1px solid var(--edge);
-        box-shadow:0 10px 28px rgba(0,0,0,.12);
-        display:none; flex-direction:column; gap:0; padding:8px;
-      }
-      .nav__list.is-open{ display:flex; }
-      .nav-toggle{ … }  /* etc. */
-
-      /* partners smaller, slower */
-      .partner-row{ gap:40px; animation-duration:48s; }
-      .partner-item img{ height:56px; max-width:160px; }
-
-      /* grids collapse */
-      .grid-2,.grid-3{ grid-template-columns:1fr; gap:18px; }
-      .kpis{ grid-template-columns:1fr; }
-
-      /* footer single column */
-      .foot-grid{ grid-template-columns:1fr; gap:16px; }
-    }
-  </style>
-</head>
-
     
+  
     :root{
       --bg:#ffffff;
       --glass: rgba(255,255,255,.75);
