@@ -33,13 +33,11 @@
 
     /* Hero Slideshow */
     .hero{position:relative;overflow:hidden;}
-    .slides{display:flex;width:400%;height:70vh;animation:slideAnim 24s infinite;}
-    .slide{width:100%;height:70vh;position:relative;flex-shrink:0;}
+    .slides{display:flex;width:100%;height:65vh;animation:slideAnim 24s infinite;}
+    .slide{min-width:100%;height:65vh;position:relative;}
     .slide img{width:100%;height:100%;object-fit:cover;}
     .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(11,14,18,.2),rgba(11,14,18,.75));}
-    @keyframes slideAnim{
-      0%,20%{transform:translateX(0);} 25%,45%{transform:translateX(-100%);} 50%,70%{transform:translateX(-200%);} 75%,95%{transform:translateX(-300%);} 100%{transform:translateX(0);}
-    }
+    @keyframes slideAnim{0%{transform:translateX(0);}20%{transform:translateX(0);}25%{transform:translateX(-100%);}45%{transform:translateX(-100%);}50%{transform:translateX(-200%);}70%{transform:translateX(-200%);}75%{transform:translateX(-300%);}95%{transform:translateX(-300%);}100%{transform:translateX(0);}}
     .hero__content{position:absolute;top:0;left:0;z-index:2;width:100%;height:100%;display:flex;align-items:center;}
     .hero__content-inner{max-width:var(--wrap);margin:auto;padding:20px;}
     .hero h1{font-size:clamp(32px,4vw,56px);margin:0 0 12px;}
@@ -63,6 +61,12 @@
     .card__body{padding:16px;}
     .card h3{margin:0 0 6px;}
 
+    /* Partners */
+    .partner-section{padding-block:40px;background:rgba(255,255,255,.02);}
+    .partner-track{display:flex;gap:28px;overflow:hidden;animation:scroll 20s linear infinite;}
+    .partner-logo{height:40px;}
+    @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
     /* Footer */
     .footer{padding-block:28px;border-top:1px solid var(--edge);}
     .foot-grid{display:grid;grid-template-columns:1fr auto auto;gap:24px;}
@@ -70,33 +74,6 @@
     .copy{text-align:center;color:var(--muted);margin-top:20px;font-size:14px;}
 
     @media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr;}.slides{height:50vh;}.slide{height:50vh;}}
-  
-
-    /* Partners (visible grid) */
-    .partner-section{padding-block:40px;border-top:1px solid var(--edge);border-bottom:1px solid var(--edge);background:rgba(255,255,255,.02);} 
-    .partner-wrap{width:var(--wrap);max-width:100%;margin:auto;padding-inline:20px;}
-    .partner-grid{display:flex;flex-wrap:wrap;gap:28px;align-items:center}
-    .partner-logo{height:44px;max-width:180px;object-fit:contain;filter:none;opacity:.98}
-
-    /* Footer CTA */
-    .foot-cta{display:flex;justify-content:center;margin-top:14px}
-    .btn{padding:12px 16px;border-radius:14px;font-weight:700}
-    .btn--primary{background:linear-gradient(180deg,var(--brand-2),var(--brand));color:#0c1a10}
-  
-    /* Projects grid */
-    .projects-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .project{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--edge)}
-    .project img{width:100%;height:180px;object-fit:cover;display:block}
-    .project-title{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.45);padding:6px 10px;border-radius:10px;font-weight:600}
-
-    /* Partners grid with names */
-    .partner-section{padding-block:40px;border-top:1px solid var(--edge);border-bottom:1px solid var(--edge);background:rgba(255,255,255,.02)}
-    .partner-grid{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
-    .partner{display:flex;flex-direction:column;align-items:center;gap:8px}
-    .partner-logo{height:44px;max-width:180px;object-fit:contain}
-    .partner figcaption{font-size:13px;color:var(--muted)}
-
-    @media(max-width:900px){.projects-grid{grid-template-columns:1fr 1fr}.project img{height:160px}}
   </style>
 </head>
 <body>
@@ -107,8 +84,9 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="projects.html">Projects</a></li>
+        <li><a href="partners.html">Partners</a></li>
         <li><a href="news.html">News</a></li>
-        
+        <li><a class="cta" href="contact.html">Contact</a></li>
       </ul></nav>
     </div>
   </header>
@@ -116,11 +94,7 @@
   <!-- HERO SLIDESHOW -->
   <section class="hero">
     <div class="slides">
-      <div class="slide"><img src="assets/img/hero/slide1.jpg" alt="Hybrid hydro–solar arrays"></div>
-      <div class="slide"><img src="assets/img/hero/slide2.jpg" alt="Battery energy storage (BESS)"></div>
-      <div class="slide"><img src="assets/img/hero/slide3.jpg" alt="Road and bridge engineering"></div>
-      <div class="slide"><img src="assets/img/hero/slide4.jpg" alt="Water & environmental planning"></div>
-    </div>
+      <div class="slide"><img src="assets/img/uploads/hero-solar-corporate.jpg" alt="Solar facility"></div>
       <div class="slide"><img src="assets/img/uploads/ghana-body.jpg" alt="Infrastructure"></div>
       <div class="slide"><img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar farm"></div>
       <div class="slide"><img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Highway"></div>
@@ -163,19 +137,6 @@
     </div>
   </section>
 
-  <!-- PROJECTS (moved previous hero photos here) -->
-  <section class="section">
-    <div class="wrap">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <a class="project" href="projects.html"><img src="assets/img/uploads/hero-solar-corporate.jpg" alt="Grid-scale solar facility"><span class="project-title">Grid-Scale Solar</span></a>
-        <a class="project" href="projects.html"><img src="assets/img/uploads/ghana-body.jpg" alt="Engineering & infrastructure works"><span class="project-title">Infrastructure Works</span></a>
-        <a class="project" href="projects.html"><img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar farm with BESS"><span class="project-title">Solar + BESS</span></a>
-        <a class="project" href="projects.html"><img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Highway construction"><span class="project-title">Roads & Bridges</span></a>
-      </div>
-    </div>
-  </section>
-
   <!-- FEATURED -->
   <section class="section">
     <div class="wrap grid-2">
@@ -188,45 +149,16 @@
     </div>
   </section>
 
-  <!-- PARTNERS (always visible) -->
+  <!-- PARTNERS -->
   <section class="partner-section">
     <div class="wrap">
-      <div class="partner-grid">
-        <figure class="partner"><img class="partner-logo" src="assets/img/partners/Bui-power-authority.jpg" alt="Bui Power Authority"><figcaption>Bui Power Authority</figcaption></figure>
-        <figure class="partner"><img class="partner-logo" src="assets/img/partners/LVS.jpg" alt="LVS"><figcaption>LVS</figcaption></figure>
-        <figure class="partner"><img class="partner-logo" src="assets/img/partners/SF.JPG" alt="SF"><figcaption>SF</figcaption></figure>
-        <figure class="partner"><img class="partner-logo" src="assets/img/partners/Voith Turbo 16-9.jpg" alt="Voith Turbo"><figcaption>Voith Turbo</figcaption></figure>
-        <figure class="partner"><img class="partner-logo" src="assets/img/partners/Wenco.jpg" alt="Wenco"><figcaption>Wenco</figcaption></figure>
+      <div class="partner-track">
+        <img class="partner-logo" src="assets/img/partners/foid-color.png" alt="FOID">
+        <img class="partner-logo" src="assets/img/partners/bp-color.png" alt="BP">
+        <img class="partner-logo" src="assets/img/partners/gnpc-color.png" alt="GNPC">
+        <img class="partner-logo" src="assets/img/partners/ecg-color.png" alt="ECG">
+        <img class="partner-logo" src="assets/img/partners/vra-color.png" alt="VRA">
       </div>
-    </div>
-  </section>
-
-  <!-- Surprise Section -->
-  <section class="section" style="background:linear-gradient(135deg,var(--brand-2),var(--brand));color:#0c1a10;text-align:center;">
-    <div class="wrap">
-      <h2 style="margin:0 0 12px;">Surprise ✨</h2>
-      <p style="max-width:60ch;margin:auto;font-size:18px;font-weight:600;">Tabcon Ghana doesn’t just power infrastructure — we power people. Here’s to the innovators, engineers and dreamers shaping Africa’s energy future.</p>
-    </div>
-  </section>
-
-  <!-- PARTNERS (logos + names) -->
-  <section class="partner-section">
-    <div class="wrap">
-      <div class="partner-grid">
-        <figure class="partner"><img class="partner-logo" src="assets/img/partners/Bui-power-authority.jpg" alt="Bui Power Authority"><figcaption>Bui Power Authority</figcaption></figure>
-        <figure class="partner"><img class="partner-logo" src="assets/img/partners/LVS.jpg" alt="LVS"><figcaption>LVS</figcaption></figure>
-        <figure class="partner"><img class="partner-logo" src="assets/img/partners/SF.JPG" alt="SF"><figcaption>SF</figcaption></figure>
-        <figure class="partner"><img class="partner-logo" src="assets/img/partners/Voith Turbo 16-9.jpg" alt="Voith Turbo"><figcaption>Voith Turbo</figcaption></figure>
-        <figure class="partner"><img class="partner-logo" src="assets/img/partners/Wenco.jpg" alt="Wenco"><figcaption>Wenco</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- Surprise Section -->
-  <section class="section" style="background:linear-gradient(135deg,var(--brand-2),var(--brand));color:#0c1a10;text-align:center;">
-    <div class="wrap">
-      <h2 style="margin:0 0 12px;">Surprise ✨</h2>
-      <p style="max-width:60ch;margin:auto;font-size:18px;font-weight:600;">Tabcon Ghana doesn’t just power infrastructure — we power people. Here’s to the innovators, engineers and dreamers shaping Africa’s energy future.</p>
     </div>
   </section>
 
@@ -236,10 +168,9 @@
         <div class="foot-badge">T</div>
         <div><strong>Tabcon Ghana</strong><br><span>Hybrid Hydro–Solar</span></div>
       </div>
-      <nav><div class="foot-title">Links</div><ul class="list--reset"><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li></ul></nav>
+      <nav><div class="foot-title">Links</div><ul class="list--reset"><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="partners.html">Partners</a></li></ul></nav>
       <div><div class="foot-title">Contact</div><ul class="list--reset"><li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li><li><a href="tel:+233208116401">+233 (0)20 811 6401</a></li></ul></div>
     </div>
-    <div class="foot-cta"><a class="btn btn--primary" href="contact.html">Contact Tabcon</a></div>
     <div class="copy">© <span id="year"></span> Tabcon Ghana</div>
   </footer>
 
