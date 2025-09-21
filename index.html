@@ -81,19 +81,18 @@
 
     /* KPI */
     .kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:22px; }
-    .kpi{ background:rgba(255,255,255,.9); border:1px solid var(--edge); border-radius:12px; padding:14px;
-          box-shadow:var(--shadow-sm); backdrop-filter: blur(6px); }
-    .kpi strong{ display:block; font-size:24px; }
-    .kpi span{ color:var(--muted); font-size:14px; }
-
-    /* Gradient text for KPI numbers in hero */
-    .hero .kpi strong{
-      font-weight: 800;
-      background: linear-gradient(180deg, var(--brand-2), var(--brand));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .kpi{
+      border-radius:12px;
+      padding:14px;
+      box-shadow:var(--shadow-sm);
+      backdrop-filter: blur(6px);
+      color:#fff;
+      text-align:center;
+      /* KPI gradient background */
+      background:linear-gradient(135deg, var(--brand-2), var(--brand));
     }
+    .kpi strong{ display:block; font-size:24px; font-weight:800; }
+    .kpi span{ font-size:14px; }
 
     /* Sections */
     .section{ padding-block:56px; }
@@ -126,9 +125,7 @@
     .copy{ text-align:center; color:#7a8592; margin-top:22px; font-size:14px; }
 
     /* Floating Contact */
-    .contact-fab{
-      position:fixed; right:18px; bottom:18px; z-index:30;
-    }
+    .contact-fab{ position:fixed; right:18px; bottom:18px; z-index:30; }
     .contact-toggle{
       appearance:none; border:1px solid var(--edge);
       background:linear-gradient(180deg, var(--brand-2), var(--brand));
