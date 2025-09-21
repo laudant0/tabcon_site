@@ -137,29 +137,23 @@
   text-align:center;
 }
 
-.partner-track{ overflow:hidden; }
-.partner-row{
-  display:flex;
-  gap:72px;
-  align-items:center;
-  will-change:transform;
-  animation:partnerScroll 36s linear infinite;
-  padding:0 40px; /* add breathing space left/right */
+.partner-track {
+  overflow: hidden;
+  position: relative;
 }
 
-.partner-item img{
-  height:80px;
-  max-width:220px;
-  object-fit:contain;
-  filter:none;
-  opacity:.95;
-  transition:opacity .2s ease, transform .2s ease;
+.partner-row {
+  display: flex;
+  gap: 72px;
+  align-items: center;
+  animation: partnerScroll 30s linear infinite; /* speed here */
 }
 
-.partner-item img:hover{
-  opacity:1;
-  transform:translateY(-2px);
+@keyframes partnerScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
+
 
     /* Footer (clean) */
     .footer{
@@ -299,18 +293,24 @@
 
      <!-- References ticker (full width like index) -->
   <section class="partner-section">
-    <h3 class="partner-title">References</h3>
-    <div class="partner-track">
-      <div class="partner-row">
-        <div class="partner-item"><img alt="Bui Power Authority" src="./assets/img/partners/Partners/bui-power-authority.jpg?v=91"/></div>
-        <div class="partner-item"><img alt="Lvs" src="./assets/img/partners/Partners/lvs.jpg?v=91"/></div>
-        <div class="partner-item"><img alt="Voith" src="./assets/img/partners/Partners/voith.jpg?v=91"/></div>
-        <div class="partner-item"><img alt="Stanbic" src="./assets/img/partners/Partners/stanbic.jpg?v=91"/></div>
-        <div class="partner-item"><img alt="UENR" src="./assets/img/partners/Partners/OIP1.jpg?v=91"/></div>
-        <div class="partner-item"><img alt="WBHO" src="./assets/img/partners/Partners/OIP.jpg?v=91"/></div>
-      </div>
+  <h3 class="partner-title">References</h3>
+  <div class="partner-track">
+    <div class="partner-row">
+      <!-- repeat the same logos twice for infinite scroll -->
+      <div class="partner-item"><img src="./assets/img/partners/Partners/bui-power-authority.jpg" alt="Bui Power Authority"></div>
+      <div class="partner-item"><img src="./assets/img/partners/Partners/lvs.jpg" alt="Lvs"></div>
+      <div class="partner-item"><img src="./assets/img/partners/Partners/voith.jpg" alt="Voith"></div>
+      <div class="partner-item"><img src="./assets/img/partners/Partners/wenco.jpg" alt="Wenco"></div>
+
+      <!-- duplicate -->
+      <div class="partner-item"><img src="./assets/img/partners/Partners/bui-power-authority.jpg" alt="Bui Power Authority"></div>
+      <div class="partner-item"><img src="./assets/img/partners/Partners/lvs.jpg" alt="Lvs"></div>
+      <div class="partner-item"><img src="./assets/img/partners/Partners/voith.jpg" alt="Voith"></div>
+      <div class="partner-item"><img src="./assets/img/partners/Partners/wenco.jpg" alt="Wenco"></div>
     </div>
-  </section>
+  </div>
+</section>
+
 
 
   <!-- Footer -->
