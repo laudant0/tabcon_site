@@ -33,7 +33,7 @@
     img{ max-width:100%; display:block; }
     .wrap{ width:var(--wrap); max-width:100%; margin-inline:auto; padding-inline:20px; }
 
-    /* Header */
+    /* Header (white + transparent vibes) */
     .header{
       position:sticky; top:0; z-index:20;
       backdrop-filter:saturate(1.2) blur(12px);
@@ -48,7 +48,7 @@
     }
     .nav__list a:hover{ background:rgba(2,6,23,.06); }
 
-    /* Hero Slideshow */
+    /* Hero Slideshow (keep your original images) */
     .hero{ position:relative; overflow:hidden; border-bottom:1px solid var(--edge); }
     .slides{ display:flex; width:100%; height:66vh; min-height:460px; animation:slideAnim 24s infinite; }
     .slide{ min-width:100%; height:66vh; position:relative; }
@@ -81,20 +81,10 @@
 
     /* KPI */
     .kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:22px; }
-    .kpi{
-      border-radius:12px;
-      padding:14px;
-      box-shadow:var(--shadow-sm);
-      backdrop-filter: blur(6px);
-      text-align:center;
-      color:#0b1220;               /* readable on light glass */
-      border:1px solid var(--edge);
-      /* neutral glass gradient that complements any slide */
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.92), rgba(246,249,255,.78));
-    }
-    .kpi strong{ display:block; font-size:24px; font-weight:800; }
-    .kpi span{ font-size:14px; color:#243041; opacity:.85; }
+    .kpi{ background:rgba(255,255,255,.9); border:1px solid var(--edge); border-radius:12px; padding:14px;
+          box-shadow:var(--shadow-sm); backdrop-filter: blur(6px); }
+    .kpi strong{ display:block; font-size:24px; }
+    .kpi span{ color:var(--muted); font-size:14px; }
 
     /* Sections */
     .section{ padding-block:56px; }
@@ -107,7 +97,7 @@
     .card__body{ padding:16px; }
     .card h3{ margin:0 0 6px; }
 
-    /* Footer */
+    /* Footer (cool & clean) */
     .footer{
       padding-block:34px;
       background:
@@ -122,12 +112,14 @@
       display:grid; place-items:center; color:#0b1220; font-weight:900;
       box-shadow: var(--shadow-lg);
     }
-    .foot-title{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:#5b6673; margin-bottom:8px; }
+    .foot-title{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
     .list--reset{ list-style:none; padding:0; margin:0; }
     .copy{ text-align:center; color:#7a8592; margin-top:22px; font-size:14px; }
 
-    /* Floating Contact */
-    .contact-fab{ position:fixed; right:18px; bottom:18px; z-index:30; }
+    /* Floating Contact (drops down) */
+    .contact-fab{
+      position:fixed; right:18px; bottom:18px; z-index:30;
+    }
     .contact-toggle{
       appearance:none; border:1px solid var(--edge);
       background:linear-gradient(180deg, var(--brand-2), var(--brand));
@@ -146,7 +138,7 @@
     .contact-panel header{ padding:12px 14px; font-weight:800; border-bottom:1px solid var(--edge); }
     .contact-panel .item{ display:flex; align-items:center; gap:10px; padding:12px 14px; border-top:1px solid var(--edge); }
     .contact-panel .item a{ font-weight:700; }
-    .contact-panel .item small{ color:#5b6673; display:block; margin-top:2px; }
+    .contact-panel .item small{ color:var(--muted); display:block; margin-top:2px; }
 
     @media (max-width: 980px){
       .grid-2,.grid-3{ grid-template-columns:1fr; }
@@ -164,13 +156,15 @@
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="projects.html">Projects</a></li>
+          <!-- Partners removed from top nav -->
           <li><a href="news.html">News</a></li>
+          <!-- Contact removed from top nav -->
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- HERO SLIDESHOW -->
+  <!-- HERO SLIDESHOW (kept your exact images) -->
   <section class="hero">
     <div class="slides">
       <div class="slide"><img src="assets/img/uploads/hero-solar-corporate.jpg" alt="Solar facility"></div>
@@ -236,6 +230,59 @@
       </div>
     </div>
   </section>
+  <section class="Reference-section">
+<style>
+  <h3 class="partner-title">References</h3>
+
+    .partner-section{
+  padding:40px 0;
+  background:#fafafa;
+}
+.partner-title{
+  margin:0 0 16px;
+  font:700 14px/1.4 Inter,system-ui,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:#666;
+}
+.partner-track{overflow:hidden}
+.partner-row{
+  display:flex;
+  gap:72px;
+  align-items:center;
+  will-change:transform;
+  animation:partnerScroll 36s linear infinite;
+}
+.partner-item img{
+  height:80px;
+  max-width:220px;
+  object-fit:contain;
+  filter:none;           /* keep logos full color */
+  opacity:.95;
+  transition:opacity .2s ease, transform .2s ease;
+}
+.partner-item img:hover{
+  opacity:1;
+  transform:translateY(-2px);
+}
+@keyframes partnerScroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+  </style>
+<div class="wrap">
+<div class="partner-track">
+<div class="partner-row">
+<div class="partner-item"><img alt="Bui Power Authority" loading="lazy" src="./assets/img/partners/Partners/bui-power-authority.jpg?v=91"/></div>
+<div class="partner-item"><img alt="Lvs" loading="lazy" src="./assets/img/partners/Partners/lvs.jpg?v=91"/></div>
+<div class="partner-item"><img alt="Voith" loading="lazy" src="./assets/img/partners/Partners/voith.jpg?v=91"/></div>
+<div class="partner-item"><img alt="Wenco" loading="lazy" src="./assets/img/partners/Partners/wenco.jpg?v=91"/></div>
+</div>
+</div>
+</div>
+</section>
+
 
   <!-- Footer -->
   <footer class="footer">
@@ -266,25 +313,51 @@
     <div class="copy">© <span id="year"></span> Tabcon Ghana</div>
   </footer>
 
-  <!-- Floating Contact -->
+  <!-- Floating Contact (drops down) -->
   <div class="contact-fab">
     <button class="contact-toggle" id="contactToggle" type="button">Contact</button>
     <div class="contact-panel" id="contactPanel" aria-hidden="true">
       <header>Contact Tabcon</header>
-      <div class="item"><div><a href="tel:+233208116401">+233 (0)20 811 6401</a><small>Call us</small></div></div>
-      <div class="item"><div><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a><small>Email us</small></div></div>
-      <div class="item"><div><a href="contact.html">Open contact page →</a><small>Map, form & details</small></div></div>
+      <div class="item">
+        <div>
+          <a href="tel:+233208116401">+233 (0)20 811 6401</a>
+          <small>Call us</small>
+        </div>
+      </div>
+      <div class="item">
+        <div>
+          <a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a>
+          <small>Email us</small>
+        </div>
+      </div>
+      <div class="item">
+        <div>
+          <a href="contact.html">Open contact page →</a>
+          <small>Map, form & details</small>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Contact dropdown
     (function(){
-      const btn=document.getElementById('contactToggle');const panel=document.getElementById('contactPanel');
-      if(!btn||!panel) return;
-      btn.addEventListener('click',()=>{const open=panel.classList.toggle('open');panel.setAttribute('aria-hidden',String(!open));});
-      document.addEventListener('click',(e)=>{if(!panel.contains(e.target)&&e.target!==btn){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');}});
-      document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');}});
+      const btn = document.getElementById('contactToggle');
+      const panel = document.getElementById('contactPanel');
+      if(!btn || !panel) return;
+      btn.addEventListener('click', ()=>{
+        const open = panel.classList.toggle('open');
+        panel.setAttribute('aria-hidden', String(!open));
+      });
+      // close on outside click
+      document.addEventListener('click', (e)=>{
+        if(!panel.contains(e.target) && e.target !== btn){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }
+      });
+      // escape close
+      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape'){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }});
     })();
   </script>
 </body>
