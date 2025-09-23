@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>News & Updates — Tabcon Ghana</title>
-  <meta name="description" content="News, milestones, and community engagement from Tabcon Ghana and Tabcon Energy Limited." />
+  <meta name="description" content="Latest updates on Tabcon Ghana projects, partnerships, milestones, and community engagement." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,143 +23,255 @@
       --radius:16px;
       --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
       --shadow-lg: 0 10px 28px rgba(0,0,0,.10);
+      --pill: #1018260f;
     }
     *,*::before,*::after{ box-sizing:border-box; }
-    body{ margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; color:var(--text); background:var(--bg); line-height:1.6; }
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text); background:var(--bg); line-height:1.6;
+    }
     a{ color:inherit; text-decoration:none; }
     img{ max-width:100%; display:block; }
     .wrap{ width:var(--wrap); max-width:100%; margin-inline:auto; padding-inline:20px; }
 
-    /* Header */
-    .header{ position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.2) blur(12px); background:var(--glass); border-bottom:1px solid var(--edge); }
+    /* Header (glass) */
+    .header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(1.2) blur(12px);
+      background:var(--glass);
+      border-bottom:1px solid var(--edge);
+    }
     .header__inner{ display:flex; align-items:center; justify-content:space-between; height:72px; }
-    .logo{ width:120px; height:auto; }
+    .logo{ height:44px; width:auto; display:block; filter: drop-shadow(0 1px 2px rgba(0,0,0,.12)); }
     .nav__list{ list-style:none; display:flex; gap:18px; margin:0; padding:0; }
-    .nav__list a{ padding:10px 12px; border-radius:10px; font-weight:600; color:#263041; }
+    .nav__list a{
+      padding:10px 12px; border-radius:10px; font-weight:600; color:#263041;
+    }
     .nav__list a:hover{ background:rgba(2,6,23,.06); }
+    .nav__list .is-active{ background:rgba(2,6,23,.06); }
 
-    /* Page hero */
-    .page-hero{ position:relative; border-bottom:1px solid var(--edge); }
-    .page-hero__media{ height:40vh; min-height:300px; position:relative; overflow:hidden; }
-    .page-hero__media img{ width:100%; height:100%; object-fit:cover; }
-    .page-hero__media::after{ content:""; position:absolute; inset:0; background:linear-gradient(120deg, rgba(15,23,42,.35), rgba(2,6,23,.15)); }
-    .page-hero__content{ position:absolute; inset:0; display:flex; align-items:center; color:#fff; }
-    .page-hero__inner{ max-width:var(--wrap); margin:auto; padding:24px; text-shadow:0 2px 12px rgba(0,0,0,.3); }
-    .page-hero h1{ margin:0 0 8px; font-size: clamp(32px, 4vw, 52px); }
-    .page-hero p{ margin:0; max-width:65ch; color:#e8eef5; }
+    /* Hero (news banner) */
+    .hero{
+      position:relative; overflow:hidden; border-bottom:1px solid var(--edge);
+      background: radial-gradient(1200px 420px at 80% -10%, rgba(46,125,50,.08), transparent 55%), #f7faf9;
+    }
+    .hero__inner{ min-height:46vh; display:grid; align-items:center; }
+    .hero h1{ font-size: clamp(28px, 4.2vw, 56px); margin:0 0 8px; letter-spacing:-.02em; }
+    .hero p{ margin:0; color:#425062; max-width:60ch; }
+    .pill{ display:inline-flex; gap:8px; align-items:center; padding:8px 12px; border-radius:999px; border:1px solid var(--edge); background:#fff; font-weight:700; font-size:13px; }
 
-    /* Section */
-    .section{ padding-block:56px; }
+    /* Featured row */
+    .section{ padding-block:48px; }
+    .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .card{ background:#fff; border:1px solid var(--edge); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; }
+    .card__img{ aspect-ratio: 16/9; object-fit:cover; }
+    .card__body{ padding:16px; display:flex; flex-direction:column; gap:8px; }
+    .meta{ display:flex; gap:10px; align-items:center; color:#5c6a79; font-size:13px; }
+    .tag{ padding:2px 8px; border-radius:999px; border:1px solid var(--edge); background:#fff; font-weight:700; font-size:12px; }
+    .card h3{ margin:0; font-size:18px; }
+    .card p{ margin:0; color:#4a5767; }
+    .card a.more{ margin-top:auto; font-weight:800; }
 
-    /* Cards grid */
-    .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-    .card{ background:#fff; border:1px solid var(--edge); border-radius:16px; box-shadow:var(--shadow-lg); overflow:hidden; display:flex; flex-direction:column; }
-    .card img{ aspect-ratio: 16/9; object-fit:cover; }
-    .card__body{ padding:18px; display:flex; flex-direction:column; gap:8px; }
-    .card__meta{ font-size:12px; color:#6b7280; }
-    .chip{ display:inline-block; font-size:12px; border:1px solid var(--edge); border-radius:999px; padding:4px 8px; background:#fff; }
+    /* Timeline (vertical) */
+    .timeline{ border-left:2px dashed var(--edge); margin-left:10px; padding-left:20px; display:grid; gap:18px; }
+    .tl-item{ position:relative; }
+    .tl-item::before{
+      content:""; position:absolute; left:-31px; top:6px; width:12px; height:12px; border-radius:50%;
+      background:linear-gradient(180deg,var(--brand-2),var(--brand));
+      border:2px solid #fff; box-shadow:0 1px 2px rgba(0,0,0,.1);
+    }
+    .tl-date{ font-size:12px; color:#5c6a79; font-weight:700; }
+    .tl-title{ margin:2px 0 4px; font-size:16px; font-weight:800; }
+    .tl-body{ margin:0; color:#445161; }
+
+    /* Press / media */
+    .list{ list-style:none; padding:0; margin:0; display:grid; gap:14px; }
+    .list li{ background:#fff; border:1px solid var(--edge); border-radius:12px; padding:14px 16px; display:flex; justify-content:space-between; gap:12px; align-items:center; }
+    .list b{ font-weight:800; }
+    .list small{ color:#5c6a79; }
+
+    /* Newsletter */
+    .nl{ display:flex; gap:10px; }
+    .nl input{ flex:1; padding:12px 14px; border-radius:10px; border:1px solid var(--edge); font:inherit; }
+    .btn{ padding:12px 16px; border-radius:12px; font-weight:800; border:1px solid transparent; box-shadow: var(--shadow-sm); cursor:pointer; }
+    .btn--primary{ background:linear-gradient(180deg, var(--brand-2), var(--brand)); color:#0e1a11; }
+    .btn--ghost{ background:#fff; border-color:var(--edge); }
 
     /* Footer */
-    .footer{ padding-block:34px; background:#f8fafb; border-top:1px solid var(--edge); }
+    .footer{
+      padding-block:34px; background:#f8fafb; border-top:1px solid var(--edge);
+    }
     .foot-grid{ display:grid; grid-template-columns: 1.2fr auto auto; gap:28px; align-items:start; }
-    .foot-badge{ width:44px;height:44px;border-radius:12px; background:linear-gradient(180deg, var(--brand-2), var(--brand)); display:grid; place-items:center; color:#0b1220; font-weight:900; box-shadow: var(--shadow-lg); }
+    .foot-badge{
+      width:44px;height:44px;border-radius:12px;
+      background:linear-gradient(180deg, var(--brand-2), var(--brand));
+      display:grid; place-items:center; color:#0b1220; font-weight:900;
+      box-shadow: var(--shadow-lg);
+    }
     .foot-title{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
     .list--reset{ list-style:none; padding:0; margin:0; }
     .copy{ text-align:center; color:#7a8592; margin-top:22px; font-size:14px; }
 
-    /* Floating Contact */
-    .contact-fab{ position:fixed; right:18px; bottom:18px; z-index:30; }
-    .contact-toggle{ appearance:none; border:1px solid var(--edge); background:linear-gradient(180deg, var(--brand-2), var(--brand)); color:#0e1a11; font-weight:900; border-radius:999px; padding:12px 16px; box-shadow: var(--shadow-lg); cursor:pointer; }
-    .contact-panel{ position:absolute; right:0; bottom:58px; width:280px; background:rgba(255,255,255,.98); border:1px solid var(--edge); border-radius:14px; box-shadow: var(--shadow-lg); overflow:hidden; opacity:0; transform:translateY(8px); pointer-events:none; transition: opacity .2s ease, transform .2s ease; backdrop-filter: blur(6px); }
-    .contact-panel.open{ opacity:1; transform:translateY(0); pointer-events:auto; }
-    .contact-panel header{ padding:12px 14px; font-weight:800; border-bottom:1px solid var(--edge); }
-    .contact-panel .item{ padding:12px 14px; border-top:1px solid var(--edge); }
-    .contact-panel .item a{ font-weight:700; }
-
+    /* Responsive */
     @media (max-width: 980px){
+      .header__inner{ height:64px; }
+      .logo{ height:38px; }
       .grid-3{ grid-template-columns:1fr; }
-      .page-hero__media{ height:36vh; min-height:240px; }
-      .foot-grid{ grid-template-columns:1fr; }
+      .wrap{ padding-inline:16px; }
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header class="header">
     <div class="wrap header__inner">
-      <a href="index.html"><img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana logo"></a>
+      <a href="index.html"><img class="logo" src="assets/img/uploads/viii.jpg" alt="Tabcon Ghana logo" loading="eager" decoding="async"></a>
       <nav aria-label="Primary">
         <ul class="nav__list">
           <li><a href="services.html">Services</a></li>
           <li><a href="projects.html">Projects</a></li>
-          <li><a href="news.html" aria-current="page">News</a></li>
+          <li><a class="is-active" href="news.html">News</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Page Hero -->
-  <section class="page-hero">
-    <div class="page-hero__media">
-      <img src="assets/img/uploads/viii.jpg" alt="Solar facility">
-    </div>
-    <div class="page-hero__content">
-      <div class="page-hero__inner">
-        <h1>News &amp; Updates</h1>
-        <p>Milestones, MoUs, and community engagement on our road to clean, reliable energy.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div>
+        <span class="pill">News & Updates</span>
+        <h1>Progress, Partnerships & Community</h1>
+        <p>Follow milestones for the Tain Hybrid Hydro-Solar project, partnership MoUs, and field engagements across Ghana and the region.</p>
       </div>
     </div>
   </section>
 
-  <main>
-    <section class="section">
-      <div class="wrap">
-        <div class="grid-3">
-          <!-- MoUs and endorsements -->
-          <article class="card">
-            <img src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="Hydro-solar collaboration">
-            <div class="card__body">
-              <div class="card__meta"><span class="chip">MoU</span> <span>• Partnerships</span></div>
-              <h3 style="margin:6px 0 2px;">Strategic MoUs &amp; Government Endorsements</h3>
-              <p>Recent engagements include a cooperation track with Voith (Germany) and support highlights from leadership visits—advancing bankable execution for Tain and future assets.</p>
-            </div>
-          </article>
+  <!-- Featured news cards -->
+  <section class="section">
+    <div class="wrap">
+      <div class="grid-3">
+        <article class="card">
+          <img class="card__img" src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar + BESS containers">
+          <div class="card__body">
+            <div class="meta"><span class="tag">Milestone</span><span>Q3 • 2025</span></div>
+            <h3>Tain Hybrid Hydro-Solar: works update</h3>
+            <p>Advancing development activities for Stage 1: 55 MW Solar PV + 6 MW BESS; preparatory steps toward Stage 2 hybrid hydro-solar.</p>
+            <a class="more" href="projects.html">See project →</a>
+          </div>
+        </article>
 
-          <!-- Tain milestones -->
-          <article class="card">
-            <img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar farm with BESS containers">
-            <div class="card__body">
-              <div class="card__meta"><span class="chip">Project</span> <span>• Tain Hybrid</span></div>
-              <h3 style="margin:6px 0 2px;">Tain Project Milestones</h3>
-              <p>Stage 1: <strong>55&nbsp;MW Solar PV + 6&nbsp;MW BESS</strong> — progressing through development gates. Stage 2 plans a <strong>10&nbsp;MW hydro-solar</strong> expansion for grid stability and local industry support.</p>
-            </div>
-          </article>
+        <article class="card">
+          <img class="card__img" src="assets/img/partners/Partners/voith.jpg" alt="Voith partnership">
+          <div class="card__body">
+            <div class="meta"><span class="tag">MoU</span><span>Recent</span></div>
+            <h3>Technology collaboration with Voith</h3>
+            <p>Tabcon engages OEM partners to strengthen hydro and hybrid capabilities for Ghana’s energy mix.</p>
+            <a class="more" href="#">Read update →</a>
+          </div>
+        </article>
 
-          <!-- Community engagement -->
-          <article class="card">
-            <img src="assets/img/uploads/ghana-body.jpg" alt="Community meeting in Ghana">
-            <div class="card__body">
-              <div class="card__meta"><span class="chip">Community</span> <span>• Engagement</span></div>
-              <h3 style="margin:6px 0 2px;">Community Engagement in Tain &amp; Wenchi</h3>
-              <p>Ongoing consultations with district stakeholders to align environmental safeguards, local jobs, and community benefits across deployment phases.</p>
-            </div>
-          </article>
+        <article class="card">
+          <img class="card__img" src="assets/img/uploads/ghana-body.jpg" alt="Community engagement">
+          <div class="card__body">
+            <div class="meta"><span class="tag">Community</span><span>Ongoing</span></div>
+            <h3>Community sessions in Tain & Wenchi</h3>
+            <p>Stakeholder briefings and HSE introductions with local authorities and residents around the project corridor.</p>
+            <a class="more" href="#">See highlights →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section" aria-labelledby="timeline">
+    <div class="wrap">
+      <h2 id="timeline" style="margin:0 0 12px;">Project Timeline</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">2025</div>
+          <div class="tl-title">Development activities & stakeholder coordination</div>
+          <p class="tl-body">Ongoing milestones on Tain Stage 1 (55 MW Solar PV + 6 MW BESS); planning for Stage 2 hybrid hydro-solar.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2024</div>
+          <div class="tl-title">Partnership & MoU updates</div>
+          <p class="tl-body">Engagements with technology partners and financiers to support delivery.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2023</div>
+          <div class="tl-title">Community consultations</div>
+          <p class="tl-body">District-level meetings and preliminary HSE sensitization in project-affected communities.</p>
         </div>
       </div>
-    </section>
-  </main>
+      <p style="margin-top:14px;color:#5c6a79;font-size:14px">
+        Notes: News categories and topics are taken from Tabcon’s brief (MoUs, endorsements, Tain milestones, community engagement). :contentReference[oaicite:1]{index=1}
+      </p>
+    </div>
+  </section>
 
+  <!-- Press & media items -->
+  <section class="section" aria-labelledby="press">
+    <div class="wrap">
+      <h2 id="press" style="margin:0 0 12px;">Press & Media</h2>
+      <ul class="list">
+        <li>
+          <div>
+            <b>Government & industry engagements</b><br>
+            <small>MoUs and endorsements; collaboration dialogues with international OEMs and agencies.</small>
+          </div>
+          <a class="btn btn--ghost" href="#" aria-label="Open press note">Open</a>
+        </li>
+        <li>
+          <div>
+            <b>Tain Project factsheet</b><br>
+            <small>Scope, stages, expected impact and community benefits.</small>
+          </div>
+          <a class="btn btn--ghost" href="#" aria-label="Download factsheet">Download</a>
+        </li>
+        <li>
+          <div>
+            <b>Media kit</b><br>
+            <small>Logo, brand guide and project imagery for editorial use.</small>
+          </div>
+          <a class="btn btn--ghost" href="#" aria-label="Download media kit">Download</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="section" aria-labelledby="nl">
+    <div class="wrap">
+      <div class="card" style="padding:20px;">
+        <h2 id="nl" style="margin:0 0 8px;">Subscribe for updates</h2>
+        <p style="margin:0 0 14px;color:#4a5767;">Get project milestones and partnership news straight to your inbox.</p>
+        <form class="nl" onsubmit="event.preventDefault(); alert('Subscribed!');">
+          <input type="email" name="email" placeholder="Your email" required>
+          <button class="btn btn--primary" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="wrap foot-grid">
       <div style="display:flex; align-items:center; gap:12px;">
         <div class="foot-badge">T</div>
-        <div><strong>Tabcon Ghana</strong><br><span style="color:var(--muted)">Hybrid Hydro–Solar</span></div>
+        <div>
+          <strong>Tabcon Ghana</strong><br>
+          <span style="color:var(--muted)">Hybrid Hydro–Solar</span>
+        </div>
       </div>
       <nav aria-label="Footer links">
         <div class="foot-title">Links</div>
         <ul class="list--reset">
           <li><a href="services.html">Services</a></li>
           <li><a href="projects.html">Projects</a></li>
+          <li><a href="news.html">News</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
       </nav>
@@ -175,25 +287,47 @@
   </footer>
 
   <!-- Floating Contact -->
-  <div class="contact-fab">
-    <button class="contact-toggle" id="contactToggle" type="button">Contact</button>
-    <div class="contact-panel" id="contactPanel" aria-hidden="true">
-      <header>Contact Tabcon</header>
-      <div class="item"><a href="tel:+233208116401">+233 (0)20 811 6401</a></div>
-      <div class="item"><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></div>
-      <div class="item"><a href="contact.html">Open contact page →</a></div>
+  <div class="contact-fab" style="position:fixed;right:18px;bottom:18px;z-index:60;">
+    <button class="btn btn--primary" id="contactToggle" type="button">Contact</button>
+    <div class="contact-panel" id="contactPanel" aria-hidden="true" style="
+      position:absolute; right:0; bottom:58px; width:280px;
+      background:rgba(255,255,255,.98); border:1px solid var(--edge);
+      border-radius:14px; box-shadow: var(--shadow-lg);
+      overflow:hidden; opacity:0; transform:translateY(8px); pointer-events:none;
+      transition: opacity .2s ease, transform .2s ease; backdrop-filter: blur(6px);">
+      <header style="padding:12px 14px; font-weight:800; border-bottom:1px solid var(--edge);">Contact Tabcon</header>
+      <div class="item" style="padding:12px 14px; border-top:1px solid var(--edge);"><a href="tel:+233208116401">+233 (0)20 811 6401</a></div>
+      <div class="item" style="padding:12px 14px; border-top:1px solid var(--edge);"><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></div>
+      <div class="item" style="padding:12px 14px; border-top:1px solid var(--edge);"><a href="contact.html">Open contact page →</a></div>
     </div>
   </div>
 
   <script>
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Contact dropdown
     (function(){
-      const btn=document.getElementById('contactToggle');
-      const panel=document.getElementById('contactPanel');
-      if(!btn||!panel) return;
-      btn.addEventListener('click',()=>{const open=panel.classList.toggle('open');panel.setAttribute('aria-hidden',String(!open));});
-      document.addEventListener('click',(e)=>{if(!panel.contains(e.target)&&e.target!==btn){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');}});
-      document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');}});
+      const btn = document.getElementById('contactToggle');
+      const panel = document.getElementById('contactPanel');
+      if(!btn || !panel) return;
+      btn.addEventListener('click', ()=>{
+        const open = panel.style.opacity === '1';
+        panel.style.opacity = open ? '0' : '1';
+        panel.style.transform = open ? 'translateY(8px)' : 'translateY(0)';
+        panel.style.pointerEvents = open ? 'none' : 'auto';
+        panel.setAttribute('aria-hidden', String(open));
+      });
+      document.addEventListener('click', (e)=>{
+        if(!panel.contains(e.target) && e.target !== btn){
+          panel.style.opacity = '0'; panel.style.transform = 'translateY(8px)'; panel.style.pointerEvents = 'none';
+          panel.setAttribute('aria-hidden','true');
+        }
+      });
+      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape'){
+        panel.style.opacity = '0'; panel.style.transform = 'translateY(8px)'; panel.style.pointerEvents = 'none';
+        panel.setAttribute('aria-hidden','true');
+      }});
     })();
   </script>
 </body>
