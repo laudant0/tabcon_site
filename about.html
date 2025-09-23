@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About Us — Tabcon Ghana</title>
-  <meta name="description" content="About Tabcon Ghana — Over 40 years of multidisciplinary consulting experience across Africa." />
+  <title>About — Tabcon Ghana</title>
+  <meta name="description" content="About Tabcon Development Consultants: established 1983, decades of experience across infrastructure, water, energy, environment, and transport in Africa." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,102 +24,148 @@
       --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
       --shadow-lg: 0 10px 28px rgba(0,0,0,.10);
     }
-    body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--text);background:var(--bg);}
-    a{color:inherit;text-decoration:none;}
-    img{max-width:100%;display:block;}
-    .wrap{width:var(--wrap);max-width:100%;margin:auto;padding-inline:20px;}
+    *,*::before,*::after{ box-sizing:border-box; }
+    body{ margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; color:var(--text); background:var(--bg); line-height:1.6; }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+    .wrap{ width:var(--wrap); max-width:100%; margin-inline:auto; padding-inline:20px; }
 
     /* Header */
-    .header{position:sticky;top:0;z-index:20;background:var(--glass);backdrop-filter:blur(12px);border-bottom:1px solid var(--edge);}
-    .header__inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
-    .logo{width:120px;}
-    .nav__list{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
-    .nav__list a{padding:10px 12px;border-radius:10px;font-weight:600;color:#263041;}
-    .nav__list a:hover{background:rgba(2,6,23,.06);}
+    .header{ position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.2) blur(12px); background:var(--glass); border-bottom:1px solid var(--edge); }
+    .header__inner{ display:flex; align-items:center; justify-content:space-between; height:72px; }
+    .logo{ width:120px; height:auto; }
+    .nav__list{ list-style:none; display:flex; gap:18px; margin:0; padding:0; }
+    .nav__list a{ padding:10px 12px; border-radius:10px; font-weight:600; color:#263041; }
+    .nav__list a:hover{ background:rgba(2,6,23,.06); }
 
-    /* Hero banner */
-    .hero{position:relative;height:42vh;min-height:300px;overflow:hidden;border-bottom:1px solid var(--edge);}
-    .hero img{width:100%;height:100%;object-fit:cover;}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(0,0,0,.45),rgba(0,0,0,.25));}
-    .hero__content{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;z-index:2;}
-    .hero__content h1{font-size:clamp(32px,4vw,52px);margin:0;}
+    /* Page hero (static banner) */
+    .page-hero{ position:relative; border-bottom:1px solid var(--edge); }
+    .page-hero__media{ height:44vh; min-height:320px; position:relative; overflow:hidden; }
+    .page-hero__media img{ width:100%; height:100%; object-fit:cover; }
+    .page-hero__media::after{ content:""; position:absolute; inset:0; background:linear-gradient(120deg, rgba(15,23,42,.35), rgba(2,6,23,.15)); }
+    .page-hero__content{ position:absolute; inset:0; display:flex; align-items:center; color:#fff; }
+    .page-hero__inner{ max-width:var(--wrap); margin:auto; padding:24px; text-shadow:0 2px 12px rgba(0,0,0,.3); }
+    .page-hero h1{ margin:0 0 8px; font-size: clamp(32px, 4vw, 52px); }
+    .page-hero p{ margin:0; max-width:65ch; color:#e8eef5; }
 
     /* Sections */
-    .section{padding-block:64px;}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
-    .card{background:rgba(255,255,255,.95);border:1px solid var(--edge);border-radius:16px;box-shadow:var(--shadow-lg);padding:28px;}
-    .card h2{margin-top:0;font-size:28px;}
-    ul{margin:16px 0;padding-left:20px;color:var(--muted);}
-    li{margin-bottom:6px;}
+    .section{ padding-block:56px; }
+    .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
+    .card{ background:#fff; border:1px solid var(--edge); border-radius:16px; box-shadow:var(--shadow-lg); overflow:hidden; }
+    .card__body{ padding:20px; }
+    .h2{ margin:0 0 10px; font-size: clamp(22px, 2.2vw, 28px); }
+    .lead{ color:#253043; }
+
+    /* List blocks */
+    .list{ margin:0; padding-left:18px; }
+    .list li{ margin:6px 0; }
+    .pill{ display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:800; background:#fff; border:1px solid var(--edge); color:#263041; }
 
     /* Footer */
-    .footer{padding-block:34px;background:#f8fafb;border-top:1px solid var(--edge);}
-    .foot-grid{display:grid;grid-template-columns:1.2fr auto auto;gap:28px;align-items:start;}
-    .foot-badge{width:44px;height:44px;border-radius:12px;background:linear-gradient(180deg,var(--brand-2),var(--brand));display:grid;place-items:center;color:#0b1220;font-weight:900;box-shadow:var(--shadow-lg);}
-    .foot-title{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
-    .list--reset{list-style:none;padding:0;margin:0;}
-    .copy{text-align:center;color:#7a8592;margin-top:22px;font-size:14px;}
+    .footer{ padding-block:34px; background:#f8fafb; border-top:1px solid var(--edge); }
+    .foot-grid{ display:grid; grid-template-columns: 1.2fr auto auto; gap:28px; align-items:start; }
+    .foot-badge{ width:44px;height:44px;border-radius:12px; background:linear-gradient(180deg, var(--brand-2), var(--brand)); display:grid; place-items:center; color:#0b1220; font-weight:900; box-shadow: var(--shadow-lg); }
+    .foot-title{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+    .list--reset{ list-style:none; padding:0; margin:0; }
+    .copy{ text-align:center; color:#7a8592; margin-top:22px; font-size:14px; }
 
-    /* Floating Contact */
-    .contact-fab{position:fixed;right:18px;bottom:18px;z-index:30;}
-    .contact-toggle{background:linear-gradient(180deg,var(--brand-2),var(--brand));border:none;padding:12px 16px;border-radius:999px;font-weight:900;cursor:pointer;box-shadow:var(--shadow-lg);}
-    .contact-panel{position:absolute;right:0;bottom:58px;width:280px;background:#fff;border:1px solid var(--edge);border-radius:14px;box-shadow:var(--shadow-lg);opacity:0;transform:translateY(8px);pointer-events:none;transition:.2s;}
-    .contact-panel.open{opacity:1;transform:translateY(0);pointer-events:auto;}
-    .contact-panel header{padding:12px 14px;font-weight:800;border-bottom:1px solid var(--edge);}
-    .contact-panel .item{padding:12px 14px;border-top:1px solid var(--edge);}
-    .contact-panel .item a{font-weight:700;}
-    .contact-panel .item small{color:var(--muted);display:block;margin-top:2px;}
+    /* Floating Contact (same behavior as index) */
+    .contact-fab{ position:fixed; right:18px; bottom:18px; z-index:30; }
+    .contact-toggle{ appearance:none; border:1px solid var(--edge); background:linear-gradient(180deg, var(--brand-2), var(--brand)); color:#0e1a11; font-weight:900; border-radius:999px; padding:12px 16px; box-shadow: var(--shadow-lg); cursor:pointer; }
+    .contact-panel{ position:absolute; right:0; bottom:58px; width:280px; background:rgba(255,255,255,.98); border:1px solid var(--edge); border-radius:14px; box-shadow: var(--shadow-lg); overflow:hidden; opacity:0; transform:translateY(8px); pointer-events:none; transition: opacity .2s ease, transform .2s ease; backdrop-filter: blur(6px); }
+    .contact-panel.open{ opacity:1; transform:translateY(0); pointer-events:auto; }
+    .contact-panel header{ padding:12px 14px; font-weight:800; border-bottom:1px solid var(--edge); }
+    .contact-panel .item{ padding:12px 14px; border-top:1px solid var(--edge); }
+    .contact-panel .item a{ font-weight:700; }
 
-    @media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
+    @media (max-width: 980px){
+      .grid-2{ grid-template-columns:1fr; }
+      .page-hero__media{ height:38vh; min-height:260px; }
+      .foot-grid{ grid-template-columns:1fr; }
+    }
   </style>
 </head>
 <body>
   <header class="header">
     <div class="wrap header__inner">
       <a href="index.html"><img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana logo"></a>
-      <nav><ul class="nav__list">
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="news.html">News</a></li>
-      </ul></nav>
+      <nav aria-label="Primary">
+        <ul class="nav__list">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <img src="assets/img/uploads/ghana-body.jpg" alt="About Tabcon">
-    <div class="hero__content"><h1>About Us</h1></div>
-  </section>
-
-  <!-- ABOUT CONTENT -->
-  <section class="section">
-    <div class="wrap grid-2">
-      <img src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="Tabcon projects">
-      <div class="card">
-        <h2>Tabcon Development Consultants</h2>
-        <p>Established 1983 in Lesotho (as TAB Consult) and in 1988 in Ghana as Tabcon Limited.</p>
-        <p>With over 40 years of multidisciplinary consulting experience, we provide expertise in:</p>
-        <ul>
-          <li>Public infrastructure</li>
-          <li>Water supply &amp; natural resource management</li>
-          <li>Hydropower and renewable energy projects</li>
-          <li>Environmental planning &amp; EIA</li>
-          <li>Road and transportation engineering</li>
-        </ul>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero__media">
+      <img src="assets/img/uploads/ghana-body.jpg" alt="Engineers with Ghana map overlay">
+    </div>
+    <div class="page-hero__content">
+      <div class="page-hero__inner">
+        <h1>About Tabcon</h1>
+        <p class="lead">Building Africa’s future through innovation and sustainability — since 1983.</p>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <main>
+    <section class="section">
+      <div class="wrap grid-2">
+        <!-- Company -->
+        <article class="card">
+          <div class="card__body">
+            <h2 class="h2">Tabcon Development Consultants</h2>
+            <p class="lead">Established in <strong>1983</strong> in Lesotho (as <em>TAB Consult</em>) and in <strong>1988</strong> in Ghana as <strong>Tabcon Limited</strong>. We bring over four decades of multidisciplinary consulting across Africa.</p>
+            <h3 style="margin:18px 0 8px">Core Expertise</h3>
+            <ul class="list">
+              <li>Public infrastructure</li>
+              <li>Water supply &amp; natural resource management</li>
+              <li>Hydropower and renewable energy projects</li>
+              <li>Environmental planning &amp; EIA</li>
+              <li>Road and transportation engineering</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- SPV -->
+        <article class="card">
+          <div class="card__body">
+            <h2 class="h2">Tabcon Energy Limited <span class="pill">SPV</span></h2>
+            <p>Our dedicated special-purpose vehicle created to implement Tabcon’s energy projects at scale.</p>
+            <p><strong>Current flagship:</strong> <em>Tain Hybrid Hydro-Solar Energy Project</em> — <strong>55&nbsp;MW Solar + 6&nbsp;MW BESS</strong>, followed by a <strong>10&nbsp;MW hydro-solar hybrid</strong> expansion.</p>
+            <p style="margin-top:12px;"><a class="pill" href="projects.html">Explore Projects →</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
   <footer class="footer">
     <div class="wrap foot-grid">
-      <div style="display:flex;align-items:center;gap:12px;">
+      <div style="display:flex; align-items:center; gap:12px;">
         <div class="foot-badge">T</div>
         <div><strong>Tabcon Ghana</strong><br><span style="color:var(--muted)">Hybrid Hydro–Solar</span></div>
       </div>
-      <nav><div class="foot-title">Links</div><ul class="list--reset"><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="news.html">News</a></li></ul></nav>
-      <div><div class="foot-title">Contact</div><ul class="list--reset"><li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li><li><a href="tel:+233208116401">+233 (0)20 811 6401</a></li></ul></div>
+      <nav aria-label="Footer links">
+        <div class="foot-title">Links</div>
+        <ul class="list--reset">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </nav>
+      <section>
+        <div class="foot-title">Contact</div>
+        <ul class="list--reset">
+          <li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li>
+          <li><a href="tel:+233208116401">+233 (0)20 811 6401</a></li>
+        </ul>
+      </section>
     </div>
     <div class="copy">© <span id="year"></span> Tabcon Ghana</div>
   </footer>
@@ -129,16 +175,17 @@
     <button class="contact-toggle" id="contactToggle" type="button">Contact</button>
     <div class="contact-panel" id="contactPanel" aria-hidden="true">
       <header>Contact Tabcon</header>
-      <div class="item"><a href="tel:+233208116401">+233 (0)20 811 6401</a><small>Call us</small></div>
-      <div class="item"><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a><small>Email us</small></div>
-      <div class="item"><a href="contact.html">Open contact page →</a><small>Map, form & details</small></div>
+      <div class="item"><a href="tel:+233208116401">+233 (0)20 811 6401</a></div>
+      <div class="item"><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></div>
+      <div class="item"><a href="contact.html">Open contact page →</a></div>
     </div>
   </div>
 
   <script>
-    document.getElementById('year').textContent=new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
     (function(){
-      const btn=document.getElementById('contactToggle');const panel=document.getElementById('contactPanel');
+      const btn=document.getElementById('contactToggle');
+      const panel=document.getElementById('contactPanel');
       if(!btn||!panel) return;
       btn.addEventListener('click',()=>{const open=panel.classList.toggle('open');panel.setAttribute('aria-hidden',String(!open));});
       document.addEventListener('click',(e)=>{if(!panel.contains(e.target)&&e.target!==btn){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');}});
