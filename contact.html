@@ -9,119 +9,170 @@
 <link rel="stylesheet" href="assets/css/styles.css">
 <title>Tabcon Ghana — Contact</title>
 <meta name="description" content="Contact Tabcon Ghana for partnerships and project enquiries across energy, infrastructure and water.">
+
+<!-- Page-local tweaks to enlarge inputs & textarea -->
+<style>
+  /* Make the form roomy and readable */
+  .card.form-card{ padding:28px !important; border-radius:16px; }
+  .form-grid{ display:grid; gap:14px; }
+  .form-grid label span{ display:block; font-weight:600; margin-bottom:6px; }
+
+  .form-grid input,
+  .form-grid textarea{
+    width:100%;
+    font: inherit;
+    font-size:16px;
+    line-height:1.5;
+    padding:14px 16px;              /* bigger input padding */
+    border:1px solid rgba(17,24,39,.14);
+    border-radius:12px;             /* rounder */
+    background:#fff;
+    box-sizing: border-box;
+  }
+  .form-grid textarea{
+    min-height:200px;               /* larger message box */
+    resize:vertical;
+  }
+  .form-grid input:focus,
+  .form-grid textarea:focus{
+    outline:none;
+    border-color:#2E7D32;
+    box-shadow:0 0 0 3px rgba(46,125,50,.18);
+  }
+
+  /* Larger button */
+  .btn.primary{
+    display:inline-block;
+    border:none;
+    border-radius:12px;
+    padding:14px 22px;
+    font-weight:800;
+    background:linear-gradient(180deg, #7fd37f, #2E7D32);
+    color:#0e1a11;
+    cursor:pointer;
+    box-shadow:0 10px 28px rgba(0,0,0,.10);
+  }
+  .btn.primary:hover{ opacity:.92; }
+
+  /* Small hero polish if needed */
+  .hero .content h1{ margin:0 0 6px; }
+  .subtitle{ color:#4b5563; font-weight:600; }
+</style>
 </head>
 <body>
 <header class="wrap header">
-<a class="brand" href="index.html">
-<img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana">
-</a>
-<nav class="nav">
-      <a href="about.html">About</a>
-<a href="services.html">Services</a>
-<a href="projects.html">Projects</a>
-      <a href="partners.html">Partners</a>
-<a href="news.html">News</a>
-      <a href="contact.html" class="cta">Contact</a>
-      <a href="about.html">About</a
-</nav>
+  <a class="brand" href="index.html">
+    <img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana">
+  </a>
+  <nav class="nav">
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="projects.html">Projects</a>
+    <a href="partners.html">Partners</a>
+    <a href="news.html">News</a>
+    <a href="contact.html" class="cta" aria-current="page">Contact</a>
+  </nav>
 </header>
 
 <main>
-<!-- HERO -->
-<section class="hero">
-<div class="bg">
-<img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="">
-</div>
-<div class="wrap content">
-<h1>Contact</h1>
-<p class="subtitle">Partnerships • Project Enquiries • Media</p>
-</div>
-</section>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="bg">
+      <img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="">
+    </div>
+    <div class="wrap content">
+      <h1>Contact</h1>
+      <p class="subtitle">Partnerships • Project Enquiries • Media</p>
+    </div>
+  </section>
 
-<!-- CONTACT CONTENT -->
-<section class="section wrap">
-<div class="grid-2">
-<!-- LEFT: DETAILS -->
-<div>
-<h2 class="h3" style="margin-top:0">Get in touch</h2>
-<p>We welcome partnership discussions and project enquiries across energy, infrastructure and water.</p>
+  <!-- CONTACT CONTENT -->
+  <section class="section wrap">
+    <div class="grid-2">
+      <!-- LEFT: DETAILS -->
+      <div>
+        <h2 class="h3" style="margin-top:0">Get in touch</h2>
+        <p>We welcome partnership discussions and project enquiries across energy, infrastructure and water.</p>
 
-<ul class="info-list" style="list-style:none; padding:0; margin:24px 0;">
-<li style="margin:8px 0;"><strong>Email:</strong> <a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li>
-<li style="margin:8px 0;"><strong>Phone:</strong> +233 (0)20 811 6401</li>
-</ul>
+        <ul class="info-list" style="list-style:none; padding:0; margin:24px 0;">
+          <li style="margin:8px 0;"><strong>Email:</strong> <a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li>
+          <li style="margin:8px 0;"><strong>Phone:</strong> +233 (0)20 811 6401</li>
+        </ul>
 
-<!-- Optional: add address when ready
-         <p><strong>Office:</strong><br>Accra, Ghana</p>
-         -->
-</div>
+        <!-- Optional: add address when ready
+        <p><strong>Office:</strong><br>Accra, Ghana</p>
+        -->
+      </div>
 
-<!-- RIGHT: FORM -->
-<div>
-<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"
-action="/contact-success.html" class="card" style="padding:16px;">
-<!-- Netlify required hidden name -->
-<input type="hidden" name="form-name" value="contact">
-<!-- Honeypot -->
-<p class="hidden" style="display:none;">
-<label>Don’t fill this out: <input name="bot-field"></label>
-</p>
+      <!-- RIGHT: FORM -->
+      <div>
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+              action="/contact-success.html" class="card form-card">
+          <!-- Netlify required hidden name -->
+          <input type="hidden" name="form-name" value="contact">
+          <!-- Honeypot -->
+          <p class="hidden" style="display:none;">
+            <label>Don’t fill this out: <input name="bot-field"></label>
+          </p>
 
-<div class="form-grid" style="display:grid; gap:12px;">
-<label>
-<span>Name</span><br>
-<input name="name" id="name" required autocomplete="name" />
-</label>
+          <div class="form-grid">
+            <label for="name">
+              <span>Name</span>
+              <input name="name" id="name" required autocomplete="name" />
+            </label>
 
-<label>
-<span>Email</span><br>
-<input type="email" name="email" id="email" required autocomplete="email" />
-</label>
+            <label for="email">
+              <span>Email</span>
+              <input type="email" name="email" id="email" required autocomplete="email" />
+            </label>
 
-<label>
-<span>Phone (optional)</span><br>
-<input type="tel" name="phone" id="phone" autocomplete="tel" />
-</label>
+            <label for="phone">
+              <span>Phone (optional)</span>
+              <input type="tel" name="phone" id="phone" autocomplete="tel" />
+            </label>
 
-<label>
-<span>Message</span><br>
-<textarea name="message" id="message" rows="6" required></textarea>
-</label>
+            <label for="message">
+              <span>Message</span>
+              <textarea name="message" id="message" required></textarea>
+            </label>
 
-<div>
-<button class="btn primary" type="submit">Send Message</button>
-</div>
-</div>
-</form>
-<!-- If you enable reCAPTCHA in Netlify, add: data-netlify-recaptcha="true" and a <div data-netlify-recaptcha="true"></div> above the button -->
-</div>
-</div>
-</section>
+            <!-- If you enable reCAPTCHA in Netlify:
+            <div data-netlify-recaptcha="true"></div>
+            -->
+
+            <div>
+              <button class="btn primary" type="submit">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="footer">
-<div class="wrap foot-grid">
-<div>
-<div style="width:42px;height:42px;border-radius:12px;background:#2E7D32;display:inline-grid;place-items:center;font-weight:800;color:#fff">T</div>
-<p>Tabcon Ghana • Hybrid Hydro–Solar</p>
-</div>
-<div>
-<h5>Links</h5>
-<ul style="list-style:none;padding:0;margin:0">
-<li><a href="about.html">About</a></li>
-<li><a href="projects.html">Projects</a></li>
-<li><a href="partners.html">Partners</a></li>
-</ul>
-</div>
-<div>
-<h5>Contact</h5>
-<ul style="list-style:none;padding:0;margin:0">
-<li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li>
-<li>+233 (0)20 811 6401</li>
-</ul>
-</div>
-</div>
-<div class="copy">© Tabcon Ghana</div>
+  <div class="wrap foot-grid">
+    <div>
+      <div style="width:42px;height:42px;border-radius:12px;background:#2E7D32;display:inline-grid;place-items:center;font-weight:800;color:#fff">T</div>
+      <p>Tabcon Ghana • Hybrid Hydro–Solar</p>
+    </div>
+    <div>
+      <h5>Links</h5>
+      <ul style="list-style:none;padding:0;margin:0">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="partners.html">Partners</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul style="list-style:none;padding:0;margin:0">
+        <li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li>
+        <li>+233 (0)20 811 6401</li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy">© Tabcon Ghana</div>
 </footer>
 
 <script src="assets/js/main.js"></script>
