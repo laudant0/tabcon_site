@@ -57,7 +57,7 @@
     .card img{ aspect-ratio: 16/9; object-fit:cover; }
     .card__body{ padding:18px; display:flex; flex-direction:column; gap:8px; }
     .card__meta{ font-size:12px; color:#6b7280; }
-    .chip{ display:inline-block; font-size:12px; border:1px solid var(--edge); border-radius:999px; padding:4px 8px; background:#fff; }
+    .chip{ display:inline-block; font-size:12px; border:1px solid var(--edge); border-radius:999px; padding:6px 10px; background:#fff; cursor:pointer; }
 
     /* Footer */
     .footer{ padding-block:34px; background:#f8fafb; border-top:1px solid var(--edge); }
@@ -114,36 +114,22 @@
   <main>
     <section class="section">
       <div class="wrap">
-        <div class="grid-3">
-          <!-- MoUs and endorsements -->
-          <article class="card">
-            <img src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="Hydro-solar collaboration">
-            <div class="card__body">
-              <div class="card__meta"><span class="chip">MoU</span> <span>• Partnerships</span></div>
-              <h3 style="margin:6px 0 2px;">Strategic MoUs &amp; Government Endorsements</h3>
-              <p>Recent engagements include a cooperation track with Voith (Germany) and support highlights from leadership visits—advancing bankable execution for Tain and future assets.</p>
-            </div>
-          </article>
+        <!-- Controls -->
+        <div style="display:flex; align-items:center; gap:12px; justify-content:space-between; margin-bottom:16px;">
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="chip" data-filter="All">All</button>
+            <button class="chip" data-filter="MoU">MoU</button>
+            <button class="chip" data-filter="Project">Project</button>
+            <button class="chip" data-filter="Community">Community</button>
+          </div>
+          <input id="newsSearch" type="search" placeholder="Search news…" style="border:1px solid var(--edge); border-radius:999px; padding:8px 12px; min-width:220px;">
+        </div>
 
-          <!-- Tain milestones -->
-          <article class="card">
-            <img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar farm with BESS containers">
-            <div class="card__body">
-              <div class="card__meta"><span class="chip">Project</span> <span>• Tain Hybrid</span></div>
-              <h3 style="margin:6px 0 2px;">Tain Project Milestones</h3>
-              <p>Stage 1: <strong>55&nbsp;MW Solar PV + 6&nbsp;MW BESS</strong> — progressing through development gates. Stage 2 plans a <strong>10&nbsp;MW hydro-solar</strong> expansion for grid stability and local industry support.</p>
-            </div>
-          </article>
+        <!-- News grid -->
+        <div id="newsGrid" class="grid-3"></div>
 
-          <!-- Community engagement -->
-          <article class="card">
-            <img src="assets/img/uploads/ghana-body.jpg" alt="Community meeting in Ghana">
-            <div class="card__body">
-              <div class="card__meta"><span class="chip">Community</span> <span>• Engagement</span></div>
-              <h3 style="margin:6px 0 2px;">Community Engagement in Tain &amp; Wenchi</h3>
-              <p>Ongoing consultations with district stakeholders to align environmental safeguards, local jobs, and community benefits across deployment phases.</p>
-            </div>
-          </article>
+        <div style="text-align:center; margin-top:22px;">
+          <button id="loadMore" class="chip" style="font-weight:700;">Load more</button>
         </div>
       </div>
     </section>
@@ -185,7 +171,44 @@
     </div>
   </div>
 
+  <!-- Inline news data (edit/add items here) -->
+  <script id="newsData" type="application/json">
+  [
+    {
+      "slug": "strategic-mous-voith-cooperation-track",
+      "title": "Strategic MoUs & Government Endorsements",
+      "date": "2025-08-18",
+      "category": "MoU",
+      "tags": ["Partnerships", "Voith", "Tain"],
+      "image": "assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg",
+      "excerpt": "A cooperation track with Voith (Germany) and support highlights from leadership visits—advancing bankable execution for Tain and future assets.",
+      "body": "<p>Tabcon Ghana has initiated a cooperation track with Voith in Germany, focusing on hybrid hydro–solar optimizations, long-lead equipment pathways, and knowledge transfer supporting the Tain Hybrid Project. Leadership engagements reinforced the national priority for reliable, clean baseload.</p>"
+    },
+    {
+      "slug": "tain-hybrid-stage-1-55mw-pv-6mw-bess",
+      "title": "Tain Project Milestones",
+      "date": "2025-07-12",
+      "category": "Project",
+      "tags": ["Tain Hybrid", "BESS"],
+      "image": "assets/img/uploads/IMG_7634-300x200.jpg",
+      "excerpt": "Stage 1: 55 MW Solar PV + 6 MW BESS progressing through development gates. Stage 2 plans 10 MW hydro-solar expansion.",
+      "body": "<p>Stage 1 delivers PV generation with battery storage to stabilize the grid. Stage 2 explores hydro-solar synergy to expand output and support local industry while minimizing curtailment and improving resilience.</p>"
+    },
+    {
+      "slug": "community-engagement-tain-wenchi",
+      "title": "Community Engagement in Tain & Wenchi",
+      "date": "2025-06-03",
+      "category": "Community",
+      "tags": ["Engagement", "E&S"],
+      "image": "assets/img/uploads/ghana-body.jpg",
+      "excerpt": "Ongoing consultations align environmental safeguards, local jobs, and community benefits across deployment phases.",
+      "body": "<p>Our team held stakeholder sessions with district leadership and community representatives to align environmental & social measures, skills programs, and local job pathways prior to early works.</p>"
+    }
+  ]
+  </script>
+
   <script>
+    // Footer year + contact dropdown
     document.getElementById('year').textContent = new Date().getFullYear();
     (function(){
       const btn=document.getElementById('contactToggle');
@@ -194,6 +217,83 @@
       btn.addEventListener('click',()=>{const open=panel.classList.toggle('open');panel.setAttribute('aria-hidden',String(!open));});
       document.addEventListener('click',(e)=>{if(!panel.contains(e.target)&&e.target!==btn){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');}});
       document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');}});
+    })();
+
+    // News renderer
+    (function(){
+      const perPage = 6;
+      let allNews = [];
+      let filtered = [];
+      let page = 1;
+
+      const grid = document.getElementById('newsGrid');
+      const loadBtn = document.getElementById('loadMore');
+      const searchInput = document.getElementById('newsSearch');
+      const chips = Array.from(document.querySelectorAll('.chip[data-filter]'));
+      let activeCategory = 'All';
+
+      const fmtDate = (iso) => {
+        const d = new Date(iso + 'T00:00:00');
+        return d.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'2-digit' });
+      };
+
+      function cardTpl(item){
+        return `
+        <article class="card">
+          <img src="${item.image}" alt="${item.title}">
+          <div class="card__body">
+            <div class="card__meta">
+              <span class="chip">${item.category}</span>
+              ${item.tags && item.tags.length ? ` <span>• ${item.tags[0]}</span>` : ''}
+              <span> • ${fmtDate(item.date)}</span>
+            </div>
+            <h3 style="margin:6px 0 2px;">${item.title}</h3>
+            <p>${item.excerpt}</p>
+            <div>
+              <a href="news-article.html?slug=${encodeURIComponent(item.slug)}" style="font-weight:700;">Read more →</a>
+            </div>
+          </div>
+        </article>`;
+      }
+
+      function render(){
+        const end = page * perPage;
+        const slice = filtered.slice(0, end);
+        grid.innerHTML = slice.map(cardTpl).join('');
+        loadBtn.style.display = slice.length < filtered.length ? 'inline-block' : 'none';
+      }
+
+      function applyFilters(){
+        const q = (searchInput.value || '').toLowerCase().trim();
+        filtered = allNews
+          .filter(n => activeCategory === 'All' ? true : n.category === activeCategory)
+          .filter(n => !q ? true : (n.title + ' ' + n.excerpt + ' ' + (n.tags||[]).join(' ') ).toLowerCase().includes(q));
+        page = 1;
+        render();
+      }
+
+      chips.forEach(ch => {
+        ch.addEventListener('click', () => {
+          chips.forEach(c => c.style.background = '#fff');
+          ch.style.background = 'rgba(2,6,23,.06)';
+          activeCategory = ch.dataset.filter;
+          applyFilters();
+        });
+      });
+
+      loadBtn.addEventListener('click', () => { page++; render(); });
+      searchInput.addEventListener('input', applyFilters);
+
+      // Load inline JSON
+      try{
+        const raw = document.getElementById('newsData').textContent;
+        allNews = JSON.parse(raw).sort((a,b)=> new Date(b.date) - new Date(a.date));
+        applyFilters();
+      }catch(e){
+        console.error('News data parse error', e);
+        grid.innerHTML = `<p style="color:var(--muted)">Couldn’t load news right now.</p>`;
+        loadBtn.style.display='none';
+      }
     })();
   </script>
 </body>
