@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — Tabcon Ghana</title>
-  <meta name="description" content="About Tabcon Development Consultants: established 1983, decades of experience across infrastructure, water, energy, environment, and transport in Africa." />
+  <meta name="description" content="About Tabcon Development Consultants and Tabcon Energy Limited — four decades delivering infrastructure, water, energy, environment, and transport solutions across Africa." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +38,7 @@
     .nav__list a{ padding:10px 12px; border-radius:10px; font-weight:600; color:#263041; }
     .nav__list a:hover{ background:rgba(2,6,23,.06); }
 
-    /* Page hero (static banner) */
+    /* Page hero */
     .page-hero{ position:relative; border-bottom:1px solid var(--edge); }
     .page-hero__media{ height:44vh; min-height:320px; position:relative; overflow:hidden; }
     .page-hero__media img{ width:100%; height:100%; object-fit:cover; }
@@ -51,15 +51,33 @@
     /* Sections */
     .section{ padding-block:56px; }
     .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
+    .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
     .card{ background:#fff; border:1px solid var(--edge); border-radius:16px; box-shadow:var(--shadow-lg); overflow:hidden; }
     .card__body{ padding:20px; }
     .h2{ margin:0 0 10px; font-size: clamp(22px, 2.2vw, 28px); }
     .lead{ color:#253043; }
-
-    /* List blocks */
-    .list{ margin:0; padding-left:18px; }
-    .list li{ margin:6px 0; }
     .pill{ display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:800; background:#fff; border:1px solid var(--edge); color:#263041; }
+
+    /* Leadership */
+    .person{ display:flex; gap:14px; align-items:flex-start; }
+    .avatar{ width:64px; height:64px; border-radius:14px; background:linear-gradient(180deg, var(--brand-2), var(--brand)); display:grid; place-items:center; color:#0b1220; font-weight:900; box-shadow:var(--shadow-sm); overflow:hidden; flex:0 0 auto; }
+    .avatar img{ width:100%; height:100%; object-fit:cover; }
+    .person h3{ margin:0 0 2px; font-size:18px; }
+    .person .meta{ font-size:12px; color:#6b7280; margin-bottom:6px; }
+
+    /* Timeline */
+    .timeline{ position:relative; padding-left:22px; }
+    .timeline::before{ content:""; position:absolute; left:10px; top:0; bottom:0; width:2px; background:var(--edge); }
+    .tl-item{ position:relative; padding:10px 0 10px 14px; }
+    .tl-item::before{ content:""; position:absolute; left:2px; top:18px; width:16px; height:16px; border-radius:999px; border:2px solid var(--brand); background:#fff; }
+    .tl-date{ font-weight:800; font-size:13px; color:#2b3647; }
+    .tl-title{ margin:4px 0; font-weight:700; }
+
+    /* Accordion (FAQ) */
+    details{ border:1px solid var(--edge); border-radius:12px; padding:12px 14px; background:#fff; box-shadow:var(--shadow-sm); }
+    details+details{ margin-top:10px; }
+    summary{ cursor:pointer; font-weight:700; }
+    summary::-webkit-details-marker{ display:none; }
 
     /* Footer */
     .footer{ padding-block:34px; background:#f8fafb; border-top:1px solid var(--edge); }
@@ -69,7 +87,7 @@
     .list--reset{ list-style:none; padding:0; margin:0; }
     .copy{ text-align:center; color:#7a8592; margin-top:22px; font-size:14px; }
 
-    /* Floating Contact (same behavior as index) */
+    /* Floating Contact */
     .contact-fab{ position:fixed; right:18px; bottom:18px; z-index:30; }
     .contact-toggle{ appearance:none; border:1px solid var(--edge); background:linear-gradient(180deg, var(--brand-2), var(--brand)); color:#0e1a11; font-weight:900; border-radius:999px; padding:12px 16px; box-shadow: var(--shadow-lg); cursor:pointer; }
     .contact-panel{ position:absolute; right:0; bottom:58px; width:280px; background:rgba(255,255,255,.98); border:1px solid var(--edge); border-radius:14px; box-shadow: var(--shadow-lg); overflow:hidden; opacity:0; transform:translateY(8px); pointer-events:none; transition: opacity .2s ease, transform .2s ease; backdrop-filter: blur(6px); }
@@ -80,6 +98,7 @@
 
     @media (max-width: 980px){
       .grid-2{ grid-template-columns:1fr; }
+      .grid-3{ grid-template-columns:1fr; }
       .page-hero__media{ height:38vh; min-height:260px; }
       .foot-grid{ grid-template-columns:1fr; }
     }
@@ -114,33 +133,155 @@
   </section>
 
   <main>
+    <!-- Company + SPV -->
     <section class="section">
       <div class="wrap grid-2">
-        <!-- Company -->
         <article class="card">
           <div class="card__body">
             <h2 class="h2">Tabcon Development Consultants</h2>
-            <p class="lead">Established in <strong>1983</strong> in Lesotho (as <em>TAB Consult</em>) and in <strong>1988</strong> in Ghana as <strong>Tabcon Limited</strong>. We bring over four decades of multidisciplinary consulting across Africa.</p>
+            <p class="lead">Established in <strong>1983</strong> in Lesotho (as <em>TAB Consult</em>) and in <strong>1988</strong> in Ghana as <strong>Tabcon Limited</strong>. We bring four decades of multidisciplinary consulting across Africa.</p>
             <h3 style="margin:18px 0 8px">Core Expertise</h3>
-            <ul class="list">
-              <li>Public infrastructure</li>
+            <ul class="list" style="margin:0; padding-left:18px;">
+              <li>Public infrastructure &amp; transport engineering</li>
               <li>Water supply &amp; natural resource management</li>
-              <li>Hydropower and renewable energy projects</li>
-              <li>Environmental planning &amp; EIA</li>
-              <li>Road and transportation engineering</li>
+              <li>Hydropower &amp; renewable energy</li>
+              <li>Environmental planning, E&amp;S safeguards &amp; EIA</li>
+              <li>Project management, procurement &amp; owner’s engineering</li>
             </ul>
           </div>
         </article>
 
-        <!-- SPV -->
         <article class="card">
           <div class="card__body">
             <h2 class="h2">Tabcon Energy Limited <span class="pill">SPV</span></h2>
-            <p>Our dedicated special-purpose vehicle created to implement Tabcon’s energy projects at scale.</p>
-            <p><strong>Current flagship:</strong> <em>Tain Hybrid Hydro-Solar Energy Project</em> — <strong>55&nbsp;MW Solar + 6&nbsp;MW BESS</strong>, followed by a <strong>10&nbsp;MW hydro-solar hybrid</strong> expansion.</p>
+            <p>Our dedicated vehicle to design, finance and deliver utility-scale energy assets.</p>
+            <p><strong>Flagship:</strong> <em>Tain Hybrid Hydro–Solar Energy Project</em> — <strong>55&nbsp;MW Solar PV + 6&nbsp;MW BESS</strong>, progressing toward a <strong>10&nbsp;MW hydro–solar</strong> expansion.</p>
             <p style="margin-top:12px;"><a class="pill" href="projects.html">Explore Projects →</a></p>
           </div>
         </article>
+      </div>
+    </section>
+
+    <!-- Leadership -->
+    <section class="section">
+      <div class="wrap">
+        <h2 class="h2" style="margin-bottom:14px;">Leadership</h2>
+        <div class="grid-3">
+          <!-- Person 1 -->
+          <article class="card">
+            <div class="card__body person">
+              <div class="avatar">
+                <!-- Replace with a real photo if available -->
+                <!-- <img src="assets/img/uploads/staff-abrefa.jpg" alt="Ing. Abrefa Tabiri"> -->
+                AT
+              </div>
+              <div>
+                <h3>Ing. Abrefa Tabiri</h3>
+                <div class="meta">Executive Chairman • Chartered Engineer</div>
+                <p style="margin:0;">Founder and principal engineer with 30+ years delivering large public works, hydropower, and environmental programs across West & Southern Africa.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Person 2 -->
+          <article class="card">
+            <div class="card__body person">
+              <div class="avatar">PT</div>
+              <div>
+                <h3>Dr. Paul Tabiri</h3>
+                <div class="meta">Director • Energy & Environment</div>
+                <p style="margin:0;">Leads energy systems and E&amp;S strategy, guiding hybrid architectures and bankability streams for Tabcon Energy Limited.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Person 3 -->
+          <article class="card">
+            <div class="card__body person">
+              <div class="avatar">LT</div>
+              <div>
+                <h3>Core Technical Leads</h3>
+                <div class="meta">PMO • Owner’s Engineering • E&amp;S</div>
+                <p style="margin:0;">Multidisciplinary team covering design management, procurement, grid integration, and E&amp;S compliance through construction.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section">
+      <div class="wrap grid-2">
+        <article class="card">
+          <div class="card__body">
+            <h2 class="h2">Timeline</h2>
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-date">1983</div>
+                <div class="tl-title">TAB Consult founded (Lesotho)</div>
+                <p style="margin:0;">Engineering & planning practice launched in Southern Africa.</p>
+              </div>
+              <div class="tl-item">
+                <div class="tl-date">1988</div>
+                <div class="tl-title">Tabcon Limited incorporated (Ghana)</div>
+                <p style="margin:0;">West Africa expansion with transport, water and environmental mandates.</p>
+              </div>
+              <div class="tl-item">
+                <div class="tl-date">2010s</div>
+                <div class="tl-title">Regional project delivery</div>
+                <p style="margin:0;">Multi-country infrastructure, EIA and owner’s engineering assignments.</p>
+              </div>
+              <div class="tl-item">
+                <div class="tl-date">2020s</div>
+                <div class="tl-title">Energy SPV & hybrid focus</div>
+                <p style="margin:0;">Formation of Tabcon Energy Limited and launch of Tain Hybrid program.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Values & Credentials -->
+        <article class="card">
+          <div class="card__body">
+            <h2 class="h2">Values & Credentials</h2>
+            <p class="lead" style="margin-bottom:10px;">We combine engineering rigor with sustainability and community value.</p>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+              <span class="pill">Safety First</span>
+              <span class="pill">Integrity</span>
+              <span class="pill">Local Jobs</span>
+              <span class="pill">E&amp;S Compliance</span>
+              <span class="pill">Quality Assurance</span>
+            </div>
+            <ul class="list" style="margin:0; padding-left:18px;">
+              <li><strong>Governance:</strong> Board-led PMO, ISO-aligned QA/QC processes.</li>
+              <li><strong>Compliance:</strong> National permits, EIA/E&amp;S safeguards per project.</li>
+              <li><strong>Capabilities:</strong> Owner’s Engineer, EPCM support, grid studies.</li>
+              <li><strong>Partnerships:</strong> OEM and technical partners for hydro/solar/BESS.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ / Quick Answers -->
+    <section class="section">
+      <div class="wrap">
+        <h2 class="h2" style="margin-bottom:12px;">FAQ</h2>
+        <div class="grid-3">
+          <details open>
+            <summary>Where do you operate?</summary>
+            <p style="margin:8px 0 0;">Ghana-headquartered with historical execution across West and Southern Africa.</p>
+          </details>
+          <details>
+            <summary>What is the Tain Hybrid project?</summary>
+            <p style="margin:8px 0 0;">A phased utility-scale hybrid: 55&nbsp;MW Solar PV with 6&nbsp;MW BESS, targeting a 10&nbsp;MW hydro-solar addition for grid stability.</p>
+          </details>
+          <details>
+            <summary>How can partners engage?</summary>
+            <p style="margin:8px 0 0;">Through EPC, OEM, and financing collaborations. See <a href="projects.html">Projects</a> or <a href="contact.html">Contact</a>.</p>
+          </details>
+        </div>
       </div>
     </section>
   </main>
@@ -182,6 +323,7 @@
   </div>
 
   <script>
+    // Footer year + contact dropdown
     document.getElementById('year').textContent = new Date().getFullYear();
     (function(){
       const btn=document.getElementById('contactToggle');
