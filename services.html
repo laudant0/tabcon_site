@@ -1,12 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Services — Tabcon Ghana</title>
-  <meta name="description" content="Engineering & Infrastructure, Energy Development, Project Development & Management, and Consulting & Advisory services by Tabcon Ghana." />
-
-  <!-- Fonts -->
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Gallery — Tabcon Ghana (Horizontal)</title>
+  <meta name="description" content="Project photos and visuals from Tabcon Ghana and Tabcon Energy Limited."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -15,240 +13,247 @@
     :root{
       --bg:#ffffff; --glass: rgba(255,255,255,.75); --edge: rgba(17,24,39,.08);
       --muted:#5b6673; --text:#0b1220; --brand:#2E7D32; --brand-2:#7fd37f;
-      --wrap: clamp(960px, 86vw, 1200px); --radius:16px;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,.06); --shadow-lg: 0 10px 28px rgba(0,0,0,.10);
+      --wrap: clamp(960px, 86vw, 1200px); --shadow-lg: 0 10px 28px rgba(0,0,0,.10);
+      --gap: 18px;
     }
     *,*::before,*::after{ box-sizing:border-box; }
-    body{ margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; color:var(--text); background:var(--bg); line-height:1.6; }
+    body{ margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; color:var(--text); background:var(--bg); line-height:1.6;}
     a{ color:inherit; text-decoration:none; }
     img{ max-width:100%; display:block; }
     .wrap{ width:var(--wrap); max-width:100%; margin-inline:auto; padding-inline:20px; }
 
-    /* Header (glass) */
-    .header{ position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.2) blur(12px); background:var(--glass); border-bottom:1px solid var(--edge); }
-    .header__inner{ display:flex; align-items:center; justify-content:space-between; height:72px; }
-    .logo{ width:120px; height:auto; }
-    .nav__list{ list-style:none; display:flex; gap:18px; margin:0; padding:0; }
-    .nav__list a{ padding:10px 12px; border-radius:10px; font-weight:600; color:#263041; }
+    /* Header */
+    .header{ position:sticky; top:0; z-index:30; backdrop-filter:saturate(1.2) blur(12px); background:var(--glass); border-bottom:1px solid var(--edge); }
+    .header__inner{ display:flex; align-items:center; justify-content:space-between; height:72px; gap:16px; }
+    .logo{ height:48px; width:auto; object-fit:contain; }
+    .nav__list{ list-style:none; display:flex; gap:18px; margin:0; padding:0; align-items:center; }
+    .nav__list a{ padding:10px 12px; border-radius:10px; font-weight:600; color:#263041; white-space:nowrap; }
     .nav__list a:hover{ background:rgba(2,6,23,.06); }
 
-    /* Hero (with overlay, smaller type to match your latest index update) */
-    .hero{ position:relative; overflow:hidden; border-bottom:1px solid var(--edge); }
-    .slides{ display:flex; width:100%; height:46vh; min-height:320px; }
-    .slide{ min-width:100%; height:46vh; position:relative; }
-    .slide img{ width:100%; height:100%; object-fit:cover; }
-    .slide::after{ content:""; position:absolute; inset:0; background: linear-gradient(120deg, rgba(0,0,0,.55), rgba(0,0,0,.35)); pointer-events:none; }
-    .hero__content{ position:absolute; inset:0; display:flex; align-items:center; }
-    .hero__content-inner{
-      max-width:var(--wrap); margin:auto; padding:20px 24px; color:#fff;
-      background: rgba(0,0,0,.45); border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.3);
-      text-shadow:0 2px 10px rgba(0,0,0,.7);
+    /* Hero */
+    .page-hero{ position:relative; border-bottom:1px solid var(--edge); }
+    .page-hero__media{ height:28vh; min-height:180px; position:relative; overflow:hidden; }
+    .page-hero__media img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .page-hero__media::after{ content:""; position:absolute; inset:0; background:linear-gradient(120deg, rgba(15,23,42,.25), rgba(2,6,23,.08)); pointer-events:none; }
+    .page-hero__content{ position:absolute; inset:0; display:flex; align-items:center; color:#fff; }
+    .page-hero__inner{ max-width:var(--wrap); margin:auto; padding:18px; text-shadow:0 2px 12px rgba(0,0,0,.3); }
+    .page-hero h1{ margin:0 0 6px; font-size: clamp(28px, 4vw, 44px); }
+
+    .section{ padding-block:36px; }
+
+    /* Filters */
+    .filters-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; }
+    .chips{ display:flex; gap:8px; flex-wrap:wrap; }
+    .chip{ display:inline-block; font-size:13px; border:1px solid var(--edge); border-radius:999px; padding:8px 12px; background:#fff; cursor:pointer; }
+    .chip.active{ background:rgba(2,6,23,.06); }
+
+    /* Horizontal scroller */
+    .h-wrap{ position:relative; overflow:hidden; padding-block:12px; }
+    .hscroll{
+      display:flex;
+      gap:var(--gap);
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      scroll-snap-type:x mandatory;
+      padding:12px 8px;
+      scrollbar-width:thin;
     }
-    .hero__content-inner h1{ margin:0 0 6px; font-size: clamp(26px, 3.6vw, 40px); font-weight:900; }
-    .hero__content-inner p{ margin:0; color:#eef3f9; }
-    .row{ display:flex; gap:12px; margin-top:14px; flex-wrap:wrap; }
-    .btn{ padding:12px 16px; border-radius:12px; font-weight:800; border:1px solid transparent; box-shadow: var(--shadow-sm); }
-    .btn--primary{ background:linear-gradient(180deg, var(--brand-2), var(--brand)); color:#0e1a11; }
-    .btn--ghost{ background:#fff; color:#0b1220; border-color:var(--edge); }
+    .hscroll:focus{ outline: none; }
 
-    /* Sections */
-    .section{ padding-block:56px; }
-    .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
-    .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-    .grid-4{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
-
-    /* Cards */
-    .card{ background:#fff; border:1px solid var(--edge); border-radius:16px; box-shadow:var(--shadow-lg); overflow:hidden; display:flex; flex-direction:column; }
-    .card__body{ padding:18px; }
-    .card h3{ margin:0 0 8px; }
-    .muted{ color:var(--muted); }
-
-    /* Bulleted lists */
-    .list{ margin:10px 0 0; padding-left:18px; }
-    .list li{ margin:6px 0; }
-
-    /* Service banner CTA */
-    .cta-band{
-      background:
-        radial-gradient(800px 300px at 85% -20%, rgba(46,125,50,.08), transparent 50%),
-        #f8fafb;
+    .tile{
+      --w: clamp(260px, 46vw, 520px);       /* each card width */
+      min-width: var(--w);
+      flex: 0 0 var(--w);
+      scroll-snap-align:center;
+      border-radius:14px;
+      overflow:hidden;
       border:1px solid var(--edge);
-      border-radius:16px;
+      background:#fff;
       box-shadow:var(--shadow-lg);
-      padding:22px;
-      display:flex; align-items:center; justify-content:space-between; gap:18px;
+      display:flex;
+      flex-direction:column;
     }
+
+    .tile .thumb{ width:100%; aspect-ratio: 16/10; overflow:hidden; background:#f2f4f6; }
+    .tile .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    .tile .cap{ padding:12px; font-size:15px; color:#334155; display:flex; justify-content:space-between; gap:8px; align-items:center; }
+    .cap small{ color:#6b7280; font-size:13px; }
+
+    /* nav arrows for scroller */
+    .hnav{
+      position:absolute;
+      inset:0;
+      pointer-events:none; /* let arrows selectively be interactive */
+    }
+    .hbtn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(255,255,255,.94);
+      border:1px solid var(--edge);
+      border-radius:999px;
+      width:44px; height:44px;
+      display:grid; place-items:center;
+      cursor:pointer; pointer-events:auto;
+      box-shadow:0 6px 18px rgba(2,6,23,.08);
+    }
+    .hbtn.left{ left:8px; }
+    .hbtn.right{ right:8px; }
+
+    /* Lightbox (same as before but ensure fits center) */
+    .lightbox{ position:fixed; inset:0; background:rgba(0,0,0,.82); display:none; align-items:center; justify-content:center; z-index:60; padding:20px; }
+    .lightbox.open{ display:flex; }
+    .lightbox-inner{ position:relative; max-width:min(1200px, 92vw); max-height:90vh; width:100%; }
+    .lightbox-inner img{ width:100%; height:auto; border-radius:12px; display:block; max-height:78vh; object-fit:contain; }
+    .lb-cap{ color:#e5e7eb; margin-top:10px; text-align:center; }
+    .lb-close, .lb-prev, .lb-next{
+      position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.94);
+      border:none; border-radius:999px; width:42px; height:42px; cursor:pointer; font-weight:900; display:grid; place-items:center;
+    }
+    .lb-close{ top:-18px; right:-18px; transform:none; }
+    .lb-prev{ left:-48px; }
+    .lb-next{ right:-48px; }
 
     /* Footer */
-    .footer{ padding-block:34px; background:#f8fafb; border-top:1px solid var(--edge); }
+    .footer{ padding-block:34px; background:#f8fafb; border-top:1px solid var(--edge); margin-top:30px; }
     .foot-grid{ display:grid; grid-template-columns: 1.2fr auto auto; gap:28px; align-items:start; }
-    .foot-badge{ width:44px;height:44px;border-radius:12px; background:linear-gradient(180deg, var(--brand-2), var(--brand)); display:grid; place-items:center; color:#0b1220; font-weight:900; box-shadow:var(--shadow-lg); }
-    .foot-title{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+    .foot-badge{ width:44px;height:44px;border-radius:12px; background:linear-gradient(180deg, var(--brand-2), var(--brand)); display:grid; place-items:center; color:#0b1220; font-weight:900; box-shadow: var(--shadow-lg); }
+    .foot-title{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:#5b6673; margin-bottom:8px; }
     .list--reset{ list-style:none; padding:0; margin:0; }
     .copy{ text-align:center; color:#7a8592; margin-top:22px; font-size:14px; }
 
-    /* Mobile */
-    @media (max-width: 980px){
-      .wrap{ padding-inline:16px; }
-      .slides,.slide{ height:40vh; min-height:280px; }
-      .grid-4{ grid-template-columns:1fr 1fr; }
-      .grid-3{ grid-template-columns:1fr; }
-      .grid-2{ grid-template-columns:1fr; gap:18px; }
-      .section{ padding-block:38px; }
-      .foot-grid{ grid-template-columns:1fr; gap:16px; }
-      .cta-band{ flex-direction:column; align-items:flex-start; }
-    }
+    @media (max-width: 900px){ :root{ --gap:12px } .tile{ --w: clamp(220px, 70vw, 420px); } .hbtn{ width:40px;height:40px; } .lb-prev{ left:6px; } .lb-next{ right:6px; } }
+    @media (max-width: 520px){ .header__inner{ height:auto; padding-block:10px; } .logo{ height:40px; } .chips{ gap:6px; } .filters-row{ flex-direction:column; align-items:flex-start; } .hbtn.left{ left:4px } .hbtn.right{ right:4px } }
   </style>
 </head>
 <body>
-  <!-- Header (nav order: Services • Projects • News • About) -->
   <header class="header">
     <div class="wrap header__inner">
-      <a href="index.html"><img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana logo"></a>
+      <a href="index.html" aria-label="Tabcon Ghana home">
+        <img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana">
+      </a>
       <nav aria-label="Primary">
         <ul class="nav__list">
+          <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="news.html">News</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html" aria-current="page">Gallery</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="slides">
-      <div class="slide"><img src="assets/img/uploads/SOLARINST.jpg" alt="Services hero"></div>
+  <section class="page-hero">
+    <div class="page-hero__media">
+      <img src="assets/img/uploads/viii.jpg" alt="Project visuals">
     </div>
-    <div class="hero__content">
-      <div class="hero__content-inner">
-        <h1>What We Do</h1>
-        <p>Engineering, energy, development & advisory — delivered with governance, HSE, and stakeholder alignment.</p>
-       
+    <div class="page-hero__content">
+      <div class="page-hero__inner">
+        <h1>Gallery</h1>
+        <p style="margin:0; max-width:65ch; color:#e8eef5;">Selected photos from fieldwork, stakeholder engagements, and project development milestones.</p>
       </div>
     </div>
   </section>
 
-  <!-- Four services -->
-  <section class="section">
-    <div class="wrap grid-4">
-      <!-- Engineering & Infrastructure -->
-      <article class="card">
-        <img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Engineering & Infrastructure">
-        <div class="card__body">
-          <h3>Engineering &amp; Infrastructure</h3>
-          <p class="muted">Roads, dams, hydroelectric systems, water supply, environmental planning.</p>
-          <ul class="list">
-            <li>Highway &amp; bridge design, supervision, and asset safety audits</li>
-            <li>Dams &amp; hydraulic structures, flood &amp; drainage management</li>
-            <li>Urban water intakes, treatment, and distribution</li>
-            <li>Environmental planning, permitting &amp; compliance</li>
-          </ul>
-        </div>
-      </article>
+  <main>
+    <section class="section">
+      <div class="wrap">
+        <div class="filters-row">
+          <div class="chips" id="chips">
+            <button class="chip active" data-filter="All">All</button>
+            <button class="chip" data-filter="Solar">Solar</button>
+            <button class="chip" data-filter="Hydro">Hydro</button>
+            <button class="chip" data-filter="Community">Community</button>
+            <button class="chip" data-filter="Site">Site</button>
+          </div>
 
-      <!-- Energy Development -->
-      <article class="card">
-        <img src="assets/img/uploads/PPP.jpg" alt="Energy Development">
-        <div class="card__body">
-          <h3>Energy Development</h3>
-          <p class="muted">Renewable energy projects and hybridization.</p>
-          <ul class="list">
-            <li>Hybrid hydro-solar architectures &amp; micro-siting</li>
-            <li>BESS sizing, EMS strategy &amp; grid interconnection</li>
-            <li>Yield assessments, resource modelling &amp; bankability</li>
-            <li>Owner’s engineer &amp; technical due diligence</li>
-          </ul>
+          <!-- small helper — shows index / count -->
+          <div id="counter" style="color:var(--muted); font-size:14px;"></div>
         </div>
-      </article>
 
-      <!-- Project Dev & Management -->
-      <article class="card">
-        <img src="assets/img/uploads/PANEL.JPG" alt="Project Development & Management">
-        <div class="card__body">
-          <h3>Project Development &amp; Management</h3>
-          <p class="muted">Feasibility, design, construction supervision, procurement &amp; finance.</p>
-          <ul class="list">
-            <li>Concept-to-FID development frameworks</li>
-            <li>EPC, EPCM &amp; contract administration</li>
-            <li>Cost control, risk registers &amp; schedule governance</li>
-            <li>Financial structuring &amp; stakeholder engagement</li>
-          </ul>
-        </div>
-      </article>
+        <div class="h-wrap" aria-live="polite">
+          <div class="hscroll" id="hscroll" tabindex="0" aria-label="Horizontal gallery">
+            <!-- Tiles (use your images) -->
+            <figure class="tile" data-cat="Solar">
+              <div class="thumb"><img loading="lazy" src="assets/img/uploads/IMG_7634-300x200.jpg" alt="Solar array with BESS"></div>
+              <figcaption class="cap">Solar Array <small>Solar</small></figcaption>
+            </figure>
 
-      <!-- Consulting & Advisory -->
-      <article class="card">
-        <img src="assets/img/uploads/ghana-body.jpg" alt="Consulting & Advisory">
-        <div class="card__body">
-          <h3>Consulting &amp; Advisory</h3>
-          <p class="muted">Transaction support and policy advisory for energy and infrastructure.</p>
-          <ul class="list">
-            <li>Transaction advisory &amp; PPP structuring</li>
-            <li>EIA/ESIA, resettlement &amp; social performance</li>
-            <li>Regulatory, tariff &amp; grid-code advisory</li>
-            <li>Independent engineering &amp; expert reviews</li>
-          </ul>
-        </div>
-      </article>
-    </div>
-  </section>
+            <figure class="tile" data-cat="Community">
+              <div class="thumb"><img loading="lazy" src="assets/img/uploads/ghana-body.jpg" alt="Community engagement"></div>
+              <figcaption class="cap">Community Session <small>Community</small></figcaption>
+            </figure>
 
-  <!-- Process + Sectors -->
-  <section class="section">
-    <div class="wrap grid-2">
-      <article class="card">
-        <div class="card__body">
-          <h3>Our Delivery Process</h3>
-          <ul class="list">
-            <li><strong>01 — Discover:</strong> Baseline, data, constraints, and KPIs</li>
-            <li><strong>02 — Design:</strong> Options, optimization, value engineering</li>
-            <li><strong>03 — Develop:</strong> Feasibility, approvals, financing support</li>
-            <li><strong>04 — Deliver:</strong> Construction supervision &amp; commissioning</li>
-            <li><strong>05 — De-risk:</strong> O&amp;M models, training &amp; performance tracking</li>
-          </ul>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__body">
-          <h3>Focus Sectors</h3>
-          <ul class="list">
-            <li>Utility-scale renewables &amp; storage</li>
-            <li>Highways, corridors &amp; urban mobility</li>
-            <li>Water &amp; sanitation for rural &amp; peri-urban</li>
-            <li>Environmental planning &amp; natural resources</li>
-          </ul>
-        </div>
-      </article>
-    </div>
-  </section>
+            <figure class="tile" data-cat="Hydro">
+              <div class="thumb"><img loading="lazy" src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="Hydro collaboration"></div>
+              <figcaption class="cap">Hydro Collab <small>Hydro</small></figcaption>
+            </figure>
 
-  <!-- CTA -->
-  <section class="section">
-    <div class="wrap">
-      <div class="cta-band">
-        <div>
-          <h3 style="margin:0 0 6px;">Need a bankable path from concept to commissioning?</h3>
-          <p class="muted" style="margin:0;">See how our teams deliver across development, engineering, and advisory.</p>
-        </div>
-        <div class="row" style="margin:0;">
-          <a class="btn btn--primary" href="projects.html">Explore Projects</a>
-          <a class="btn btn--ghost" href="about.html">About Tabcon</a>
+            <figure class="tile" data-cat="Site">
+              <div class="thumb"><img loading="lazy" src="assets/img/uploads/plant.jpg" alt="Site overview"></div>
+              <figcaption class="cap">Site Overview <small>Site</small></figcaption>
+            </figure>
+
+            <figure class="tile" data-cat="Site">
+              <div class="thumb"><img loading="lazy" src="assets/img/uploads/R.jpg" alt="Site R"></div>
+              <figcaption class="cap">Site Overview <small>Site</small></figcaption>
+            </figure>
+
+            <figure class="tile" data-cat="Site">
+              <div class="thumb"><img loading="lazy" src="assets/img/uploads/SOLARINST.jpg" alt="Solar installation"></div>
+              <figcaption class="cap">Installation <small>Site</small></figcaption>
+            </figure>
+
+            <figure class="tile" data-cat="Site">
+              <div class="thumb"><img loading="lazy" src="assets/img/uploads/WORKERS.jpg" alt="Workers on site"></div>
+              <figcaption class="cap">Workers <small>Site</small></figcaption>
+            </figure>
+
+            <figure class="tile" data-cat="Site">
+              <div class="thumb"><img loading="lazy" src="assets/img/uploads/ROADCONS.jpg" alt="Road construction"></div>
+              <figcaption class="cap">Road Construction <small>Site</small></figcaption>
+            </figure>
+
+            <figure class="tile" data-cat="Site">
+              <div class="thumb"><img loading="lazy" src="assets/img/uploads/AREA.jpg" alt="Area overview"></div>
+              <figcaption class="cap">Area Overview <small>Site</small></figcaption>
+            </figure>
+
+            <figure class="tile" data-cat="Site">
+              <div class="thumb"><img loading="lazy" src="assets/img/uploads/TOPFLOOR.jpg" alt="Top floor view"></div>
+              <figcaption class="cap">Top Floor <small>Site</small></figcaption>
+            </figure>
+          </div>
+
+          <!-- horizontal nav -->
+          <div class="hnav" aria-hidden="true">
+            <button class="hbtn left" id="hLeft" aria-label="Scroll left">‹</button>
+            <button class="hbtn right" id="hRight" aria-label="Scroll right">›</button>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Footer -->
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" tabindex="-1">
+    <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lb-close" id="lbClose" aria-label="Close">×</button>
+      <button class="lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+      <img id="lbImg" src="" alt="">
+      <button class="lb-next" id="lbNext" aria-label="Next">›</button>
+      <div class="lb-cap" id="lbCap"></div>
+    </div>
+  </div>
+
   <footer class="footer">
     <div class="wrap foot-grid">
       <div style="display:flex; align-items:center; gap:12px;">
         <div class="foot-badge">T</div>
-        <div>
-          <strong>Tabcon Ghana</strong><br>
-          <span style="color:var(--muted)">Hybrid Hydro–Solar</span>
-        </div>
+        <div><strong>Tabcon Ghana</strong><br><span style="color:#5b6673">Hybrid Hydro–Solar</span></div>
       </div>
       <nav aria-label="Footer links">
         <div class="foot-title">Links</div>
@@ -256,7 +261,6 @@
           <li><a href="services.html">Services</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="news.html">News</a></li>
-          <li><a href="about.html">About</a></li>
         </ul>
       </nav>
       <section>
@@ -270,38 +274,135 @@
     <div class="copy">© <span id="year"></span> Tabcon Ghana</div>
   </footer>
 
-  <!-- Floating Contact -->
-  <div class="contact-fab">
-    <button class="contact-toggle" id="contactToggle" type="button">Contact</button>
-    <div class="contact-panel" id="contactPanel" aria-hidden="true">
-      <header>Contact Tabcon</header>
-      <div class="item"><a href="tel:+233208116401">+233 (0)20 811 6401</a></div>
-      <div class="item"><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></div>
-      <div class="item"><a href="contact.html">Open contact page →</a></div>
-    </div>
-  </div>
-
   <script>
-    // year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // contact dropdown
+    // Elements
+    const chips = [...document.querySelectorAll('.chip')];
+    const tiles = [...document.querySelectorAll('.tile')];
+    const hscroll = document.getElementById('hscroll');
+    const counter = document.getElementById('counter');
+
+    // helper: update visibleTiles and counter
+    function getVisibleTiles(){
+      return tiles.filter(t => t.style.display !== 'none');
+    }
+    function updateCounter(){
+      const vis = getVisibleTiles();
+      counter.textContent = vis.length ? `Showing ${vis.length} item${vis.length>1?'s':''}` : 'No items';
+    }
+    updateCounter();
+
+    // Filters - hide/show tiles and reset scroll to start of visible
+    chips.forEach(ch => ch.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      ch.classList.add('active');
+      const f = ch.dataset.filter;
+      tiles.forEach(t => {
+        t.style.display = (f === 'All' || t.dataset.cat === f) ? '' : 'none';
+      });
+      // small delay then scroll first visible into view
+      setTimeout(()=>{
+        const vis = getVisibleTiles();
+        if(vis.length) vis[0].scrollIntoView({behavior:'smooth', inline:'center'});
+        updateCounter();
+      }, 50);
+    }));
+
+    // Horizontal nav buttons
+    const btnLeft = document.getElementById('hLeft');
+    const btnRight = document.getElementById('hRight');
+    function scrollByAmount(amount){
+      hscroll.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+    btnLeft.addEventListener('click', ()=> scrollByAmount(-Math.round(hscroll.clientWidth * 0.75)));
+    btnRight.addEventListener('click', ()=> scrollByAmount(Math.round(hscroll.clientWidth * 0.75)));
+
+    // Make arrow keys navigate scroller when focused
+    hscroll.addEventListener('keydown', e=>{
+      if(e.key === 'ArrowRight') { e.preventDefault(); scrollByAmount( Math.round(hscroll.clientWidth * 0.5)); }
+      if(e.key === 'ArrowLeft')  { e.preventDefault(); scrollByAmount(-Math.round(hscroll.clientWidth * 0.5)); }
+    });
+
+    // Lightbox logic: use visibleTiles at time of opening and map clicked figure to visible list
     (function(){
-      const btn = document.getElementById('contactToggle');
-      const panel = document.getElementById('contactPanel');
-      if(!btn || !panel) return;
-      btn.addEventListener('click', ()=>{
-        const open = panel.classList.toggle('open');
-        panel.setAttribute('aria-hidden', String(!open));
-      });
-      document.addEventListener('click', (e)=>{
-        if(!panel.contains(e.target) && e.target !== btn){
-          panel.classList.remove('open'); panel.setAttribute('aria-hidden','true');
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbCap = document.getElementById('lbCap');
+      const lbClose = document.getElementById('lbClose');
+      const lbPrev = document.getElementById('lbPrev');
+      const lbNext = document.getElementById('lbNext');
+
+      let visible = getVisibleTiles();
+      let idx = 0;
+
+      function refreshVisible(){ visible = getVisibleTiles(); }
+
+      function openByIdx(){
+        if(!visible.length) return;
+        const fig = visible[idx];
+        const img = fig.querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt || '';
+        lbCap.textContent = fig.querySelector('.cap')?.innerText || '';
+        lb.classList.add('open');
+        lb.setAttribute('aria-hidden','false');
+        lb.focus();
+      }
+
+      function openFromFigure(fig){
+        refreshVisible();
+        idx = visible.indexOf(fig);
+        if(idx === -1) {
+          // if clicked fig is filtered out for some reason, default to first visible
+          idx = 0;
         }
+        openByIdx();
+      }
+
+      // attach click handlers
+      tiles.forEach(t => t.addEventListener('click', (e) => {
+        // only open when clicking the tile itself (not nav buttons)
+        openFromFigure(t);
+      }));
+
+      function close(){
+        lb.classList.remove('open');
+        lb.setAttribute('aria-hidden','true');
+        lbImg.src = '';
+      }
+      function prev(){
+        refreshVisible();
+        if(!visible.length) return;
+        idx = (idx - 1 + visible.length) % visible.length;
+        openByIdx();
+      }
+      function next(){
+        refreshVisible();
+        if(!visible.length) return;
+        idx = (idx + 1) % visible.length;
+        openByIdx();
+      }
+
+      lbClose.addEventListener('click', close);
+      lbPrev.addEventListener('click', prev);
+      lbNext.addEventListener('click', next);
+
+      document.addEventListener('keydown', e=>{
+        if(!lb.classList.contains('open')) return;
+        if(e.key==='Escape') close();
+        if(e.key==='ArrowLeft') prev();
+        if(e.key==='ArrowRight') next();
       });
-      document.addEventListener('keydown', (e)=>{
-        if(e.key === 'Escape'){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }
-      });
+
+      // click outside image to close
+      lb.addEventListener('click', e=> { if(e.target === lb) close(); });
+
+      // keep counter updated when filter changes or window resizes
+      window.addEventListener('resize', updateCounter);
+      // also update when filters change - already called in filter click, but safe to observe DOM mutations for display style changes
+      const obs = new MutationObserver(updateCounter);
+      tiles.forEach(t => obs.observe(t, { attributes: true, attributeFilter: ['style'] }));
     })();
   </script>
 </body>
