@@ -5,4 +5,10 @@
   let x = 0;
   function tick(){ x -= 0.6; row.style.transform = `translateX(${x}px)`; if (Math.abs(x) > row.scrollWidth/2) x = 0; requestAnimationFrame(tick); }
   requestAnimationFrame(tick);
+  const hamburger = document.getElementById('hamburger');
+const nav = document.querySelector('.nav');
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('show');
+});
+
 })();
