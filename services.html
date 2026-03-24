@@ -1,468 +1,305 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Services — Tabcon Ghana</title>
-  <meta name="description" content="Engineering & Infrastructure, Energy Development, Project Development & Management, and Consulting & Advisory services by Tabcon Ghana." />
+<!DOCTYPE html>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg:#ffffff; --glass: rgba(255,255,255,.75); --edge: rgba(17,24,39,.08);
-      --muted:#5b6673; --text:#0b1220; --brand:#2E7D32; --brand-2:#7fd37f;
-      --wrap: clamp(960px, 86vw, 1200px); --radius:16px;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,.06); --shadow-lg: 0 10px 28px rgba(0,0,0,.10);
-      --gap:18px;
-    }
-    *,*::before,*::after{ box-sizing:border-box; }
-    body{ margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; color:var(--text); background:var(--bg); line-height:1.6; -webkit-font-smoothing:antialiased; }
-    a{ color:inherit; text-decoration:none; }
-    img{ max-width:100%; display:block; }
-    .wrap{ width:var(--wrap); max-width:100%; margin-inline:auto; padding-inline:20px; }
-
-    /* Header */
-    .header{ position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.2) blur(12px); background:var(--glass); border-bottom:1px solid var(--edge); }
-    .header__inner{ display:flex; align-items:center; justify-content:space-between; height:72px; gap:16px; }
-    .logo{ height:48px; width:auto; object-fit:contain; }
-    .nav__list{ list-style:none; display:flex; gap:18px; margin:0; padding:0; align-items:center; }
-    .nav__list a{ padding:10px 12px; border-radius:10px; font-weight:600; color:#263041; white-space:nowrap; }
-    .nav__list a:hover{ background:rgba(2,6,23,.06); }
-
-    /* Hero */
-    .hero{ position:relative; overflow:hidden; border-bottom:1px solid var(--edge); }
-    .slides{ display:flex; width:100%; height:46vh; min-height:320px; }
-    .slide{ min-width:100%; height:46vh; position:relative; }
-    .slide img{ width:100%; height:100%; object-fit:cover; display:block; }
-    .slide::after{ content:""; position:absolute; inset:0; background: linear-gradient(120deg, rgba(0,0,0,.55), rgba(0,0,0,.35)); pointer-events:none; }
-    .hero__content{ position:absolute; inset:0; display:flex; align-items:center; }
-    .hero__content-inner{
-      max-width:var(--wrap); margin:auto; padding:20px 24px; color:#fff;
-      background: rgba(0,0,0,.45); border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.3);
-      text-shadow:0 2px 10px rgba(0,0,0,.7);
-    }
-    .hero__content-inner h1{ margin:0 0 6px; font-size: clamp(26px, 3.6vw, 40px); font-weight:900; }
-    .hero__content-inner p{ margin:0; color:#eef3f9; }
-    .row{ display:flex; gap:12px; margin-top:14px; flex-wrap:wrap; }
-    .btn{ padding:12px 16px; border-radius:12px; font-weight:800; border:1px solid transparent; box-shadow: var(--shadow-sm); }
-    .btn--primary{ background:linear-gradient(180deg, var(--brand-2), var(--brand)); color:#0e1a11; }
-    .btn--ghost{ background:#fff; color:#0b1220; border-color:var(--edge); }
-
-    /* Sections */
-    .section{ padding-block:56px; }
-    .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
-    .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-    .grid-4{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
-
-    /* Card baseline */
-    .card{ background:#fff; border:1px solid var(--edge); border-radius:16px; box-shadow:var(--shadow-lg); overflow:hidden; display:flex; flex-direction:column; }
-    .card__body{ padding:18px; }
-    .card h3{ margin:0 0 8px; }
-    .muted{ color:var(--muted); }
-
-    /* Bulleted lists */
-    .list{ margin:10px 0 0; padding-left:18px; }
-    .list li{ margin:6px 0; }
-
-    /* CTA */
-    .cta-band{
-      background:
-        radial-gradient(800px 300px at 85% -20%, rgba(46,125,50,.08), transparent 50%),
-        #f8fafb;
-      border:1px solid var(--edge);
-      border-radius:16px;
-      box-shadow:var(--shadow-lg);
-      padding:22px;
-      display:flex; align-items:center; justify-content:space-between; gap:18px;
-    }
-
-    /* Footer */
-    .footer{ padding-block:34px; background:#f8fafb; border-top:1px solid var(--edge); }
-    .foot-grid{ display:grid; grid-template-columns: 1.2fr auto auto; gap:28px; align-items:start; }
-    .foot-badge{ width:44px;height:44px;border-radius:12px; background:linear-gradient(180deg, var(--brand-2), var(--brand)); display:grid; place-items:center; color:#0b1220; font-weight:900; box-shadow:var(--shadow-lg); }
-    .foot-title{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
-    .list--reset{ list-style:none; padding:0; margin:0; }
-    .copy{ text-align:center; color:#7a8592; margin-top:22px; font-size:14px; }
-
-    /* ---------- HORIZONTAL CAROUSEL: replace grid-4 view ---------- */
-    .hwrap { position:relative; overflow:hidden; padding-block:8px; }
-    .hscroll {
-      display:flex;
-      gap:var(--gap);
-      overflow-x:auto;
-      -webkit-overflow-scrolling:touch;
-      scroll-snap-type:x mandatory;
-      padding:18px;
-      align-items:stretch;
-    }
-    .service-card {
-      --card-w: clamp(300px, 40vw, 420px);
-      min-width: var(--card-w);
-      flex: 0 0 var(--card-w);
-      scroll-snap-align:center;
-      border-radius:16px;
-      overflow:hidden;
-      border:1px solid var(--edge);
-      display:flex;
-      flex-direction:column;
-      background:#fff;
-      box-shadow:var(--shadow-lg);
-    }
-    .service-thumb{ width:100%; aspect-ratio: 16/10; background:#f2f4f6; overflow:hidden; }
-    .service-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-    .service-body{ padding:16px; display:flex; flex-direction:column; gap:10px; flex:1; }
-    .service-body h3{ margin:0; font-size:18px; }
-    .service-body .muted{ margin:0; font-size:14px; }
-    .service-body ul{ margin:6px 0 0; padding-left:16px; font-size:14px; }
-    .hnav { position:absolute; inset:0; pointer-events:none; }
-    .hbtn{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.96); border:1px solid var(--edge); border-radius:999px; width:44px;height:44px; display:grid; place-items:center; cursor:pointer; pointer-events:auto; box-shadow:0 8px 20px rgba(2,6,23,.06); }
-    .hbtn.left{ left:10px; }
-    .hbtn.right{ right:10px; }
-    .hcount { position:absolute; left:50%; transform:translateX(-50%); bottom:6px; background:rgba(255,255,255,.9); padding:6px 10px; border-radius:999px; border:1px solid var(--edge); font-size:13px; box-shadow:var(--shadow-sm); pointer-events:none; }
-
-    /* Contact FAB */
-    .contact-fab{ position:fixed; right:18px; bottom:18px; z-index:70; font-family:inherit; }
-    .contact-toggle{ background:linear-gradient(180deg,var(--brand-2),var(--brand)); border:none; color:#06220f; padding:12px 14px; border-radius:999px; font-weight:800; box-shadow:0 8px 24px rgba(2,6,23,.12); cursor:pointer; }
-    .contact-panel{ display:none; background:#fff; border:1px solid var(--edge); border-radius:12px; box-shadow:var(--shadow-lg); padding:12px; margin-top:10px; min-width:200px; }
-    .contact-panel.open{ display:block; }
-    .contact-panel header{ font-weight:800; margin-bottom:8px; }
-    .contact-panel .item{ margin:6px 0; }
-
-    /* responsive */
-    @media (max-width: 980px){
-      .wrap{ padding-inline:16px; }
-      .slides,.slide{ height:40vh; min-height:240px; }
-      .grid-3{ grid-template-columns:1fr; }
-      .grid-2{ grid-template-columns:1fr; gap:18px; }
-      .section{ padding-block:40px; }
-      .hbtn.left{ left:6px; } .hbtn.right{ right:6px; }
-    }
-    @media (max-width: 520px){
-      .header__inner{ height:auto; padding-block:10px; }
-      .logo{ height:40px; }
-      .service-card{ min-width: 86vw; } /* mobile: cards nearly full width */
-      .hcount{ display:none; }
-      .contact-fab{ right:12px; bottom:12px; }
-    }
-  </style>
-</head>
-<body>
-  <!-- Header (nav order: Services • Projects • News • About) -->
-  <header class="header">
-    <div class="wrap header__inner">
-      <a href="index.html"><img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana logo"></a>
-      <nav aria-label="Primary">
-        <ul class="nav__list">
-          <li><a href="services.html" aria-current="page">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="news.html">News</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="slides">
-      <div class="slide"><img src="assets/img/uploads/SOLARINST.jpg" alt="Services hero"></div>
-    </div>
-    <div class="hero__content">
-      <div class="hero__content-inner">
-        <h1>What We Do</h1>
-        <p>Engineering, energy, development & advisory — delivered with governance, HSE, and stakeholder alignment.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ---------- HORIZONTAL "Four services" carousel ---------- -->
-  <section class="section" aria-label="Core services">
-    <div class="wrap">
-      <h2 style="margin:0 0 12px;">Core Services</h2>
-      <p class="muted" style="margin:0 0 18px;">Swipe or use the arrows to browse our core service areas.</p>
-
-      <!-- Consulting & Advisory -->
-          <article class="service-card" data-index="3" data-cat="Advisory">
-            <div class="service-thumb"><img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Consulting & Advisory"></div>
-            <div class="service-body">
-              <h3>Consulting &amp; Advisory</h3>
-              <p class="muted">Transaction support and policy advisory for energy and infrastructure.</p>
-              <ul>
-                <li>Transaction advisory &amp; PPP structuring</li>
-                <li>EIA/ESIA, resettlement &amp; social performance</li>
-                <li>Regulatory, tariff &amp; grid-code advisory</li>
-                <li>Independent engineering &amp; expert reviews</li>
-              </ul>
-            </div>
-          </article>
-      <div class="hwrap" aria-hidden="false">
-        <div class="hscroll" id="serviceScroll" tabindex="0" aria-label="Services carousel">
-          <!-- Engineering & Infrastructure -->
-          <article class="service-card" data-index="0" data-cat="Engineering">
-            <div class="service-thumb"><img src="assets/img/uploads/ppp.jpg" alt="Engineering & Infrastructure"></div>
-            <div class="service-body">
-              <h3>Engineering &amp; Infrastructure</h3>
-              <p class="muted">Roads, dams, hydroelectric systems, water supply, environmental planning.</p>
-              <ul>
-                <li>Highway &amp; bridge design, supervision, and asset safety audits</li>
-                <li>Dams &amp; hydraulic structures, flood &amp; drainage management</li>
-                <li>Urban water intakes, treatment, and distribution</li>
-                <li>Environmental planning, permitting &amp; compliance</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- Energy Development -->
-          <article class="service-card" data-index="1" data-cat="Energy">
-            <div class="service-thumb"><img src="assets/img/uploads/PANEL.jpg" alt="Energy Development"></div>
-            <div class="service-body">
-              <h3>Energy Development</h3>
-              <p class="muted">Renewable energy projects and hybridization.</p>
-              <ul>
-                <li>Hybrid hydro-solar architectures &amp; micro-siting</li>
-                <li>BESS sizing, EMS strategy &amp; grid interconnection</li>
-                <li>Yield assessments, resource modelling &amp; bankability</li>
-                <li>Owner’s engineer &amp; technical due diligence</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- Project Dev & Management -->
-          <article class="service-card" data-index="2" data-cat="Project">
-            <div class="service-thumb"><img src="assets/img/uploads/jyt.JPG" alt="Project Development & Management"></div>
-            <div class="service-body">
-              <h3>Project Development &amp; Management</h3>
-              <p class="muted">Feasibility, design, construction supervision, procurement &amp; finance.</p>
-              <ul>
-                <li>Concept-to-FID development frameworks</li>
-                <li>EPC, EPCM &amp; contract administration</li>
-                <li>Cost control, risk registers &amp; schedule governance</li>
-                <li>Financial structuring &amp; stakeholder engagement</li>
-              </ul>
-            </div>
-          </article>
-
-          
-        </div>
-
-        <!-- nav -->
-        <div class="hnav" aria-hidden="true">
-          <button class="hbtn left" id="svcLeft" aria-label="Scroll left">‹</button>
-          <button class="hbtn right" id="svcRight" aria-label="Scroll right">›</button>
-          
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Process + Sectors -->
-  <section class="section">
-    <div class="wrap grid-2">
-      <article class="card">
-        <div class="card__body">
-          <h3>Our Delivery Process</h3>
-          <ul class="list">
-            <li><strong>01 — Discover:</strong> Baseline, data, constraints, and KPIs</li>
-            <li><strong>02 — Design:</strong> Options, optimization, value engineering</li>
-            <li><strong>03 — Develop:</strong> Feasibility, approvals, financing support</li>
-            <li><strong>04 — Deliver:</strong> Construction supervision &amp; commissioning</li>
-            <li><strong>05 — De-risk:</strong> O&amp;M models, training &amp; performance tracking</li>
-          </ul>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__body">
-          <h3>Focus Sectors</h3>
-          <ul class="list">
-            <li>Utility-scale renewables &amp; storage</li>
-            <li>Highways, corridors &amp; urban mobility</li>
-            <li>Water &amp; sanitation for rural &amp; peri-urban</li>
-            <li>Environmental planning &amp; natural resources</li>
-          </ul>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section">
-    <div class="wrap">
-      <div class="cta-band">
-        <div>
-          <h3 style="margin:0 0 6px;">Need a bankable path from concept to commissioning?</h3>
-          <p class="muted" style="margin:0;">See how our teams deliver across development, engineering, and advisory.</p>
-        </div>
-        <div class="row" style="margin:0;">
-          <a class="btn btn--primary" href="projects.html">Explore Projects</a>
-          <a class="btn btn--ghost" href="about.html">About Tabcon</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="wrap foot-grid">
-      <div style="display:flex; align-items:center; gap:12px;">
-        <div class="foot-badge">T</div>
-        <div>
-          <strong>Tabcon Ghana</strong><br>
-          <span style="color:var(--muted)">Hybrid Hydro–Solar</span>
-        </div>
-      </div>
-      <nav aria-label="Footer links">
-        <div class="foot-title">Links</div>
-        <ul class="list--reset">
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="news.html">News</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
-      <section>
-        <div class="foot-title">Contact</div>
-        <ul class="list--reset">
-          <li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li>
-          <li><a href="tel:+233208116401">+233 (0)20 811 6401</a></li>
-        </ul>
-      </section>
-    </div>
-    <div class="copy">© <span id="year"></span> Tabcon Ghana</div>
-  </footer>
-
-  <!-- Floating Contact -->
-  <div class="contact-fab">
-    <button class="contact-toggle" id="contactToggle" type="button">Contact</button>
-    <div class="contact-panel" id="contactPanel" aria-hidden="true">
-      <header>Contact Tabcon</header>
-      <div class="item"><a href="tel:+233208116401">+233 (0)20 811 6401</a></div>
-      <div class="item"><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></div>
-      <div class="item"><a href="contact.html">Open contact page →</a></div>
-    </div>
-  </div>
-
-  <script>
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // contact dropdown
-    (function(){
-      const btn = document.getElementById('contactToggle');
-      const panel = document.getElementById('contactPanel');
-      if(!btn || !panel) return;
-      btn.addEventListener('click', (e)=>{
-        e.stopPropagation();
-        const open = panel.classList.toggle('open');
-        panel.setAttribute('aria-hidden', String(!open));
-      });
-      document.addEventListener('click', (e)=>{
-        if(!panel.contains(e.target) && e.target !== btn){
-          panel.classList.remove('open'); panel.setAttribute('aria-hidden','true');
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Services | Tabcon Development Consultants</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed": "#261a00",
+              "on-secondary": "#ffffff",
+              "primary-fixed": "#c4e7ff",
+              "primary-fixed-dim": "#91cef3",
+              "secondary": "#006e1c",
+              "on-background": "#1b1c1c",
+              "surface": "#fbf9f8",
+              "surface-container-highest": "#e4e2e1",
+              "error-container": "#ffdad6",
+              "secondary-container": "#98f994",
+              "inverse-surface": "#303030",
+              "primary": "#1c6282",
+              "primary-container": "#3c7b9c",
+              "surface-container-lowest": "#ffffff",
+              "inverse-primary": "#91cef3",
+              "tertiary-fixed-dim": "#f8bd2a",
+              "secondary-fixed-dim": "#7ddc7a",
+              "secondary-fixed": "#98f994",
+              "on-secondary-fixed": "#002204",
+              "surface-container-low": "#f6f3f2",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f3f0f0",
+              "on-tertiary-fixed-variant": "#5c4300",
+              "on-surface-variant": "#40484d",
+              "surface-variant": "#e4e2e1",
+              "error": "#ba1a1a",
+              "on-primary-container": "#fcfcff",
+              "on-error": "#ffffff",
+              "background": "#fbf9f8",
+              "surface-container-high": "#eae8e7",
+              "on-surface": "#1b1c1c",
+              "surface-dim": "#dcd9d9",
+              "surface-bright": "#fbf9f8",
+              "on-primary-fixed-variant": "#004c69",
+              "on-secondary-container": "#0c7521",
+              "tertiary-fixed": "#ffdfa0",
+              "tertiary-container": "#956e00",
+              "outline-variant": "#c0c7ce",
+              "surface-container": "#f0eded",
+              "on-primary-fixed": "#001e2c",
+              "on-secondary-fixed-variant": "#005313",
+              "tertiary": "#765700",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-container": "#fffbff",
+              "outline": "#70787e",
+              "surface-tint": "#206585",
+              "on-error-container": "#93000a"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-      });
-      document.addEventListener('keydown', (e)=>{
-        if(e.key === 'Escape'){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }
-      });
-    })();
-
-    /* ---------- Horizontal services carousel behavior ---------- */
-    (function(){
-      const scrollEl = document.getElementById('serviceScroll');
-      const leftBtn = document.getElementById('svcLeft');
-      const rightBtn = document.getElementById('svcRight');
-      const countEl = document.getElementById('svcCount');
-      const cards = Array.from(scrollEl.querySelectorAll('.service-card'));
-
-      function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
-
-      // Update visible index (the card closest to center)
-      function updateIndex(){
-        const rect = scrollEl.getBoundingClientRect();
-        const centerX = rect.left + rect.width/2;
-        // compute distances
-        let best = {idx:0,dist:Infinity};
-        cards.forEach((c, i)=>{
-          const r = c.getBoundingClientRect();
-          const cX = r.left + r.width/2;
-          const d = Math.abs(centerX - cX);
-          if(d < best.dist){ best = { idx:i, dist:d }; }
-        });
-        const idx = best.idx;
-        countEl.textContent = `${idx + 1} / ${cards.length}`;
-      }
-
-      // Initially update count
-      updateIndex();
-
-      // Smooth scroll helpers
-      function scrollToCard(i){
-        const c = cards[clamp(i,0,cards.length-1)];
-        if(!c) return;
-        c.scrollIntoView({behavior:'smooth', inline: 'center', block: 'nearest'});
-        // update after small delay
-        setTimeout(updateIndex, 350);
-      }
-
-      // left/right by visible width
-      function scrollAmount(dir){
-        const amount = Math.round(scrollEl.clientWidth * 0.75) * dir;
-        scrollEl.scrollBy({ left: amount, behavior: 'smooth' });
-        setTimeout(updateIndex, 350);
-      }
-
-      leftBtn.addEventListener('click', ()=> scrollAmount(-1));
-      rightBtn.addEventListener('click', ()=> scrollAmount(1));
-
-      // keyboard when focused on scroller
-      scrollEl.addEventListener('keydown', (e)=>{
-        if(e.key === 'ArrowLeft'){ e.preventDefault(); scrollAmount(-1); }
-        if(e.key === 'ArrowRight'){ e.preventDefault(); scrollAmount(1); }
-      });
-
-      // clicking card focuses (and opens details or triggers other actions)
-      cards.forEach((card, i)=>{
-        card.addEventListener('click', ()=> {
-          // center this card when clicked
-          scrollToCard(i);
-        });
-      });
-
-      // update on scroll with throttle
-      let rAF = null;
-      function onScroll(){ if(rAF) cancelAnimationFrame(rAF); rAF = requestAnimationFrame(updateIndex); }
-      scrollEl.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', updateIndex);
-
-      // optional: allow swipe flick to land center on nearest item when user stops scrolling
-      let isDown = false, startX=0, scrollStart=0, wheelTimeout;
-      scrollEl.addEventListener('pointerdown', (e)=>{ isDown=true; startX = e.clientX; scrollStart = scrollEl.scrollLeft; });
-      document.addEventListener('pointerup', ()=>{
-        if(!isDown) return;
-        isDown=false;
-        // snap to nearest after short delay
-        clearTimeout(wheelTimeout);
-        wheelTimeout = setTimeout(()=> {
-          // find closest card and snap
-          const rect = scrollEl.getBoundingClientRect();
-          const centerX = rect.left + rect.width/2;
-          let bestIdx = 0, bestD=Infinity;
-          cards.forEach((c,i)=>{
-            const r = c.getBoundingClientRect();
-            const cX = r.left + r.width/2;
-            const d = Math.abs(centerX - cX);
-            if(d < bestD){ bestD = d; bestIdx = i; }
-          });
-          scrollToCard(bestIdx);
-        }, 120);
-      });
-
-      // initial snap into view for first card on load (small delay to let layout settle)
-      window.addEventListener('load', ()=> setTimeout(()=> { scrollToCard(0); }, 120));
-    })();
-  </script>
-</body>
-</html>
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbf9f8]/70 dark:bg-[#1b1c1c]/70 backdrop-blur-xl">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
+<span class="text-2xl font-black tracking-tighter text-[#1b1c1c] dark:text-[#fbf9f8]">Tabcon</span>
+<div class="hidden md:flex items-center space-x-8 font-['Inter'] tracking-tight font-medium">
+<a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1b1c1c] dark:hover:text-[#fbf9f8] transition-all duration-300 ease-in-out hover:opacity-80" href="#">Home</a>
+<a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1b1c1c] dark:hover:text-[#fbf9f8] transition-all duration-300 ease-in-out hover:opacity-80" href="#">About Us</a>
+<a class="text-[#1c6282] dark:text-[#3c7b9c] border-b-2 border-[#006e1c] pb-1 transition-all duration-300 ease-in-out hover:opacity-80" href="#">Services</a>
+<a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1b1c1c] dark:hover:text-[#fbf9f8] transition-all duration-300 ease-in-out hover:opacity-80" href="#">Projects</a>
+<a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1b1c1c] dark:hover:text-[#fbf9f8] transition-all duration-300 ease-in-out hover:opacity-80" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-sm font-medium transition-all duration-300 active:opacity-90">
+                Get In Touch
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-24">
+<!-- Hero Section -->
+<header class="max-w-7xl mx-auto px-8 mb-32">
+<div class="editorial-grid gap-8">
+<div class="col-span-12 md:col-span-8">
+<span class="text-tertiary font-bold tracking-widest text-xs uppercase mb-4 block">EXPERT CAPABILITIES</span>
+<h1 class="text-6xl md:text-8xl font-black text-on-surface tracking-tighter leading-none mb-8">
+                        Technical<br/>Precision.
+                    </h1>
+<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed">
+                        Tabcon delivers end-to-end development consultancy for infrastructure and energy projects across emerging markets, blending technical engineering with strategic financial structuring.
+                    </p>
+</div>
+</div>
+</header>
+<!-- Service Section 1: Engineering & Infrastructure -->
+<section class="bg-surface-container-low py-24 mb-24">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div>
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="architecture">architecture</span>
+<h2 class="text-4xl font-bold tracking-tight text-on-surface">Engineering &amp; Infrastructure</h2>
+</div>
+<p class="text-lg text-on-surface-variant mb-10 leading-relaxed">
+                            We design and engineer the backbone of modern society. From resilient road networks to vital water supply systems, our engineering solutions are built to last generations while minimizing environmental footprint.
+                        </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="road">road</span>
+<span class="font-medium text-on-surface">Highway &amp; Road Networks</span>
+</li>
+<li class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="water_dam">water</span>
+<span class="font-medium text-on-surface">Dams &amp; Hydroelectric Systems</span>
+</li>
+<li class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="water_drop">water_drop</span>
+<span class="font-medium text-on-surface">Industrial Water Supply &amp; Sanitation</span>
+</li>
+<li class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="eco">eco</span>
+<span class="font-medium text-on-surface">Environmental Planning &amp; Design</span>
+</li>
+</ul>
+</div>
+<div class="relative group">
+<div class="aspect-[4/5] overflow-hidden rounded-sm bg-surface-container-highest">
+<img alt="Civil engineering project site" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Massive concrete dam construction site with cranes and rushing water under a clear blue sky, architectural and industrial feel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0LwaMbe_6iD5rhi8jsCAyPadZYU42I2dFApGe5e2lrqPXS2OGVnT8Z05bPa0DBLkjrFoXwqZjKV7WQ7HLSWVjrrjOC7jLxIfp19X5phbwwT2jAPFN1pULRZ4GD9I5guSZA1ES-X42fAYbpc-DioT5LUAlyNK9fZ9rAo6bNP7GHkMled3jMz_lQ-OsiVN7Hf2HY0BZK0dDSerLu8twtUJLygISsCstK-DGdHBnrLioJZJpXacC9dde0do9rtzEa9_uVFS41EUsnYNV"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-primary p-8 text-on-primary max-w-xs hidden md:block">
+<h3 class="text-2xl font-bold mb-2 tracking-tight">740+ KM</h3>
+<p class="text-sm opacity-90 font-medium">Road infrastructure designed and supervised across Sub-Saharan Africa.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Service Section 2: Energy Development (Bento Style) -->
+<section class="max-w-7xl mx-auto px-8 mb-32">
+<div class="mb-12">
+<span class="text-secondary font-bold tracking-widest text-xs uppercase mb-4 block">SUSTAINABLE FUTURE</span>
+<h2 class="text-5xl font-bold tracking-tighter text-on-surface">Energy Development</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-surface-container-high p-12 flex flex-col justify-between">
+<div>
+<h3 class="text-3xl font-bold mb-4">Renewable Energy Systems</h3>
+<p class="text-on-surface-variant text-lg mb-8 max-w-xl">
+                            Specializing in the transition to clean energy, we focus on large-scale solar farms and innovative hydro-solar hybrid systems that ensure grid stability.
+                        </p>
+</div>
+<div class="flex gap-4">
+<div class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full text-sm font-bold">Solar Utility</div>
+<div class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full text-sm font-bold">Hydro-Hybrids</div>
+<div class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full text-sm font-bold">Grid Integration</div>
+</div>
+</div>
+<div class="bg-primary p-12 text-on-primary">
+<span class="material-symbols-outlined text-5xl mb-6" data-icon="solar_power">solar_power</span>
+<h3 class="text-2xl font-bold mb-4">Photovoltaic Integration</h3>
+<p class="opacity-80">Designing commercial-grade solar arrays optimized for peak irradiance in tropical climates.</p>
+</div>
+<div class="aspect-square bg-surface-container-low overflow-hidden group">
+<img alt="Solar panels at sunset" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Aerial view of a vast solar farm in a desert landscape during golden hour with warm sunlight reflecting off panels" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbx2RX-ekHvxtvwoIwPt5B3BbucK1eRVREbjDUgnx7SuYL-_l94SM8UzapaicyC67R-zwNWX0NTXaM8UjQQoF5NJtgUuKEc51BDl4fKWYyMIveyb58KO3o6GVPQcku7_7LjeQsoJyYQT6uBhhqHU2_BmYBpzgmK_Xc2hvRRxvbiwH2isEupT3pi9gkN8R1iJwCfLMtkaSfhAYar-uLiLjRgKXIObbCziVRLHtF1mcUQmpb64GRbCXvaw73rdyRraxzncRDJhzhqhYA"/>
+</div>
+<div class="md:col-span-2 bg-surface-container-lowest p-12 border border-outline-variant/15">
+<div class="flex flex-col md:flex-row gap-8 items-center">
+<div class="flex-1">
+<h3 class="text-2xl font-bold mb-4">Hydro-Solar Hybrids</h3>
+<p class="text-on-surface-variant">We utilize reservoir surfaces for floating solar arrays, increasing efficiency through cooling effects and reducing water evaporation by up to 30%.</p>
+</div>
+<div class="w-full md:w-48 h-32 bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-6xl" data-icon="waves" data-weight="fill" style="font-variation-settings: 'FILL' 1;">waves</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Service Section 3 & 4: Management & Advisory -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24">
+<!-- Project Development -->
+<div>
+<h2 class="text-3xl font-bold tracking-tight mb-8 border-l-4 border-primary pl-6">Project Development &amp; Management</h2>
+<p class="text-on-surface-variant mb-8 leading-relaxed">
+                            Moving a project from concept to commissioning requires rigorous oversight. We provide the technical and operational framework to ensure projects stay on schedule and within budget.
+                        </p>
+<div class="space-y-6">
+<div class="group">
+<h4 class="font-bold text-primary mb-1">Feasibility &amp; Design</h4>
+<p class="text-sm text-on-surface-variant">Detailed technical studies, site assessments, and conceptual design blueprints.</p>
+</div>
+<div class="group">
+<h4 class="font-bold text-primary mb-1">Construction Supervision</h4>
+<p class="text-sm text-on-surface-variant">On-site quality control and management of multi-disciplinary contractor teams.</p>
+</div>
+<div class="group">
+<h4 class="font-bold text-primary mb-1">Financial Structuring</h4>
+<p class="text-sm text-on-surface-variant">Procurement strategies and capital expenditure modeling for private and public sector.</p>
+</div>
+</div>
+</div>
+<!-- Consulting & Advisory -->
+<div>
+<h2 class="text-3xl font-bold tracking-tight mb-8 border-l-4 border-secondary pl-6">Consulting &amp; Advisory</h2>
+<p class="text-on-surface-variant mb-8 leading-relaxed">
+                            We act as strategic partners to governments and private developers, providing the data and policy insights needed to navigate complex regulatory landscapes.
+                        </p>
+<div class="space-y-6">
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-tertiary" data-icon="policy">policy</span>
+<div>
+<h4 class="font-bold text-on-surface">Transaction Advisory</h4>
+<p class="text-sm text-on-surface-variant">Guidance on Public-Private Partnerships (PPP) and asset management transitions.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-tertiary" data-icon="analytics">analytics</span>
+<div>
+<h4 class="font-bold text-on-surface">Environmental Impact Studies</h4>
+<p class="text-sm text-on-surface-variant">Comprehensive ESIAs to ensure compliance with international sustainability benchmarks.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-tertiary" data-icon="gavel">gavel</span>
+<div>
+<h4 class="font-bold text-on-surface">Policy Advisory</h4>
+<p class="text-sm text-on-surface-variant">Assisting regulatory bodies in crafting frameworks for energy and water resource management.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-7xl mx-auto px-8 py-32 text-center">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-8 leading-tight">Ready to engineer the sustainable future?</h2>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="bg-primary text-on-primary px-10 py-4 font-bold rounded-sm hover:opacity-90 transition-opacity">Request Capability Statement</button>
+<button class="text-primary font-bold px-10 py-4 border-b-2 border-secondary hover:bg-surface-container-low transition-colors">Speak with a Consultant</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f6f3f2] dark:bg-[#1b1c1c] w-full pt-16 pb-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8">
+<div class="md:col-span-1">
+<span class="text-xl font-bold text-[#1b1c1c] dark:text-[#fbf9f8] mb-4 block">Tabcon</span>
+<p class="text-[#40484d] dark:text-[#c0c7ce] text-sm leading-relaxed">
+                    Development consultants committed to the sustainable evolution of global infrastructure.
+                </p>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-[#1b1c1c] dark:text-[#fbf9f8]">Expertise</h4>
+<ul class="space-y-2 text-sm text-[#40484d] dark:text-[#c0c7ce]">
+<li><a class="hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Infrastructure</a></li>
+<li><a class="hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Renewable Energy</a></li>
+<li><a class="hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Project Management</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-[#1b1c1c] dark:text-[#fbf9f8]">Company</h4>
+<ul class="space-y-2 text-sm text-[#40484d] dark:text-[#c0c7ce]">
+<li><a class="hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Sustainability Report</a></li>
+<li><a class="hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-[#1b1c1c] dark:text-[#fbf9f8]">Locations</h4>
+<p class="text-sm text-[#40484d] dark:text-[#c0c7ce] mb-2">Main Office: Nairobi, Kenya</p>
+<p class="text-sm text-[#40484d] dark:text-[#c0c7ce]">Branch: Johannesburg, South Africa</p>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/10 text-center">
+<p class="text-[#40484d] dark:text-[#c0c7ce] text-xs">© 2024 Tabcon Development Consultants. Built for Sustainability.</p>
+</div>
+</footer>
+</body></html>
