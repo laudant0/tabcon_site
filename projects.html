@@ -1,324 +1,325 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projects — Tabcon Ghana</title>
+<meta name="description" content="Flagship and past projects by Tabcon Ghana across energy, infrastructure, water and environment." />
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Projects Portfolio | Tabcon Development Consultants</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "on-tertiary-fixed": "#261a00",
-                        "on-secondary": "#ffffff",
-                        "primary-fixed": "#c4e7ff",
-                        "primary-fixed-dim": "#91cef3",
-                        "secondary": "#006e1c",
-                        "on-background": "#1b1c1c",
-                        "surface": "#fbf9f8",
-                        "surface-container-highest": "#e4e2e1",
-                        "error-container": "#ffdad6",
-                        "secondary-container": "#98f994",
-                        "inverse-surface": "#303030",
-                        "primary": "#1c6282",
-                        "primary-container": "#3c7b9c",
-                        "surface-container-lowest": "#ffffff",
-                        "inverse-primary": "#91cef3",
-                        "tertiary-fixed-dim": "#f8bd2a",
-                        "secondary-fixed-dim": "#7ddc7a",
-                        "secondary-fixed": "#98f994",
-                        "on-secondary-fixed": "#002204",
-                        "surface-container-low": "#f6f3f2",
-                        "on-primary": "#ffffff",
-                        "inverse-on-surface": "#f3f0f0",
-                        "on-tertiary-fixed-variant": "#5c4300",
-                        "on-surface-variant": "#40484d",
-                        "surface-variant": "#e4e2e1",
-                        "error": "#ba1a1a",
-                        "on-primary-container": "#fcfcff",
-                        "on-error": "#ffffff",
-                        "background": "#fbf9f8",
-                        "surface-container-high": "#eae8e7",
-                        "on-surface": "#1b1c1c",
-                        "surface-dim": "#dcd9d9",
-                        "surface-bright": "#fbf9f8",
-                        "on-primary-fixed-variant": "#004c69",
-                        "on-secondary-container": "#0c7521",
-                        "tertiary-fixed": "#ffdfa0",
-                        "tertiary-container": "#956e00",
-                        "outline-variant": "#c0c7ce",
-                        "surface-container": "#f0eded",
-                        "on-primary-fixed": "#001e2c",
-                        "on-secondary-fixed-variant": "#005313",
-                        "tertiary": "#765700",
-                        "on-tertiary": "#ffffff",
-                        "on-tertiary-container": "#fffbff",
-                        "outline": "#70787e",
-                        "surface-tint": "#206585",
-                        "on-error-container": "#93000a"
-                    },
-                    fontFamily: {
-                        "headline": ["Inter"],
-                        "body": ["Inter"],
-                        "label": ["Inter"]
-                    },
-                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
-                },
-            },
-        }
-    </script>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        body { font-family: 'Inter', sans-serif; }
-        .glass-nav { backdrop-filter: blur(20px); }
-    </style>
+:root{
+--bg:#ffffff; --glass: rgba(255,255,255,.75); --edge: rgba(17,24,39,.08);
+--muted:#5b6673; --text:#0b1220; --brand:#2E7D32; --brand-2:#7fd37f;
+--wrap: clamp(960px, 86vw, 1200px); --radius:16px;
+--shadow-sm: 0 2px 8px rgba(0,0,0,.06); --shadow-lg: 0 10px 28px rgba(0,0,0,.10);
+}
+*,*::before,*::after{ box-sizing:border-box; }
+body{ margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; color:var(--text); background:var(--bg); line-height:1.6; }
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+.wrap{ width:var(--wrap); max-width:100%; margin-inline:auto; padding-inline:20px; }
+
+/* Header */
+.header{ position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.2) blur(12px); background:var(--glass); border-bottom:1px solid var(--edge); }
+.header__inner{ display:flex; align-items:center; justify-content:space-between; height:72px; }
+.logo{ width:120px; height:auto; }
+.nav__list{ list-style:none; display:flex; gap:18px; margin:0; padding:0; }
+.nav__list a{ padding:10px 12px; border-radius:10px; font-weight:600; color:#263041; }
+.nav__list a:hover{ background:rgba(2,6,23,.06); }
+
+/* Hero */
+.hero{ position:relative; overflow:hidden; border-bottom:1px solid var(--edge); }
+.hero .slide{ height:46vh; min-height:320px; position:relative; }
+.hero .slide img{ width:100%; height:100%; object-fit:cover; }
+.hero .slide::after{ content:""; position:absolute; inset:0; background: linear-gradient(120deg, rgba(0,0,0,.55), rgba(0,0,0,.35)); }
+.hero__content{ position:absolute; inset:0; display:flex; align-items:center; }
+.hero__content-inner{
+max-width:var(--wrap); margin:auto; padding:20px 24px; color:#fff;
+background: rgba(0,0,0,.45); border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.3);
+text-shadow:0 2px 10px rgba(0,0,0,.7);
+}
+.hero__content-inner h1{ margin:0 0 6px; font-size: clamp(26px, 3.6vw, 40px); font-weight:900; }
+.hero__content-inner p{ margin:0; color:#eef3f9; }
+.row{ display:flex; gap:12px; margin-top:14px; flex-wrap:wrap; }
+.btn{ padding:12px 16px; border-radius:12px; font-weight:800; border:1px solid transparent; box-shadow: var(--shadow-sm); }
+.btn--primary{ background:linear-gradient(180deg, var(--brand-2), var(--brand)); color:#0e1a11; }
+.btn--ghost{ background:#fff; color:#0b1220; border-color:var(--edge); }
+
+/* Sections */
+.section{ padding-block:56px; }
+.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center; }
+.grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+
+/* Project cards (picture-forward) */
+.p-card{ position:relative; border-radius:16px; overflow:hidden; box-shadow:var(--shadow-lg); border:1px solid var(--edge); }
+.p-card img{ width:100%; height:240px; object-fit:cover; }
+.p-card__body{ padding:14px 16px; background:#fff; }
+.p-meta{ font-size:12px; color:var(--muted); margin-bottom:6px; }
+.p-title{ margin:0 0 6px; font-size:18px; }
+.pill{ display:inline-block; font-size:11px; padding:4px 8px; border-radius:999px; border:1px solid var(--edge); background:#fff; }
+
+/* Masonry-like gallery */
+.gallery{ columns:3 280px; column-gap:16px; }
+.gallery figure{ break-inside:avoid; margin:0 0 16px; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); border:1px solid var(--edge); background:#fff; }
+.gallery figcaption{ padding:10px 12px; font-size:14px; color:#263041; }
+
+/* Footer */
+.footer{ padding-block:34px; background:#f8fafb; border-top:1px solid var(--edge); }
+.foot-grid{ display:grid; grid-template-columns: 1.2fr auto auto; gap:28px; align-items:start; }
+.foot-badge{ width:44px;height:44px;border-radius:12px; background:linear-gradient(180deg, var(--brand-2), var(--brand)); display:grid; place-items:center; color:#0b1220; font-weight:900; box-shadow:var(--shadow-lg); }
+.foot-title{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.list--reset{ list-style:none; padding:0; margin:0; }
+.copy{ text-align:center; color:#7a8592; margin-top:22px; font-size:14px; }
+
+/* Mobile */
+@media (max-width: 980px){
+.wrap{ padding-inline:16px; }
+.section{ padding-block:38px; }
+.grid-3{ grid-template-columns:1fr; }
+.grid-2{ grid-template-columns:1fr; }
+}
+</style>
 </head>
-<body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-[#fbf9f8]/70 dark:bg-[#1b1c1c]/70 backdrop-blur-xl">
-<div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
-<div class="text-2xl font-black tracking-tighter text-[#1b1c1c] dark:text-[#fbf9f8]">Tabcon</div>
-<div class="hidden md:flex items-center space-x-8 font-['Inter'] tracking-tight font-medium">
-<a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1b1c1c] dark:hover:text-[#fbf9f8] transition-all duration-300 ease-in-out hover:opacity-80" href="#">Home</a>
-<a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1b1c1c] dark:hover:text-[#fbf9f8] transition-all duration-300 ease-in-out hover:opacity-80" href="#">About Us</a>
-<a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1b1c1c] dark:hover:text-[#fbf9f8] transition-all duration-300 ease-in-out hover:opacity-80" href="#">Services</a>
-<a class="text-[#1c6282] dark:text-[#3c7b9c] border-b-2 border-[#006e1c] pb-1 transition-all duration-300 ease-in-out hover:opacity-80" href="#">Projects</a>
-<a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1b1c1c] dark:hover:text-[#fbf9f8] transition-all duration-300 ease-in-out hover:opacity-80" href="#">Contact</a>
-</div>
-<button class="bg-primary text-on-primary px-6 py-2.5 rounded-sm font-medium hover:opacity-90 transition-opacity">
-                Get In Touch
-            </button>
-</div>
-</nav>
-<main class="pt-32 pb-24">
-<!-- Hero & Editorial Intro -->
-<section class="max-w-7xl mx-auto px-8 mb-24">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-<div class="lg:col-span-8">
-<span class="text-tertiary font-bold tracking-widest uppercase text-xs mb-4 block">Portfolio of Impact</span>
-<h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter leading-none text-on-surface mb-8">
-                        Architecting <span class="text-primary">Sustainable</span> Futures.
-                    </h1>
-<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed">
-                        From monumental hydroelectric schemes to transformative urban dualization, Tabcon leads the engineering evolution across the African continent.
-                    </p>
-</div>
-<div class="lg:col-span-4 flex flex-col gap-6">
-<div class="p-8 bg-surface-container-low rounded-sm">
-<div class="text-4xl font-black text-secondary mb-1">2.4 GW+</div>
-<div class="text-sm font-medium text-on-surface-variant">Total Energy Capacity Consulted</div>
-</div>
-<div class="p-8 bg-surface-container-low rounded-sm">
-<div class="text-4xl font-black text-secondary mb-1">1,200 km</div>
-<div class="text-sm font-medium text-on-surface-variant">Strategic Road Infrastructure Delivered</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Flagship Highlight -->
-<section class="mb-32">
-<div class="max-w-7xl mx-auto px-8">
-<div class="relative group overflow-hidden bg-inverse-surface rounded-sm min-h-[600px] flex items-center">
-<img class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity hover:opacity-70 transition-opacity duration-700" data-alt="wide angle shot of a massive solar farm and hydroelectric dam integrated into a lush green river valley landscape with dramatic clouds" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrJa9gdMN1JRjU6NJp0lW5BQBnRu563ZUr_2_UI4nBlNva_k-FtVoicPrT3pIH5czXjox5jYd_mQxzsvkaFF7NRiC-jiD8rH9A2pvz6V1ydG88AEBaBNYfnLCHZRmdVvrkwBTaQCVhwWNgoOFO0o5GmdtAxAlBCiNdXpPd8_8hdSgphVz-eh3uuq6dhMWlzueeq-ClLzSfLF4rU27CIBoVi7NIDJpC9bNvPY7WnqNfUtiIDwiZjf9HSJZbikBBBVr7ckX7IlGwNKW7"/>
-<div class="relative z-10 p-12 lg:p-24 max-w-4xl">
-<div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary text-on-secondary text-xs font-bold tracking-widest uppercase mb-6">
-                            Flagship Highlight
-                        </div>
-<h2 class="text-4xl md:text-6xl font-black text-white leading-tight mb-8">
-                            Tain Hybrid Hydro-Solar Energy Project
-                        </h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-white/90 mb-12">
-<div>
-<h4 class="font-bold text-secondary-container mb-2">Technical Specification</h4>
-<p class="leading-relaxed">55 MW Solar PV + 6 MW BESS integrated with 10 MW Hydro-Solar Hybrid system for baseload stability.</p>
-</div>
-<div>
-<h4 class="font-bold text-secondary-container mb-2">Regional Impact</h4>
-<p class="leading-relaxed">Fueling regional industrialization and creating over 450 direct sustainable jobs during construction.</p>
-</div>
-</div>
-<div class="flex flex-wrap gap-4">
-<button class="bg-white text-on-surface px-8 py-4 font-bold text-sm tracking-tight rounded-sm hover:bg-surface-container-highest transition-colors">
-                                View Full Case Study
-                            </button>
-<div class="flex items-center gap-2 text-white font-medium">
-<span class="material-symbols-outlined text-secondary-container" data-weight="fill">verified</span>
-                                Operational Status: Active Implementation
-                            </div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Interactive Bento Grid -->
-<section class="max-w-7xl mx-auto px-8 mb-32">
-<div class="flex justify-between items-baseline mb-12 border-b-2 border-surface-container-high pb-6">
-<h3 class="text-3xl font-black tracking-tight">Strategic Projects</h3>
-<div class="flex gap-6 overflow-x-auto pb-2 no-scrollbar">
-<button class="text-primary font-bold whitespace-nowrap">All Sectors</button>
-<button class="text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Energy &amp; Power</button>
-<button class="text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Transportation</button>
-<button class="text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Water</button>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-<!-- Project Card 1: Large -->
-<div class="md:col-span-8 group">
-<div class="relative aspect-video overflow-hidden bg-surface-container-low rounded-sm mb-4">
-<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="dramatic wide shot of a massive concrete hydroelectric dam with rushing water spillways at dawn with cool blue tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjEcLzXr8DIeCKFFmY8WUkQqc5iw00AjC7DXob_AUy26dpV4ZCLamQf0CHsqzncDxnQwRsveV4jzI7fiQvQHm3NPn4bTPJTgdZHBcIj6ZOgrPseq9VXKjr9ph1NubcmHWMgJKIJkkTEXAWaKjyBt9SS9eFo8LBNaitPAfwR8Gl21hUbu3A40Cglb3RbLtWQ4ybzr0jETgHKZCZ2tqdS900tspXJPwqn4Rsgmm5fAmSd6-ROGeRzLOuyhIZSIfeSsiOeXWRR7XLKy4-"/>
-</div>
-<div class="flex flex-col">
-<span class="text-xs font-bold text-secondary mb-1">Energy &amp; Power</span>
-<h4 class="text-2xl font-black mb-2">Bui Hydro-Electric Power Project (400 MW)</h4>
-<p class="text-on-surface-variant leading-relaxed mb-4">A cornerstone of regional energy security, providing 400MW of renewable power to the national grid while managing environmental flow.</p>
-<a class="inline-flex items-center text-primary font-bold group" href="#">
-                            Explore Technical Specs
-                            <span class="material-symbols-outlined ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-</div>
-</div>
-<!-- Project Card 2: Small -->
-<div class="md:col-span-4 group">
-<div class="relative aspect-square overflow-hidden bg-surface-container-low rounded-sm mb-4">
-<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="aerial view of a multi-lane highway dualization cutting through a mountainous landscape with precise engineering lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1ZimQOyzLdxxT0ef0AEYB4WrBt0Fi626QBwDitA14owGgVP43S6G0Z-QDPUOY_qMzf_4Li50V5IkJKvK_zNifz0P1DwBKfqxwfKrQlPRvYUQGH-i1o0MbtWl8CyTnaXZuipYF2MrfGYUNeqZaZdezS_IS4ad1SmQDJ9cKy9Qt_thvFyWvOATR0iv_ci_HhulmlIuF2UqVlqqhuRZAy0whO6o2qmSY3qI6BUrZLDmL6_3ZVMCQD4hGmAOnTMTLCXlFeD3007Sc_l6U"/>
-</div>
-<span class="text-xs font-bold text-primary mb-1">Transportation</span>
-<h4 class="text-xl font-black mb-2">Accra–Kumasi Highway Dualization</h4>
-<p class="text-sm text-on-surface-variant leading-relaxed">250 km of strategic arterial road redevelopment facilitating seamless regional trade corridors.</p>
-</div>
-<!-- Project Card 3: Small -->
-<div class="md:col-span-4 group">
-<div class="relative aspect-square overflow-hidden bg-surface-container-low rounded-sm mb-4">
-<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="modern water treatment plant with blue pipes and tanks against a clean industrial background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe_4gRKX3-7cKdVD9xZjxEAOL2YxeMP0vWeqUzrrJJZ3DNwX3E-tzx7Jg-2UtKfTsQMLE6QrLZtEevaBcQgnLhKAIzXo6mCpDyW9ftj9A58tpQtbQQY4y53o6n8s5kTkiIFkjTkLnZOvzE08IpCxSJkmDYuTJpsPn2A23CSq9wBrvE8MvArshxuKReIKg8SGeYSq7EbQcsYZiJ63Cp7NtJRcI0W93ZM5F7D_SVvBCN8y_8Gtp0kZC23GPkhskDMIa8jk6wrjtDtLm6"/>
-</div>
-<span class="text-xs font-bold text-tertiary mb-1">Water &amp; Sanitation</span>
-<h4 class="text-xl font-black mb-2">Sustainable Rural Water Project</h4>
-<p class="text-sm text-on-surface-variant leading-relaxed">Providing high-standard sanitation and clean water access to over 200,000 rural residents.</p>
-</div>
-<!-- Project Card 4: Medium -->
-<div class="md:col-span-4 group">
-<div class="relative aspect-square overflow-hidden bg-surface-container-low rounded-sm mb-4">
-<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="high altitude view of snowy peaks and alpine lakes in the Lesotho Highlands scheme area" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg_8iHSKfh6JAvcPBI0XvcftqLAdzyH65_X14u7y4XmRNcOnzB5BJBXoXLSpn5hkr46cTmnlF5awY74p41LdkMseUZlHeKg5R9sDUCdKUx2_bb0LFuzJp3p61okJl9t0tUq32HT--KSA3c5nJbUrKl5GaLN7cwsdVtgeRUtIf59yGoGinJR3fr3ah37Z-00H_5_s5aFgjgSOQCJUwHSDximWwbhQhzLoj-nD8XTcShqjJqp1MH8stbZIKlv9_9lu1Lk2urZbMQ6Bt9"/>
-</div>
-<span class="text-xs font-bold text-secondary mb-1">Hydroelectric</span>
-<h4 class="text-xl font-black mb-2">Lesotho Highlands Scheme</h4>
-<p class="text-sm text-on-surface-variant leading-relaxed">Cross-border consulting on one of the continent's most complex water transfer and energy systems.</p>
-</div>
-<!-- Project Card 5: Medium (Featured Proposed) -->
-<div class="md:col-span-4 group bg-surface-container-low p-8 flex flex-col justify-end">
-<div class="mb-auto">
-<span class="inline-block px-2 py-1 bg-primary text-on-primary text-[10px] font-bold tracking-widest uppercase mb-4">Proposed Phase</span>
-<h4 class="text-2xl font-black mb-4 leading-tight">Nkonsia Regional Airport &amp; Aero City</h4>
-</div>
-<p class="text-on-surface-variant mb-6 italic">"A visionary mixed-use hub integrating aviation logistics with sustainable urban living."</p>
-<div class="flex items-center gap-4">
-<div class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center">
-<span class="material-symbols-outlined text-primary">architecture</span>
-</div>
-<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Masterplanning Phase</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Geographic Reach Map Section -->
-<section class="bg-surface-container-low py-24">
-<div class="max-w-7xl mx-auto px-8">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-<div>
-<h3 class="text-4xl font-black tracking-tighter mb-6">Pan-African Presence</h3>
-<p class="text-lg text-on-surface-variant leading-relaxed mb-8">
-                            Our footprint spans diverse terrains and legal frameworks. We specialize in cross-border infrastructure that aligns with the African Continental Free Trade Area (AfCFTA) goals.
-                        </p>
-<ul class="space-y-4">
-<li class="flex items-center gap-3">
-<span class="material-symbols-outlined text-secondary" data-weight="fill">location_on</span>
-<span class="font-bold">West African Corridor</span> — Energy &amp; Road Logistics
-                            </li>
-<li class="flex items-center gap-3">
-<span class="material-symbols-outlined text-secondary" data-weight="fill">location_on</span>
-<span class="font-bold">Southern Africa</span> — Water Resource Management
-                            </li>
-<li class="flex items-center gap-3">
-<span class="material-symbols-outlined text-secondary" data-weight="fill">location_on</span>
-<span class="font-bold">East African Hubs</span> — Industrial &amp; Tourism Infrastructure
-                            </li>
+<body>
+<!-- Header -->
+<header class="header">
+<div class="wrap header__inner">
+<a href="index.html"><img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana logo"></a>
+<nav aria-label="Primary">
+<ul class="nav__list">
+<li><a href="services.html">Services</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="news.html">News</a></li>
+<li><a href="about.html">About</a></li>
 </ul>
+</nav>
 </div>
-<div class="relative rounded-sm overflow-hidden aspect-video shadow-2xl bg-white p-4">
-<img class="w-full h-full object-cover" data-alt="stylized geographic map of Africa with glowing pinpoints on major cities and development corridors" data-location="Africa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP0JnbGe23WjDQnsguOOqNrRmF-zlF0e_LMcgkVbuTY0hNuXRZQEN-zieXETF1PFvsuUJSlYDeckP-qz2bVj32fECPXlTuWWhF34DkxzhIPB5hzD1AhR0ywBODnKFaRU8c-9Su7oMpcwEaDa0o7arVHnB7vKi8uQchj9twsNu0QdFMbrHjqn3aaNZDA2zeGdK2myeg1Ssk16dD-qFLvfrXC3n1aHwquc-ghGWassL8ZYaLwOyKVxDIvUABlYFXz-RcCmpvvUHWN7ao"/>
-<div class="absolute bottom-8 left-8 bg-surface-container-lowest p-6 shadow-xl border-l-4 border-secondary">
-<div class="text-sm font-bold text-on-surface-variant uppercase tracking-widest mb-1">Project Concentration</div>
-<div class="text-2xl font-black text-on-surface">14 Nations Active</div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+<div class="slide">
+      <img src="assets/img/uploads/3.jpg" alt="Projects hero">
+      <img src="assets/img/uploads/ROADCONS.jpg" alt="Projects hero">
 </div>
+<div class="hero__content">
+<div class="hero__content-inner">
+<h1>Projects &amp; Delivery</h1>
+<p>Flagship renewable energy, roads &amp; transport, water &amp; environmental work across Africa.</p>
+<div class="row">
+<a class="btn btn--primary" href="track-record.html">Full Track Record</a>
+
 </div>
-</div>
-</div>
-</section>
-<!-- Gallery / Visual Impact -->
-<section class="pt-32 max-w-7xl mx-auto px-8">
-<h3 class="text-3xl font-black tracking-tight mb-12">Visionary Details</h3>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-<div class="aspect-square bg-surface-container-high overflow-hidden">
-<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="close up of geometric architectural patterns on a modern glass and steel building facade" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZFKe_1i5gzHUbw_rKZxlMGhuqVqnI7E0agbBkqPPX0rCV4uymJSUySDERbkQ9kAMPkxJmKhACSrsieYeD_IEtprNdYfcattdckpU6VL5UQ3bbPmkGqxjPvlgkhR_CJq6vBajIrzZNNJ5zD_qjaYRP-TuVAjCJoZLvF3h6FSpHChRrswllvx9HtDWody6oVPQbe-NZ8Z6dqF_UcJAYNA6ryyqS__vZAqAAsYrf_CwbZi9aO8H3Vu1hhtLmB2nOX-KLxQPvZ1rMVf8m"/>
-</div>
-<div class="aspect-square bg-surface-container-high overflow-hidden">
-<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="worker in high visibility vest inspecting a large industrial turbine component with orange sparks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOu98I7YbEk6HTPvA916ovhSup9kV-YZ4-8bm-OCd9mZswXo0yLJgdRdpiCdk-zwA08a0xZHwcNcA_KLXxrx9zIcw3dR3aOfro5rKXKyJAjHaU06XhiM3hJtrV8AvYiLOELJugC51_rQ9zgPk94rM9xRsoYSsM-Dxjl3O4QhZxgDItCcftmy11XkIfU9_z5ZM3zG04JL4WMAcaRkJXCh7fk5THQBk1INleYPAD4ChV6K5dNTrmB0-KNESnxaUEZNF5BMGeeNbS9ukw"/>
-</div>
-<div class="aspect-square bg-surface-container-high overflow-hidden">
-<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="construction site with yellow cranes silhouetted against a deep orange sunset sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6baUM9tiMarojNaFFvFog4djf00SyfVd5XiXlqQlBtJpo979wz8UX5AuKyvwLmEfDfSBkopxGIgQ7LfrChSU1_SH6bEKdOm9va-4ZKQwks5S6ZyxTLQexsOfOX1Su3TpcOLzx89AUstBqPvCuwQ5BAAILr-K9fbs_UUJ5CG5fY2nbQG2D-5PzDv82FyrUjSYL87ZAcwm7RSzPvK514-i_t-AgBN8PkRL2at8recX7FLViLKVwlawgAWu8eb3M8Triv2bRpLAV3vQW"/>
-</div>
-<div class="aspect-square bg-surface-container-high overflow-hidden">
-<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="lush green agricultural valley with terraced farming and modern irrigation channels" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZQJqv0t2tWX4bVzWzJqstv6xgXE3vNhWHbUdcPmrEwsoE9AJuJH0Ehm8XDdcbsseRSFA8uRpKpp1M15-IpuwleE93WTA--T94eD8jDTpoa58LOaNIbRRT8Q8nwkEiWrBF7hhSNh5BK7OkoM7UFFHfPnO8WmIkcKL2aV6dpuHrZZ3MKLRLT2mIl0e4Y0Xy-bF2Xcl3YWIXWrmvLuPuxTX1RdEN5gi_98n70nwDJknau7bnnLUIFEVSL22bRndQ9StLKfPy0igTfOmZ"/>
 </div>
 </div>
 </section>
-</main>
+
+<!-- Featured Project (big, picture-first) -->
+<section class="section">
+<div class="wrap grid-2">
+<figure class="p-card" style="margin:0;">
+<img src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="Tain Hybrid Hydro–Solar site">
+</figure>
+<article>
+<h2 style="margin:0 0 6px;">Tain Hybrid Hydro–Solar (Flagship)</h2>
+<p class="p-meta">Ghana • Ongoing</p>
+<p><span class="pill">Stage 1</span> 55&nbsp;MW Solar PV + 6&nbsp;MW BESS &nbsp;•&nbsp; <span class="pill">Stage 2</span> 10&nbsp;MW Hydro–Solar Hybrid</p>
+<p>Dedicated SPV <strong>Tabcon Energy Limited</strong> leading bankable design, development and delivery in alignment with grid requirements and environmental performance.</p>
+<div class="row"><a class="btn btn--primary" href="contact.html">Discuss this project</a></div>
+</article>
+</div>
+</section>
+
+<!-- Past Projects — Energy & Power -->
+<section class="section" style="padding-top:0;">
+<div class="wrap">
+<h2 style="margin:0 0 12px;">Energy &amp; Power</h2>
+<div class="grid-3">
+<article class="p-card">
+<img src="assets/img/uploads/IMG_7634-300x200.jpg" alt="BESS / solar">
+<div class="p-card__body">
+<div class="p-meta">Ghana • 1999–2005</div>
+<h3 class="p-title">Bui Hydro-Electric Power Project</h3>
+<p>400 MW — design and tendering support.</p>
+</div>
+</article>
+<article class="p-card">
+<img src="assets/img/uploads/ghana-body.jpg" alt="Hydro scheme">
+<div class="p-card__body">
+<div class="p-meta">Lesotho • 1983–1989</div>
+<h3 class="p-title">Lesotho Highlands Hydroelectric Scheme</h3>
+<p>Feasibility, design, and supervision.</p>
+</div>
+</article>
+<article class="p-card">
+<img src="assets/img/uploads/5.jpg" alt="Pipeline corridor">
+<div class="p-card__body">
+<div class="p-meta">Ghana–Togo–Benin • 2000–2004</div>
+<h3 class="p-title">West African Gas Pipeline</h3>
+<p>Survey &amp; planning with Chevron.</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<!-- Past Projects — Transportation -->
+<section class="section" style="padding-top:0;">
+<div class="wrap">
+<h2 style="margin:0 0 12px;">Transportation &amp; Roads</h2>
+<div class="grid-3">
+<article class="p-card">
+<img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Highway dualization">
+<div class="p-card__body">
+<div class="p-meta">Ghana • 2002–2010</div>
+<h3 class="p-title">Accra–Kumasi Highway Dualization</h3>
+<p>250 km corridor development.</p>
+</div>
+</article>
+<article class="p-card">
+<img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Expressway">
+<div class="p-card__body">
+<div class="p-meta">Ghana • 2002–2004</div>
+<h3 class="p-title">Achimota–Ofankor Expressway</h3>
+<p>6.3 km expressway delivery.</p>
+</div>
+</article>
+<article class="p-card">
+          <img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg" alt="Angola supervision">
+          <img src="assets/img/uploads/R.jpg" alt="Angola supervision">
+<div class="p-card__body">
+<div class="p-meta">Angola • 2000</div>
+<h3 class="p-title">Caxito–Bom Jesus Road</h3>
+<p>97 km supervision.</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<!-- Past Projects — Water & Sanitation -->
+<section class="section" style="padding-top:0;">
+<div class="wrap">
+<h2 style="margin:0 0 12px;">Water &amp; Sanitation</h2>
+<div class="grid-3">
+<article class="p-card">
+<img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Rural water">
+<div class="p-card__body">
+<div class="p-meta">Ghana • 2012–2015</div>
+<h3 class="p-title">Sustainable Rural Water &amp; Sanitation</h3>
+<p>200 boreholes + 13 small-town systems (World Bank).</p>
+</div>
+</article>
+<article class="p-card">
+<img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Peri-urban water">
+<div class="p-card__body">
+<div class="p-meta">Ghana • 2011–2014</div>
+<h3 class="p-title">Peri-Urban &amp; Rural Water Supply</h3>
+<p>8 towns (AFD-funded).</p>
+</div>
+</article>
+<article class="p-card">
+          <img src="assets/img/uploads/WhatsApp-Image-2022-04-10-at-1.36.04-PM.jpeg" alt="Community water">
+          <img src="assets/img/uploads/SOLARINST.JPG" alt="Community water">
+<div class="p-card__body">
+<div class="p-meta">Ghana • 1996–2000</div>
+<h3 class="p-title">Community Water Projects</h3>
+<p>6 small towns • Boreholes &amp; O&amp;M training.</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<!-- Past Projects — Environment & Tourism (gallery) -->
+<section class="section" style="padding-top:0;">
+<div class="wrap">
+<h2 style="margin:0 0 12px;">Environment, Resources &amp; Tourism</h2>
+<div class="gallery">
+<figure>
+<img src="assets/img/uploads/ghana-body.jpg" alt="Afforestation">
+<figcaption>Afforestation &amp; Fuelwood Project — Lesotho, 1983</figcaption>
+</figure>
+<figure>
+<img src="assets/img/uploads/ghana-body.jpg" alt="Charcoal program">
+<figcaption>Charcoal &amp; Afforestation Program — Angola, 1989</figcaption>
+</figure>
+<figure>
+          <img src="assets/img/uploads/ghana-body.jpg" alt="SADCC studies">
+          <img src="assets/img/uploads/AREA.jpg" alt="SADCC studies">
+<figcaption>SADCC Renewable Energy Studies — Southern Africa, 1990</figcaption>
+</figure>
+<figure>
+<img src="assets/img/uploads/ghana-body.jpg" alt="Airport proposal">
+<figcaption>Nkonsia Regional Airport &amp; Aero City — Proposed, Ghana</figcaption>
+</figure>
+<figure>
+          <img src="assets/img/uploads/ghana-body.jpg" alt="Cultural village">
+          <img src="assets/img/uploads/AREA.jpg" alt="Cultural village">
+<figcaption>Cultural Village &amp; Tourism Centre — Lesotho, 1990</figcaption>
+</figure>
+<figure>
+<img src="assets/img/uploads/ghana-body.jpg" alt="Hotel & tourism institute">
+<figcaption>National Hotel &amp; Tourism Training Institute — Ghana, 1998</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
 <!-- Footer -->
-<footer class="bg-[#f6f3f2] dark:bg-[#1b1c1c] w-full pt-16 pb-8">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8">
-<div class="flex flex-col gap-6">
-<div class="text-xl font-bold text-[#1b1c1c] dark:text-[#fbf9f8]">Tabcon</div>
-<p class="font-['Inter'] text-sm on-surface-variant text-[#40484d] dark:text-[#c0c7ce]">
-                    Pioneering development consultancy for a resilient and sustainable Africa.
-                </p>
+<footer class="footer">
+<div class="wrap foot-grid">
+<div style="display:flex; align-items:center; gap:12px;">
+<div class="foot-badge">T</div>
+<div><strong>Tabcon Ghana</strong><br><span style="color:var(--muted)">Hybrid Hydro–Solar</span></div>
 </div>
-<div class="flex flex-col gap-4">
-<h5 class="font-bold text-[#1c6282] dark:text-[#3c7b9c]">Solutions</h5>
-<nav class="flex flex-col gap-2">
-<a class="font-['Inter'] text-sm text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Expertise</a>
-<a class="font-['Inter'] text-sm text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Sustainability Report</a>
-<a class="font-['Inter'] text-sm text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Careers</a>
+<nav aria-label="Footer links">
+<div class="foot-title">Links</div>
+<ul class="list--reset">
+<li><a href="services.html">Services</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="news.html">News</a></li>
+<li><a href="about.html">About</a></li>
+</ul>
 </nav>
+<section>
+<div class="foot-title">Contact</div>
+<ul class="list--reset">
+<li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li>
+<li><a href="tel:+233208116401">+233 (0)20 811 6401</a></li>
+</ul>
+</section>
 </div>
-<div class="flex flex-col gap-4">
-<h5 class="font-bold text-[#1c6282] dark:text-[#3c7b9c]">Corporate</h5>
-<nav class="flex flex-col gap-2">
-<a class="font-['Inter'] text-sm text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Privacy Policy</a>
-<a class="font-['Inter'] text-sm text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Office Locations</a>
-</nav>
-</div>
-<div class="flex flex-col gap-4">
-<h5 class="font-bold text-[#1c6282] dark:text-[#3c7b9c]">Connect</h5>
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-[#40484d] cursor-pointer hover:text-primary transition-colors">public</span>
-<span class="material-symbols-outlined text-[#40484d] cursor-pointer hover:text-primary transition-colors">description</span>
-<span class="material-symbols-outlined text-[#40484d] cursor-pointer hover:text-primary transition-colors">business</span>
-</div>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/30 flex justify-between items-center text-[#40484d] dark:text-[#c0c7ce] font-['Inter'] text-xs">
-<div>© 2024 Tabcon Development Consultants. Built for Sustainability.</div>
-<div class="flex gap-6">
-<a class="hover:underline" href="#">LinkedIn</a>
-<a class="hover:underline" href="#">Annual Review</a>
-</div>
-</div>
+<div class="copy">© <span id="year"></span> Tabcon Ghana</div>
 </footer>
-</body></html>
+
+<!-- Contact FAB -->
+<div class="contact-fab" style="position:fixed; right:18px; bottom:18px; z-index:30;">
+<button class="contact-toggle" id="contactToggle" type="button" style="appearance:none; border:1px solid var(--edge); background:linear-gradient(180deg, var(--brand-2), var(--brand)); color:#0e1a11; font-weight:900; border-radius:999px; padding:12px 16px; box-shadow: var(--shadow-lg); cursor:pointer;">Contact</button>
+<div class="contact-panel" id="contactPanel" aria-hidden="true" style="position:absolute; right:0; bottom:58px; width:280px; background:rgba(255,255,255,.98); border:1px solid var(--edge); border-radius:14px; box-shadow: var(--shadow-lg); overflow:hidden; opacity:0; transform:translateY(8px); pointer-events:none; transition: opacity .2s ease, transform .2s ease; backdrop-filter: blur(6px);">
+<header style="padding:12px 14px; font-weight:800; border-bottom:1px solid var(--edge);">Contact Tabcon</header>
+<div class="item" style="padding:12px 14px; border-top:1px solid var(--edge);"><a href="tel:+233208116401">+233 (0)20 811 6401</a></div>
+<div class="item" style="padding:12px 14px; border-top:1px solid var(--edge);"><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></div>
+<div class="item" style="padding:12px 14px; border-top:1px solid var(--edge);"><a href="contact.html">Open contact page →</a></div>
+</div>
+</div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+(function(){ // contact dropdown
+const btn=document.getElementById('contactToggle');const panel=document.getElementById('contactPanel');
+if(!btn||!panel) return;
+btn.addEventListener('click',()=>{const open=panel.classList.toggle('open');panel.style.opacity=open?1:0;panel.style.transform=open?'translateY(0)':'translateY(8px)';panel.style.pointerEvents=open?'auto':'none';panel.setAttribute('aria-hidden', String(!open));});
+document.addEventListener('click',(e)=>{if(!panel.contains(e.target)&&e.target!==btn){panel.classList.remove('open');panel.style.opacity=0;panel.style.transform='translateY(8px)';panel.style.pointerEvents='none';panel.setAttribute('aria-hidden','true');}});
+document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){panel.classList.remove('open');panel.style.opacity=0;panel.style.transform='translateY(8px)';panel.style.pointerEvents='none';panel.setAttribute('aria-hidden','true');}});
+})();
+</script>
+<!-- Optional: auto-mobile drawer (one-liner if you created assets/js/mobile-drawer.js) -->
+<!-- <script defer src="assets/js/mobile-drawer.js"></script> -->
+</body>
+</html>
