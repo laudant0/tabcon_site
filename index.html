@@ -11,11 +11,6 @@
 html {
   scroll-behavior: smooth;
 }
-
-/* FIX: prevents navbar from hiding sections */
-section {
-  scroll-margin-top: 100px;
-}
 </style>
 
 </head>
@@ -53,20 +48,14 @@ section {
 <!-- HERO -->
 <section id="home" class="h-screen flex items-center justify-center bg-gray-800 text-white text-center px-6">
   <div>
-    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-      Building Africa’s Infrastructure Future
-    </h1>
-    <p class="text-xl md:text-2xl mb-8 text-gray-200">
-      Engineering • Energy • Development
-    </p>
-    <a href="#contact" class="bg-blue-600 px-8 py-4 rounded text-white text-lg hover:bg-blue-700 transition">
-      Start a Project
-    </a>
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">Building Africa’s Infrastructure Future</h1>
+    <p class="text-lg mb-6">Engineering • Energy • Development</p>
+    <a href="#contact" class="bg-blue-600 px-6 py-3 rounded text-white">Start a Project</a>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="py-32 max-w-5xl mx-auto px-6 text-center">
+<section id="about" class="py-24 max-w-5xl mx-auto px-6 text-center">
   <h2 class="text-3xl font-bold mb-6">About Tabcon</h2>
   <p class="text-lg text-gray-600">
     Tabcon Development Consultants delivers engineering, infrastructure,
@@ -75,7 +64,7 @@ section {
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="py-32 bg-gray-100 text-center px-6">
+<section id="services" class="py-24 bg-gray-100 text-center px-6">
   <h2 class="text-3xl font-bold mb-10">Our Services</h2>
 
   <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -86,7 +75,7 @@ section {
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="py-32 text-center px-6">
+<section id="projects" class="py-24 text-center px-6">
   <h2 class="text-3xl font-bold mb-10">Projects</h2>
 
   <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -97,7 +86,7 @@ section {
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-32 bg-gray-100 text-center px-6">
+<section id="contact" class="py-24 bg-gray-100 text-center px-6">
   <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
 
   <form class="max-w-xl mx-auto flex flex-col gap-4">
@@ -118,21 +107,24 @@ section {
 const menuBtn = document.getElementById("menuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
 
+// Toggle mobile menu
 menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
 });
 
-// Smooth scroll + close mobile menu
+// Smooth scroll & close mobile menu only if the menu is open
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function(e) {
     e.preventDefault();
 
     const target = document.querySelector(this.getAttribute("href"));
-    target.scrollIntoView({
-      behavior: "smooth"
-    });
+    if(target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
 
-    mobileMenu.classList.add("hidden");
+    if(!mobileMenu.classList.contains("hidden")) {
+      mobileMenu.classList.add("hidden");
+    }
   });
 });
 </script>
