@@ -1,133 +1,330 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tabcon Development Consultants</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tabcon Development Consultants | Building Africa's Future</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-high": "#eae8e7",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "on-secondary-fixed-variant": "#005312",
+                        "primary-fixed-dim": "#91cef3",
+                        "inverse-surface": "#303030",
+                        "surface": "#fbf9f8",
+                        "surface-tint": "#206585",
+                        "on-surface-variant": "#40484d",
+                        "on-primary-fixed": "#001e2c",
+                        "secondary-fixed": "#a3f69c",
+                        "tertiary-fixed": "#e4e2e1",
+                        "surface-dim": "#dbdad9",
+                        "primary": "#1c6282",
+                        "inverse-primary": "#91cef3",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1b1c1c",
+                        "on-primary": "#ffffff",
+                        "background": "#fbf9f8",
+                        "outline-variant": "#c0c7ce",
+                        "on-secondary-fixed": "#002204",
+                        "surface-container-low": "#f5f3f3",
+                        "surface-container-highest": "#e4e2e2",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fbf9f8",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-primary-container": "#fcfcff",
+                        "on-background": "#1b1c1c",
+                        "on-tertiary-container": "#fffcfb",
+                        "surface-container": "#efeded",
+                        "primary-fixed": "#c4e7ff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#217128",
+                        "secondary-fixed-dim": "#88d982",
+                        "secondary-container": "#a0f399",
+                        "secondary": "#1b6d24",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "outline": "#70787e",
+                        "on-primary-fixed-variant": "#004c69",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "surface-variant": "#e4e2e2",
+                        "tertiary-container": "#757474",
+                        "tertiary": "#5c5c5c",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#3c7b9c",
+                        "on-error": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
 <style>
-html {
-  scroll-behavior: smooth;
-}
-</style>
-
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(28, 98, 130, 0.9), rgba(60, 123, 156, 0.4));
+        }
+    </style>
 </head>
-
-<body class="font-sans">
-
-<!-- NAVBAR -->
-<nav class="fixed top-0 w-full bg-white shadow z-50 h-20 flex items-center">
-  <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-6">
-    
-    <h1 class="font-bold text-xl">Tabcon</h1>
-
-    <div class="space-x-6 hidden md:flex font-medium">
-      <a href="#home" class="hover:text-blue-600">Home</a>
-      <a href="#about" class="hover:text-blue-600">About</a>
-      <a href="#services" class="hover:text-blue-600">Services</a>
-      <a href="#projects" class="hover:text-blue-600">Projects</a>
-      <a href="#contact" class="hover:text-blue-600">Contact</a>
-    </div>
-
-    <!-- MOBILE MENU BUTTON -->
-    <div id="menuBtn" class="md:hidden cursor-pointer text-2xl">☰</div>
-  </div>
-
-  <!-- MOBILE MENU -->
-  <div id="mobileMenu" class="hidden flex-col bg-white w-full absolute top-20 left-0 text-center py-4 space-y-4">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-20">
+<div class="text-2xl font-bold tracking-tighter text-sky-900 dark:text-white">
+                Tabcon
+            </div>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex items-center space-x-8 font-sans text-base font-medium tracking-tight">
+<a class="text-sky-700 dark:text-sky-300 border-b-2 border-sky-700 dark:border-sky-300 pb-1" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-sky-800 dark:hover:text-sky-200 transition-colors" href="#">About Us</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-sky-800 dark:hover:text-sky-200 transition-colors" href="#">Services</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-sky-800 dark:hover:text-sky-200 transition-colors" href="#">Projects</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-sky-800 dark:hover:text-sky-200 transition-colors" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-medium hover:opacity-90 transition-all active:scale-95">
+                Contact Us
+            </button>
+</div>
 </nav>
-
-<!-- HERO -->
-<section id="home" class="h-screen flex items-center justify-center bg-gray-800 text-white text-center px-6">
-  <div>
-    <h1 class="text-4xl md:text-6xl font-bold mb-4">Building Africa’s Infrastructure Future</h1>
-    <p class="text-lg mb-6">Engineering • Energy • Development</p>
-    <a href="#contact" class="bg-blue-600 px-6 py-3 rounded text-white">Start a Project</a>
-  </div>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[921px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Renewable Energy Infrastructure" class="w-full h-full object-cover" data-alt="Wide shot of a massive solar farm array in a lush African landscape during golden hour with mountains in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvT1Mm-d_lOzjN0hCdWBnxNvj-5mtK_bLnQwTK6kkFYCR8BFyX3HQBmDQML-RlFLS3-2I-3aNXmHmI8gG-lck5050csqS0WewiPHahfFyTqwblXoQQNcc28xh3_00NyiwOR835ccN1iKGCY3reSsGxSLE2QuPssJ4x2cURZ6I3X5REdyW8mwdlxJRUsC9KYwVe9-jmZ6hto_KrfZL58LAY__TpKkJ-CE_vt_eI3NUPDWMSJ-l98VyyYeqoC06GU7HSXu_bNqkF7c0"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+<div class="max-w-3xl">
+<span class="inline-block py-1 px-3 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold font-label mb-6 uppercase tracking-widest">
+                        ESTABLISHED 1983
+                    </span>
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold text-white leading-[1.1] tracking-tight mb-8">
+                        Building Africa’s Future Through <span class="text-secondary-fixed">Innovation</span> and Sustainability
+                    </h1>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-bold text-lg hover:opacity-90 transition-all flex items-center gap-2 group">
+                            See Our Projects
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/20 transition-all">
+                            Learn More
+                        </button>
+</div>
+</div>
+</div>
 </section>
-
-<!-- ABOUT -->
-<section id="about" class="py-24 max-w-5xl mx-auto px-6 text-center">
-  <h2 class="text-3xl font-bold mb-6">About Tabcon</h2>
-  <p class="text-lg text-gray-600">
-    Tabcon Development Consultants delivers engineering, infrastructure,
-    and sustainable energy solutions across Africa.
-  </p>
+<!-- Introduction Section -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<div class="lg:col-span-7">
+<h2 class="text-sm font-bold font-label text-primary uppercase tracking-widest mb-4">Our Legacy</h2>
+<h3 class="text-4xl md:text-5xl font-headline font-bold text-on-surface mb-8 leading-tight">
+                            Decades of Excellence in Infrastructure &amp; Development.
+                        </h3>
+<p class="text-lg text-on-surface-variant leading-relaxed mb-8">
+                            Founded in 1983, Tabcon Development Consultants has stood at the forefront of Africa's transformation. We provide world-class engineering and management solutions across water systems, energy grids, and environmental preservation. Our mission is to bridge the gap between technical complexity and sustainable human impact.
+                        </p>
+<!-- Metric Blocks -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+<div class="p-6 bg-surface-container-low rounded-xl">
+<div class="text-4xl font-headline font-extrabold text-primary mb-1">40+</div>
+<div class="text-[10px] font-bold font-label text-on-surface-variant uppercase tracking-wider">Years Experience</div>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl">
+<div class="text-4xl font-headline font-extrabold text-primary mb-1">200+</div>
+<div class="text-[10px] font-bold font-label text-on-surface-variant uppercase tracking-wider">Projects Completed</div>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl">
+<div class="text-4xl font-headline font-extrabold text-primary mb-1">15+</div>
+<div class="text-[10px] font-bold font-label text-on-surface-variant uppercase tracking-wider">African Nations</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5">
+<div class="relative rounded-2xl overflow-hidden aspect-square">
+<img alt="Engineering Team" class="w-full h-full object-cover" data-alt="Professional engineers in safety gear reviewing blueprints on a large construction site with industrial cranes in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD09MIhS012_Ia0fX1pREDgL6-lktQv6mFDQzhIpBHSQaEd5hIiZL2xWolZ7FwgZRHlV2kOiCeb-oR8fzpj1YX-BC7tkrqTxudi48MvSghc1Xr1IckXiKzJ4a7ZhaO-FvARos2DdG5ZGsLS11KCZcVueA70-IIgjMXMEuLwDGczyJvDmQQxCWXqgnEvGjw2AGG-r2ktxt2MQTDqo2tYPQaLrdkERt_fDf-ugZjaJLuaKwlXzqK6-L2F9d5Pi_LETgF_990khqA3Dfg"/>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<!-- SERVICES -->
-<section id="services" class="py-24 bg-gray-100 text-center px-6">
-  <h2 class="text-3xl font-bold mb-10">Our Services</h2>
-
-  <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-    <div class="bg-white p-6 shadow">Energy Systems</div>
-    <div class="bg-white p-6 shadow">Infrastructure</div>
-    <div class="bg-white p-6 shadow">Consulting</div>
-  </div>
+<!-- Featured Project Highlight -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div class="max-w-2xl">
+<span class="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold font-label mb-4">
+<span class="material-symbols-outlined text-sm" data-weight="fill">bolt</span>
+                            RENEWABLE ENERGY FOCUS
+                        </span>
+<h2 class="text-4xl font-headline font-bold text-on-surface">Tabcon Energy Limited SPV</h2>
+</div>
+<p class="text-on-surface-variant font-label text-sm uppercase tracking-widest border-b-2 border-secondary pb-2">Flagship Initiative</p>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm flex flex-col lg:flex-row">
+<div class="lg:w-1/2 h-[400px] lg:h-auto relative">
+<img alt="Hydro-Solar Energy Project" class="w-full h-full object-cover" data-alt="A combined landscape showing large scale hydro dam integrated with a modern solar panel field under clear blue skies" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG6tKVr2gSZJHE_4XEO_goFQUUXzcQwN0RtWPlai2gbiHzO0dHVA6tWJC7t-PLyG4Chi65QFIXg8ZobvBMo8Bk28T-F7vCJ1ywIyDWi2MPvzu8oXySZDiI_-qa6mWmdHu3_OKeHq8fgioViUP9to0-bRss9JG4DVeqr0Zj0_31vX3vCQn8_xU0gBE06LHKpf9RFTeiYeP4TonHI4MLBQhYe0FMARqkzHU5LvjsNAzpO0fJPoWl9ALzaamMnE-3wdMt_JBkbcXxnRw"/>
+<div class="absolute bottom-6 left-6 flex gap-4">
+<div class="bg-white/90 backdrop-blur-md px-4 py-2 rounded-lg text-primary font-bold shadow-lg">
+                                55 MW Solar
+                            </div>
+<div class="bg-white/90 backdrop-blur-md px-4 py-2 rounded-lg text-secondary font-bold shadow-lg">
+                                6 MW BESS
+                            </div>
+</div>
+</div>
+<div class="lg:w-1/2 p-8 lg:p-16 flex flex-col justify-center">
+<h3 class="text-3xl font-headline font-bold mb-6">Tain Hybrid Hydro-Solar Energy Project</h3>
+<p class="text-lg text-on-surface-variant mb-8 leading-relaxed">
+                            A pioneering special purpose vehicle driving the future of energy in Ghana. This hybrid project combines photovoltaic generation with high-capacity Battery Energy Storage Systems (BESS) to ensure stable, green baseload power for regional development.
+                        </p>
+<ul class="space-y-4 mb-10">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary" data-weight="fill">check_circle</span>
+<span class="text-on-surface font-medium">Integrated Grid Stability Management</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary" data-weight="fill">check_circle</span>
+<span class="text-on-surface font-medium">Environmental Impact Optimized Design</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary" data-weight="fill">check_circle</span>
+<span class="text-on-surface font-medium">Local Workforce Capacity Building</span>
+</li>
+</ul>
+<a class="text-primary font-bold flex items-center gap-2 hover:translate-x-2 transition-transform" href="#">
+                            View Project Specifications
+                            <span class="material-symbols-outlined">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
 </section>
-
-<!-- PROJECTS -->
-<section id="projects" class="py-24 text-center px-6">
-  <h2 class="text-3xl font-bold mb-10">Projects</h2>
-
-  <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-    <div class="bg-white p-6 shadow">Hydro-Solar</div>
-    <div class="bg-white p-6 shadow">Water Systems</div>
-    <div class="bg-white p-6 shadow">Urban Development</div>
-  </div>
+<!-- Latest News Section -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-headline font-bold mb-4">Latest News &amp; Strategic Updates</h2>
+<div class="h-1.5 w-24 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- News Card 1 -->
+<div class="bg-surface-container-low p-8 rounded-xl flex flex-col h-full">
+<div class="mb-6 flex justify-between items-start">
+<span class="p-3 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">description</span>
+</span>
+<span class="text-xs font-bold font-label text-on-surface-variant">OCT 2024</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-4">New MoUs Signed for Water Management</h4>
+<p class="text-on-surface-variant mb-6 flex-grow">Strategic partnership formed with regional authorities to modernize irrigation infrastructure in West Africa.</p>
+<a class="text-primary font-bold text-sm uppercase tracking-wider hover:underline" href="#">Read Full Press Release</a>
+</div>
+<!-- News Card 2 -->
+<div class="bg-surface-container-low p-8 rounded-xl flex flex-col h-full">
+<div class="mb-6 flex justify-between items-start">
+<span class="p-3 bg-secondary/10 rounded-lg">
+<span class="material-symbols-outlined text-secondary">verified</span>
+</span>
+<span class="text-xs font-bold font-label text-on-surface-variant">SEP 2024</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-4">Government Endorsement Received</h4>
+<p class="text-on-surface-variant mb-6 flex-grow">The Ministry of Energy formally recognizes Tabcon's contribution to national renewable energy targets.</p>
+<a class="text-primary font-bold text-sm uppercase tracking-wider hover:underline" href="#">Watch Statement</a>
+</div>
+<!-- News Card 3 -->
+<div class="bg-surface-container-low p-8 rounded-xl flex flex-col h-full">
+<div class="mb-6 flex justify-between items-start">
+<span class="p-3 bg-tertiary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-tertiary">public</span>
+</span>
+<span class="text-xs font-bold font-label text-on-surface-variant">AUG 2024</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-4">Sustainability Summit Participation</h4>
+<p class="text-on-surface-variant mb-6 flex-grow">Tabcon leadership presented technical frameworks for green energy scalability at the Africa Future Summit.</p>
+<a class="text-primary font-bold text-sm uppercase tracking-wider hover:underline" href="#">Download Presentation</a>
+</div>
+</div>
+</div>
 </section>
-
-<!-- CONTACT -->
-<section id="contact" class="py-24 bg-gray-100 text-center px-6">
-  <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
-
-  <form class="max-w-xl mx-auto flex flex-col gap-4">
-    <input type="text" placeholder="Name" class="p-3 border" required>
-    <input type="email" placeholder="Email" class="p-3 border" required>
-    <textarea placeholder="Message" class="p-3 border"></textarea>
-    <button class="bg-blue-600 text-white py-3">Send Message</button>
-  </form>
+<!-- CTA Section -->
+<section class="py-20">
+<div class="max-w-7xl mx-auto px-6">
+<div class="bg-primary-container rounded-3xl p-12 md:p-20 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[300px]" data-weight="fill">architecture</span>
+</div>
+<div class="relative z-10 max-w-2xl text-on-primary-container">
+<h2 class="text-4xl md:text-5xl font-headline font-bold mb-6">Ready to partner on your next landmark project?</h2>
+<p class="text-xl mb-10 opacity-90">Let's build a sustainable future together. Our consultants are ready to discuss your infrastructure needs.</p>
+<button class="bg-surface-container-lowest text-primary px-10 py-4 rounded-lg font-bold text-lg hover:bg-on-primary hover:text-primary transition-all shadow-xl">
+                            Start a Conversation
+                        </button>
+</div>
+</div>
+</div>
 </section>
-
-<!-- FOOTER -->
-<footer class="text-center py-6 bg-black text-white">
-  © 2026 Tabcon Development Consultants
+</main>
+<!-- Footer -->
+<footer class="w-full pt-16 pb-8 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-6">
+<div class="col-span-1 md:col-span-1">
+<span class="text-xl font-bold text-sky-900 dark:text-white mb-4 block">Tabcon</span>
+<p class="font-sans text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                    Pioneering engineering consultancy delivering sustainable infrastructure across the African continent since 1983.
+                </p>
+</div>
+<div class="col-span-1">
+<h5 class="text-sky-900 dark:text-sky-500 font-bold mb-6">Key Personnel</h5>
+<ul class="space-y-3 font-sans text-sm">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-300 hover:translate-x-1 transition-transform inline-block" href="#">Dr. Paul Tabirih</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-300 hover:translate-x-1 transition-transform inline-block" href="#">Mr. Peter Agbo</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-300 hover:translate-x-1 transition-transform inline-block" href="#">Ing. Abrefa Agyapong Tabiri</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h5 class="text-sky-900 dark:text-sky-500 font-bold mb-6">Explore</h5>
+<ul class="space-y-3 font-sans text-sm">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-300 hover:translate-x-1 transition-transform inline-block" href="#">Services</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-300 hover:translate-x-1 transition-transform inline-block" href="#">Projects</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-300 hover:translate-x-1 transition-transform inline-block" href="#">Careers</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h5 class="text-sky-900 dark:text-sky-500 font-bold mb-6">Location</h5>
+<p class="font-sans text-sm leading-relaxed text-slate-500 dark:text-slate-400 mb-4">
+                    Accra Office Address<br/>
+                    Greater Accra Region, Ghana
+                </p>
+<div class="h-24 w-full bg-slate-200 dark:bg-slate-800 rounded-lg overflow-hidden">
+<img alt="Map" class="w-full h-full object-cover opacity-60" data-location="Accra" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDKkP1RbgiRwGfP-nL8i9oFFF7X7wxWzWCWPUrGL-ktFAoft2BAq6hLQnRtZeoZaRRCKHw39eyrDYlmiI7HT9fQRCBDJ_j5Du2kMe1r-lfAykKeK03l-2ID3TaKOIf-tOWfcVhcutVubqppWnkD2oGriQOfMxNFYlYUfXrRCo3t4bsyKktUANhEY6Uh3mx3vwbQqe-mZzitocJSqck9nvLo7T7KDoHhNDEGbSrN_er8H13hiIix9WI7aVN4xz4Y7r4mn2i3E9p-b0"/>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-200 dark:border-slate-800">
+<p class="font-sans text-sm leading-relaxed text-slate-500 dark:text-slate-400 text-center">
+                © 2024 Tabcon Development Consultants. All rights reserved.
+            </p>
+</div>
 </footer>
-
-<!-- SCRIPT -->
-<script>
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
-
-// Toggle mobile menu
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-});
-
-// Smooth scroll & close mobile menu only if the menu is open
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function(e) {
-    e.preventDefault();
-
-    const target = document.querySelector(this.getAttribute("href"));
-    if(target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
-
-    if(!mobileMenu.classList.contains("hidden")) {
-      mobileMenu.classList.add("hidden");
-    }
-  });
-});
-</script>
-
-</body>
-</html>
+</body></html>
