@@ -62,20 +62,12 @@
           rgba(0, 0, 0, 0.2));
     }
 
-    .timeline-line {
-      position: absolute;
-      left: 50%;
-      top: 0;
-      width: 1px;
-      height: 100%;
-      background: #dcdcdc;
-      transform: translateX(-50%);
-    }
-
-    @media(max-width:768px) {
-      .timeline-line {
-        left: 20px;
-      }
+    .fade-line {
+      height: 1px;
+      background: linear-gradient(to right,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent);
     }
   </style>
 
@@ -172,13 +164,18 @@
   </nav>
 
   <!-- HERO -->
-  <section class="relative h-[80vh] overflow-hidden">
+  <section class="relative h-screen overflow-hidden">
 
     <img src="assets/img/uploads/iii.jpg"
       class="absolute inset-0 w-full h-full object-cover"
       alt="Track Record">
 
     <div class="absolute inset-0 hero-overlay"></div>
+
+    <!-- MASSIVE BACKGROUND -->
+    <div class="absolute bottom-[-40px] left-0 text-[120px] md:text-[240px] font-black text-white/5 leading-none select-none">
+      LEGACY
+    </div>
 
     <div class="relative z-10 h-full flex items-center">
 
@@ -190,18 +187,31 @@
             TABCON TRACK RECORD
           </p>
 
-          <h1 class="text-5xl md:text-7xl font-black text-white leading-tight">
-            40+ Years Of
-            Infrastructure &
-            Energy Delivery
+          <h1 class="text-5xl md:text-8xl font-black text-white leading-[0.95]">
+            Decades Of
+            Engineering
+            Across Africa
           </h1>
 
-          <p class="mt-8 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl">
-            Delivering engineering excellence across
-            Africa through renewable energy,
-            transportation, water systems and
-            strategic infrastructure development.
+          <p class="mt-10 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl">
+            Infrastructure, energy, transportation,
+            water systems and large-scale development
+            projects shaping the next era of African growth.
           </p>
+
+          <div class="mt-12 flex flex-wrap gap-4">
+
+            <a href="#timeline"
+              class="bg-[#006e1c] text-white px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition">
+              Explore Timeline
+            </a>
+
+            <a href="projects.html"
+              class="border border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-black transition">
+              View Projects
+            </a>
+
+          </div>
 
         </div>
 
@@ -211,45 +221,62 @@
 
   </section>
 
-  <!-- KPI -->
-  <section class="py-20">
+  <!-- KPI SECTION -->
+  <section class="relative py-24 bg-[#111111] text-white overflow-hidden">
 
-    <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="absolute inset-0 opacity-20">
 
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-[#1c6282] rounded-full blur-[160px]"></div>
 
-        <div class="bg-white border border-[#ececec] rounded-3xl p-10">
+      <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#006e1c] rounded-full blur-[160px]"></div>
 
-          <h3 class="text-5xl font-black text-[#1c6282]">
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
+
+      <div class="grid md:grid-cols-3 gap-12">
+
+        <div>
+
+          <h2 class="text-6xl md:text-8xl font-black text-[#91cef3]">
             40+
-          </h3>
+          </h2>
 
-          <p class="mt-4 text-[#40484d] font-medium">
-            Years of multidisciplinary consulting experience.
+          <div class="fade-line my-6"></div>
+
+          <p class="text-white/70 text-lg">
+            Years of multidisciplinary engineering
+            and infrastructure consulting.
           </p>
 
         </div>
 
-        <div class="bg-white border border-[#ececec] rounded-3xl p-10">
+        <div>
 
-          <h3 class="text-5xl font-black text-[#006e1c]">
+          <h2 class="text-6xl md:text-8xl font-black text-[#7ddc7a]">
             700+
-          </h3>
+          </h2>
 
-          <p class="mt-4 text-[#40484d] font-medium">
-            Kilometers of roads engineered and supervised.
+          <div class="fade-line my-6"></div>
+
+          <p class="text-white/70 text-lg">
+            Kilometers of transportation
+            infrastructure delivered.
           </p>
 
         </div>
 
-        <div class="bg-white border border-[#ececec] rounded-3xl p-10">
+        <div>
 
-          <h3 class="text-5xl font-black text-[#1c6282]">
+          <h2 class="text-6xl md:text-8xl font-black text-[#91cef3]">
             132
-          </h3>
+          </h2>
 
-          <p class="mt-4 text-[#40484d] font-medium">
-            Water systems and infrastructure projects delivered.
+          <div class="fade-line my-6"></div>
+
+          <p class="text-white/70 text-lg">
+            Water and community systems
+            implemented across Ghana.
           </p>
 
         </div>
@@ -261,156 +288,160 @@
   </section>
 
   <!-- TIMELINE -->
-  <section class="pb-24">
+  <section id="timeline"
+    class="relative py-32 bg-[#f6f3f2] overflow-hidden">
 
-    <div class="max-w-6xl mx-auto px-6 md:px-8">
+    <!-- BG TEXT -->
+    <div class="absolute top-10 left-0 w-full text-center pointer-events-none">
 
-      <div class="mb-16">
+      <h2 class="text-[120px] md:text-[220px] font-black text-black/[0.03] leading-none">
+        HISTORY
+      </h2>
 
-        <p class="uppercase tracking-[0.25em] text-[#1c6282] text-sm mb-4">
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-8">
+
+      <!-- HEADER -->
+      <div class="max-w-3xl mb-24">
+
+        <p class="uppercase tracking-[0.3em] text-[#1c6282] text-sm mb-5">
           Timeline & Milestones
         </p>
 
-        <h2 class="text-4xl md:text-5xl font-black">
-          Engineering Africa’s Future
+        <h2 class="text-5xl md:text-7xl font-black leading-tight">
+          Engineering
+          Continental
+          Progress
         </h2>
 
       </div>
 
-      <div class="relative">
+      <div class="space-y-28">
 
-        <div class="timeline-line hidden md:block"></div>
+        <!-- ITEM -->
+        <div class="grid md:grid-cols-2 gap-16 items-center">
 
-        <div class="space-y-16">
+          <div class="md:text-right">
 
-          <!-- ITEM -->
-          <div class="grid md:grid-cols-2 gap-10 items-center">
+            <span class="text-7xl md:text-9xl font-black text-[#1c6282]/10">
+              83
+            </span>
 
-            <div class="md:text-right">
+            <h3 class="text-4xl font-black leading-tight mt-6 mb-5">
+              Lesotho Highlands
+              Hydroelectric Scheme
+            </h3>
 
-              <span class="inline-block bg-[#1c6282]/10 text-[#1c6282] px-4 py-2 rounded-full text-sm font-bold mb-4">
-                1983 – 1989
-              </span>
-
-              <h3 class="text-3xl font-black mb-4">
-                Lesotho Highlands
-                Hydroelectric Scheme
-              </h3>
-
-              <p class="text-[#40484d] leading-relaxed">
-                Feasibility studies, engineering
-                design and supervision for one
-                of Africa’s major hydroelectric
-                developments.
-              </p>
-
-            </div>
-
-            <div class="bg-white border border-[#ececec] rounded-3xl overflow-hidden">
-
-              <img src="assets/project1.jpg"
-                class="w-full h-[320px] object-cover"
-                alt="Hydroelectric">
-
-            </div>
+            <p class="text-[#40484d] text-lg leading-relaxed">
+              Feasibility studies, engineering
+              design and supervision for one
+              of Africa’s major hydroelectric projects.
+            </p>
 
           </div>
 
-          <!-- ITEM -->
-          <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div class="relative">
 
-            <div class="order-2 md:order-1 bg-white border border-[#ececec] rounded-3xl overflow-hidden">
-
-              <img src="assets/project2.jpg"
-                class="w-full h-[320px] object-cover"
-                alt="Road Infrastructure">
-
-            </div>
-
-            <div class="order-1 md:order-2">
-
-              <span class="inline-block bg-[#006e1c]/10 text-[#006e1c] px-4 py-2 rounded-full text-sm font-bold mb-4">
-                2002 – 2010
-              </span>
-
-              <h3 class="text-3xl font-black mb-4">
-                Accra – Kumasi Highway
-                Dualization
-              </h3>
-
-              <p class="text-[#40484d] leading-relaxed">
-                Design and supervision of major
-                transportation corridors improving
-                national connectivity and logistics
-                movement across Ghana.
-              </p>
-
-            </div>
+            <img src="assets/project1.jpg"
+              class="w-full h-[450px] object-cover rounded-[2rem] shadow-2xl"
+              alt="Hydro">
 
           </div>
 
-          <!-- ITEM -->
-          <div class="grid md:grid-cols-2 gap-10 items-center">
+        </div>
 
-            <div class="md:text-right">
+        <!-- ITEM -->
+        <div class="grid md:grid-cols-2 gap-16 items-center">
 
-              <span class="inline-block bg-[#1c6282]/10 text-[#1c6282] px-4 py-2 rounded-full text-sm font-bold mb-4">
-                2012 – 2015
-              </span>
+          <div class="relative order-2 md:order-1">
 
-              <h3 class="text-3xl font-black mb-4">
-                Sustainable Rural
-                Water Projects
-              </h3>
-
-              <p class="text-[#40484d] leading-relaxed">
-                Delivery of boreholes and small-town
-                water systems supporting sustainable
-                access to clean water across Ghana.
-              </p>
-
-            </div>
-
-            <div class="bg-white border border-[#ececec] rounded-3xl overflow-hidden">
-
-              <img src="assets/project3.jpg"
-                class="w-full h-[320px] object-cover"
-                alt="Water">
-
-            </div>
+            <img src="assets/project2.jpg"
+              class="w-full h-[450px] object-cover rounded-[2rem] shadow-2xl"
+              alt="Road">
 
           </div>
 
-          <!-- ITEM -->
-          <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div class="order-1 md:order-2">
 
-            <div class="order-2 md:order-1 bg-white border border-[#ececec] rounded-3xl overflow-hidden">
+            <span class="text-7xl md:text-9xl font-black text-[#006e1c]/10">
+              02
+            </span>
 
-              <img src="assets/img/uploads/SOLARINST.jpg"
-                class="w-full h-[320px] object-cover"
-                alt="Solar">
+            <h3 class="text-4xl font-black leading-tight mt-6 mb-5">
+              Accra–Kumasi
+              Highway Dualization
+            </h3>
 
-            </div>
+            <p class="text-[#40484d] text-lg leading-relaxed">
+              Large-scale transportation
+              corridor engineering improving
+              logistics and national mobility.
+            </p>
 
-            <div class="order-1 md:order-2">
+          </div>
 
-              <span class="inline-block bg-[#006e1c]/10 text-[#006e1c] px-4 py-2 rounded-full text-sm font-bold mb-4">
-                Ongoing
-              </span>
+        </div>
 
-              <h3 class="text-3xl font-black mb-4">
-                Tain Hybrid
-                Hydro–Solar Project
-              </h3>
+        <!-- ITEM -->
+        <div class="grid md:grid-cols-2 gap-16 items-center">
 
-              <p class="text-[#40484d] leading-relaxed">
-                Renewable energy infrastructure
-                integrating solar, hydro and battery
-                storage technologies to power
-                sustainable growth.
-              </p>
+          <div class="md:text-right">
 
-            </div>
+            <span class="text-7xl md:text-9xl font-black text-[#1c6282]/10">
+              12
+            </span>
+
+            <h3 class="text-4xl font-black leading-tight mt-6 mb-5">
+              Sustainable Rural
+              Water Systems
+            </h3>
+
+            <p class="text-[#40484d] text-lg leading-relaxed">
+              Community water systems,
+              boreholes and sanitation
+              infrastructure across Ghana.
+            </p>
+
+          </div>
+
+          <div class="relative">
+
+            <img src="assets/project3.jpg"
+              class="w-full h-[450px] object-cover rounded-[2rem] shadow-2xl"
+              alt="Water">
+
+          </div>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+
+          <div class="relative order-2 md:order-1">
+
+            <img src="assets/img/uploads/SOLARINST.jpg"
+              class="w-full h-[450px] object-cover rounded-[2rem] shadow-2xl"
+              alt="Solar">
+
+          </div>
+
+          <div class="order-1 md:order-2">
+
+            <span class="text-7xl md:text-9xl font-black text-[#006e1c]/10">
+              NOW
+            </span>
+
+            <h3 class="text-4xl font-black leading-tight mt-6 mb-5">
+              Tain Hybrid
+              Hydro–Solar Project
+            </h3>
+
+            <p class="text-[#40484d] text-lg leading-relaxed">
+              Integrating hydro, solar
+              and battery technologies into
+              Africa’s sustainable energy future.
+            </p>
 
           </div>
 
@@ -422,86 +453,63 @@
 
   </section>
 
-  <!-- EXPERTISE -->
-  <section class="py-24 bg-white border-y border-[#ececec]">
+  <!-- LEGACY STRIP -->
+  <section class="py-28 bg-black text-white">
 
     <div class="max-w-7xl mx-auto px-6 md:px-8">
 
-      <div class="mb-16">
+      <div class="grid md:grid-cols-2 gap-20 items-center">
 
-        <p class="uppercase tracking-[0.25em] text-[#1c6282] text-sm mb-4">
-          Expertise
-        </p>
+        <div>
 
-        <h2 class="text-4xl md:text-5xl font-black">
-          Core Delivery Areas
-        </h2>
-
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-        <div class="bg-[#fbf9f8] rounded-3xl p-8">
-
-          <span class="material-symbols-outlined text-5xl text-[#1c6282] mb-6">
-            solar_power
-          </span>
-
-          <h3 class="text-2xl font-black mb-4">
-            Energy
-          </h3>
-
-          <p class="text-[#40484d]">
-            Hydro, solar and hybrid renewable systems.
+          <p class="uppercase tracking-[0.3em] text-white/50 text-sm mb-5">
+            Legacy
           </p>
+
+          <h2 class="text-5xl md:text-7xl font-black leading-tight">
+            Infrastructure
+            Beyond
+            Generations
+          </h2>
 
         </div>
 
-        <div class="bg-[#fbf9f8] rounded-3xl p-8">
+        <div>
 
-          <span class="material-symbols-outlined text-5xl text-[#006e1c] mb-6">
-            route
-          </span>
-
-          <h3 class="text-2xl font-black mb-4">
-            Transport
-          </h3>
-
-          <p class="text-[#40484d]">
-            Highway engineering and infrastructure planning.
+          <p class="text-white/70 text-xl leading-relaxed">
+            Tabcon’s history is built on decades
+            of execution across transportation,
+            water systems, hydroelectric projects,
+            renewable energy and environmental planning.
           </p>
 
-        </div>
+          <div class="mt-10 flex gap-12">
 
-        <div class="bg-[#fbf9f8] rounded-3xl p-8">
+            <div>
 
-          <span class="material-symbols-outlined text-5xl text-[#1c6282] mb-6">
-            water_drop
-          </span>
+              <h3 class="text-5xl font-black text-[#91cef3]">
+                15+
+              </h3>
 
-          <h3 class="text-2xl font-black mb-4">
-            Water
-          </h3>
+              <p class="text-white/50 mt-2">
+                Major Infrastructure Programs
+              </p>
 
-          <p class="text-[#40484d]">
-            Rural water supply and sanitation systems.
-          </p>
+            </div>
 
-        </div>
+            <div>
 
-        <div class="bg-[#fbf9f8] rounded-3xl p-8">
+              <h3 class="text-5xl font-black text-[#7ddc7a]">
+                4
+              </h3>
 
-          <span class="material-symbols-outlined text-5xl text-[#006e1c] mb-6">
-            eco
-          </span>
+              <p class="text-white/50 mt-2">
+                African Regions
+              </p>
 
-          <h3 class="text-2xl font-black mb-4">
-            Sustainability
-          </h3>
+            </div>
 
-          <p class="text-[#40484d]">
-            Environmental planning and energy transition strategies.
-          </p>
+          </div>
 
         </div>
 
@@ -520,16 +528,15 @@
         Future Forward
       </p>
 
-      <h2 class="text-5xl md:text-6xl font-black leading-tight">
-        Building The Next Era
-        Of African Infrastructure
+      <h2 class="text-5xl md:text-7xl font-black leading-tight">
+        Building Africa’s
+        Next Chapter
       </h2>
 
       <p class="mt-8 text-xl text-[#40484d] leading-relaxed max-w-3xl mx-auto">
-        Tabcon continues to deliver innovative
-        infrastructure and renewable energy
-        systems shaping sustainable development
-        across the continent.
+        Infrastructure is not simply construction.
+        It is economic momentum, energy security,
+        mobility and long-term transformation.
       </p>
 
       <div class="mt-12 flex flex-wrap justify-center gap-6">
