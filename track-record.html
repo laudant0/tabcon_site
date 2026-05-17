@@ -1,444 +1,592 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tabcon Ghana — Track Record</title>
-  <meta name="description" content="Tabcon’s 40+ years of engineering and energy delivery across Africa — key milestones, flagship projects, and outcomes." />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Track Record | Tabcon Ghana</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#ffffff;
-      --glass: rgba(255,255,255,.75);
-      --edge: rgba(17,24,39,.08);
-      --muted:#5b6673;
-      --text:#0b1220;
-      --brand:#2E7D32; --brand-2:#7fd37f;
-      --wrap: clamp(960px, 86vw, 1200px);
-      --radius:16px;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
-      --shadow-lg: 0 10px 28px rgba(0,0,0,.10);
-    }
-    *,*::before,*::after{ box-sizing:border-box; }
-    body{
-      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      color:var(--text); background:var(--bg); line-height:1.6;
-    }
-    a{ color:inherit; text-decoration:none; }
-    img{ max-width:100%; display:block; }
-    .wrap{ width:var(--wrap); max-width:100%; margin-inline:auto; padding-inline:20px; }
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
-    /* Header (glass, same as index) */
-    .header{
-      position:sticky; top:0; z-index:20;
-      backdrop-filter:saturate(1.2) blur(12px);
-      background:var(--glass);
-      border-bottom:1px solid var(--edge);
-    }
-    .header__inner{ display:flex; align-items:center; justify-content:space-between; height:72px; }
-    .logo{ width:120px; height:auto; }
-    .nav__list{ list-style:none; display:flex; gap:18px; margin:0; padding:0; }
-    .nav__list a{
-      padding:10px 12px; border-radius:10px; font-weight:600; color:#263041;
-    }
-    .nav__list a:hover{ background:rgba(2,6,23,.06); }
-
-    /* Banner (uses index vibe, single hero image) */
-    .banner{
-      position:relative; overflow:hidden; border-bottom:1px solid var(--edge);
-      height:46vh; min-height:360px;
-    }
-    .banner img{ width:100%; height:100%; object-fit:cover; }
-    .banner::after{
-      content:""; position:absolute; inset:0;
-      background: linear-gradient(120deg, rgba(0,0,0,.45), rgba(0,0,0,.18));
-    }
-    .banner__content{
-      position:absolute; inset:0; display:flex; align-items:center; color:#fff;
-      text-shadow: 0 1px 10px rgba(0,0,0,.35);
-    }
-    .banner__inner{ max-width:var(--wrap); margin:auto; padding:20px; }
-    .banner h1{ font-size: clamp(32px, 4.2vw, 56px); margin:0 0 8px; letter-spacing:-.02em; }
-    .banner p{ margin:0; max-width:60ch; color:#eef3f9; }
-    .tagline{ font-weight:800; margin-top:8px; }
-
-    /* Section shells */
-    .section{ padding-block:56px; }
-    .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
-    .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-    .card{
-      background:rgba(255,255,255,.96); border:1px solid var(--edge);
-      border-radius:16px; overflow:hidden; box-shadow: var(--shadow-lg);
-    }
-    .card__body{ padding:16px; }
-    .card h3{ margin:0 0 6px; }
-
-    /* KPI (subtle glass like index) */
-    .kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
-    .kpi{
-      border-radius:14px; padding:14px; text-align:center; color:var(--text);
-      background:
-        linear-gradient(135deg,
-          rgba(131,58,180,.08),
-          rgba(253,29,29,.08),
-          rgba(252,176,69,.08)
-        ),
-        rgba(255,255,255,.85);
-      border:1px solid var(--edge);
-      box-shadow: var(--shadow-sm);
-      backdrop-filter: blur(8px);
-    }
-    .kpi strong{ display:block; font-size:24px; font-weight:800; }
-    .kpi span{ font-size:14px; color:var(--muted); }
-
-    /* === Timeline: two-column layout === */
-.timeline{
-  display:grid;
-  grid-template-columns: 1fr 1fr;   /* half/half */
-  gap:24px 40px;
-  margin-top:18px;
-  position:relative;
-}
-
-/* Optional faint center guide */
-.timeline::before{
-  content:"";
-  position:absolute; inset:0 auto 0 50%;
-  width:1px; background:var(--edge);
-  transform:translateX(-.5px);
-  opacity:.6;
-}
-
-.entry{
-  background:#fff;
-  border:1px solid var(--edge);
-  border-radius:14px;
-  padding:14px 16px;
-  box-shadow: var(--shadow-sm);
-  position:relative;
-}
-
-/* Odd entries left column; even entries right column */
-.entry:nth-child(odd){ grid-column:1; }
-.entry:nth-child(even){ grid-column:2; }
-
-/* Dot that hugs the center line */
-.entry::before{
-  content:"";
-  position:absolute; top:18px;
-  width:10px; height:10px; border-radius:50%;
-  background:linear-gradient(180deg, var(--brand-2), var(--brand));
-  box-shadow:0 0 0 3px #fff;   /* white ring */
-}
-
-/* Place the dot at the INNER edge near the center line */
-.entry:nth-child(odd)::before{ right:-25px; }  /* left column, dot on right edge */
-.entry:nth-child(even)::before{ left:-25px; }  /* right column, dot on left edge */
-
-.entry h3{
-  margin:0 0 6px; font-size:16px; letter-spacing:.02em;
-}
-.badge-year{
-  display:inline-block; padding:4px 10px; border-radius:999px;
-  border:1px solid var(--edge); background:#fff; font-weight:800; font-size:12px; color:#263041;
-  margin-right:8px;
-}
-.entry p{ margin:0; color:#374151; }
-
-/* Mobile: stack to one column */
-@media (max-width: 980px){
-  .timeline{ grid-template-columns:1fr; }
-  .timeline::before{ display:none; }
-  .entry:nth-child(odd),
-  .entry:nth-child(even){ grid-column:auto; }
-  .entry::before{ left:16px; right:auto; }
-}
-
-    /* Groups */
-    .group-title{ margin:0 0 10px; font-size:20px; }
-    .muted{ color:var(--muted); }
-
-    /* References (partners ticker) — same as index */
-    .partner-section{
-      padding:40px 0;
-      background:#fafafa;
-      border-top:1px solid var(--edge);
-      border-bottom:1px solid var(--edge);
-    }
-    .partner-title{
-      margin:0 0 16px;
-      font:700 14px/1.4 Inter,system-ui,sans-serif;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      color:#666;
-    }
-    .partner-track{ overflow:hidden; }
-    .partner-row{
-      display:flex; gap:72px; align-items:center;
-      will-change:transform; animation:partnerScroll 36s linear infinite;
-    }
-    .partner-item img{
-      height:80px; max-width:220px; object-fit:contain;
-      filter:none; opacity:.95; transition:opacity .2s ease, transform .2s ease;
-    }
-    .partner-item img:hover{ opacity:1; transform:translateY(-2px); }
-    @keyframes partnerScroll{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
-    /* Footer (same as index) */
-    .footer{
-      padding-block:34px;
-      background:#f8fafb;
-      border-top:1px solid var(--edge);
-    }
-    .foot-grid{ display:grid; grid-template-columns: 1.2fr auto auto; gap:28px; align-items:start; }
-    .foot-badge{
-      width:44px;height:44px;border-radius:12px;
-      background:linear-gradient(180deg, var(--brand-2), var(--brand));
-      display:grid; place-items:center; color:#0b1220; font-weight:900;
-      box-shadow: var(--shadow-lg);
-    }
-    .foot-title{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
-    .list--reset{ list-style:none; padding:0; margin:0; }
-    .copy{ text-align:center; color:#7a8592; margin-top:22px; font-size:14px; }
-
-    /* Floating Contact */
-    .contact-fab{ position:fixed; right:18px; bottom:18px; z-index:30; }
-    .contact-toggle{
-      appearance:none; border:1px solid var(--edge);
-      background:linear-gradient(180deg, var(--brand-2), var(--brand));
-      color:#0e1a11; font-weight:900; border-radius:999px; padding:12px 16px;
-      box-shadow: var(--shadow-lg); cursor:pointer;
-    }
-    .contact-panel{
-      position:absolute; right:0; bottom:58px; width:280px;
-      background:rgba(255,255,255,.98); border:1px solid var(--edge);
-      border-radius:14px; box-shadow: var(--shadow-lg);
-      overflow:hidden; opacity:0; transform:translateY(8px); pointer-events:none;
-      transition: opacity .2s ease, transform .2s ease;
-      backdrop-filter: blur(6px);
-    }
-    .contact-panel.open{ opacity:1; transform:translateY(0); pointer-events:auto; }
-    .contact-panel header{ padding:12px 14px; font-weight:800; border-bottom:1px solid var(--edge); }
-    .contact-panel .item{ padding:12px 14px; border-top:1px solid var(--edge); }
-    .contact-panel .item a{ font-weight:700; }
-
-    @media (max-width: 980px){
-      .grid-2,.grid-3{ grid-template-columns:1fr; }
-      .foot-grid{ grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-<body>
-  <!-- Header with new order: Services, Projects, News, About -->
-  <header class="header">
-    <div class="wrap header__inner">
-      <a href="index.html"><img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana logo"></a>
-      <nav aria-label="Primary">
-        <ul class="nav__list">
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="news.html">News</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Banner -->
-  <section class="banner">
-    <img src="assets/img/uploads/iii.jpg" alt="Tabcon projects banner">
-    <div class="banner__content">
-      <div class="banner__inner">
-        <h1>Our Track Record</h1>
-        <p>Over 40 years of delivering bankable infrastructure, water, and renewable energy across Africa.</p>
-        <p class="tagline">“Building Africa’s Future Through Innovation and Sustainability’’</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- High-level KPIs -->
-  <section class="section">
-    <div class="wrap kpis">
-      <div class="kpi"><strong>40+ yrs</strong><span>Multidisciplinary consulting</span></div>
-      <div class="kpi"><strong>700+ km</strong><span>Roads engineered & supervised</span></div>
-      <div class="kpi"><strong>132</strong><span>Small-town water systems (CWSP)</span></div>
-    </div>
-  </section>
-
-  <!-- Timeline -->
-  <section class="section">
-    <div class="wrap">
-      <h2 style="margin:0 0 8px;">Timeline & Milestones</h2>
-      <p class="muted" style="margin:0 0 16px;">Key projects by year — energy, transportation, water & environment.</p>
-
-      <div class="timeline">
-        <div class="entry">
-          <h3><span class="badge-year">1983–1989</span> Lesotho Highlands Hydroelectric Scheme</h3>
-          <p>Feasibility, design, and supervision.</p>
-        </div>
-        <div class="entry">
-          <h3><span class="badge-year">1989</span> Angola — Charcoal & Afforestation Program</h3>
-          <p>National program development.</p>
-        </div>
-        <div class="entry">
-          <h3><span class="badge-year">1990</span> SADCC Renewable Energy Studies</h3>
-          <p>Southern Africa regional studies.</p>
-        </div>
-        <div class="entry">
-          <h3><span class="badge-year">1999–2005</span> Bui Hydro-Electric Power Project (Ghana)</h3>
-          <p>400 MW — design & tendering support.</p>
-        </div>
-        <div class="entry">
-          <h3><span class="badge-year">2000</span> Caxito–Bom Jesus Road (Angola)</h3>
-          <p>97 km — supervision.</p>
-        </div>
-        <div class="entry">
-          <h3><span class="badge-year">2000–2004</span> West African Gas Pipeline</h3>
-          <p>Survey & planning with Chevron (Ghana–Togo–Benin).</p>
-        </div>
-        <div class="entry">
-          <h3><span class="badge-year">2002–2004</span> Achimota–Ofankor Expressway</h3>
-          <p>6.3 km — Ghana urban expressway.</p>
-        </div>
-        <div class="entry">
-          <h3><span class="badge-year">2002–2010</span> Accra–Kumasi Highway Dualization</h3>
-          <p>250 km — corridor design & supervision.</p>
-        </div>
-        <div class="entry">
-          <h3><span class="badge-year">2011–2014</span> Peri-Urban & Rural Water Supply (AFD)</h3>
-          <p>8 towns — planning & implementation.</p>
-        </div>
-        <div class="entry">
-          <h3><span class="badge-year">2012–2015</span> Sustainable Rural Water & Sanitation</h3>
-          <p>200 boreholes + 13 small-town systems (World Bank).</p>
-        </div>
-        <div class="entry">
-          <h3><span class="badge-year">Ongoing</span> Tain Hybrid Hydro–Solar (Ghana)</h3>
-          <p>55 MW Solar + 6 MW BESS; 10 MW hydro-solar hybrid expansion.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Grouped by Domain -->
-  <section class="section">
-    <div class="wrap grid-2">
-      <div class="card">
-        <div class="card__body">
-          <h3 class="group-title">🔋 Energy & Power</h3>
-          <ul class="list--reset" style="margin:0; padding-left:1em;">
-            <li><strong>Tain Hybrid Hydro-Solar</strong> — 55 MW Solar + 6 MW BESS; 10 MW hybrid expansion (Ghana, ongoing).</li>
-            <li><strong>Bui HEP</strong> — 400 MW; design & tender support (Ghana, 1999–2005).</li>
-            <li><strong>Lesotho Highlands</strong> — feasibility, design, supervision (1983–1989).</li>
-            <li><strong>WAGP</strong> — survey & planning with Chevron (Ghana–Togo–Benin, 2000–2004).</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card__body">
-          <h3 class="group-title">🛣️ Transportation & Roads</h3>
-          <ul class="list--reset" style="margin:0; padding-left:1em;">
-            <li><strong>Accra–Kumasi Dualization</strong> — 250 km (Ghana, 2002–2010).</li>
-            <li><strong>Achimota–Ofankor Expressway</strong> — 6.3 km (Ghana, 2002–2004).</li>
-            <li><strong>Caxito–Bom Jesus</strong> — 97 km supervision (Angola, 2000).</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card__body">
-          <h3 class="group-title">💧 Water & Sanitation</h3>
-          <ul class="list--reset" style="margin:0; padding-left:1em;">
-            <li><strong>SRWSP</strong> — 200 boreholes + 13 small-town systems (Ghana, 2012–2015).</li>
-            <li><strong>Peri-Urban & Rural Water</strong> — 8 towns (AFD, 2011–2014).</li>
-            <li><strong>Community Water Projects</strong> — 6 small towns; boreholes & O&M training (1996–2000).</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card__body">
-          <h3 class="group-title">🌱 Environment & Resources</h3>
-          <ul class="list--reset" style="margin:0; padding-left:1em;">
-            <li>Afforestation & Fuelwood Project (Lesotho, 1983).</li>
-            <li>Charcoal & Afforestation Program (Angola, 1989).</li>
-            <li>SADCC Renewable Energy Studies (Southern Africa, 1990).</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- References (same ticker as index) -->
-  <section class="partner-section">
-    <div class="wrap">
-      <h3 class="partner-title">References</h3>
-      <div class="partner-track">
-        <div class="partner-row">
-          
-              </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="wrap foot-grid">
-      <div style="display:flex; align-items:center; gap:12px;">
-        <div class="foot-badge">T</div>
-        <div>
-          <strong>Tabcon Ghana</strong><br>
-          <span style="color:var(--muted)">Hybrid Hydro–Solar</span>
-        </div>
-      </div>
-      <nav aria-label="Footer links">
-        <div class="foot-title">Links</div>
-        <ul class="list--reset">
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="news.html">News</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
-      <section>
-        <div class="foot-title">Contact</div>
-        <ul class="list--reset">
-          <li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li>
-          <li><a href="tel:+233208116401">+233 (0)20 811 6401</a></li>
-        </ul>
-      </section>
-    </div>
-    <div class="copy">© <span id="year"></span> Tabcon Ghana</div>
-  </footer>
-
-  <!-- Floating Contact -->
-  <div class="contact-fab">
-    <button class="contact-toggle" id="contactToggle" type="button">Contact</button>
-    <div class="contact-panel" id="contactPanel" aria-hidden="true">
-      <header>Contact Tabcon</header>
-      <div class="item"><a href="tel:+233208116401">+233 (0)20 811 6401</a></div>
-      <div class="item"><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></div>
-      <div class="item"><a href="contact.html">Open contact page →</a></div>
-    </div>
-  </div>
+  <!-- Icons -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    rel="stylesheet" />
 
   <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Contact dropdown
-    (function(){
-      const btn=document.getElementById('contactToggle');
-      const panel=document.getElementById('contactPanel');
-      if(!btn||!panel) return;
-      btn.addEventListener('click',()=>{const open=panel.classList.toggle('open');panel.setAttribute('aria-hidden',String(!open));});
-      document.addEventListener('click',(e)=>{if(!panel.contains(e.target)&&e.target!==btn){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');}});
-      document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');}});
-    })();
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1c6282",
+            secondary: "#006e1c",
+            surface: "#fbf9f8",
+            text: "#1b1c1c",
+            muted: "#40484d"
+          },
+          fontFamily: {
+            body: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
   </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .glass-nav {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .hero-overlay {
+      background:
+        linear-gradient(to right,
+          rgba(0, 0, 0, 0.82),
+          rgba(0, 0, 0, 0.45),
+          rgba(0, 0, 0, 0.2));
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 1px;
+      height: 100%;
+      background: #dcdcdc;
+      transform: translateX(-50%);
+    }
+
+    @media(max-width:768px) {
+      .timeline-line {
+        left: 20px;
+      }
+    }
+  </style>
+
+</head>
+
+<body class="bg-[#fbf9f8] text-[#1b1c1c] overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-[#fbf9f8]/80 glass-nav border-b border-[#ececec]">
+
+    <div class="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
+
+      <!-- LOGO -->
+      <a href="index.html"
+        class="text-2xl font-black tracking-tight">
+        TABCON
+      </a>
+
+      <!-- DESKTOP -->
+      <div class="hidden md:flex items-center space-x-8 font-medium">
+
+        <a href="index.html"
+          class="hover:text-[#1c6282] transition">
+          Home
+        </a>
+
+        <a href="services.html"
+          class="hover:text-[#1c6282] transition">
+          Services
+        </a>
+
+        <a href="projects.html"
+          class="hover:text-[#1c6282] transition">
+          Projects
+        </a>
+
+        <a href="gallery.html"
+          class="hover:text-[#1c6282] transition">
+          Gallery
+        </a>
+
+        <a href="about_us.html"
+          class="hover:text-[#1c6282] transition">
+          About Us
+        </a>
+
+        <a href="track_record.html"
+          class="text-[#1c6282] border-b-2 border-[#006e1c] pb-1">
+          Track Record
+        </a>
+
+        <a href="contact.html"
+          class="hover:text-[#1c6282] transition">
+          Contact
+        </a>
+
+      </div>
+
+      <!-- CTA -->
+      <a href="contact.html"
+        class="hidden md:flex bg-[#1c6282] text-white px-5 py-2 rounded-md font-medium hover:opacity-90 transition">
+        Get In Touch
+      </a>
+
+      <!-- MOBILE -->
+      <button id="menu-btn" class="md:hidden">
+
+        <span class="material-symbols-outlined text-4xl">
+          menu
+        </span>
+
+      </button>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu"
+      class="hidden md:hidden bg-white border-t border-[#ececec] px-6 py-6">
+
+      <div class="flex flex-col space-y-5 font-medium">
+
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about_us.html">About Us</a>
+        <a href="track_record.html">Track Record</a>
+        <a href="contact.html">Contact</a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative h-[80vh] overflow-hidden">
+
+    <img src="assets/img/uploads/iii.jpg"
+      class="absolute inset-0 w-full h-full object-cover"
+      alt="Track Record">
+
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <div class="relative z-10 h-full flex items-center">
+
+      <div class="max-w-7xl mx-auto px-6 md:px-8 w-full">
+
+        <div class="max-w-4xl">
+
+          <p class="uppercase tracking-[0.3em] text-white/70 text-sm mb-5">
+            TABCON TRACK RECORD
+          </p>
+
+          <h1 class="text-5xl md:text-7xl font-black text-white leading-tight">
+            40+ Years Of
+            Infrastructure &
+            Energy Delivery
+          </h1>
+
+          <p class="mt-8 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl">
+            Delivering engineering excellence across
+            Africa through renewable energy,
+            transportation, water systems and
+            strategic infrastructure development.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- KPI -->
+  <section class="py-20">
+
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="bg-white border border-[#ececec] rounded-3xl p-10">
+
+          <h3 class="text-5xl font-black text-[#1c6282]">
+            40+
+          </h3>
+
+          <p class="mt-4 text-[#40484d] font-medium">
+            Years of multidisciplinary consulting experience.
+          </p>
+
+        </div>
+
+        <div class="bg-white border border-[#ececec] rounded-3xl p-10">
+
+          <h3 class="text-5xl font-black text-[#006e1c]">
+            700+
+          </h3>
+
+          <p class="mt-4 text-[#40484d] font-medium">
+            Kilometers of roads engineered and supervised.
+          </p>
+
+        </div>
+
+        <div class="bg-white border border-[#ececec] rounded-3xl p-10">
+
+          <h3 class="text-5xl font-black text-[#1c6282]">
+            132
+          </h3>
+
+          <p class="mt-4 text-[#40484d] font-medium">
+            Water systems and infrastructure projects delivered.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="pb-24">
+
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+
+      <div class="mb-16">
+
+        <p class="uppercase tracking-[0.25em] text-[#1c6282] text-sm mb-4">
+          Timeline & Milestones
+        </p>
+
+        <h2 class="text-4xl md:text-5xl font-black">
+          Engineering Africa’s Future
+        </h2>
+
+      </div>
+
+      <div class="relative">
+
+        <div class="timeline-line hidden md:block"></div>
+
+        <div class="space-y-16">
+
+          <!-- ITEM -->
+          <div class="grid md:grid-cols-2 gap-10 items-center">
+
+            <div class="md:text-right">
+
+              <span class="inline-block bg-[#1c6282]/10 text-[#1c6282] px-4 py-2 rounded-full text-sm font-bold mb-4">
+                1983 – 1989
+              </span>
+
+              <h3 class="text-3xl font-black mb-4">
+                Lesotho Highlands
+                Hydroelectric Scheme
+              </h3>
+
+              <p class="text-[#40484d] leading-relaxed">
+                Feasibility studies, engineering
+                design and supervision for one
+                of Africa’s major hydroelectric
+                developments.
+              </p>
+
+            </div>
+
+            <div class="bg-white border border-[#ececec] rounded-3xl overflow-hidden">
+
+              <img src="assets/project1.jpg"
+                class="w-full h-[320px] object-cover"
+                alt="Hydroelectric">
+
+            </div>
+
+          </div>
+
+          <!-- ITEM -->
+          <div class="grid md:grid-cols-2 gap-10 items-center">
+
+            <div class="order-2 md:order-1 bg-white border border-[#ececec] rounded-3xl overflow-hidden">
+
+              <img src="assets/project2.jpg"
+                class="w-full h-[320px] object-cover"
+                alt="Road Infrastructure">
+
+            </div>
+
+            <div class="order-1 md:order-2">
+
+              <span class="inline-block bg-[#006e1c]/10 text-[#006e1c] px-4 py-2 rounded-full text-sm font-bold mb-4">
+                2002 – 2010
+              </span>
+
+              <h3 class="text-3xl font-black mb-4">
+                Accra – Kumasi Highway
+                Dualization
+              </h3>
+
+              <p class="text-[#40484d] leading-relaxed">
+                Design and supervision of major
+                transportation corridors improving
+                national connectivity and logistics
+                movement across Ghana.
+              </p>
+
+            </div>
+
+          </div>
+
+          <!-- ITEM -->
+          <div class="grid md:grid-cols-2 gap-10 items-center">
+
+            <div class="md:text-right">
+
+              <span class="inline-block bg-[#1c6282]/10 text-[#1c6282] px-4 py-2 rounded-full text-sm font-bold mb-4">
+                2012 – 2015
+              </span>
+
+              <h3 class="text-3xl font-black mb-4">
+                Sustainable Rural
+                Water Projects
+              </h3>
+
+              <p class="text-[#40484d] leading-relaxed">
+                Delivery of boreholes and small-town
+                water systems supporting sustainable
+                access to clean water across Ghana.
+              </p>
+
+            </div>
+
+            <div class="bg-white border border-[#ececec] rounded-3xl overflow-hidden">
+
+              <img src="assets/project3.jpg"
+                class="w-full h-[320px] object-cover"
+                alt="Water">
+
+            </div>
+
+          </div>
+
+          <!-- ITEM -->
+          <div class="grid md:grid-cols-2 gap-10 items-center">
+
+            <div class="order-2 md:order-1 bg-white border border-[#ececec] rounded-3xl overflow-hidden">
+
+              <img src="assets/img/uploads/SOLARINST.jpg"
+                class="w-full h-[320px] object-cover"
+                alt="Solar">
+
+            </div>
+
+            <div class="order-1 md:order-2">
+
+              <span class="inline-block bg-[#006e1c]/10 text-[#006e1c] px-4 py-2 rounded-full text-sm font-bold mb-4">
+                Ongoing
+              </span>
+
+              <h3 class="text-3xl font-black mb-4">
+                Tain Hybrid
+                Hydro–Solar Project
+              </h3>
+
+              <p class="text-[#40484d] leading-relaxed">
+                Renewable energy infrastructure
+                integrating solar, hydro and battery
+                storage technologies to power
+                sustainable growth.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EXPERTISE -->
+  <section class="py-24 bg-white border-y border-[#ececec]">
+
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+
+      <div class="mb-16">
+
+        <p class="uppercase tracking-[0.25em] text-[#1c6282] text-sm mb-4">
+          Expertise
+        </p>
+
+        <h2 class="text-4xl md:text-5xl font-black">
+          Core Delivery Areas
+        </h2>
+
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div class="bg-[#fbf9f8] rounded-3xl p-8">
+
+          <span class="material-symbols-outlined text-5xl text-[#1c6282] mb-6">
+            solar_power
+          </span>
+
+          <h3 class="text-2xl font-black mb-4">
+            Energy
+          </h3>
+
+          <p class="text-[#40484d]">
+            Hydro, solar and hybrid renewable systems.
+          </p>
+
+        </div>
+
+        <div class="bg-[#fbf9f8] rounded-3xl p-8">
+
+          <span class="material-symbols-outlined text-5xl text-[#006e1c] mb-6">
+            route
+          </span>
+
+          <h3 class="text-2xl font-black mb-4">
+            Transport
+          </h3>
+
+          <p class="text-[#40484d]">
+            Highway engineering and infrastructure planning.
+          </p>
+
+        </div>
+
+        <div class="bg-[#fbf9f8] rounded-3xl p-8">
+
+          <span class="material-symbols-outlined text-5xl text-[#1c6282] mb-6">
+            water_drop
+          </span>
+
+          <h3 class="text-2xl font-black mb-4">
+            Water
+          </h3>
+
+          <p class="text-[#40484d]">
+            Rural water supply and sanitation systems.
+          </p>
+
+        </div>
+
+        <div class="bg-[#fbf9f8] rounded-3xl p-8">
+
+          <span class="material-symbols-outlined text-5xl text-[#006e1c] mb-6">
+            eco
+          </span>
+
+          <h3 class="text-2xl font-black mb-4">
+            Sustainability
+          </h3>
+
+          <p class="text-[#40484d]">
+            Environmental planning and energy transition strategies.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+  <section class="py-28">
+
+    <div class="max-w-5xl mx-auto px-6 md:px-8 text-center">
+
+      <p class="uppercase tracking-[0.25em] text-[#1c6282] text-sm mb-4">
+        Future Forward
+      </p>
+
+      <h2 class="text-5xl md:text-6xl font-black leading-tight">
+        Building The Next Era
+        Of African Infrastructure
+      </h2>
+
+      <p class="mt-8 text-xl text-[#40484d] leading-relaxed max-w-3xl mx-auto">
+        Tabcon continues to deliver innovative
+        infrastructure and renewable energy
+        systems shaping sustainable development
+        across the continent.
+      </p>
+
+      <div class="mt-12 flex flex-wrap justify-center gap-6">
+
+        <a href="projects.html"
+          class="bg-[#1c6282] text-white px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition">
+          Explore Projects
+        </a>
+
+        <a href="contact.html"
+          class="border border-[#1c6282] text-[#1c6282] px-8 py-4 rounded-xl font-semibold hover:bg-[#1c6282] hover:text-white transition">
+          Contact Us
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black text-white py-10">
+
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between gap-6">
+
+      <div>
+
+        <h3 class="text-2xl font-black">
+          TABCON
+        </h3>
+
+        <p class="text-white/60 mt-3">
+          Development Consultants
+        </p>
+
+      </div>
+
+      <div class="text-white/60">
+        © 2026 Tabcon Ghana. All rights reserved.
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- MOBILE MENU -->
+  <script>
+
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+  </script>
+
 </body>
+
 </html>
