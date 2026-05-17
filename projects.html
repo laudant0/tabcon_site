@@ -1,39 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Tabcon Projects</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
-    rel="stylesheet">
-
-  <!-- Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-    rel="stylesheet">
+  <title>Tabcon Projects | Engineering Africa’s Future</title>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
   <script>
     tailwind.config = {
       darkMode: "class",
       theme: {
         extend: {
-          colors: {
-            primary: "#1c6282",
-            secondary: "#006e1c",
-            surface: "#fbf9f8",
-            "surface-light": "#f6f3f2",
-            outline: "#c0c7ce",
-            text: "#1b1c1c",
-            muted: "#40484d"
-          },
           fontFamily: {
-            body: ["Inter"]
+            body: ["Inter", "sans-serif"]
           }
         }
       }
@@ -45,63 +37,96 @@
       font-family: 'Inter', sans-serif;
     }
 
-    .glass-header {
-      background: rgba(251, 249, 248, 0.8);
+    .glass-nav {
       backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .hero-overlay {
+      background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.78),
+        rgba(0,0,0,0.35),
+        rgba(0,0,0,0.15)
+      );
+    }
+
+    .project-card img {
+      transition: 0.6s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.08);
     }
 
     .project-card:hover {
       transform: translateY(-6px);
     }
+
+    .project-card {
+      transition: 0.4s ease;
+    }
   </style>
+
 </head>
 
-<body class="bg-surface text-text">
+<body class="bg-[#fbf9f8] text-[#1b1c1c] overflow-x-hidden">
 
   <!-- NAVBAR -->
-  <nav class="fixed top-0 left-0 w-full z-50 glass-header border-b border-outline">
+  <nav class="fixed top-0 left-0 w-full z-50 bg-[#fbf9f8]/80 glass-nav border-b border-[#eae8e7]">
 
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
 
       <!-- LOGO -->
       <a href="index.html"
-        class="text-2xl font-black tracking-tight">
-        Tabcon
+         class="text-2xl font-black tracking-tight">
+         TABCON
       </a>
 
       <!-- DESKTOP MENU -->
-      <div class="hidden md:flex items-center gap-8 font-medium">
+      <div class="hidden md:flex items-center space-x-8 font-medium">
 
-        <a href="index.html" class="hover:text-primary transition">
-          Home
+        <a href="index.html"
+           class="hover:text-[#1c6282] transition">
+           Home
         </a>
 
-        <a href="services.html" class="hover:text-primary transition">
-          Services
+        <a href="services.html"
+           class="hover:text-[#1c6282] transition">
+           Services
         </a>
 
         <a href="projects.html"
-          class="text-primary border-b-2 border-primary pb-1">
-          Projects
+           class="text-[#1c6282] border-b-2 border-[#006e1c] pb-1">
+           Projects
         </a>
 
-        <a href="gallery.html" class="hover:text-primary transition">
-          Gallery
+        <a href="gallery.html"
+           class="hover:text-[#1c6282] transition">
+           Gallery
         </a>
 
-        <a href="about_us.html" class="hover:text-primary transition">
-          About Us
+        <a href="about_us.html"
+           class="hover:text-[#1c6282] transition">
+           About Us
         </a>
 
-        <a href="contact.html" class="hover:text-primary transition">
-          Contact
+        <a href="contact.html"
+           class="hover:text-[#1c6282] transition">
+           Contact
         </a>
 
       </div>
 
+      <!-- CTA -->
+      <a href="contact.html"
+         class="hidden md:flex bg-[#1c6282] text-white px-5 py-2 rounded-md font-medium hover:opacity-90 transition">
+         Start Project
+      </a>
+
       <!-- MOBILE BUTTON -->
-      <button id="menuBtn"
-        class="md:hidden">
+      <button id="menu-btn"
+              class="md:hidden">
 
         <span class="material-symbols-outlined text-4xl">
           menu
@@ -112,128 +137,313 @@
     </div>
 
     <!-- MOBILE MENU -->
-    <div id="mobileMenu"
-      class="hidden md:hidden flex flex-col gap-4 px-6 pb-6 bg-surface border-t border-outline">
+    <div id="mobile-menu"
+         class="hidden md:hidden bg-white border-t border-[#eae8e7] px-6 py-6 shadow-xl">
 
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="projects.html">Projects</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="about_us.html">About Us</a>
-      <a href="contact.html">Contact</a>
+      <div class="flex flex-col space-y-5 font-medium">
+
+        <a href="index.html">Home</a>
+
+        <a href="services.html">Services</a>
+
+        <a href="projects.html">Projects</a>
+
+        <a href="gallery.html">Gallery</a>
+
+        <a href="about_us.html">About Us</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="contact.html"
+           class="bg-[#1c6282] text-white px-5 py-3 rounded-md text-center">
+           Start Project
+        </a>
+
+      </div>
 
     </div>
 
   </nav>
 
-  <!-- MAIN -->
-  <main class="pt-32 pb-20">
+  <!-- HERO -->
+  <section class="relative h-[85vh] overflow-hidden">
 
-    <!-- HERO -->
-    <section class="max-w-7xl mx-auto px-6 mb-16">
+    <img src="assets/projecthero.jpg"
+         class="absolute inset-0 w-full h-full object-cover"
+         alt="Projects Hero">
 
-      <div class="max-w-3xl">
+    <div class="absolute inset-0 hero-overlay"></div>
 
-        <p class="text-secondary font-semibold mb-4">
-          OUR PROJECTS
-        </p>
+    <div class="relative z-10 h-full flex items-center">
 
-        <h1 class="text-5xl font-black leading-tight mb-6">
-          Building Ghana’s Future Through Infrastructure & Innovation
-        </h1>
+      <div class="max-w-7xl mx-auto px-6 md:px-8 w-full">
 
-        <p class="text-muted text-lg leading-relaxed">
-          Tabcon Development Consultants delivers engineering,
-          construction and infrastructure projects across Ghana
-          with precision, sustainability and long-term impact.
-        </p>
+        <div class="max-w-3xl">
+
+          <p class="uppercase tracking-[0.35em] text-white/70 text-sm mb-5">
+            Projects • Infrastructure • Energy
+          </p>
+
+          <h1 class="text-5xl md:text-7xl font-black text-white leading-tight">
+            Building Transformational Infrastructure Across Ghana
+          </h1>
+
+          <p class="mt-8 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl">
+            From highways and solar systems to engineering consultancy and
+            development planning, Tabcon delivers future-focused projects
+            designed for long-term national growth.
+          </p>
+
+          <div class="mt-10 flex flex-wrap gap-4">
+
+            <a href="contact.html"
+               class="bg-[#006e1c] text-white px-8 py-4 rounded-md font-semibold hover:opacity-90 transition">
+               Start With Us
+            </a>
+
+            <a href="#projects"
+               class="border border-white/40 text-white px-8 py-4 rounded-md font-semibold hover:bg-white hover:text-black transition">
+               Explore Projects
+            </a>
+
+          </div>
+
+        </div>
 
       </div>
 
-    </section>
+    </div>
 
-    <!-- PROJECT GRID -->
-    <section class="max-w-7xl mx-auto px-6">
+  </section>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <!-- FEATURE STRIP -->
+  <section class="bg-white border-y border-[#eae8e7]">
 
-        <!-- PROJECT CARD -->
-        <div
-          class="project-card bg-white rounded-xl overflow-hidden border border-outline transition duration-300">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 py-8 grid grid-cols-2 md:grid-cols-4 gap-8">
 
-          <img src="assets/project1.jpg"
-            alt="Project"
-            class="w-full h-64 object-cover">
+      <div>
+        <h3 class="text-4xl font-black text-[#1c6282]">20+</h3>
+        <p class="text-[#40484d] mt-2">Infrastructure Concepts</p>
+      </div>
 
-          <div class="p-6">
+      <div>
+        <h3 class="text-4xl font-black text-[#1c6282]">10+</h3>
+        <p class="text-[#40484d] mt-2">Engineering Partnerships</p>
+      </div>
 
-            <p class="text-secondary text-sm font-semibold mb-2">
-              ENERGY
-            </p>
+      <div>
+        <h3 class="text-4xl font-black text-[#1c6282]">5+</h3>
+        <p class="text-[#40484d] mt-2">Renewable Initiatives</p>
+      </div>
 
-            <h3 class="text-2xl font-bold mb-4">
+      <div>
+        <h3 class="text-4xl font-black text-[#1c6282]">100%</h3>
+        <p class="text-[#40484d] mt-2">African Focused Vision</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects"
+           class="py-24">
+
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+
+      <!-- TITLE -->
+      <div class="max-w-3xl mb-16">
+
+        <p class="uppercase tracking-[0.25em] text-[#1c6282] text-sm mb-4">
+          Featured Developments
+        </p>
+
+        <h2 class="text-4xl md:text-6xl font-black leading-tight">
+          Strategic Projects Designed For Long-Term Impact
+        </h2>
+
+      </div>
+
+      <!-- GRID -->
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+        <!-- CARD -->
+        <div class="project-card bg-white rounded-3xl overflow-hidden shadow-sm border border-[#ececec]">
+
+          <div class="relative overflow-hidden">
+
+            <img src="assets/project1.jpg"
+                 class="w-full h-80 object-cover"
+                 alt="Project">
+
+            <div class="absolute top-5 left-5 bg-[#006e1c] text-white text-xs px-4 py-2 rounded-full uppercase tracking-widest">
+              Energy
+            </div>
+
+          </div>
+
+          <div class="p-8">
+
+            <h3 class="text-3xl font-black leading-tight">
               Tain Hybrid Hydro-Solar Project
             </h3>
 
-            <p class="text-muted leading-relaxed">
-              A modern renewable energy initiative combining hydro
-              and solar technologies to improve sustainable power
-              delivery in Ghana.
+            <p class="mt-5 text-[#40484d] leading-relaxed">
+              Renewable infrastructure concept integrating hydro and
+              solar generation systems to support sustainable power
+              expansion in Ghana.
             </p>
 
           </div>
 
         </div>
 
-        <!-- PROJECT CARD -->
-        <div
-          class="project-card bg-white rounded-xl overflow-hidden border border-outline transition duration-300">
+        <!-- CARD -->
+        <div class="project-card bg-white rounded-3xl overflow-hidden shadow-sm border border-[#ececec]">
 
-          <img src="assets/project2.jpg"
-            alt="Project"
-            class="w-full h-64 object-cover">
+          <div class="relative overflow-hidden">
 
-          <div class="p-6">
+            <img src="assets/project2.jpg"
+                 class="w-full h-80 object-cover"
+                 alt="Project">
 
-            <p class="text-secondary text-sm font-semibold mb-2">
-              INFRASTRUCTURE
-            </p>
+            <div class="absolute top-5 left-5 bg-[#1c6282] text-white text-xs px-4 py-2 rounded-full uppercase tracking-widest">
+              Infrastructure
+            </div>
 
-            <h3 class="text-2xl font-bold mb-4">
+          </div>
+
+          <div class="p-8">
+
+            <h3 class="text-3xl font-black leading-tight">
               Urban Road Expansion
             </h3>
 
-            <p class="text-muted leading-relaxed">
-              Strategic road development improving transportation,
-              traffic flow and regional connectivity across key
-              urban zones.
+            <p class="mt-5 text-[#40484d] leading-relaxed">
+              Transportation and road engineering projects designed
+              to improve mobility, logistics efficiency and urban
+              connectivity.
             </p>
 
           </div>
 
         </div>
 
-        <!-- PROJECT CARD -->
-        <div
-          class="project-card bg-white rounded-xl overflow-hidden border border-outline transition duration-300">
+        <!-- CARD -->
+        <div class="project-card bg-white rounded-3xl overflow-hidden shadow-sm border border-[#ececec]">
 
-          <img src="assets/project3.jpg"
-            alt="Project"
-            class="w-full h-64 object-cover">
+          <div class="relative overflow-hidden">
 
-          <div class="p-6">
+            <img src="assets/project3.jpg"
+                 class="w-full h-80 object-cover"
+                 alt="Project">
 
-            <p class="text-secondary text-sm font-semibold mb-2">
-              CONSULTING
-            </p>
+            <div class="absolute top-5 left-5 bg-black text-white text-xs px-4 py-2 rounded-full uppercase tracking-widest">
+              Consulting
+            </div>
 
-            <h3 class="text-2xl font-bold mb-4">
+          </div>
+
+          <div class="p-8">
+
+            <h3 class="text-3xl font-black leading-tight">
               Development Planning
             </h3>
 
-            <p class="text-muted leading-relaxed">
-              Professional engineering and planning consultation
-              supporting sustainable long-term infrastructure growth.
+            <p class="mt-5 text-[#40484d] leading-relaxed">
+              Long-term engineering consultancy and planning support
+              for future-focused infrastructure initiatives and
+              investment strategies.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="project-card bg-white rounded-3xl overflow-hidden shadow-sm border border-[#ececec]">
+
+          <div class="relative overflow-hidden">
+
+            <img src="assets/ROADCONS.jpg"
+                 class="w-full h-80 object-cover"
+                 alt="Project">
+
+            <div class="absolute top-5 left-5 bg-[#006e1c] text-white text-xs px-4 py-2 rounded-full uppercase tracking-widest">
+              Construction
+            </div>
+
+          </div>
+
+          <div class="p-8">
+
+            <h3 class="text-3xl font-black leading-tight">
+              Highway Construction
+            </h3>
+
+            <p class="mt-5 text-[#40484d] leading-relaxed">
+              Modern road infrastructure focused on economic growth,
+              mobility expansion and regional development.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="project-card bg-white rounded-3xl overflow-hidden shadow-sm border border-[#ececec]">
+
+          <div class="relative overflow-hidden">
+
+            <img src="assets/SOLARINST.jpg"
+                 class="w-full h-80 object-cover"
+                 alt="Project">
+
+            <div class="absolute top-5 left-5 bg-[#1c6282] text-white text-xs px-4 py-2 rounded-full uppercase tracking-widest">
+              Solar
+            </div>
+
+          </div>
+
+          <div class="p-8">
+
+            <h3 class="text-3xl font-black leading-tight">
+              Renewable Energy Systems
+            </h3>
+
+            <p class="mt-5 text-[#40484d] leading-relaxed">
+              Smart solar deployment projects supporting sustainable
+              power generation and infrastructure resilience.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="project-card bg-white rounded-3xl overflow-hidden shadow-sm border border-[#ececec]">
+
+          <div class="relative overflow-hidden">
+
+            <img src="assets/WORKERS.jpg"
+                 class="w-full h-80 object-cover"
+                 alt="Project">
+
+            <div class="absolute top-5 left-5 bg-[#1b1c1c] text-white text-xs px-4 py-2 rounded-full uppercase tracking-widest">
+              Engineering
+            </div>
+
+          </div>
+
+          <div class="p-8">
+
+            <h3 class="text-3xl font-black leading-tight">
+              Structural Development
+            </h3>
+
+            <p class="mt-5 text-[#40484d] leading-relaxed">
+              Engineering execution combining precision planning,
+              technical expertise and modern development systems.
             </p>
 
           </div>
@@ -242,31 +452,57 @@
 
       </div>
 
-    </section>
+    </div>
 
-  </main>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 bg-[#1b1c1c] text-white">
+
+    <div class="max-w-4xl mx-auto px-6 text-center">
+
+      <p class="uppercase tracking-[0.3em] text-white/60 text-sm mb-5">
+        Build The Future
+      </p>
+
+      <h2 class="text-4xl md:text-6xl font-black leading-tight">
+        Infrastructure That Shapes Nations
+      </h2>
+
+      <p class="mt-8 text-white/70 text-lg leading-relaxed">
+        Tabcon Development Consultants combines engineering,
+        sustainability and African development thinking to
+        deliver transformational projects.
+      </p>
+
+      <a href="contact.html"
+         class="inline-block mt-10 bg-[#006e1c] text-white px-8 py-4 rounded-md font-semibold hover:opacity-90 transition">
+         Contact Tabcon
+      </a>
+
+    </div>
+
+  </section>
 
   <!-- FOOTER -->
-  <footer class="border-t border-outline py-10 mt-20">
+  <footer class="bg-black text-white py-10">
 
-    <div
-      class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between gap-6">
 
       <div>
 
-        <h3 class="text-2xl font-black mb-2">
-          Tabcon
+        <h3 class="text-2xl font-black">
+          TABCON
         </h3>
 
-        <p class="text-muted max-w-md">
-          Engineering development and infrastructure consultancy
-          focused on transforming Africa’s future.
+        <p class="text-white/60 mt-3">
+          Development Consultants
         </p>
 
       </div>
 
-      <div class="text-muted">
-        © 2026 Tabcon Development Consultants
+      <div class="text-white/60">
+        © 2026 Tabcon Ghana. All rights reserved.
       </div>
 
     </div>
@@ -275,14 +511,15 @@
 
   <!-- MOBILE MENU SCRIPT -->
   <script>
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
 
-    menuBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
+
   </script>
 
 </body>
-
 </html>
