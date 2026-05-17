@@ -1,343 +1,692 @@
 <!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Services | Tabcon Development Consultants</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-tertiary-fixed": "#261a00",
-              "on-secondary": "#ffffff",
-              "primary-fixed": "#c4e7ff",
-              "primary-fixed-dim": "#91cef3",
-              "secondary": "#006e1c",
-              "on-background": "#1b1c1c",
-              "surface": "#fbf9f8",
-              "surface-container-highest": "#e4e2e1",
-              "error-container": "#ffdad6",
-              "secondary-container": "#98f994",
-              "inverse-surface": "#303030",
-              "primary": "#1c6282",
-              "primary-container": "#3c7b9c",
-              "surface-container-lowest": "#ffffff",
-              "inverse-primary": "#91cef3",
-              "tertiary-fixed-dim": "#f8bd2a",
-              "secondary-fixed-dim": "#7ddc7a",
-              "secondary-fixed": "#98f994",
-              "on-secondary-fixed": "#002204",
-              "surface-container-low": "#f6f3f2",
-              "on-primary": "#ffffff",
-              "inverse-on-surface": "#f3f0f0",
-              "on-tertiary-fixed-variant": "#5c4300",
-              "on-surface-variant": "#40484d",
-              "surface-variant": "#e4e2e1",
-              "error": "#ba1a1a",
-              "on-primary-container": "#fcfcff",
-              "on-error": "#ffffff",
-              "background": "#fbf9f8",
-              "surface-container-high": "#eae8e7",
-              "on-surface": "#1b1c1c",
-              "surface-dim": "#dcd9d9",
-              "surface-bright": "#fbf9f8",
-              "on-primary-fixed-variant": "#004c69",
-              "on-secondary-container": "#0c7521",
-              "tertiary-fixed": "#ffdfa0",
-              "tertiary-container": "#956e00",
-              "outline-variant": "#c0c7ce",
-              "surface-container": "#f0eded",
-              "on-primary-fixed": "#001e2c",
-              "on-secondary-fixed-variant": "#005313",
-              "tertiary": "#765700",
-              "on-tertiary": "#ffffff",
-              "on-tertiary-container": "#fffbff",
-              "outline": "#70787e",
-              "surface-tint": "#206585",
-              "on-error-container": "#93000a"
-            },
-            fontFamily: {
-              "headline": ["Inter"],
-              "body": ["Inter"],
-              "label": ["Inter"]
-            },
-            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
-          },
-        },
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Services | Tabcon Development Consultants</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <script>
+
+    tailwind.config = {
+
+      darkMode: "class",
+
+      theme: {
+
+        extend: {
+
+          fontFamily: {
+            body: ["Inter", "sans-serif"]
+          }
+
+        }
+
       }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .editorial-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-        }
-    </style>
+
+    }
+
+  </script>
+
+  <style>
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .glass-nav {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .hero-overlay {
+      background:
+      linear-gradient(
+      to right,
+      rgba(0,0,0,0.78),
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.12)
+      );
+    }
+
+    .service-card {
+      transition: 0.45s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .service-card img {
+      transition: 0.6s ease;
+    }
+
+    .service-card:hover img {
+      transform: scale(1.06);
+    }
+
+  </style>
+
 </head>
-<body class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-[#fbf9f8]/70 dark:bg-[#1b1c1c]/70 backdrop-blur-xl">
-  <div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
 
-    <div class="text-2xl font-black tracking-tighter text-[#1b1c1c] dark:text-[#fbf9f8]">
-      Tabcon
-    </div>
+<body class="bg-[#fbf9f8] text-[#1b1c1c] overflow-x-hidden">
 
-    <!-- Desktop Menu -->
-    <div class="hidden md:flex items-center space-x-8 font-['Inter'] tracking-tight font-medium">
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-[#fbf9f8]/80 glass-nav border-b border-[#eae8e7]">
 
+    <div class="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
+
+      <!-- LOGO -->
       <a href="index.html"
-      class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1b1c1c] dark:hover:text-[#fbf9f8] transition-all duration-300 ease-in-out hover:opacity-80">
-      Home
+         class="text-2xl font-black tracking-tight">
+         TABCON
       </a>
 
-      <a href="services.html"
-      class="text-[#1c6282] dark:text-[#3c7b9c] border-b-2 border-[#006e1c] pb-1 transition-all duration-300 ease-in-out hover:opacity-80">
-      Services
-      </a>
+      <!-- DESKTOP MENU -->
+      <div class="hidden md:flex items-center space-x-8 font-medium">
 
-      <a href="projects.html"
-      class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1b1c1c] dark:hover:text-[#fbf9f8] transition-all duration-300 ease-in-out hover:opacity-80">
-      Projects
-      </a>
+        <a href="index.html"
+           class="hover:text-[#1c6282] transition">
+           Home
+        </a>
 
-      <a href="gallery.html"
-      class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1b1c1c] dark:hover:text-[#fbf9f8] transition-all duration-300 ease-in-out hover:opacity-80">
-      Gallery
-      </a>
+        <a href="services.html"
+           class="text-[#1c6282] border-b-2 border-[#006e1c] pb-1">
+           Services
+        </a>
 
-      <a href="about_us.html"
-      class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1b1c1c] dark:hover:text-[#fbf9f8] transition-all duration-300 ease-in-out hover:opacity-80">
-      About Us
-      </a>
+        <a href="projects.html"
+           class="hover:text-[#1c6282] transition">
+           Projects
+        </a>
 
+        <a href="gallery.html"
+           class="hover:text-[#1c6282] transition">
+           Gallery
+        </a>
+
+        <a href="about_us.html"
+           class="hover:text-[#1c6282] transition">
+           About Us
+        </a>
+
+        <a href="contact.html"
+           class="hover:text-[#1c6282] transition">
+           Contact
+        </a>
+
+      </div>
+
+      <!-- CTA -->
       <a href="contact.html"
-      class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1b1c1c] dark:hover:text-[#fbf9f8] transition-all duration-300 ease-in-out hover:opacity-80">
-      Contact
+         class="hidden md:flex bg-[#1c6282] text-white px-5 py-2 rounded-md font-medium hover:opacity-90 transition">
+         Get In Touch
       </a>
+
+      <!-- MOBILE BUTTON -->
+      <button id="menu-btn"
+              class="md:hidden">
+
+        <span class="material-symbols-outlined text-4xl">
+          menu
+        </span>
+
+      </button>
 
     </div>
 
-    <button class="bg-primary text-on-primary px-6 py-2 rounded-sm font-medium transition-all duration-300 active:opacity-90">
-      Get In Touch
-    </button>
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu"
+         class="hidden md:hidden bg-white border-t border-[#eae8e7] px-6 py-6 shadow-xl">
 
-  </div>
-</nav>
-<button class="bg-primary text-on-primary px-6 py-2 rounded-sm font-medium transition-all duration-300 active:opacity-90">
-                Get In Touch
-            </button>
-</div>
-</nav>
-<main class="pt-32 pb-24">
-<!-- Hero Section -->
-<header class="max-w-7xl mx-auto px-8 mb-32">
-<div class="editorial-grid gap-8">
-<div class="col-span-12 md:col-span-8">
-<span class="text-tertiary font-bold tracking-widest text-xs uppercase mb-4 block">EXPERT CAPABILITIES</span>
-<h1 class="text-6xl md:text-8xl font-black text-on-surface tracking-tighter leading-none mb-8">
-                        Technical<br/>Precision.
-                    </h1>
-<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed">
-                        Tabcon delivers end-to-end development consultancy for infrastructure and energy projects across emerging markets, blending technical engineering with strategic financial structuring.
-                    </p>
-</div>
-</div>
-</header>
-<!-- Service Section 1: Engineering & Infrastructure -->
-<section class="bg-surface-container-low py-24 mb-24">
-<div class="max-w-7xl mx-auto px-8">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-<div>
-<div class="flex items-center gap-4 mb-6">
-<span class="material-symbols-outlined text-primary text-4xl" data-icon="architecture">architecture</span>
-<h2 class="text-4xl font-bold tracking-tight text-on-surface">Engineering &amp; Infrastructure</h2>
-</div>
-<p class="text-lg text-on-surface-variant mb-10 leading-relaxed">
-                            We design and engineer the backbone of modern society. From resilient road networks to vital water supply systems, our engineering solutions are built to last generations while minimizing environmental footprint.
-                        </p>
-<ul class="space-y-4">
-<li class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-sm">
-<span class="material-symbols-outlined text-secondary" data-icon="road">road</span>
-<span class="font-medium text-on-surface">Highway &amp; Road Networks</span>
-</li>
-<li class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-sm">
-<span class="material-symbols-outlined text-secondary" data-icon="water_dam">water</span>
-<span class="font-medium text-on-surface">Dams &amp; Hydroelectric Systems</span>
-</li>
-<li class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-sm">
-<span class="material-symbols-outlined text-secondary" data-icon="water_drop">water_drop</span>
-<span class="font-medium text-on-surface">Industrial Water Supply &amp; Sanitation</span>
-</li>
-<li class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-sm">
-<span class="material-symbols-outlined text-secondary" data-icon="eco">eco</span>
-<span class="font-medium text-on-surface">Environmental Planning &amp; Design</span>
-</li>
-</ul>
-</div>
-<div class="relative group">
-<div class="aspect-[4/5] overflow-hidden rounded-sm bg-surface-container-highest">
-<img alt="Civil engineering project site" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Massive concrete dam construction site with cranes and rushing water under a clear blue sky, architectural and industrial feel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0LwaMbe_6iD5rhi8jsCAyPadZYU42I2dFApGe5e2lrqPXS2OGVnT8Z05bPa0DBLkjrFoXwqZjKV7WQ7HLSWVjrrjOC7jLxIfp19X5phbwwT2jAPFN1pULRZ4GD9I5guSZA1ES-X42fAYbpc-DioT5LUAlyNK9fZ9rAo6bNP7GHkMled3jMz_lQ-OsiVN7Hf2HY0BZK0dDSerLu8twtUJLygISsCstK-DGdHBnrLioJZJpXacC9dde0do9rtzEa9_uVFS41EUsnYNV"/>
-</div>
-<div class="absolute -bottom-6 -left-6 bg-primary p-8 text-on-primary max-w-xs hidden md:block">
-<h3 class="text-2xl font-bold mb-2 tracking-tight">740+ KM</h3>
-<p class="text-sm opacity-90 font-medium">Road infrastructure designed and supervised across Sub-Saharan Africa.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Service Section 2: Energy Development (Bento Style) -->
-<section class="max-w-7xl mx-auto px-8 mb-32">
-<div class="mb-12">
-<span class="text-secondary font-bold tracking-widest text-xs uppercase mb-4 block">SUSTAINABLE FUTURE</span>
-<h2 class="text-5xl font-bold tracking-tighter text-on-surface">Energy Development</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="md:col-span-2 bg-surface-container-high p-12 flex flex-col justify-between">
-<div>
-<h3 class="text-3xl font-bold mb-4">Renewable Energy Systems</h3>
-<p class="text-on-surface-variant text-lg mb-8 max-w-xl">
-                            Specializing in the transition to clean energy, we focus on large-scale solar farms and innovative hydro-solar hybrid systems that ensure grid stability.
-                        </p>
-</div>
-<div class="flex gap-4">
-<div class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full text-sm font-bold">Solar Utility</div>
-<div class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full text-sm font-bold">Hydro-Hybrids</div>
-<div class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full text-sm font-bold">Grid Integration</div>
-</div>
-</div>
-<div class="bg-primary p-12 text-on-primary">
-<span class="material-symbols-outlined text-5xl mb-6" data-icon="solar_power">solar_power</span>
-<h3 class="text-2xl font-bold mb-4">Photovoltaic Integration</h3>
-<p class="opacity-80">Designing commercial-grade solar arrays optimized for peak irradiance in tropical climates.</p>
-</div>
-<div class="aspect-square bg-surface-container-low overflow-hidden group">
-<img alt="Solar panels at sunset" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Aerial view of a vast solar farm in a desert landscape during golden hour with warm sunlight reflecting off panels" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbx2RX-ekHvxtvwoIwPt5B3BbucK1eRVREbjDUgnx7SuYL-_l94SM8UzapaicyC67R-zwNWX0NTXaM8UjQQoF5NJtgUuKEc51BDl4fKWYyMIveyb58KO3o6GVPQcku7_7LjeQsoJyYQT6uBhhqHU2_BmYBpzgmK_Xc2hvRRxvbiwH2isEupT3pi9gkN8R1iJwCfLMtkaSfhAYar-uLiLjRgKXIObbCziVRLHtF1mcUQmpb64GRbCXvaw73rdyRraxzncRDJhzhqhYA"/>
-</div>
-<div class="md:col-span-2 bg-surface-container-lowest p-12 border border-outline-variant/15">
-<div class="flex flex-col md:flex-row gap-8 items-center">
-<div class="flex-1">
-<h3 class="text-2xl font-bold mb-4">Hydro-Solar Hybrids</h3>
-<p class="text-on-surface-variant">We utilize reservoir surfaces for floating solar arrays, increasing efficiency through cooling effects and reducing water evaporation by up to 30%.</p>
-</div>
-<div class="w-full md:w-48 h-32 bg-surface-container-low flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-6xl" data-icon="waves" data-weight="fill" style="font-variation-settings: 'FILL' 1;">waves</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Service Section 3 & 4: Management & Advisory -->
-<section class="bg-surface-container-low py-24">
-<div class="max-w-7xl mx-auto px-8">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-24">
-<!-- Project Development -->
-<div>
-<h2 class="text-3xl font-bold tracking-tight mb-8 border-l-4 border-primary pl-6">Project Development &amp; Management</h2>
-<p class="text-on-surface-variant mb-8 leading-relaxed">
-                            Moving a project from concept to commissioning requires rigorous oversight. We provide the technical and operational framework to ensure projects stay on schedule and within budget.
-                        </p>
-<div class="space-y-6">
-<div class="group">
-<h4 class="font-bold text-primary mb-1">Feasibility &amp; Design</h4>
-<p class="text-sm text-on-surface-variant">Detailed technical studies, site assessments, and conceptual design blueprints.</p>
-</div>
-<div class="group">
-<h4 class="font-bold text-primary mb-1">Construction Supervision</h4>
-<p class="text-sm text-on-surface-variant">On-site quality control and management of multi-disciplinary contractor teams.</p>
-</div>
-<div class="group">
-<h4 class="font-bold text-primary mb-1">Financial Structuring</h4>
-<p class="text-sm text-on-surface-variant">Procurement strategies and capital expenditure modeling for private and public sector.</p>
-</div>
-</div>
-</div>
-<!-- Consulting & Advisory -->
-<div>
-<h2 class="text-3xl font-bold tracking-tight mb-8 border-l-4 border-secondary pl-6">Consulting &amp; Advisory</h2>
-<p class="text-on-surface-variant mb-8 leading-relaxed">
-                            We act as strategic partners to governments and private developers, providing the data and policy insights needed to navigate complex regulatory landscapes.
-                        </p>
-<div class="space-y-6">
-<div class="flex gap-4 items-start">
-<span class="material-symbols-outlined text-tertiary" data-icon="policy">policy</span>
-<div>
-<h4 class="font-bold text-on-surface">Transaction Advisory</h4>
-<p class="text-sm text-on-surface-variant">Guidance on Public-Private Partnerships (PPP) and asset management transitions.</p>
-</div>
-</div>
-<div class="flex gap-4 items-start">
-<span class="material-symbols-outlined text-tertiary" data-icon="analytics">analytics</span>
-<div>
-<h4 class="font-bold text-on-surface">Environmental Impact Studies</h4>
-<p class="text-sm text-on-surface-variant">Comprehensive ESIAs to ensure compliance with international sustainability benchmarks.</p>
-</div>
-</div>
-<div class="flex gap-4 items-start">
-<span class="material-symbols-outlined text-tertiary" data-icon="gavel">gavel</span>
-<div>
-<h4 class="font-bold text-on-surface">Policy Advisory</h4>
-<p class="text-sm text-on-surface-variant">Assisting regulatory bodies in crafting frameworks for energy and water resource management.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="max-w-7xl mx-auto px-8 py-32 text-center">
-<div class="max-w-3xl mx-auto">
-<h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-8 leading-tight">Ready to engineer the sustainable future?</h2>
-<div class="flex flex-wrap justify-center gap-6">
-<button class="bg-primary text-on-primary px-10 py-4 font-bold rounded-sm hover:opacity-90 transition-opacity">Request Capability Statement</button>
-<button class="text-primary font-bold px-10 py-4 border-b-2 border-secondary hover:bg-surface-container-low transition-colors">Speak with a Consultant</button>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-[#f6f3f2] dark:bg-[#1b1c1c] w-full pt-16 pb-8">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8">
-<div class="md:col-span-1">
-<span class="text-xl font-bold text-[#1b1c1c] dark:text-[#fbf9f8] mb-4 block">Tabcon</span>
-<p class="text-[#40484d] dark:text-[#c0c7ce] text-sm leading-relaxed">
-                    Development consultants committed to the sustainable evolution of global infrastructure.
-                </p>
-</div>
-<div>
-<h4 class="font-bold mb-4 text-[#1b1c1c] dark:text-[#fbf9f8]">Expertise</h4>
-<ul class="space-y-2 text-sm text-[#40484d] dark:text-[#c0c7ce]">
-<li><a class="hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Infrastructure</a></li>
-<li><a class="hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Renewable Energy</a></li>
-<li><a class="hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Project Management</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-bold mb-4 text-[#1b1c1c] dark:text-[#fbf9f8]">Company</h4>
-<ul class="space-y-2 text-sm text-[#40484d] dark:text-[#c0c7ce]">
-<li><a class="hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Sustainability Report</a></li>
-<li><a class="hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Careers</a></li>
-<li><a class="hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Privacy Policy</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-bold mb-4 text-[#1b1c1c] dark:text-[#fbf9f8]">Locations</h4>
-<p class="text-sm text-[#40484d] dark:text-[#c0c7ce] mb-2">Main Office: Nairobi, Kenya</p>
-<p class="text-sm text-[#40484d] dark:text-[#c0c7ce]">Branch: Johannesburg, South Africa</p>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/10 text-center">
-<p class="text-[#40484d] dark:text-[#c0c7ce] text-xs">© 2024 Tabcon Development Consultants. Built for Sustainability.</p>
-</div>
-</footer>
-</body></html>
+      <div class="flex flex-col space-y-5 font-medium">
+
+        <a href="index.html">Home</a>
+
+        <a href="services.html">Services</a>
+
+        <a href="projects.html">Projects</a>
+
+        <a href="gallery.html">Gallery</a>
+
+        <a href="about_us.html">About Us</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="contact.html"
+           class="bg-[#1c6282] text-white px-5 py-3 rounded-md text-center">
+           Get In Touch
+        </a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative h-[90vh] overflow-hidden">
+
+    <img src="assets/ROADCONS.jpg"
+         class="absolute inset-0 w-full h-full object-cover"
+         alt="Services Hero">
+
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <div class="relative z-10 h-full flex items-center">
+
+      <div class="max-w-7xl mx-auto px-6 md:px-8 w-full">
+
+        <div class="max-w-4xl">
+
+          <p class="uppercase tracking-[0.35em] text-white/70 text-sm mb-5">
+            Engineering • Energy • Development
+          </p>
+
+          <h1 class="text-5xl md:text-8xl font-black text-white leading-none tracking-tight">
+            Technical <br>
+            Precision.
+          </h1>
+
+          <p class="mt-8 text-lg md:text-2xl text-white/80 leading-relaxed max-w-3xl">
+            Tabcon delivers large-scale infrastructure,
+            engineering and renewable energy solutions
+            built for long-term African transformation.
+          </p>
+
+          <div class="mt-10 flex flex-wrap gap-4">
+
+            <a href="projects.html"
+               class="bg-[#006e1c] text-white px-8 py-4 rounded-md font-semibold hover:opacity-90 transition">
+               View Projects
+            </a>
+
+            <a href="contact.html"
+               class="border border-white/40 text-white px-8 py-4 rounded-md font-semibold hover:bg-white hover:text-black transition">
+               Speak To Us
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- INTRO -->
+  <section class="py-24">
+
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+
+        <div>
+
+          <p class="uppercase tracking-[0.3em] text-[#1c6282] text-sm mb-5">
+            Expert Capabilities
+          </p>
+
+          <h2 class="text-4xl md:text-6xl font-black leading-tight">
+            Infrastructure Built With Vision
+          </h2>
+
+        </div>
+
+        <div>
+
+          <p class="text-lg text-[#40484d] leading-relaxed">
+            We combine engineering expertise, project management,
+            renewable energy systems and strategic consulting
+            to execute impactful infrastructure projects across Ghana and Africa.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section class="pb-24">
+
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+
+      <div class="grid lg:grid-cols-2 gap-10">
+
+        <!-- CARD -->
+        <div class="service-card bg-white rounded-3xl overflow-hidden shadow-sm border border-[#ececec]">
+
+          <div class="overflow-hidden h-[340px]">
+
+            <img src="assets/ROADCONS.jpg"
+                 class="w-full h-full object-cover"
+                 alt="Infrastructure">
+
+          </div>
+
+          <div class="p-10">
+
+            <div class="flex items-center gap-4 mb-6">
+
+              <span class="material-symbols-outlined text-[#1c6282] text-5xl">
+                architecture
+              </span>
+
+              <h3 class="text-3xl font-black">
+                Engineering & Infrastructure
+              </h3>
+
+            </div>
+
+            <p class="text-[#40484d] leading-relaxed text-lg mb-8">
+              Designing resilient infrastructure systems including highways,
+              water systems, transport networks and structural developments.
+            </p>
+
+            <div class="space-y-4">
+
+              <div class="bg-[#f6f3f2] rounded-xl p-4 flex items-center gap-4">
+
+                <span class="material-symbols-outlined text-[#006e1c]">
+                  road
+                </span>
+
+                <span class="font-semibold">
+                  Highway & Road Networks
+                </span>
+
+              </div>
+
+              <div class="bg-[#f6f3f2] rounded-xl p-4 flex items-center gap-4">
+
+                <span class="material-symbols-outlined text-[#006e1c]">
+                  water
+                </span>
+
+                <span class="font-semibold">
+                  Dams & Hydroelectric Systems
+                </span>
+
+              </div>
+
+              <div class="bg-[#f6f3f2] rounded-xl p-4 flex items-center gap-4">
+
+                <span class="material-symbols-outlined text-[#006e1c]">
+                  water_drop
+                </span>
+
+                <span class="font-semibold">
+                  Water Supply & Sanitation
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="service-card bg-[#1b1c1c] text-white rounded-3xl overflow-hidden shadow-sm">
+
+          <div class="overflow-hidden h-[340px]">
+
+            <img src="assets/SOLARINST.jpg"
+                 class="w-full h-full object-cover opacity-90"
+                 alt="Solar">
+
+          </div>
+
+          <div class="p-10">
+
+            <div class="flex items-center gap-4 mb-6">
+
+              <span class="material-symbols-outlined text-[#7ddc7a] text-5xl">
+                solar_power
+              </span>
+
+              <h3 class="text-3xl font-black">
+                Renewable Energy
+              </h3>
+
+            </div>
+
+            <p class="text-white/75 leading-relaxed text-lg mb-8">
+              Clean energy systems engineered for sustainable development,
+              grid optimization and long-term energy security.
+            </p>
+
+            <div class="flex flex-wrap gap-3">
+
+              <div class="bg-[#ffffff14] px-5 py-3 rounded-full text-sm font-semibold">
+                Solar Utility
+              </div>
+
+              <div class="bg-[#ffffff14] px-5 py-3 rounded-full text-sm font-semibold">
+                Hydro-Solar Hybrid
+              </div>
+
+              <div class="bg-[#ffffff14] px-5 py-3 rounded-full text-sm font-semibold">
+                Grid Integration
+              </div>
+
+              <div class="bg-[#ffffff14] px-5 py-3 rounded-full text-sm font-semibold">
+                Clean Energy
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BENTO SECTION -->
+  <section class="pb-24">
+
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+
+      <div class="grid lg:grid-cols-3 gap-8">
+
+        <!-- LARGE -->
+        <div class="lg:col-span-2 bg-white rounded-3xl p-10 border border-[#ececec]">
+
+          <p class="uppercase tracking-[0.25em] text-[#1c6282] text-sm mb-5">
+            Project Development
+          </p>
+
+          <h3 class="text-4xl font-black leading-tight mb-6">
+            End-To-End Project Management
+          </h3>
+
+          <p class="text-[#40484d] text-lg leading-relaxed mb-10 max-w-3xl">
+            From feasibility studies and engineering concepts
+            to procurement, supervision and commissioning,
+            Tabcon manages projects through every phase of execution.
+          </p>
+
+          <div class="grid md:grid-cols-3 gap-6">
+
+            <div class="bg-[#f6f3f2] rounded-2xl p-6">
+
+              <span class="material-symbols-outlined text-[#1c6282] text-5xl mb-5">
+                analytics
+              </span>
+
+              <h4 class="font-bold text-xl mb-3">
+                Feasibility Studies
+              </h4>
+
+              <p class="text-[#40484d]">
+                Technical assessments and development planning.
+              </p>
+
+            </div>
+
+            <div class="bg-[#f6f3f2] rounded-2xl p-6">
+
+              <span class="material-symbols-outlined text-[#1c6282] text-5xl mb-5">
+                engineering
+              </span>
+
+              <h4 class="font-bold text-xl mb-3">
+                Construction Supervision
+              </h4>
+
+              <p class="text-[#40484d]">
+                Oversight and quality assurance during execution.
+              </p>
+
+            </div>
+
+            <div class="bg-[#f6f3f2] rounded-2xl p-6">
+
+              <span class="material-symbols-outlined text-[#1c6282] text-5xl mb-5">
+                account_balance
+              </span>
+
+              <h4 class="font-bold text-xl mb-3">
+                Financial Structuring
+              </h4>
+
+              <p class="text-[#40484d]">
+                Capital strategy and infrastructure investment planning.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- SIDE PANEL -->
+        <div class="bg-[#006e1c] text-white rounded-3xl p-10 flex flex-col justify-between">
+
+          <div>
+
+            <span class="material-symbols-outlined text-6xl mb-6">
+              public
+            </span>
+
+            <h3 class="text-4xl font-black leading-tight mb-6">
+              Advisory & Policy
+            </h3>
+
+            <p class="text-white/80 leading-relaxed text-lg">
+              Strategic consulting for governments,
+              institutions and infrastructure developers
+              navigating energy, water and transport systems.
+            </p>
+
+          </div>
+
+          <div class="space-y-5 mt-10">
+
+            <div class="border-b border-white/20 pb-5">
+
+              <h4 class="font-bold text-xl mb-2">
+                PPP Advisory
+              </h4>
+
+              <p class="text-white/70 text-sm">
+                Public-private partnership development and transaction advisory.
+              </p>
+
+            </div>
+
+            <div class="border-b border-white/20 pb-5">
+
+              <h4 class="font-bold text-xl mb-2">
+                Environmental Studies
+              </h4>
+
+              <p class="text-white/70 text-sm">
+                Sustainability assessments and environmental impact analysis.
+              </p>
+
+            </div>
+
+            <div>
+
+              <h4 class="font-bold text-xl mb-2">
+                Regulatory Consulting
+              </h4>
+
+              <p class="text-white/70 text-sm">
+                Frameworks and policy guidance for infrastructure systems.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- STATS -->
+  <section class="py-24 bg-white border-y border-[#ececec]">
+
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+        <div>
+
+          <h3 class="text-5xl font-black text-[#1c6282]">
+            740+
+          </h3>
+
+          <p class="mt-3 text-[#40484d]">
+            KM of Infrastructure Planning
+          </p>
+
+        </div>
+
+        <div>
+
+          <h3 class="text-5xl font-black text-[#1c6282]">
+            20+
+          </h3>
+
+          <p class="mt-3 text-[#40484d]">
+            Development Concepts
+          </p>
+
+        </div>
+
+        <div>
+
+          <h3 class="text-5xl font-black text-[#1c6282]">
+            100%
+          </h3>
+
+          <p class="mt-3 text-[#40484d]">
+            Sustainability Focused
+          </p>
+
+        </div>
+
+        <div>
+
+          <h3 class="text-5xl font-black text-[#1c6282]">
+            AFR
+          </h3>
+
+          <p class="mt-3 text-[#40484d]">
+            Africa-Centered Vision
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+  <section class="py-28 bg-[#1b1c1c] text-white">
+
+    <div class="max-w-4xl mx-auto px-6 text-center">
+
+      <p class="uppercase tracking-[0.3em] text-white/60 text-sm mb-5">
+        Build With Tabcon
+      </p>
+
+      <h2 class="text-4xl md:text-6xl font-black leading-tight">
+        Engineering Africa’s Next Era
+      </h2>
+
+      <p class="mt-8 text-white/70 text-lg leading-relaxed">
+        Infrastructure is economic movement.
+        Energy is national growth.
+        Development is the future.
+      </p>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-5">
+
+        <a href="contact.html"
+           class="bg-[#006e1c] text-white px-8 py-4 rounded-md font-semibold hover:opacity-90 transition">
+           Start A Project
+        </a>
+
+        <a href="projects.html"
+           class="border border-white/30 px-8 py-4 rounded-md font-semibold hover:bg-white hover:text-black transition">
+           Explore Projects
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black text-white py-10">
+
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between gap-6">
+
+      <div>
+
+        <h3 class="text-2xl font-black">
+          TABCON
+        </h3>
+
+        <p class="text-white/60 mt-3">
+          Development Consultants
+        </p>
+
+      </div>
+
+      <div class="text-white/60">
+        © 2026 Tabcon Ghana. All rights reserved.
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- MOBILE MENU SCRIPT -->
+  <script>
+
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+  </script>
+
+</body>
+</html>
