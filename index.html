@@ -189,43 +189,69 @@
   </nav>
 
   <!-- HERO -->
-  <section class="relative h-screen overflow-hidden">
+<section class="relative h-screen overflow-hidden">
+
+  <!-- SLIDESHOW -->
+  <div class="absolute inset-0">
 
     <img src="assets/img/uploads/Picture1.jpg"
-         class="absolute inset-0 w-full h-full object-cover"
-         alt="Tabcon Hero">
+         class="hero-slide active absolute inset-0 w-full h-full object-cover"
+         alt="Tabcon Hero 1">
 
-    <div class="absolute inset-0 hero-overlay"></div>
+    <img src="assets/img/uploads/Picture2.jpg"
+         class="hero-slide absolute inset-0 w-full h-full object-cover"
+         alt="Tabcon Hero 2">
 
-    <div class="relative z-10 h-full flex items-center">
+    <img src="assets/img/uploads/Picture3.jpg"
+         class="hero-slide absolute inset-0 w-full h-full object-cover"
+         alt="Tabcon Hero 3">
 
-      <div class="max-w-7xl mx-auto px-6 md:px-8 w-full">
+  </div>
 
-        <div class="max-w-3xl fade-up">
+  <!-- DARK OVERLAY -->
+  <div class="absolute inset-0 hero-overlay"></div>
 
-          <p class="uppercase tracking-[0.35em] text-white/70 text-sm mb-5">
-            Infrastructure • Engineering • Development
-          </p>
+  <!-- CONTENT -->
+  <div class="relative z-10 h-full flex items-center">
 
-          <h1 class="hero-title text-5xl md:text-7xl font-black text-white leading-tight">
-            Building Ghana’s Future Through Infrastructure
-          </h1>
+    <div class="max-w-7xl mx-auto px-6 md:px-8 w-full">
 
-          <p class="hero-text mt-8 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl">
-            Tabcon Development Consultants delivers roads, solar systems,
-            engineering solutions and infrastructure projects shaping Africa’s next era.
-          </p>
+      <div class="max-w-3xl fade-up">
 
-          <div class="mt-10 flex flex-wrap gap-4">
+        <p class="uppercase tracking-[0.35em] text-white/70 text-sm mb-5">
+          Infrastructure • Engineering • Development
+        </p>
 
-            <a href="track-record.html"
-               class="bg-[#006e1c] text-white px-8 py-4 rounded-md font-semibold hover:scale-105 transition duration-300">
-               Track Record 
-               <a href="gallery.html"
-               class="bg-[#006e1c] text-white px-8 py-4 rounded-md font-semibold hover:scale-105 transition duration-300">
-               Explore Tabcon 
-            </a>
+        <h1 class="hero-title text-5xl md:text-7xl font-black text-white leading-tight">
+          Building Ghana’s Future Through Infrastructure
+        </h1>
 
+        <p class="hero-text mt-8 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl">
+          Tabcon Development Consultants delivers roads, solar systems,
+          engineering solutions and infrastructure projects shaping Africa’s next era.
+        </p>
+
+        <div class="mt-10 flex flex-wrap gap-4">
+
+          <a href="track-record.html"
+             class="bg-[#006e1c] text-white px-8 py-4 rounded-md font-semibold hover:scale-105 transition duration-300">
+             Track Record
+          </a>
+
+          <a href="gallery.html"
+             class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-md font-semibold hover:bg-white/20 transition duration-300">
+             Explore Tabcon
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
             </a>
 
           </div>
