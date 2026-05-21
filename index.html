@@ -98,6 +98,14 @@
       .hero-text{
         font-size:1rem !important;
       }
+      .hero-slide {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
 
     }
 
@@ -506,6 +514,21 @@
       } else {
         navbar.classList.remove('nav-shadow');
       }
+      <script>
+  const slides = document.querySelectorAll('.hero-slide');
+  let currentSlide = 0;
+
+  function nextSlide() {
+
+    slides[currentSlide].classList.remove('active');
+
+    currentSlide = (currentSlide + 1) % slides.length;
+
+    slides[currentSlide].classList.add('active');
+  }
+
+  setInterval(nextSlide, 5000);
+</script>
 
     });
 
