@@ -26,20 +26,7 @@
           }
         }
       }
-    } 
-    <script>
-
-const menuBtn = document.getElementById("menu-btn");
-
-const mobileMenu = document.getElementById("mobile-menu");
-
-menuBtn.addEventListener("click", () => {
-
-  mobileMenu.classList.toggle("hidden");
-
-});
-
-</script>
+    }
   </script>
 
   <style>
@@ -173,34 +160,37 @@ menuBtn.addEventListener("click", () => {
          Get In Touch
       </a>
 
-    <!-- MOBILE BTN -->
-<button id="menu-btn"
-        class="text-white text-3xl md:hidden z-50 relative">
-  ☰
-</button>
+      <!-- MOBILE BTN -->
+      <button id="menu-btn"
+              class="md:hidden">
 
-<!-- MOBILE MENU -->
-<div id="mobile-menu"
-     class="hidden absolute top-20 left-0 w-full bg-black/95 z-40 p-6">
+        <span id="menu-icon"
+              class="material-symbols-outlined text-4xl">
+          menu
+        </span>
 
-  <div class="flex flex-col gap-6 text-white text-lg">
+      </button>
 
-    <a href="index.html">Home</a>
+    </div>
 
-    <a href="services.html">Services</a>
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu"
+         class="hidden md:hidden bg-white border-t border-[#ece8e7] px-6 py-6 shadow-2xl">
 
-    <a href="projects.html">Projects</a>
+      <div class="flex flex-col space-y-6 text-lg font-medium">
 
-    <a href="about_us.html">About Us</a>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+       
+        <a href="about_us.html">About Us</a>
+       
+        <a href="contact.html"
+           class="bg-[#1c6282] text-white text-center py-3 rounded-md">
+           Get In Touch
+        </a>
 
-    <a href="contact.html"
-       class="bg-[#1c6282] text-white text-center py-3 rounded-md">
-       Get In Touch
-    </a>
-
-  </div>
-
-</div>
+      </div>
 
     </div>
 
@@ -309,18 +299,6 @@ function changeSlide() {
 }
 
 setInterval(changeSlide, 4000);
-
-<script>
-
-const menuBtn = document.getElementById('menu-btn');
-
-const mobileMenu = document.getElementById('mobile-menu');
-
-menuBtn.addEventListener('click', () => {
-
-  mobileMenu.classList.toggle('hidden');
-
-});
 
 </script>
 
