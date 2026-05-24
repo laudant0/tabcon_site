@@ -26,7 +26,20 @@
           }
         }
       }
-    }
+    } 
+    <script>
+
+const menuBtn = document.getElementById("menu-btn");
+
+const mobileMenu = document.getElementById("mobile-menu");
+
+menuBtn.addEventListener("click", () => {
+
+  mobileMenu.classList.toggle("hidden");
+
+});
+
+</script>
   </script>
 
   <style>
@@ -160,31 +173,34 @@
          Get In Touch
       </a>
 
-      <!-- MOBILE BTN -->
-     <button id="menu-btn" class="text-white text-3xl md:hidden">
+    <!-- MOBILE BTN -->
+<button id="menu-btn"
+        class="text-white text-3xl md:hidden z-50 relative">
   ☰
 </button>
 
-    </div>
-
-    <!-- MOBILE MENU -->
-    <div id="mobile-menu"
-     class="hidden absolute top-20 left-0 w-full bg-black/95 z-50 p-6">
+<!-- MOBILE MENU -->
+<div id="mobile-menu"
+     class="hidden absolute top-20 left-0 w-full bg-black/95 z-40 p-6">
 
   <div class="flex flex-col gap-6 text-white text-lg">
 
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="projects.html">Projects</a>
-       
-        <a href="about_us.html">About Us</a>
-       
-        <a href="contact.html"
-           class="bg-[#1c6282] text-white text-center py-3 rounded-md">
-           Get In Touch
-        </a>
+    <a href="index.html">Home</a>
 
-      </div>
+    <a href="services.html">Services</a>
+
+    <a href="projects.html">Projects</a>
+
+    <a href="about_us.html">About Us</a>
+
+    <a href="contact.html"
+       class="bg-[#1c6282] text-white text-center py-3 rounded-md">
+       Get In Touch
+    </a>
+
+  </div>
+
+</div>
 
     </div>
 
