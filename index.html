@@ -595,42 +595,38 @@ setInterval(changeSlide, 4000);
 </div>
 </footer>
 
-  <!-- SCRIPT -->
-  <script>
+<!-- SCRIPT -->
+<script>
 
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    const navbar = document.getElementById('navbar');
+document.addEventListener("DOMContentLoaded", () => {
 
-    menuBtn.addEventListener('click', () => {
+  /* MOBILE MENU */
 
-      mobileMenu.classList.toggle('hidden');
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const navbar = document.getElementById("navbar");
 
-      if (mobileMenu.classList.contains('hidden')) {
-        menuIcon.innerHTML = "menu";
-      } else {
-        menuIcon.innerHTML = "close";
-      }
+  if (menuBtn && mobileMenu) {
+
+    menuBtn.addEventListener("click", () => {
+
+      mobileMenu.classList.toggle("hidden");
 
     });
 
-    window.addEventListener('scroll', () => {
+  }
 
-      if(window.scrollY > 20){
-        navbar.classList.add('nav-shadow');
-      } else {
-        navbar.classList.remove('nav-shadow');
-      }
-      <script>
-  const slides = document.querySelectorAll('.hero-slide');
-  let currentSlide = 0;
+  /* NAVBAR SHADOW */
 
-  function nextSlide() {
+  window.addEventListener("scroll", () => {
 
-    slides[currentSlide].classList.remove('active');<script>
+    if (window.scrollY > 20) {
+      navbar.classList.add("nav-shadow");
+    } else {
+      navbar.classList.remove("nav-shadow");
+    }
 
-document.addEventListener("DOMContentLoaded", () => {
+  });
 
   /* HERO SLIDESHOW */
 
@@ -648,41 +644,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       slides[currentSlide].classList.add("active");
 
-    }, 4000);
-
-  }
-
-  /* MOBILE MENU */
-
-  const menuBtn = document.getElementById("menu-btn");
-
-  const mobileMenu = document.getElementById("mobile-menu");
-
-  if (menuBtn && mobileMenu) {
-
-    menuBtn.addEventListener("click", () => {
-
-      mobileMenu.classList.toggle("hidden");
-
-    });
+    }, 5000);
 
   }
 
 });
 
 </script>
-
-    currentSlide = (currentSlide + 1) % slides.length;
-
-    slides[currentSlide].classList.add('active');
-  }
-
-  setInterval(nextSlide, 5000);
-</script>
-
-    
-
-  </script>
-
 </body>
 </html>
