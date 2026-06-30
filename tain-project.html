@@ -29,14 +29,172 @@
     }
   </script>
 <style>
-body{
-    background:#f5f7fa;
-}
-.hero{
-    background:#0B2E56;
-}
-</style>
 
+    body{
+      font-family:'Inter',sans-serif;
+      overflow-x:hidden;
+    }
+
+    .glass-nav{
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .hero-overlay{
+      background:
+      linear-gradient(
+        to right,
+        rgba(0,0,0,0.78),
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.18)
+      );
+    }
+
+    .project-card{
+      transition: all .45s ease;
+    }
+
+    .project-card img{
+      transition: all .6s ease;
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 25px 60px rgba(0,0,0,0.12);
+    }
+
+    .project-card:hover img{
+      transform:scale(1.08);
+    }
+
+    .fade-up{
+      animation:fadeUp 1s ease;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .nav-shadow{
+      box-shadow:0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    @media(max-width:768px){
+
+      .hero-title{
+        font-size:3.3rem !important;
+        line-height:1.05;
+      }
+
+      .hero-text{
+        font-size:1rem !important;
+      }
+      .hero-slide {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+    }
+
+  </style>
+
+</head>
+
+<body class="bg-[#fbf9f8] text-[#1b1c1c]">
+
+  <!-- NAVBAR -->
+  <nav id="navbar"
+       class="fixed top-0 left-0 w-full z-50 bg-[#fbf9f8]/80 glass-nav border-b border-[#ece8e7] transition-all duration-300">
+
+    <div class="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
+
+      <!-- LOGO -->
+      <a href="index.html"
+         class="text-2xl font-black tracking-tight">
+         TABCON
+      </a>
+
+      <!-- DESKTOP -->
+      <div class="hidden md:flex items-center space-x-8 font-medium">
+
+        <a href="index.html"
+           class="text-[#1c6282] border-b-2 border-[#006e1c] pb-1">
+           Home
+        </a>
+
+        <a href="services.html"
+           class="hover:text-[#1c6282] transition">
+           Services
+        </a>
+
+        <a href="projects.html"
+           class="hover:text-[#1c6282] transition">
+           Projects
+        </a>
+
+       
+        <a href="about_us.html"
+           class="hover:text-[#1c6282] transition">
+           About Us
+        </a>
+
+
+      </div>
+
+      <!-- CTA -->
+      <a href="contact.html"
+         class="hidden md:flex bg-[#1c6282] text-white px-5 py-2 rounded-md font-semibold hover:scale-105 transition duration-300">
+         Get In Touch
+      </a>
+
+      <!-- MOBILE BTN -->
+      <button id="menu-btn"
+              class="md:hidden">
+
+        <span id="menu-icon"
+              class="material-symbols-outlined text-4xl">
+          menu
+        </span>
+
+      </button>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu"
+         class="hidden md:hidden bg-white border-t border-[#ece8e7] px-6 py-6 shadow-2xl">
+
+      <div class="flex flex-col space-y-6 text-lg font-medium">
+
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+       
+        <a href="about_us.html">About Us</a>
+       
+        <a href="contact.html"
+           class="bg-[#1c6282] text-white text-center py-3 rounded-md">
+           Get In Touch
+        </a>
+
+      </div>
+
+    </div>
+
+  </nav>
+</style>
 </head>
 
 <body>
