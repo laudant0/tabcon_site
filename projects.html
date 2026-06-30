@@ -453,42 +453,124 @@
 
   </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-black text-white py-10">
+ <!-- Footer -->
+<footer class="w-full pt-16 pb-8 bg-[#f6f3f2] dark:bg-[#1b1c1c]">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8">
+<div class="space-y-6">
+<div class="text-xl font-bold text-[#1b1c1c] dark:text-[#fbf9f8]">Tabcon</div>
+<p class="text-[#40484d] dark:text-[#c0c7ce] font-['Inter'] text-sm">
+                    Strategic infrastructure advisory and engineering consultants focused on sustainable development across the African continent.
+                </p>
+<div class="flex space-x-4">
+<a class="w-10 h-10 flex items-center justify-center bg-surface-container-high rounded-full hover:bg-secondary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-xl">language</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center bg-surface-container-high rounded-full hover:bg-secondary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-xl">contact_support</span>
+</a>
+</div>
+</div>
+<div class="">
+<h4 class="font-bold mb-6 text-on-surface">Head Office</h4>
+<div class="space-y-4 font-['Inter'] text-sm text-[#40484d] dark:text-[#c0c7ce]">
+<div class="flex items-start">
+<span class="material-symbols-outlined text-secondary mr-3 text-lg">location_on</span>
+<span class="">Accra, Ghana<br>Greater Accra Region</span>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-secondary mr-3 text-lg">call</span>
+<span class="">0509895777</span>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-secondary mr-3 text-lg">mail</span>
+<span class="">Office@tabcongh.com</span>
+</div>
+</div>
+</div>
+<div class="">
+<h4 class="font-bold mb-6 text-on-surface">Quick Links</h4>
+<ul class="space-y-3 font-['Inter'] text-sm">
+<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Expertise</a></li>
+<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Sustainability Report</a></li>
+<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Careers</a></li>
+<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Privacy Policy</a></li>
+<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Office Locations</a></li>
+</ul>
+</div>
+<div class="">
+<h4 class="font-bold mb-6 text-on-surface">Newsletter</h4>
+<p class="text-xs text-[#40484d] dark:text-[#c0c7ce] mb-4">Stay updated with our latest infrastructure projects and reports.</p>
+<div class="flex flex-col gap-2">
+<input class="bg-surface-container-high border-none border-b border-outline-variant p-3 text-sm focus:ring-0 focus:border-primary transition-all" placeholder="Email Address" type="email">
+<button class="bg-on-background text-surface py-3 text-xs font-bold uppercase tracking-widest hover:bg-primary transition-all">Subscribe</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-['Inter'] text-sm text-[#40484d] dark:text-[#c0c7ce]">
+                © 2024 Tabcon Development Consultants. Built for Sustainability.
+            </p>
+<div class="flex space-x-6 text-xs font-medium text-[#40484d] dark:text-[#c0c7ce]">
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Cookie Policy</a>
+</div>
+</div>
+</footer>
+<!-- SCRIPT -->
+<script>
 
-    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between gap-6">
+document.addEventListener("DOMContentLoaded", () => {
 
-      <div>
+  /* MOBILE MENU */
 
-        <h3 class="text-2xl font-black">
-          TABCON
-        </h3>
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const navbar = document.getElementById("navbar");
 
-        <p class="text-white/60 mt-3">
-          Development Consultants
-        </p>
+  if (menuBtn && mobileMenu) {
 
-      </div>
+    menuBtn.addEventListener("click", () => {
 
-      <div class="text-white/60">
-        © 2026 Tabcon Ghana. All rights reserved.
-      </div>
+      mobileMenu.classList.toggle("hidden");
 
-    </div>
-
-  </footer>
-
-  <!-- MOBILE MENU SCRIPT -->
-  <script>
-
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
     });
 
-  </script>
+  }
 
+  /* NAVBAR SHADOW */
+
+  window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 20) {
+      navbar.classList.add("nav-shadow");
+    } else {
+      navbar.classList.remove("nav-shadow");
+    }
+
+  });
+
+  /* HERO SLIDESHOW */
+
+  const slides = document.querySelectorAll(".hero-slide");
+
+  let currentSlide = 0;
+
+  if (slides.length > 0) {
+
+    setInterval(() => {
+
+      slides[currentSlide].classList.remove("active");
+
+      currentSlide = (currentSlide + 1) % slides.length;
+
+      slides[currentSlide].classList.add("active");
+
+    }, 5000);
+
+  }
+
+});
+
+</script>
 </body>
 </html>
