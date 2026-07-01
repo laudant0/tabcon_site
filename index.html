@@ -88,26 +88,22 @@
       box-shadow:0 8px 30px rgba(0,0,0,0.08);
     }
 
-    @media(max-width:768px){
+@media (max-width:768px){
 
-      .hero-title{
-        font-size:3.3rem !important;
-        line-height:1.05;
-      }
+  .hero-slide{
+    opacity:0;
+    transition:opacity 2s ease-in-out;
+  }
 
-      .hero-text{
-        font-size:1rem !important;
-      }
-      .hero-slide {
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
+  .hero-slide.active{
+    opacity:1;
+  }
+
+  section.relative.h-screen{
+    min-height:100svh;
+  }
+
 }
-
-.hero-slide.active {
-  opacity: 1;
-}
-
-    }
 
   </style>
 
