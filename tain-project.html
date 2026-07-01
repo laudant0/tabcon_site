@@ -28,8 +28,8 @@
       }
     }
   </script>
-<style>
 
+  <style>
     body{
       font-family:'Inter',sans-serif;
       overflow-x:hidden;
@@ -39,336 +39,192 @@
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
-
-    .hero-overlay{
-      background:
-      linear-gradient(
-        to right,
-        rgba(0,0,0,0.78),
-        rgba(0,0,0,0.45),
-        rgba(0,0,0,0.18)
-      );
-    }
-
-    .project-card{
-      transition: all .45s ease;
-    }
-
-    .project-card img{
-      transition: all .6s ease;
-    }
-
-    .project-card:hover{
-      transform:translateY(-10px);
-      box-shadow:0 25px 60px rgba(0,0,0,0.12);
-    }
-
-    .project-card:hover img{
-      transform:scale(1.08);
-    }
-
-    .fade-up{
-      animation:fadeUp 1s ease;
-    }
-
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(30px);
-      }
-
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    .nav-shadow{
-      box-shadow:0 8px 30px rgba(0,0,0,0.08);
-    }
-
-    @media(max-width:768px){
-
-      .hero-title{
-        font-size:3.3rem !important;
-        line-height:1.05;
-      }
-
-      .hero-text{
-        font-size:1rem !important;
-      }
-      .hero-slide {
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
-}
-
-.hero-slide.active {
-  opacity: 1;
-}
-
-    }
-
   </style>
 
 </head>
 
-<body class="bg-[#fbf9f8] text-[#1b1c1c]">
+<body class="bg-[#fbf9f8] text-[#1b1c1c] overflow-x-hidden">
 
-  <!-- NAVBAR -->
-  <nav id="navbar"
-       class="fixed top-0 left-0 w-full z-50 bg-[#fbf9f8]/80 glass-nav border-b border-[#ece8e7] transition-all duration-300">
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-[#fbf9f8]/80 glass-nav border-b border-[#ece8e7]">
 
-    <div class="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
+  <div class="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
 
-      <!-- LOGO -->
-      <a href="index.html"
-         class="text-2xl font-black tracking-tight">
-         TABCON
+    <a href="index.html" class="text-2xl font-black tracking-tight">
+      TABCON
+    </a>
+
+    <!-- DESKTOP -->
+    <div class="hidden md:flex items-center space-x-8 font-medium">
+
+      <a href="index.html" class="text-[#1c6282] border-b-2 border-[#006e1c] pb-1">Home</a>
+      <a href="services.html" class="hover:text-[#1c6282] transition">Services</a>
+      <a href="projects.html" class="hover:text-[#1c6282] transition">Projects</a>
+      <a href="about_us.html" class="hover:text-[#1c6282] transition">About Us</a>
+
+    </div>
+
+    <!-- MOBILE BTN -->
+    <button id="menu-btn" class="md:hidden z-50">
+      <span id="menu-icon" class="material-symbols-outlined text-4xl">
+        menu
+      </span>
+    </button>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu"
+       class="hidden md:hidden fixed top-20 left-0 w-full bg-white border-t border-[#ece8e7] px-6 py-6 shadow-2xl z-[999]">
+
+    <div class="flex flex-col space-y-6 text-lg font-medium">
+
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="about_us.html">About Us</a>
+
+      <a href="contact.html"
+         class="bg-[#1c6282] text-white text-center py-3 rounded-md">
+        Get In Touch
       </a>
 
-      <!-- DESKTOP -->
-      <div class="hidden md:flex items-center space-x-8 font-medium">
-
-        <a href="index.html"
-           class="text-[#1c6282] border-b-2 border-[#006e1c] pb-1">
-           Home
-        </a>
-
-        <a href="services.html"
-           class="hover:text-[#1c6282] transition">
-           Services
-        </a>
-
-        <a href="projects.html"
-           class="hover:text-[#1c6282] transition">
-           Projects
-        </a>
-
-       
-        <a href="about_us.html"
-           class="hover:text-[#1c6282] transition">
-           About Us
-        </a>
-
-
-      </div>
-
-      <!-- CTA -->
-      
-
-      <!-- MOBILE BTN -->
-      <button id="menu-btn"
-              class="md:hidden">
-
-        <span id="menu-icon"
-              class="material-symbols-outlined text-4xl">
-          menu
-        </span>
-
-      </button>
-
     </div>
 
-    <!-- MOBILE MENU -->
-    <div id="mobile-menu"
-         class="hidden md:hidden bg-white border-t border-[#ece8e7] px-6 py-6 shadow-2xl">
+  </div>
 
-      <div class="flex flex-col space-y-6 text-lg font-medium">
+</nav>
 
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="projects.html">Projects</a>
-       
-        <a href="about_us.html">About Us</a>
-       
-        <a href="contact.html"
-           class="bg-[#1c6282] text-white text-center py-3 rounded-md">
-           Get In Touch
-        </a>
+<!-- SCRIPT -->
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuIcon = document.getElementById("menu-icon");
 
-      </div>
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+    menuIcon.textContent =
+      mobileMenu.classList.contains("hidden") ? "menu" : "close";
+  });
 
-    </div>
-
-  </nav>
-</style>
-</head>
-
-<body>
+  document.querySelectorAll("#mobile-menu a").forEach(a => {
+    a.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+      menuIcon.textContent = "menu";
+    });
+  });
+</script>
 
 <!-- HERO -->
-<section class="hero text-green py-20">
+<section class="py-20 mt-20">
 
-<div class="max-w-7xl mx-auto px-6">
+  <div class="max-w-7xl mx-auto px-6">
 
-<span class="bg-green-600 px-4 py-2 rounded-full text-xs uppercase tracking-widest">
-Project Brief • TABCON ENERGY LIMITED
-</span>
+    <span class="bg-green-600 text-white px-4 py-2 rounded-full text-xs uppercase tracking-widest">
+      Project Brief • TABCON ENERGY LIMITED
+    </span>
 
-<h1 class="text-5xl font-bold mt-8 leading-tight">
-Tain Hybrid Hydro-Solar<br>
-Energy Project
-</h1>
+    <h1 class="text-5xl font-bold mt-8 leading-tight">
+      Tain Hybrid Hydro-Solar<br>
+      Energy Project
+    </h1>
 
-<p class="mt-4 text-gray-300">
-Tain & Wenchi Districts • Bono Region • Ghana
-</p>
+    <p class="mt-4 text-gray-600">
+      Tain & Wenchi Districts • Bono Region • Ghana
+    </p>
 
-<div class="grid md:grid-cols-3 gap-6 mt-12">
+    <div class="grid md:grid-cols-3 gap-6 mt-12">
 
-<div class="bg-yellow-400 rounded-xl p-8 text-black">
-<h2 class="text-4xl font-bold">70 MW</h2>
-<p class="uppercase text-sm mt-2">Total Installed Capacity</p>
-</div>
+      <div class="bg-yellow-400 rounded-xl p-8 text-black">
+        <h2 class="text-4xl font-bold">70 MW</h2>
+        <p class="uppercase text-sm mt-2">Total Installed Capacity</p>
+      </div>
 
-<div class="bg-yellow-400 rounded-xl p-8 text-black">
-<h2 class="text-4xl font-bold">55 MW</h2>
-<p class="uppercase text-sm mt-2">Solar PV Generation</p>
-</div>
+      <div class="bg-yellow-400 rounded-xl p-8 text-black">
+        <h2 class="text-4xl font-bold">55 MW</h2>
+        <p class="uppercase text-sm mt-2">Solar PV Generation</p>
+      </div>
 
-<div class="bg-yellow-400 rounded-xl p-8 text-black">
-<h2 class="text-4xl font-bold">15 MW</h2>
-<p class="uppercase text-sm mt-2">Hydro + BESS Storage</p>
-</div>
+      <div class="bg-yellow-400 rounded-xl p-8 text-black">
+        <h2 class="text-4xl font-bold">15 MW</h2>
+        <p class="uppercase text-sm mt-2">Hydro + BESS Storage</p>
+      </div>
 
-</div>
+    </div>
 
-</div>
+  </div>
 
 </section>
-
 
 <!-- OVERVIEW -->
-
 <section class="py-20">
+  <div class="max-w-7xl mx-auto px-6">
 
-<div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-green-600 font-semibold uppercase">Overview</h3>
 
-<h3 class="text-green-600 font-semibold uppercase">
-Overview
-</h3>
+    <h2 class="text-4xl font-bold mt-3">
+      A flagship renewable energy initiative
+    </h2>
 
-<h2 class="text-4xl font-bold mt-3">
-A flagship renewable energy initiative
-</h2>
+    <p class="mt-6 text-gray-700 leading-8">
+      The Tain Hybrid Hydro-Solar Energy Project is a large-scale renewable
+      energy initiative combining utility-scale solar PV, hydropower and
+      battery energy storage to provide reliable, clean electricity while
+      supporting regional economic development and environmental sustainability.
+    </p>
 
-<p class="mt-6 text-gray-700 leading-8">
-The Tain Hybrid Hydro-Solar Energy Project is a large-scale renewable
-energy initiative combining utility-scale solar PV, hydropower and
-battery energy storage to provide reliable, clean electricity while
-supporting regional economic development and environmental sustainability.
-</p>
-
-</div>
-
+  </div>
 </section>
-
 
 <!-- COMPONENTS -->
-
 <section class="pb-24">
+  <div class="max-w-7xl mx-auto px-6">
 
-<div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-10">
+      Two-Phase Energy Development Plan
+    </h2>
 
-<h2 class="text-3xl font-bold mb-10">
-Two-Phase Energy Development Plan
-</h2>
+    <div class="grid lg:grid-cols-2 gap-8">
 
-<div class="grid lg:grid-cols-2 gap-8">
+      <div class="bg-white rounded-2xl shadow p-8">
+        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm">
+          PHASE 1
+        </span>
 
-<div class="bg-white rounded-2xl shadow p-8">
+        <h3 class="text-2xl font-bold mt-6">Solar Power Development</h3>
 
-<span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm">
-PHASE 1
-</span>
+        <ul class="mt-6 space-y-4 text-gray-700">
+          <li>• 55 MW Utility-scale Solar PV Plant</li>
+          <li>• Transmission Infrastructure & Grid Connection</li>
+          <li>• Modern Monitoring & Control Systems</li>
+        </ul>
+      </div>
 
-<h3 class="text-2xl font-bold mt-6">
-Solar Power Development
-</h3>
+      <div class="bg-white rounded-2xl shadow p-8">
+        <span class="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm">
+          PHASE 2
+        </span>
 
-<ul class="mt-6 space-y-4 text-gray-700">
+        <h3 class="text-2xl font-bold mt-6">Hybrid Hydro-Solar Development</h3>
 
-<li>• 55 MW Utility-scale Solar PV Plant</li>
+        <ul class="mt-6 space-y-4 text-gray-700">
+          <li>• 10 MW Battery Energy Storage System</li>
+          <li>• 5 MW Hydroelectric Plant on River Tain</li>
+          <li>• Integrated Solar + Hydro Dispatchability</li>
+        </ul>
+      </div>
 
-<li>• Transmission Infrastructure & Grid Connection</li>
+    </div>
 
-<li>• Modern Monitoring & Control Systems</li>
-
-</ul>
-
-</div>
-
-
-<div class="bg-white rounded-2xl shadow p-8">
-
-<span class="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm">
-PHASE 2
-</span>
-
-<h3 class="text-2xl font-bold mt-6">
-Hybrid Hydro-Solar Development
-</h3>
-
-<ul class="mt-6 space-y-4 text-gray-700">
-
-<li>• 10 MW Battery Energy Storage System</li>
-
-<li>• 5 MW Hydroelectric Plant on River Tain</li>
-
-<li>• Integrated Solar + Hydro Dispatchability</li>
-
-</ul>
-
-</div>
-
-</div>
-
-<div class="bg-gray-100 rounded-2xl mt-12 p-8 flex flex-col md:flex-row justify-between items-center">
-
-<div>
-
-<h2 class="text-5xl font-bold text-blue-800">
-70 MW
-</h2>
-
-</div>
-
-<div class="mt-6 md:mt-0 md:ml-8">
-
-<p class="font-semibold">
-Total Renewable Energy Generation Capacity
-</p>
-
-<p class="text-gray-600 mt-2">
-Combining solar PV, hydropower and battery energy storage for sustainable
-energy production and regional development.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
-
 <!-- FOOTER -->
-
 <footer class="bg-[#0B2E56] text-white py-8">
-
-<div class="max-w-7xl mx-auto px-6 flex justify-between">
-
-<div>
-Tain Hybrid Hydro-Solar Energy Project
-</div>
-
-<div>
-TABCON ENERGY LIMITED
-</div>
-
-</div>
-
+  <div class="max-w-7xl mx-auto px-6 flex justify-between">
+    <div>Tain Hybrid Hydro-Solar Energy Project</div>
+    <div>TABCON ENERGY LIMITED</div>
+  </div>
 </footer>
 
 </body>
