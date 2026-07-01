@@ -39,6 +39,10 @@
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
+
+    .nav-shadow{
+      box-shadow:0 8px 30px rgba(0,0,0,0.08);
+    }
   </style>
 
 </head>
@@ -46,7 +50,8 @@
 <body class="bg-[#fbf9f8] text-[#1b1c1c] overflow-x-hidden">
 
 <!-- NAVBAR -->
-<nav class="fixed top-0 left-0 w-full z-50 bg-[#fbf9f8]/80 glass-nav border-b border-[#ece8e7]">
+<nav id="navbar"
+  class="fixed top-0 left-0 w-full z-50 bg-[#fbf9f8]/80 glass-nav border-b border-[#ece8e7]">
 
   <div class="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
 
@@ -58,24 +63,22 @@
     <div class="hidden md:flex items-center space-x-8 font-medium">
 
       <a href="index.html" class="text-[#1c6282] border-b-2 border-[#006e1c] pb-1">Home</a>
-      <a href="services.html" class="hover:text-[#1c6282] transition">Services</a>
-      <a href="projects.html" class="hover:text-[#1c6282] transition">Projects</a>
-      <a href="about_us.html" class="hover:text-[#1c6282] transition">About Us</a>
+      <a href="services.html" class="hover:text-[#1c6282]">Services</a>
+      <a href="projects.html" class="hover:text-[#1c6282]">Projects</a>
+      <a href="about_us.html" class="hover:text-[#1c6282]">About Us</a>
 
     </div>
 
-    <!-- MOBILE BTN -->
-    <button id="menu-btn" class="md:hidden z-50">
-      <span id="menu-icon" class="material-symbols-outlined text-4xl">
-        menu
-      </span>
+    <!-- MOBILE BUTTON -->
+    <button id="menu-btn" class="md:hidden z-[60]">
+      <span id="menu-icon" class="material-symbols-outlined text-4xl">menu</span>
     </button>
 
   </div>
 
-  <!-- MOBILE MENU -->
+  <!-- MOBILE MENU (FIXED + SAFE OVERLAY) -->
   <div id="mobile-menu"
-       class="hidden md:hidden fixed top-20 left-0 w-full bg-white border-t border-[#ece8e7] px-6 py-6 shadow-2xl z-[999]">
+    class="hidden fixed top-20 left-0 w-full bg-white border-t border-[#ece8e7] px-6 py-6 shadow-2xl z-[55]">
 
     <div class="flex flex-col space-y-6 text-lg font-medium">
 
@@ -85,7 +88,7 @@
       <a href="about_us.html">About Us</a>
 
       <a href="contact.html"
-         class="bg-[#1c6282] text-white text-center py-3 rounded-md">
+        class="bg-[#1c6282] text-white text-center py-3 rounded-md">
         Get In Touch
       </a>
 
@@ -95,7 +98,7 @@
 
 </nav>
 
-<!-- SCRIPT -->
+<!-- SCRIPT (FIXED + CLEAN) -->
 <script>
   const menuBtn = document.getElementById("menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
@@ -107,15 +110,24 @@
       mobileMenu.classList.contains("hidden") ? "menu" : "close";
   });
 
-  document.querySelectorAll("#mobile-menu a").forEach(a => {
-    a.addEventListener("click", () => {
+  document.querySelectorAll("#mobile-menu a").forEach(link => {
+    link.addEventListener("click", () => {
       mobileMenu.classList.add("hidden");
       menuIcon.textContent = "menu";
     });
   });
+
+  const navbar = document.getElementById("navbar");
+
+  window.addEventListener("scroll", () => {
+    navbar.classList.toggle("nav-shadow", window.scrollY > 20);
+  });
 </script>
 
-<!-- HERO -->
+<!-- ========================= -->
+<!-- YOUR ORIGINAL TAIN PAGE -->
+<!-- ========================= -->
+
 <section class="py-20 mt-20">
 
   <div class="max-w-7xl mx-auto px-6">
@@ -142,12 +154,12 @@
 
       <div class="bg-yellow-400 rounded-xl p-8 text-black">
         <h2 class="text-4xl font-bold">55 MW</h2>
-        <p class="uppercase text-sm mt-2">Solar PV Generation</p>
+        <p class="uppercase text-sm mt-2">Solar PV</p>
       </div>
 
       <div class="bg-yellow-400 rounded-xl p-8 text-black">
         <h2 class="text-4xl font-bold">15 MW</h2>
-        <p class="uppercase text-sm mt-2">Hydro + BESS Storage</p>
+        <p class="uppercase text-sm mt-2">Hydro + BESS</p>
       </div>
 
     </div>
@@ -168,15 +180,14 @@
 
     <p class="mt-6 text-gray-700 leading-8">
       The Tain Hybrid Hydro-Solar Energy Project is a large-scale renewable
-      energy initiative combining utility-scale solar PV, hydropower and
-      battery energy storage to provide reliable, clean electricity while
-      supporting regional economic development and environmental sustainability.
+      energy initiative combining solar PV, hydropower and battery storage
+      to provide reliable clean energy and regional development support.
     </p>
 
   </div>
 </section>
 
-<!-- COMPONENTS -->
+<!-- PHASES -->
 <section class="pb-24">
   <div class="max-w-7xl mx-auto px-6">
 
@@ -196,7 +207,7 @@
         <ul class="mt-6 space-y-4 text-gray-700">
           <li>• 55 MW Utility-scale Solar PV Plant</li>
           <li>• Transmission Infrastructure & Grid Connection</li>
-          <li>• Modern Monitoring & Control Systems</li>
+          <li>• Monitoring & Control Systems</li>
         </ul>
       </div>
 
@@ -219,124 +230,13 @@
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="w-full pt-16 pb-8 bg-[#f6f3f2] dark:bg-[#1b1c1c]">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8">
-<div class="space-y-6">
-<div class="text-xl font-bold text-[#1b1c1c] dark:text-[#fbf9f8]">Tabcon</div>
-<p class="text-[#40484d] dark:text-[#c0c7ce] font-['Inter'] text-sm">
-                    Strategic infrastructure advisory and engineering consultants focused on sustainable development across the African continent.
-                </p>
-<div class="flex space-x-4">
-<a class="w-10 h-10 flex items-center justify-center bg-surface-container-high rounded-full hover:bg-secondary hover:text-white transition-all" href="#">
-<span class="material-symbols-outlined text-xl">language</span>
-</a>
-<a class="w-10 h-10 flex items-center justify-center bg-surface-container-high rounded-full hover:bg-secondary hover:text-white transition-all" href="#">
-<span class="material-symbols-outlined text-xl">contact_support</span>
-</a>
-</div>
-</div>
-<div class="">
-<h4 class="font-bold mb-6 text-on-surface">Head Office</h4>
-<div class="space-y-4 font-['Inter'] text-sm text-[#40484d] dark:text-[#c0c7ce]">
-<div class="flex items-start">
-<span class="material-symbols-outlined text-secondary mr-3 text-lg">location_on</span>
-<span class="">Accra, Ghana<br>Greater Accra Region</span>
-</div>
-<div class="flex items-center">
-<span class="material-symbols-outlined text-secondary mr-3 text-lg">call</span>
-<span class="">0509895777</span>
-</div>
-<div class="flex items-center">
-<span class="material-symbols-outlined text-secondary mr-3 text-lg">mail</span>
-<span class="">Office@tabcongh.com</span>
-</div>
-</div>
-</div>
-<div class="">
-<h4 class="font-bold mb-6 text-on-surface">Quick Links</h4>
-<ul class="space-y-3 font-['Inter'] text-sm">
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Expertise</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Sustainability Report</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Careers</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Privacy Policy</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Office Locations</a></li>
-</ul>
-</div>
-<div class="">
-<h4 class="font-bold mb-6 text-on-surface">Newsletter</h4>
-<p class="text-xs text-[#40484d] dark:text-[#c0c7ce] mb-4">Stay updated with our latest infrastructure projects and reports.</p>
-<div class="flex flex-col gap-2">
-<input class="bg-surface-container-high border-none border-b border-outline-variant p-3 text-sm focus:ring-0 focus:border-primary transition-all" placeholder="Email Address" type="email">
-<button class="bg-on-background text-surface py-3 text-xs font-bold uppercase tracking-widest hover:bg-primary transition-all">Subscribe</button>
-</div>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="font-['Inter'] text-sm text-[#40484d] dark:text-[#c0c7ce]">
-                © 2024 Tabcon Development Consultants. Built for Sustainability.
-            </p>
-<div class="flex space-x-6 text-xs font-medium text-[#40484d] dark:text-[#c0c7ce]">
-<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
-<a class="hover:text-primary transition-colors" href="#">Cookie Policy</a>
-</div>
-</div>
+<!-- FOOTER -->
+<footer class="bg-[#0B2E56] text-white py-8">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between">
+    <div>Tain Hybrid Hydro-Solar Energy Project</div>
+    <div>TABCON ENERGY LIMITED</div>
+  </div>
 </footer>
-<!-- SCRIPT -->
-<script>
 
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* MOBILE MENU */
-
-  const menuBtn = document.getElementById("menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const navbar = document.getElementById("navbar");
-
-  if (menuBtn && mobileMenu) {
-
-    menuBtn.addEventListener("click", () => {
-
-      mobileMenu.classList.toggle("hidden");
-
-    });
-
-  }
-
-  /* NAVBAR SHADOW */
-
-  window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 20) {
-      navbar.classList.add("nav-shadow");
-    } else {
-      navbar.classList.remove("nav-shadow");
-    }
-
-  });
-
-  /* HERO SLIDESHOW */
-
-  const slides = document.querySelectorAll(".hero-slide");
-
-  let currentSlide = 0;
-
-  if (slides.length > 0) {
-
-    setInterval(() => {
-
-      slides[currentSlide].classList.remove("active");
-
-      currentSlide = (currentSlide + 1) % slides.length;
-
-      slides[currentSlide].classList.add("active");
-
-    }, 5000);
-
-  }
-
-});
-
-</script>
 </body>
 </html>
