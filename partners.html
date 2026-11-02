@@ -1,37 +1,88 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css"><title>Tabcon Ghana</title>
-</head><body><header class="wrap header">
-  <a class="brand" href="index.html"><img class="logo" src="assets/img/uploads/tabcon-logo.jpeg" alt="Tabcon Ghana"></a>
-  <nav class="nav">
-    <a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="partners.html">Partners</a><a href="news.html">News</a><a href="contact.html" class="cta">Contact</a>
-  </nav>
-</header><main><section class='hero'><div class='bg'><img src='assets/img/uploads/hero-solar-corporate.jpg' alt=''></div><div class='wrap content'><h1></h1></div></section>
-    <section class="section wrap">
-      <h1>Partners</h1>
-      <p>We collaborate with technology providers, EPCs, lenders and public agencies to deliver bankable infrastructure. Our partnerships combine local execution with global standards.</p>
-    </section>
-
-    <section class="partner-section">
-      <div class="wrap">
-        <div class="partner-track">
-          <div class="partner-row"></div>
-        </div>
-      </div>
-    </section>
-</main><footer class="footer">
-  <div class="wrap foot-grid">
-    <div><div style="width:42px;height:42px;border-radius:12px;background:#2E7D32;display:inline-grid;place-items:center;font-weight:800;color:#fff">T</div>
-    <p>Tabcon Ghana • Hybrid Hydro–Solar</p></div>
-    <div><h5>Links</h5><ul style="list-style:none;padding:0;margin:0">
-      <li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="partners.html">Partners</a></li>
-    </ul></div>
-    <div><h5>Contact</h5><ul style="list-style:none;padding:0;margin:0">
-      <li><a href="mailto:tabcon@ghana.com">tabcon@ghana.com</a></li><li>+233 (0)20 811 6401</li>
-    </ul></div>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partners | Tabcon Ghana</title>
+<meta name="description" content="Tabcon collaborates with technology providers, EPCs, lenders and public agencies to deliver bankable infrastructure.">
+<meta name="theme-color" content="#101614">
+<link rel="icon" href="assets/img/uploads/tabcon-logo.webp">
+<script>document.documentElement.classList.add('js')</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { theme: { extend: { colors: { ink:'#101614', brand:'#1c6282', leaf:'#006e1c', lime:'#9FE870', paper:'#fbf9f8', stone:'#f1edec', mute:'#40484d' } } } }
+</script>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="bg-paper text-ink">
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:z-[100] focus:top-3 focus:left-3 focus:bg-lime focus:text-ink focus:px-4 focus:py-2">Skip to content</a>
+<header id="site-header" data-solid="false" class="fixed top-0 inset-x-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="font-display font-extrabold text-3xl tracking-tight leading-none" aria-label="Tabcon home">TABCON</a>
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Primary"><a class="nav-link" href="index.html">Home</a><a class="nav-link" href="services.html">Services</a><a class="nav-link" href="projects.html">Projects</a><a class="nav-link" href="news.html">News</a><a class="nav-link" href="about_us.html">About</a></nav>
+    <a href="contact.html" class="hidden lg:inline-flex btn btn-lime !py-3 !px-6 !text-sm">Get in touch</a>
+    <button id="menu-toggle" class="lg:hidden w-11 h-11 grid place-items-center" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
   </div>
-  <div class="copy">© Tabcon Ghana</div>
+</header>
+<div id="drawer" class="fixed inset-0 z-40 bg-ink blueprint lg:hidden" inert>
+  <div class="h-full flex flex-col justify-center px-8 pt-20">
+    <a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:120ms" href="index.html">Home</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:180ms" href="services.html">Services</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:240ms" href="projects.html">Projects</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:300ms" href="news.html">News</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:360ms" href="about_us.html">About</a>
+    <a class="drawer-link btn btn-lime self-start mt-8" style="transition-delay:560ms" href="contact.html">Get in touch</a>
+  </div>
+</div>
+<main id="main">
+<section class="page-hero relative min-h-[70svh] flex items-end overflow-hidden bg-ink text-white">
+  <img class="hero-img absolute inset-0 w-full h-full object-cover" style="object-position:center" src="assets/img/uploads/WhatsApp-Image-2022-04-11-at-10.47.47-PM-637x424.jpeg" alt="">
+  <div class="hero-shade absolute inset-0"></div>
+  <div class="relative max-w-7xl mx-auto w-full px-6 lg:px-8 pb-16 md:pb-24 pt-36">
+    <p class="text-sm text-white/60 mb-6"><a class="hover:text-lime" href="index.html">Home</a> <span class="mx-2">/</span> Partners</p>
+    <div><span class="eyebrow text-lime">Partners</span></div>
+    <h1 class="font-display font-extrabold text-5xl sm:text-6xl md:text-8xl leading-[.92] mt-6 max-w-4xl">Better built <span class='text-lime'>together.</span></h1>
+    <p class="mt-8 text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">We collaborate with technology providers, EPCs, lenders and public agencies to deliver bankable infrastructure, combining local execution with global standards.</p>
+  </div>
+</section>
+<section class="py-24 md:py-32"><div class="max-w-7xl mx-auto px-6 lg:px-8"><div class="reveal mb-12"><span class="eyebrow text-brand">Our network</span></div><div class="grid grid-cols-2 md:grid-cols-3 gap-5"><div class="reveal logo-tile h-40 bg-white grid place-items-center p-8 lift"><img class="max-h-full max-w-full object-contain" src="assets/img/partners/Partners/Bui-power-authority.jpg" alt="Bui Power Authority" loading="lazy"></div><div class="reveal logo-tile h-40 bg-white grid place-items-center p-8 lift"><img class="max-h-full max-w-full object-contain" src="assets/img/partners/Partners/Voith.jpg" alt="Voith" loading="lazy"></div><div class="reveal logo-tile h-40 bg-white grid place-items-center p-8 lift"><img class="max-h-full max-w-full object-contain" src="assets/img/partners/Partners/stanbic.jpg" alt="Stanbic Bank" loading="lazy"></div><div class="reveal logo-tile h-40 bg-white grid place-items-center p-8 lift"><img class="max-h-full max-w-full object-contain" src="assets/img/partners/Partners/Wenco.jpg" alt="Wenco" loading="lazy"></div><div class="reveal logo-tile h-40 bg-white grid place-items-center p-8 lift"><img class="max-h-full max-w-full object-contain" src="assets/img/partners/Partners/LVS.jpg" alt="LVS" loading="lazy"></div><div class="reveal logo-tile h-40 bg-white grid place-items-center p-8 lift"><img class="max-h-full max-w-full object-contain" src="assets/img/partners/Partners/SF.JPG" alt="SF" loading="lazy"></div><div class="reveal logo-tile h-40 bg-white grid place-items-center p-8 lift"><img class="max-h-full max-w-full object-contain" src="assets/img/partners/Partners/OIP.jpg" alt="Partner" loading="lazy"></div><div class="reveal logo-tile h-40 bg-white grid place-items-center p-8 lift"><img class="max-h-full max-w-full object-contain" src="assets/img/partners/Partners/OIP1.jpg" alt="Partner" loading="lazy"></div><div class="reveal logo-tile h-40 bg-white grid place-items-center p-8 lift"><img class="max-h-full max-w-full object-contain" src="assets/img/partners/Partners/R.jpg" alt="Partner" loading="lazy"></div></div></div></section>
+<section class="relative overflow-hidden bg-ink text-white py-28 md:py-40">
+  <img class="absolute inset-0 w-full h-full object-cover opacity-35" src="assets/img/uploads/IMG_7634-300x200.jpg" alt="" loading="lazy">
+  <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/40"></div>
+  <div class="relative max-w-5xl mx-auto px-6 lg:px-8 text-center">
+    <div class="reveal"><span class="eyebrow text-lime">Collaborate</span></div>
+    <h2 class="reveal font-display font-extrabold text-5xl md:text-8xl leading-[.95] mt-6" style="--d:.1s">Become a Tabcon partner.</h2>
+    <p class="reveal mt-8 text-lg md:text-xl text-white/75 max-w-2xl mx-auto" style="--d:.2s">Technology providers, lenders and agencies: let's deliver bankable infrastructure together.</p>
+    <div class="reveal mt-12 flex flex-wrap justify-center gap-4" style="--d:.3s"><a class="btn btn-lime" href="contact.html">Start a conversation <span class="material-symbols-outlined">arrow_forward</span></a><a class="btn btn-ghost" href="projects.html">See our projects</a></div>
+  </div>
+</section>
+</main>
+<footer class="bg-ink text-white relative overflow-hidden">
+  <div class="blueprint absolute inset-0 opacity-60"></div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-10">
+    <div class="grid gap-14 md:grid-cols-12">
+      <div class="md:col-span-5">
+        <p class="font-display font-extrabold text-4xl tracking-tight mb-6">TABCON</p>
+        <p class="text-white/65 leading-relaxed max-w-md">Infrastructure, engineering and renewable energy consultants delivering sustainable development across Ghana and Africa since 1983.</p>
+        <a href="contact.html" class="btn btn-lime mt-8">Start a conversation <span class="material-symbols-outlined">arrow_forward</span></a>
+      </div>
+      <div class="md:col-span-3">
+        <h4 class="text-xs font-bold tracking-[.25em] uppercase text-lime mb-6">Explore</h4>
+        <ul class="space-y-3 text-white/75"><li><a class="hover:text-lime transition-colors" href="index.html">Home</a></li><li><a class="hover:text-lime transition-colors" href="services.html">Services</a></li><li><a class="hover:text-lime transition-colors" href="projects.html">Projects</a></li><li><a class="hover:text-lime transition-colors" href="news.html">News</a></li><li><a class="hover:text-lime transition-colors" href="about_us.html">About</a></li><li><a class="hover:text-lime transition-colors" href="track-record.html">Track Record</a></li><li><a class="hover:text-lime transition-colors" href="gallery.html">Gallery</a></li><li><a class="hover:text-lime transition-colors" href="tain-project.html">Tain Project</a></li><li><a class="hover:text-lime transition-colors" href="partners.html">Partners</a></li></ul>
+      </div>
+      <div class="md:col-span-4">
+        <h4 class="text-xs font-bold tracking-[.25em] uppercase text-lime mb-6">Head office</h4>
+        <ul class="space-y-4 text-white/75">
+          <li class="flex gap-3"><span class="material-symbols-outlined text-lime">location_on</span><span>Accra, Greater Accra Region<br>Ghana</span></li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-lime">call</span><span><a class="hover:text-lime" href="tel:+233208116401">+233 (0)20 811 6401</a><br><a class="hover:text-lime" href="tel:+233509895777">050 989 5777</a></span></li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-lime">mail</span><span><a class="hover:text-lime" href="mailto:info@tabcongh.com">info@tabcongh.com</a><br><a class="hover:text-lime" href="mailto:Office@tabcongh.com">Office@tabcongh.com</a></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="font-display font-extrabold outline-text text-[22vw] leading-none mt-16 -mb-4 select-none pointer-events-none" aria-hidden="true">TABCON</div>
+    <div class="border-t border-white/10 mt-6 pt-6 text-sm text-white/50">© <span data-year>2025</span> Tabcon Development Consultants. All rights reserved.<br><span class="text-white/35 text-xs">Some photos via Wikimedia Commons (CC BY / CC BY-SA): Esthee2010, Wtshymanski, Joseph Archibald Whadji and the Pokuase Interchange photographer.</span></div>
+  </div>
 </footer>
-<script src="assets/js/main.js"></script></body></html>
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>

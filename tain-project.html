@@ -1,335 +1,101 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Tabcon Development Consultants</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          fontFamily: {
-            body: ["Inter", "sans-serif"]
-          }
-        }
-      }
-    }
-  </script>
-
-  <style>
-    body{
-      font-family:'Inter',sans-serif;
-      overflow-x:hidden;
-    }
-
-    .glass-nav{
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-
-    .nav-shadow{
-      box-shadow:0 8px 30px rgba(0,0,0,0.08);
-    }
-  </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tain Hybrid Hydro-Solar Energy Project | Tabcon Energy</title>
+<meta name="description" content="A 70 MW hybrid hydro-solar and battery storage project in the Tain & Wenchi Districts, Bono Region, Ghana.">
+<meta name="theme-color" content="#101614">
+<link rel="icon" href="assets/img/uploads/tabcon-logo.webp">
+<script>document.documentElement.classList.add('js')</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { theme: { extend: { colors: { ink:'#101614', brand:'#1c6282', leaf:'#006e1c', lime:'#9FE870', paper:'#fbf9f8', stone:'#f1edec', mute:'#40484d' } } } }
+</script>
+<link rel="stylesheet" href="assets/css/app.css">
 </head>
-
-<body class="bg-[#fbf9f8] text-[#1b1c1c] overflow-x-hidden">
-
-<!-- NAVBAR -->
-<nav id="navbar"
-  class="fixed top-0 left-0 w-full z-50 bg-[#fbf9f8]/80 glass-nav border-b border-[#ece8e7]">
-
-  <div class="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
-
-    <a href="index.html" class="text-2xl font-black tracking-tight">
-      TABCON
-    </a>
-
-    <!-- DESKTOP -->
-    <div class="hidden md:flex items-center space-x-8 font-medium">
-
-      <a href="index.html" class="text-[#1c6282] border-b-2 border-[#006e1c] pb-1">Home</a>
-      <a href="services.html" class="hover:text-[#1c6282]">Services</a>
-      <a href="projects.html" class="hover:text-[#1c6282]">Projects</a>
-      <a href="about_us.html" class="hover:text-[#1c6282]">About Us</a>
-
-    </div>
-
-    <!-- MOBILE BUTTON -->
-    <button id="menu-btn" class="md:hidden z-[60]">
-      <span id="menu-icon" class="material-symbols-outlined text-4xl">menu</span>
-    </button>
-
+<body class="bg-paper text-ink">
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:z-[100] focus:top-3 focus:left-3 focus:bg-lime focus:text-ink focus:px-4 focus:py-2">Skip to content</a>
+<header id="site-header" data-solid="false" class="fixed top-0 inset-x-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="font-display font-extrabold text-3xl tracking-tight leading-none" aria-label="Tabcon home">TABCON</a>
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Primary"><a class="nav-link" href="index.html">Home</a><a class="nav-link" href="services.html">Services</a><a class="nav-link" href="projects.html" aria-current="page">Projects</a><a class="nav-link" href="news.html">News</a><a class="nav-link" href="about_us.html">About</a></nav>
+    <a href="contact.html" class="hidden lg:inline-flex btn btn-lime !py-3 !px-6 !text-sm">Get in touch</a>
+    <button id="menu-toggle" class="lg:hidden w-11 h-11 grid place-items-center" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
   </div>
-
-  <!-- MOBILE MENU (FIXED + SAFE OVERLAY) -->
-  <div id="mobile-menu"
-    class="hidden fixed top-20 left-0 w-full bg-white border-t border-[#ece8e7] px-6 py-6 shadow-2xl z-[55]">
-
-    <div class="flex flex-col space-y-6 text-lg font-medium">
-
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="projects.html">Projects</a>
-      <a href="about_us.html">About Us</a>
-
-      <a href="contact.html"
-        class="bg-[#1c6282] text-white text-center py-3 rounded-md">
-        Get In Touch
-      </a>
-
-    </div>
-
+</header>
+<div id="drawer" class="fixed inset-0 z-40 bg-ink blueprint lg:hidden" inert>
+  <div class="h-full flex flex-col justify-center px-8 pt-20">
+    <a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:120ms" href="index.html">Home</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:180ms" href="services.html">Services</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:240ms" href="projects.html">Projects</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:300ms" href="news.html">News</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:360ms" href="about_us.html">About</a>
+    <a class="drawer-link btn btn-lime self-start mt-8" style="transition-delay:560ms" href="contact.html">Get in touch</a>
   </div>
-
-</nav>
-
-<!-- SCRIPT (FIXED + CLEAN) -->
-<script>
-  const menuBtn = document.getElementById("menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const menuIcon = document.getElementById("menu-icon");
-
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-    menuIcon.textContent =
-      mobileMenu.classList.contains("hidden") ? "menu" : "close";
-  });
-
-  document.querySelectorAll("#mobile-menu a").forEach(link => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
-      menuIcon.textContent = "menu";
-    });
-  });
-
-  const navbar = document.getElementById("navbar");
-
-  window.addEventListener("scroll", () => {
-    navbar.classList.toggle("nav-shadow", window.scrollY > 20);
-  });
-</script>
-
-<!-- ========================= -->
-<!-- YOUR ORIGINAL TAIN PAGE -->
-<!-- ========================= -->
-
-<section class="py-20 mt-20">
-
-  <div class="max-w-7xl mx-auto px-6">
-
-    <span class="bg-green-600 text-white px-4 py-2 rounded-full text-xs uppercase tracking-widest">
-      Project Brief • TABCON ENERGY LIMITED
-    </span>
-
-    <h1 class="text-5xl font-bold mt-8 leading-tight">
-      Tain Hybrid Hydro-Solar<br>
-      Energy Project
-    </h1>
-
-    <p class="mt-4 text-gray-600">
-      Tain & Wenchi Districts • Bono Region • Ghana
-    </p>
-
-    <div class="grid md:grid-cols-3 gap-6 mt-12">
-
-      <div class="bg-yellow-400 rounded-xl p-8 text-black">
-        <h2 class="text-4xl font-bold">70 MW</h2>
-        <p class="uppercase text-sm mt-2">Total Installed Capacity</p>
-      </div>
-
-      <div class="bg-yellow-400 rounded-xl p-8 text-black">
-        <h2 class="text-4xl font-bold">55 MW</h2>
-        <p class="uppercase text-sm mt-2">Solar PV</p>
-      </div>
-
-      <div class="bg-yellow-400 rounded-xl p-8 text-black">
-        <h2 class="text-4xl font-bold">15 MW</h2>
-        <p class="uppercase text-sm mt-2">Hydro + BESS</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- OVERVIEW -->
-<section class="py-20">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <h3 class="text-green-600 font-semibold uppercase">Overview</h3>
-
-    <h2 class="text-4xl font-bold mt-3">
-      A flagship renewable energy initiative
-    </h2>
-
-    <p class="mt-6 text-gray-700 leading-8">
-      The Tain Hybrid Hydro-Solar Energy Project is a large-scale renewable
-      energy initiative combining solar PV, hydropower and battery storage
-      to provide reliable clean energy and regional development support.
-    </p>
-
+</div>
+<main id="main">
+<section class="page-hero relative min-h-[78svh] flex items-end overflow-hidden bg-ink text-white">
+  <img class="hero-img absolute inset-0 w-full h-full object-cover" style="object-position:center" src="assets/img/uploads/plant.jpg" alt="">
+  <div class="hero-shade absolute inset-0"></div>
+  <div class="relative max-w-7xl mx-auto w-full px-6 lg:px-8 pb-16 md:pb-24 pt-36">
+    <p class="text-sm text-white/60 mb-6"><a class="hover:text-lime" href="index.html">Home</a> <span class="mx-2">/</span> <a class='hover:text-lime' href='projects.html'>Projects</a> <span class='mx-2'>/</span> Tain</p>
+    <div><span class="eyebrow text-lime">Project brief · Tabcon Energy Limited</span></div>
+    <h1 class="font-display font-extrabold text-5xl sm:text-6xl md:text-8xl leading-[.92] mt-6 max-w-4xl">Tain <span class='text-lime'>Hybrid Hydro-Solar</span> Energy Project</h1>
+    <p class="mt-8 text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">Tain &amp; Wenchi Districts · Bono Region · Ghana</p>
   </div>
 </section>
-
-<!-- PHASES -->
-<section class="pb-24">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <h2 class="text-3xl font-bold mb-10">
-      Two-Phase Energy Development Plan
-    </h2>
-
-    <div class="grid lg:grid-cols-2 gap-8">
-
-      <div class="bg-white rounded-2xl shadow p-8">
-        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm">
-          PHASE 1
-        </span>
-
-        <h3 class="text-2xl font-bold mt-6">Solar Power Development</h3>
-
-        <ul class="mt-6 space-y-4 text-gray-700">
-          <li>• 55 MW Utility-scale Solar PV Plant</li>
-          <li>• Transmission Infrastructure & Grid Connection</li>
-          <li>• Monitoring & Control Systems</li>
+<section class="relative bg-ink text-white py-20 overflow-hidden"><div class="blueprint absolute inset-0"></div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14"><div class="reveal border-t border-white/15 pt-6"><p class="font-display font-extrabold text-6xl md:text-8xl tracking-tighter text-lime"><span data-count="70" data-suffix=" MW">0 MW</span></p><p class="mt-4 text-xs md:text-sm uppercase tracking-[.2em] font-bold text-white/65">Total installed capacity</p></div><div class="reveal border-t border-white/15 pt-6"><p class="font-display font-extrabold text-6xl md:text-8xl tracking-tighter text-lime"><span data-count="55" data-suffix=" MW">0 MW</span></p><p class="mt-4 text-xs md:text-sm uppercase tracking-[.2em] font-bold text-white/65">Solar PV</p></div><div class="reveal border-t border-white/15 pt-6"><p class="font-display font-extrabold text-6xl md:text-8xl tracking-tighter text-lime"><span data-count="15" data-suffix=" MW">0 MW</span></p><p class="mt-4 text-xs md:text-sm uppercase tracking-[.2em] font-bold text-white/65">Hydro + BESS</p></div></div></section>
+<section class="py-28 md:py-36"><div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-16 items-center">
+  <div class="lg:col-span-6"><div class="reveal"><span class="eyebrow text-brand">Overview</span></div><h2 class="reveal font-display font-extrabold text-4xl md:text-6xl leading-[1] mt-6" style="--d:.1s">A flagship renewable energy initiative.</h2><p class="reveal mt-8 text-lg text-mute leading-relaxed" style="--d:.15s">The Tain Hybrid Hydro-Solar Energy Project is a large-scale initiative combining solar PV, hydropower and battery storage to provide reliable clean energy and regional development support.</p></div>
+  <div class="lg:col-span-6 reveal-img overflow-hidden"><img class="w-full aspect-[4/3] object-cover" src="assets/img/uploads/PANEL.JPG" alt="Floating solar and hydropower reservoir" loading="lazy"></div>
+</div></section>
+<section class="py-28 bg-stone"><div class="max-w-7xl mx-auto px-6 lg:px-8">
+  <div class="reveal"><span class="eyebrow text-brand">Roadmap</span></div><h2 class="reveal font-display font-extrabold text-4xl md:text-6xl leading-[1] mt-6 mb-16" style="--d:.1s">Two-phase energy development plan.</h2>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="reveal lift bg-white p-10 md:p-14 border-t-4 border-lime"><span class="font-display font-extrabold text-leaf tracking-widest">PHASE 1</span><h3 class="font-display font-extrabold text-3xl mt-3">Solar power development</h3><ul class="mt-8 space-y-4 text-lg text-mute"><li class="flex gap-3"><span class="material-symbols-outlined text-leaf">check_circle</span>55 MW utility-scale solar PV plant</li><li class="flex gap-3"><span class="material-symbols-outlined text-leaf">check_circle</span>Transmission infrastructure &amp; grid connection</li><li class="flex gap-3"><span class="material-symbols-outlined text-leaf">check_circle</span>Monitoring &amp; control systems</li></ul></div>
+    <div class="reveal lift bg-ink text-white p-10 md:p-14 border-t-4 border-lime" style="--d:.12s"><span class="font-display font-extrabold text-lime tracking-widest">PHASE 2</span><h3 class="font-display font-extrabold text-3xl mt-3">Hybrid hydro-solar development</h3><ul class="mt-8 space-y-4 text-lg text-white/75"><li class="flex gap-3"><span class="material-symbols-outlined text-lime">check_circle</span>10 MW battery energy storage system</li><li class="flex gap-3"><span class="material-symbols-outlined text-lime">check_circle</span>5 MW hydroelectric plant on the River Tain</li><li class="flex gap-3"><span class="material-symbols-outlined text-lime">check_circle</span>Integrated solar + hydro dispatchability</li></ul></div>
+  </div>
+  <p class="reveal mt-10 text-lg text-mute max-w-4xl">70 MW total renewable generation capacity combining solar PV, hydropower and BESS storage, with complementary development in eco-tourism, watershed conservation, agricultural programmes and value-added processing.</p>
+</div></section>
+<section class="relative overflow-hidden bg-ink text-white py-28 md:py-40">
+  <img class="absolute inset-0 w-full h-full object-cover opacity-35" src="assets/img/uploads/picture6.jpg" alt="" loading="lazy">
+  <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/40"></div>
+  <div class="relative max-w-5xl mx-auto px-6 lg:px-8 text-center">
+    <div class="reveal"><span class="eyebrow text-lime">Partner with us</span></div>
+    <h2 class="reveal font-display font-extrabold text-5xl md:text-8xl leading-[.95] mt-6" style="--d:.1s">Power the next era.</h2>
+    <p class="reveal mt-8 text-lg md:text-xl text-white/75 max-w-2xl mx-auto" style="--d:.2s">Talk to Tabcon Energy about partnerships, financing and development on the Tain project.</p>
+    <div class="reveal mt-12 flex flex-wrap justify-center gap-4" style="--d:.3s"><a class="btn btn-lime" href="contact.html">Start a conversation <span class="material-symbols-outlined">arrow_forward</span></a><a class="btn btn-ghost" href="projects.html">See our projects</a></div>
+  </div>
+</section>
+</main>
+<footer class="bg-ink text-white relative overflow-hidden">
+  <div class="blueprint absolute inset-0 opacity-60"></div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-10">
+    <div class="grid gap-14 md:grid-cols-12">
+      <div class="md:col-span-5">
+        <p class="font-display font-extrabold text-4xl tracking-tight mb-6">TABCON</p>
+        <p class="text-white/65 leading-relaxed max-w-md">Infrastructure, engineering and renewable energy consultants delivering sustainable development across Ghana and Africa since 1983.</p>
+        <a href="contact.html" class="btn btn-lime mt-8">Start a conversation <span class="material-symbols-outlined">arrow_forward</span></a>
+      </div>
+      <div class="md:col-span-3">
+        <h4 class="text-xs font-bold tracking-[.25em] uppercase text-lime mb-6">Explore</h4>
+        <ul class="space-y-3 text-white/75"><li><a class="hover:text-lime transition-colors" href="index.html">Home</a></li><li><a class="hover:text-lime transition-colors" href="services.html">Services</a></li><li><a class="hover:text-lime transition-colors" href="projects.html">Projects</a></li><li><a class="hover:text-lime transition-colors" href="news.html">News</a></li><li><a class="hover:text-lime transition-colors" href="about_us.html">About</a></li><li><a class="hover:text-lime transition-colors" href="track-record.html">Track Record</a></li><li><a class="hover:text-lime transition-colors" href="gallery.html">Gallery</a></li><li><a class="hover:text-lime transition-colors" href="tain-project.html">Tain Project</a></li><li><a class="hover:text-lime transition-colors" href="partners.html">Partners</a></li></ul>
+      </div>
+      <div class="md:col-span-4">
+        <h4 class="text-xs font-bold tracking-[.25em] uppercase text-lime mb-6">Head office</h4>
+        <ul class="space-y-4 text-white/75">
+          <li class="flex gap-3"><span class="material-symbols-outlined text-lime">location_on</span><span>Accra, Greater Accra Region<br>Ghana</span></li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-lime">call</span><span><a class="hover:text-lime" href="tel:+233208116401">+233 (0)20 811 6401</a><br><a class="hover:text-lime" href="tel:+233509895777">050 989 5777</a></span></li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-lime">mail</span><span><a class="hover:text-lime" href="mailto:info@tabcongh.com">info@tabcongh.com</a><br><a class="hover:text-lime" href="mailto:Office@tabcongh.com">Office@tabcongh.com</a></span></li>
         </ul>
       </div>
-
-      <div class="bg-white rounded-2xl shadow p-8">
-        <span class="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm">
-          PHASE 2
-        </span>
-
-        <h3 class="text-2xl font-bold mt-6">Hybrid Hydro-Solar Development</h3>
-
-        <ul class="mt-6 space-y-4 text-gray-700">
-          <li>• 10 MW Battery Energy Storage System</li>
-          <li>• 5 MW Hydroelectric Plant on River Tain</li>
-          <li>• Integrated Solar + Hydro Dispatchability</li>
-        </ul>
-      </div>
- 
-      <section class="py-20">
-       <div class="max-w-8xl mx-auto px-6">
-
-    <h3 class="text-green-600 font-semibold uppercase">70MW: Total Renewable Energy Generation Capacity-combining solar PV,hydropower, and BESS storage || Complementary development: eco-tourism, watershed conservation, agricultural programs & value-added processing</h3>
-
     </div>
-
+    <div class="font-display font-extrabold outline-text text-[22vw] leading-none mt-16 -mb-4 select-none pointer-events-none" aria-hidden="true">TABCON</div>
+    <div class="border-t border-white/10 mt-6 pt-6 text-sm text-white/50">© <span data-year>2025</span> Tabcon Development Consultants. All rights reserved.<br><span class="text-white/35 text-xs">Some photos via Wikimedia Commons (CC BY / CC BY-SA): Esthee2010, Wtshymanski, Joseph Archibald Whadji and the Pokuase Interchange photographer.</span></div>
   </div>
-</section>
-
-<!-- Footer -->
-<footer class="w-full pt-16 pb-8 bg-[#f6f3f2] dark:bg-[#1b1c1c]">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8">
-<div class="space-y-6">
-<div class="text-xl font-bold text-[#1b1c1c] dark:text-[#fbf9f8]">Tabcon</div>
-<p class="text-[#40484d] dark:text-[#c0c7ce] font-['Inter'] text-sm">
-                    Strategic infrastructure advisory and engineering consultants focused on sustainable development across the African continent.
-                </p>
-<div class="flex space-x-4">
-<a class="w-10 h-10 flex items-center justify-center bg-surface-container-high rounded-full hover:bg-secondary hover:text-white transition-all" href="#">
-<span class="material-symbols-outlined text-xl">language</span>
-</a>
-<a class="w-10 h-10 flex items-center justify-center bg-surface-container-high rounded-full hover:bg-secondary hover:text-white transition-all" href="#">
-<span class="material-symbols-outlined text-xl">contact_support</span>
-</a>
-</div>
-</div>
-<div class="">
-<h4 class="font-bold mb-6 text-on-surface">Head Office</h4>
-<div class="space-y-4 font-['Inter'] text-sm text-[#40484d] dark:text-[#c0c7ce]">
-<div class="flex items-start">
-<span class="material-symbols-outlined text-secondary mr-3 text-lg">location_on</span>
-<span class="">Accra, Ghana<br>Greater Accra Region</span>
-</div>
-<div class="flex items-center">
-<span class="material-symbols-outlined text-secondary mr-3 text-lg">call</span>
-<span class="">0509895777</span>
-</div>
-<div class="flex items-center">
-<span class="material-symbols-outlined text-secondary mr-3 text-lg">mail</span>
-<span class="">Office@tabcongh.com</span>
-</div>
-</div>
-</div>
-<div class="">
-<h4 class="font-bold mb-6 text-on-surface">Quick Links</h4>
-<ul class="space-y-3 font-['Inter'] text-sm">
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Expertise</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Sustainability Report</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Careers</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Privacy Policy</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Office Locations</a></li>
-</ul>
-</div>
-<div class="">
-<h4 class="font-bold mb-6 text-on-surface">Newsletter</h4>
-<p class="text-xs text-[#40484d] dark:text-[#c0c7ce] mb-4">Stay updated with our latest infrastructure projects and reports.</p>
-<div class="flex flex-col gap-2">
-<input class="bg-surface-container-high border-none border-b border-outline-variant p-3 text-sm focus:ring-0 focus:border-primary transition-all" placeholder="Email Address" type="email">
-<button class="bg-on-background text-surface py-3 text-xs font-bold uppercase tracking-widest hover:bg-primary transition-all">Subscribe</button>
-</div>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="font-['Inter'] text-sm text-[#40484d] dark:text-[#c0c7ce]">
-                © 2024 Tabcon Development Consultants. Built for Sustainability.
-            </p>
-<div class="flex space-x-6 text-xs font-medium text-[#40484d] dark:text-[#c0c7ce]">
-<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
-<a class="hover:text-primary transition-colors" href="#">Cookie Policy</a>
-</div>
-</div>
 </footer>
-<!-- SCRIPT -->
-<script>
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* MOBILE MENU */
-
-  const menuBtn = document.getElementById("menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const navbar = document.getElementById("navbar");
-
-  if (menuBtn && mobileMenu) {
-
-    menuBtn.addEventListener("click", () => {
-
-      mobileMenu.classList.toggle("hidden");
-
-    });
-
-  }
-
-  /* NAVBAR SHADOW */
-
-  window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 20) {
-      navbar.classList.add("nav-shadow");
-    } else {
-      navbar.classList.remove("nav-shadow");
-    }
-
- 
-</script>
+<script src="assets/js/app.js" defer></script>
 </body>
 </html>
