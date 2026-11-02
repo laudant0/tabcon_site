@@ -1,466 +1,100 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Contact Us | Tabcon Development Consultants</title>
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-
-  <!-- Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#1c6282",
-            secondary: "#006e1c",
-            surface: "#fbf9f8",
-            text: "#1b1c1c",
-            muted: "#40484d"
-          },
-          fontFamily: {
-            body: ["Inter", "sans-serif"]
-          }
-        }
-      }
-    }
-  </script>
-
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-
-    .glass-nav {
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
-
-    .hero-overlay {
-      background:
-        linear-gradient(to right,
-          rgba(0, 0, 0, 0.82),
-          rgba(0, 0, 0, 0.45),
-          rgba(0, 0, 0, 0.2));
-    }
-
-    input,
-    textarea {
-      outline: none;
-    }
-
-    input:focus,
-    textarea:focus {
-      border-color: #1c6282;
-    }
-  </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Tabcon Ghana</title>
+<meta name="description" content="Contact Tabcon Ghana about infrastructure, renewable energy, engineering consultancy and strategic partnerships.">
+<meta name="theme-color" content="#101614">
+<link rel="icon" href="assets/img/uploads/tabcon-logo.webp">
+<script>document.documentElement.classList.add('js')</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { theme: { extend: { colors: { ink:'#101614', brand:'#1c6282', leaf:'#006e1c', lime:'#9FE870', paper:'#fbf9f8', stone:'#f1edec', mute:'#40484d' } } } }
+</script>
+<link rel="stylesheet" href="assets/css/app.css">
 </head>
-
-<body class="bg-[#fbf9f8] text-[#1b1c1c] overflow-x-hidden">
-
-  <!-- NAVBAR -->
-  <nav class="fixed top-0 left-0 w-full z-50 bg-[#fbf9f8]/80 glass-nav border-b border-[#eae8e7]">
-
-    <div class="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
-
-      <!-- LOGO -->
-      <a href="index.html" class="text-2xl font-black tracking-tight">
-        TABCON
-      </a>
-
-      <!-- DESKTOP MENU -->
-      <div class="hidden md:flex items-center space-x-8 font-medium">
-
-        <a href="index.html" class="hover:text-[#1c6282] transition">
-          Home
-        </a>
-
-        <a href="services.html" class="hover:text-[#1c6282] transition">
-          Services
-        </a>
-
-        <a href="projects.html" class="hover:text-[#1c6282] transition">
-          Projects
-        </a>
-
-        
-
-        <a href="about_us.html" class="hover:text-[#1c6282] transition">
-          About Us
-        </a>
-
-      
-
-      </div>
-
-      <!-- CTA -->
-      <a href="contact.html"
-        class="hidden md:flex bg-[#1c6282] text-white px-5 py-2 rounded-md font-medium hover:opacity-90 transition">
-        Get In Touch
-      </a>
-
-      <!-- MOBILE BUTTON -->
-      <button id="menu-btn" class="md:hidden">
-
-        <span class="material-symbols-outlined text-4xl">
-          menu
-        </span>
-
-      </button>
-
-    </div>
-
-    <!-- MOBILE MENU -->
-    <div id="mobile-menu"
-      class="hidden md:hidden bg-white border-t border-[#eae8e7] px-6 py-6 shadow-xl">
-
-      <div class="flex flex-col space-y-5 font-medium">
-
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="projects.html">Projects</a>
-       
-        <a href="about_us.html">About Us</a>
-        
-
-      </div>
-
-    </div>
-
-  </nav>
-
-  <!-- HERO -->
-  <section class="relative h-[70vh] overflow-hidden">
-
-    <img src="assets/img/uploads/Dl66b83XgAE3LX0.jpg"
-      class="absolute inset-0 w-full h-full object-cover"
-      alt="Contact Tabcon">
-
-    <div class="absolute inset-0 hero-overlay"></div>
-
-    <div class="relative z-10 h-full flex items-center">
-
-      <div class="max-w-7xl mx-auto px-6 md:px-8 w-full">
-
-        <div class="max-w-4xl">
-
-          <p class="uppercase tracking-[0.3em] text-white/70 text-sm mb-5">
-            CONTACT TABCON
-          </p>
-
-          <h1 class="text-5xl md:text-7xl font-black text-white leading-tight">
-            Let’s Build
-            The Future Together
-          </h1>
-
-          <p class="mt-8 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl">
-            Reach out to discuss infrastructure development,
-            renewable energy systems, engineering consultancy
-            and strategic partnerships.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section class="py-24">
-
-    <div class="max-w-7xl mx-auto px-6 md:px-8 grid md:grid-cols-2 gap-20">
-
-      <!-- LEFT -->
-      <div>
-
-        <p class="uppercase tracking-[0.25em] text-[#1c6282] text-sm mb-4">
-          Contact Information
-        </p>
-
-        <h2 class="text-4xl md:text-5xl font-black leading-tight">
-          Start A Conversation
-        </h2>
-
-        <p class="mt-8 text-lg text-[#40484d] leading-relaxed">
-          Our team is ready to discuss engineering,
-          infrastructure, renewable energy and project
-          development opportunities across Africa.
-        </p>
-
-        <!-- INFO -->
-        <div class="mt-12 space-y-8">
-
-        <div class="flex gap-5 items-start">
-
-  <span class="material-symbols-outlined text-4xl text-[#006e1c]">
-    call
-  </span>
-
-  <div>
-    <h3 class="font-bold text-xl">
-      Phone
-    </h3>
-
-    <a href="tel:+233208116401"
-       class="text-[#40484d] mt-2 block hover:text-[#1c6282] transition">
-       +233 (0)20 811 6401
-    </a>
+<body class="bg-paper text-ink">
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:z-[100] focus:top-3 focus:left-3 focus:bg-lime focus:text-ink focus:px-4 focus:py-2">Skip to content</a>
+<header id="site-header" data-solid="false" class="fixed top-0 inset-x-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="font-display font-extrabold text-3xl tracking-tight leading-none" aria-label="Tabcon home">TABCON</a>
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Primary"><a class="nav-link" href="index.html">Home</a><a class="nav-link" href="services.html">Services</a><a class="nav-link" href="projects.html">Projects</a><a class="nav-link" href="news.html">News</a><a class="nav-link" href="about_us.html">About</a></nav>
+    <a href="contact.html" class="hidden lg:inline-flex btn btn-lime !py-3 !px-6 !text-sm">Get in touch</a>
+    <button id="menu-toggle" class="lg:hidden w-11 h-11 grid place-items-center" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
   </div>
-
-</div>
-
-         <div class="flex gap-5 items-start">
-
-  <span class="material-symbols-outlined text-4xl text-[#006e1c]">
-    mail
-  </span>
-
-  <div>
-    <h3 class="font-bold text-xl">
-      Email
-    </h3>
-
-    <a href="mailto:info@tabcongh.com"
-       class="text-[#40484d] mt-2 block hover:text-[#1c6282] transition">
-       info@tabcongh.com
-    </a>
+</header>
+<div id="drawer" class="fixed inset-0 z-40 bg-ink blueprint lg:hidden" inert>
+  <div class="h-full flex flex-col justify-center px-8 pt-20">
+    <a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:120ms" href="index.html">Home</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:180ms" href="services.html">Services</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:240ms" href="projects.html">Projects</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:300ms" href="news.html">News</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:360ms" href="about_us.html">About</a>
+    <a class="drawer-link btn btn-lime self-start mt-8" style="transition-delay:560ms" href="contact.html">Get in touch</a>
   </div>
-
 </div>
-
-          <div class="flex gap-5 items-start">
-
-            <span class="material-symbols-outlined text-4xl text-[#006e1c]">
-              location_on
-            </span>
-
-            <div>
-              <h3 class="font-bold text-xl">
-                Office
-              </h3>
-
-              <p class="text-[#40484d] mt-2">
-                Accra, Ghana
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
+<main id="main">
+<section class="page-hero relative min-h-[70svh] flex items-end overflow-hidden bg-ink text-white">
+  <img class="hero-img absolute inset-0 w-full h-full object-cover" style="object-position:center" src="assets/img/uploads/ghana-body.jpg" alt="">
+  <div class="hero-shade absolute inset-0"></div>
+  <div class="relative max-w-7xl mx-auto w-full px-6 lg:px-8 pb-16 md:pb-24 pt-36">
+    <p class="text-sm text-white/60 mb-6"><a class="hover:text-lime" href="index.html">Home</a> <span class="mx-2">/</span> Contact</p>
+    <div><span class="eyebrow text-lime">Contact Tabcon</span></div>
+    <h1 class="font-display font-extrabold text-5xl sm:text-6xl md:text-8xl leading-[.92] mt-6 max-w-4xl">Let's build the <span class='text-lime'>future together.</span></h1>
+    <p class="mt-8 text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">Reach out to discuss infrastructure development, renewable energy systems, engineering consultancy and strategic partnerships.</p>
+  </div>
+</section>
+<section class="py-24 md:py-32"><div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-10">
+  <div class="lg:col-span-5 bg-ink text-white p-10 md:p-14 relative overflow-hidden"><div class="blueprint absolute inset-0"></div>
+    <div class="relative"><div><span class="eyebrow text-lime">Contact information</span></div><h2 class="font-display font-extrabold text-4xl md:text-5xl leading-[1] mt-6">Start a conversation.</h2><p class="mt-6 text-white/70 leading-relaxed">Our team is ready to discuss engineering, infrastructure, renewable energy and project development opportunities across Africa.</p>
+    <div class="mt-12 space-y-8">
+      <div class="flex gap-5"><span class="w-12 h-12 shrink-0 grid place-items-center bg-lime text-ink rounded-sm"><span class="material-symbols-outlined">call</span></span><div><p class="text-xs uppercase tracking-widest font-bold text-white/50">Phone</p><p class="mt-1 text-lg"><a class="hover:text-lime" href="tel:+233208116401">+233 (0)20 811 6401</a><br><a class="hover:text-lime" href="tel:+233509895777">050 989 5777</a></p></div></div>
+      <div class="flex gap-5"><span class="w-12 h-12 shrink-0 grid place-items-center bg-lime text-ink rounded-sm"><span class="material-symbols-outlined">mail</span></span><div><p class="text-xs uppercase tracking-widest font-bold text-white/50">Email</p><p class="mt-1 text-lg"><a class="hover:text-lime" href="mailto:info@tabcongh.com">info@tabcongh.com</a><br><a class="hover:text-lime" href="mailto:Office@tabcongh.com">Office@tabcongh.com</a></p></div></div>
+      <div class="flex gap-5"><span class="w-12 h-12 shrink-0 grid place-items-center bg-lime text-ink rounded-sm"><span class="material-symbols-outlined">location_on</span></span><div><p class="text-xs uppercase tracking-widest font-bold text-white/50">Head office</p><p class="mt-1 text-lg">Accra, Greater Accra Region, Ghana</p></div></div>
+    </div></div>
+  </div>
+  <div class="lg:col-span-7 bg-white p-8 md:p-14 shadow-sm">
+    <h2 class="font-display font-extrabold text-3xl md:text-4xl">Send a message</h2>
+    <form id="contact-form" class="mt-8 grid gap-5 md:grid-cols-2" data-to="info@tabcongh.com" novalidate>
+      <label class="block"><span class="text-sm font-semibold">Full name</span><input class="field mt-2" name="name" type="text" required autocomplete="name"></label>
+      <label class="block"><span class="text-sm font-semibold">Email</span><input class="field mt-2" name="email" type="email" required autocomplete="email"></label>
+      <label class="block"><span class="text-sm font-semibold">Phone <span class="font-normal text-mute">(optional)</span></span><input class="field mt-2" name="phone" type="tel" autocomplete="tel"></label>
+      <label class="block"><span class="text-sm font-semibold">I'm interested in</span><select class="field mt-2" name="topic"><option>Engineering &amp; infrastructure</option><option>Renewable energy</option><option>Project development</option><option>Advisory &amp; policy</option><option>Partnership</option><option>Other</option></select></label>
+      <label class="block md:col-span-2"><span class="text-sm font-semibold">Message</span><textarea class="field mt-2" name="message" rows="6" required></textarea></label>
+      <div class="md:col-span-2"><button class="btn btn-green" type="submit">Send message <span class="material-symbols-outlined">send</span></button><p id="form-status" class="mt-5 text-leaf font-semibold" role="status" hidden></p></div>
+    </form>
+  </div>
+</div></section>
+<section class="relative bg-ink text-white overflow-hidden"><img class="absolute inset-0 w-full h-full object-cover opacity-40" src="assets/img/uploads/newpic7.jpg" alt="" loading="lazy"><div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent"></div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-28"><div class="reveal"><span class="eyebrow text-lime">Headquarters</span></div><h2 class="reveal font-display font-extrabold text-5xl md:text-7xl mt-6 leading-[.95]">Tabcon Ghana</h2><p class="reveal mt-6 max-w-xl text-white/75 text-lg">Engineering development consultants focused on infrastructure, renewable energy and strategic project delivery across Africa.</p></div></section>
+</main>
+<footer class="bg-ink text-white relative overflow-hidden">
+  <div class="blueprint absolute inset-0 opacity-60"></div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-10">
+    <div class="grid gap-14 md:grid-cols-12">
+      <div class="md:col-span-5">
+        <p class="font-display font-extrabold text-4xl tracking-tight mb-6">TABCON</p>
+        <p class="text-white/65 leading-relaxed max-w-md">Infrastructure, engineering and renewable energy consultants delivering sustainable development across Ghana and Africa since 1983.</p>
+        <a href="contact.html" class="btn btn-lime mt-8">Start a conversation <span class="material-symbols-outlined">arrow_forward</span></a>
       </div>
-
-      <!-- RIGHT FORM -->
-      <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-[#ececec]">
-
-        <h3 class="text-3xl font-black mb-8">
-          Send A Message
-        </h3>
-
-        <form class="space-y-6">
-
-          <div>
-
-            <label class="block font-medium mb-3">
-              Full Name
-            </label>
-
-            <input type="text"
-              placeholder="Your Name"
-              class="w-full border border-[#d9d9d9] rounded-xl px-5 py-4 bg-[#fbf9f8] transition">
-
-          </div>
-
-          <div>
-
-            <label class="block font-medium mb-3">
-              Email Address
-            </label>
-
-            <input type="email"
-              placeholder="you@example.com"
-              class="w-full border border-[#d9d9d9] rounded-xl px-5 py-4 bg-[#fbf9f8] transition">
-
-          </div>
-
-          <div>
-
-            <label class="block font-medium mb-3">
-              Subject
-            </label>
-
-            <input type="text"
-              placeholder="Project Inquiry"
-              class="w-full border border-[#d9d9d9] rounded-xl px-5 py-4 bg-[#fbf9f8] transition">
-
-          </div>
-
-          <div>
-
-            <label class="block font-medium mb-3">
-              Message
-            </label>
-
-            <textarea rows="6"
-              placeholder="Tell us about your project..."
-              class="w-full border border-[#d9d9d9] rounded-xl px-5 py-4 bg-[#fbf9f8] transition resize-none"></textarea>
-
-          </div>
-
-          <button
-            class="w-full bg-[#006e1c] text-white py-4 rounded-xl font-semibold hover:opacity-90 transition">
-
-            Send Message
-
-          </button>
-
-        </form>
-
+      <div class="md:col-span-3">
+        <h4 class="text-xs font-bold tracking-[.25em] uppercase text-lime mb-6">Explore</h4>
+        <ul class="space-y-3 text-white/75"><li><a class="hover:text-lime transition-colors" href="index.html">Home</a></li><li><a class="hover:text-lime transition-colors" href="services.html">Services</a></li><li><a class="hover:text-lime transition-colors" href="projects.html">Projects</a></li><li><a class="hover:text-lime transition-colors" href="news.html">News</a></li><li><a class="hover:text-lime transition-colors" href="about_us.html">About</a></li><li><a class="hover:text-lime transition-colors" href="track-record.html">Track Record</a></li><li><a class="hover:text-lime transition-colors" href="gallery.html">Gallery</a></li><li><a class="hover:text-lime transition-colors" href="tain-project.html">Tain Project</a></li><li><a class="hover:text-lime transition-colors" href="partners.html">Partners</a></li></ul>
       </div>
-
+      <div class="md:col-span-4">
+        <h4 class="text-xs font-bold tracking-[.25em] uppercase text-lime mb-6">Head office</h4>
+        <ul class="space-y-4 text-white/75">
+          <li class="flex gap-3"><span class="material-symbols-outlined text-lime">location_on</span><span>Accra, Greater Accra Region<br>Ghana</span></li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-lime">call</span><span><a class="hover:text-lime" href="tel:+233208116401">+233 (0)20 811 6401</a><br><a class="hover:text-lime" href="tel:+233509895777">050 989 5777</a></span></li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-lime">mail</span><span><a class="hover:text-lime" href="mailto:info@tabcongh.com">info@tabcongh.com</a><br><a class="hover:text-lime" href="mailto:Office@tabcongh.com">Office@tabcongh.com</a></span></li>
+        </ul>
+      </div>
     </div>
-
-  </section>
-
-  <!-- MAP STYLE SECTION -->
-  <section class="pb-24">
-
-    <div class="max-w-7xl mx-auto px-6 md:px-8">
-
-      <div class="relative overflow-hidden rounded-3xl h-[450px]">
-
-        <img src="assets/img/uploads/ghana-body.jpg"
-          class="absolute inset-0 w-full h-full object-cover"
-          alt="Office">
-
-        <div class="absolute inset-0 bg-black/35"></div>
-
-        <div class="relative z-10 h-full flex items-end p-10">
-
-          <div class="bg-white/90 backdrop-blur-md p-8 rounded-2xl max-w-md">
-
-            <p class="uppercase tracking-[0.25em] text-[#1c6282] text-xs mb-3">
-              Headquarters
-            </p>
-
-            <h3 class="text-3xl font-black">
-              Tabcon Ghana
-            </h3>
-
-            <p class="mt-4 text-[#40484d] leading-relaxed">
-              Engineering development consultants focused on
-              infrastructure, renewable energy and strategic
-              project delivery across Africa.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- Footer -->
-<footer class="w-full pt-16 pb-8 bg-[#f6f3f2] dark:bg-[#1b1c1c]">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8">
-<div class="space-y-6">
-<div class="text-xl font-bold text-[#1b1c1c] dark:text-[#fbf9f8]">Tabcon</div>
-<p class="text-[#40484d] dark:text-[#c0c7ce] font-['Inter'] text-sm">
-                    Strategic infrastructure advisory and engineering consultants focused on sustainable development across the African continent.
-                </p>
-<div class="flex space-x-4">
-<a class="w-10 h-10 flex items-center justify-center bg-surface-container-high rounded-full hover:bg-secondary hover:text-white transition-all" href="#">
-<span class="material-symbols-outlined text-xl">language</span>
-</a>
-<a class="w-10 h-10 flex items-center justify-center bg-surface-container-high rounded-full hover:bg-secondary hover:text-white transition-all" href="#">
-<span class="material-symbols-outlined text-xl">contact_support</span>
-</a>
-</div>
-</div>
-<div class="">
-<h4 class="font-bold mb-6 text-on-surface">Head Office</h4>
-<div class="space-y-4 font-['Inter'] text-sm text-[#40484d] dark:text-[#c0c7ce]">
-<div class="flex items-start">
-<span class="material-symbols-outlined text-secondary mr-3 text-lg">location_on</span>
-<span class="">Accra, Ghana<br>Greater Accra Region</span>
-</div>
-<div class="flex items-center">
-<span class="material-symbols-outlined text-secondary mr-3 text-lg">call</span>
-<a href="tel:+233509895777"
-   class="hover:text-[#1c6282] transition">
-   0509895777
-</a></div>
-<div class="flex items-center">
-<span class="material-symbols-outlined text-secondary mr-3 text-lg">mail</span>
-<a href="mailto:Office@tabcongh.com"
-   class="hover:text-[#1c6282] transition">
-   Office@tabcongh.com
-</a>
-</div>
-</div>
-</div>
-<div class="">
-<h4 class="font-bold mb-6 text-on-surface">Quick Links</h4>
-<ul class="space-y-3 font-['Inter'] text-sm">
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Expertise</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Sustainability Report</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Careers</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Privacy Policy</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Office Locations</a></li>
-</ul>
-</div>
-<div class="">
-<h4 class="font-bold mb-6 text-on-surface">Newsletter</h4>
-<p class="text-xs text-[#40484d] dark:text-[#c0c7ce] mb-4">Stay updated with our latest infrastructure projects and reports.</p>
-<div class="flex flex-col gap-2">
-<input class="bg-surface-container-high border-none border-b border-outline-variant p-3 text-sm focus:ring-0 focus:border-primary transition-all" placeholder="Email Address" type="email">
-<button class="bg-on-background text-surface py-3 text-xs font-bold uppercase tracking-widest hover:bg-primary transition-all">Subscribe</button>
-</div>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="font-['Inter'] text-sm text-[#40484d] dark:text-[#c0c7ce]">
-                © 2024 Tabcon Development Consultants. Built for Sustainability.
-            </p>
-<div class="flex space-x-6 text-xs font-medium text-[#40484d] dark:text-[#c0c7ce]">
-<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
-<a class="hover:text-primary transition-colors" href="#">Cookie Policy</a>
-</div>
-</div>
+    <div class="font-display font-extrabold outline-text text-[22vw] leading-none mt-16 -mb-4 select-none pointer-events-none" aria-hidden="true">TABCON</div>
+    <div class="border-t border-white/10 mt-6 pt-6 text-sm text-white/50">© <span data-year>2025</span> Tabcon Development Consultants. All rights reserved.<br><span class="text-white/35 text-xs">Some photos via Wikimedia Commons (CC BY / CC BY-SA): Esthee2010, Wtshymanski, Joseph Archibald Whadji and the Pokuase Interchange photographer.</span></div>
+  </div>
 </footer>
-
-  <!-- MOBILE MENU -->
-  <script>
-
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-  </script>
-
+<script src="assets/js/app.js" defer></script>
 </body>
-
 </html>

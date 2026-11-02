@@ -1,553 +1,202 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Tabcon Development Consultants</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          fontFamily: {
-            body: ["Inter", "sans-serif"]
-          }
-        }
-      }
-    }
-  </script>
-
-  <style>
-
-    body{
-      font-family:'Inter',sans-serif;
-      overflow-x:hidden;
-    }
-
-    .glass-nav{
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-
-    .hero-overlay{
-      background:
-      linear-gradient(
-        to right,
-        rgba(0,0,0,0.78),
-        rgba(0,0,0,0.45),
-        rgba(0,0,0,0.18)
-      );
-    }
-
-    .project-card{
-      transition: all .45s ease;
-    }
-
-    .project-card img{
-      transition: all .6s ease;
-    }
-
-    .project-card:hover{
-      transform:translateY(-10px);
-      box-shadow:0 25px 60px rgba(0,0,0,0.12);
-    }
-
-    .project-card:hover img{
-      transform:scale(1.08);
-    }
-
-    .fade-up{
-      animation:fadeUp 1s ease;
-    }
-
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(30px);
-      }
-
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    .nav-shadow{
-      box-shadow:0 8px 30px rgba(0,0,0,0.08);
-    }
-
-@media (max-width:768px){
-
-  .hero-slide{
-    opacity:0;
-    transition:opacity 2s ease-in-out;
-  }
-
-  .hero-slide.active{
-    opacity:1;
-  }
-
-  section.relative.h-screen{
-    min-height:100svh;
-  }
-
-}
-
-  </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabcon Ghana | Infrastructure, Engineering & Renewable Energy</title>
+<meta name="description" content="Tabcon Development Consultants delivers roads, solar systems, hydropower and infrastructure projects across Ghana and Africa since 1983.">
+<meta name="theme-color" content="#101614">
+<link rel="icon" href="assets/img/uploads/tabcon-logo.webp">
+<script>document.documentElement.classList.add('js')</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { theme: { extend: { colors: { ink:'#101614', brand:'#1c6282', leaf:'#006e1c', lime:'#9FE870', paper:'#fbf9f8', stone:'#f1edec', mute:'#40484d' } } } }
+</script>
+<link rel="stylesheet" href="assets/css/app.css">
 </head>
-
-<body class="bg-[#fbf9f8] text-[#1b1c1c]">
-
-  <!-- NAVBAR -->
-  <nav id="navbar"
-       class="fixed top-0 left-0 w-full z-50 bg-[#fbf9f8]/80 glass-nav border-b border-[#ece8e7] transition-all duration-300">
-
-    <div class="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
-
-      <!-- LOGO -->
-      <a href="index.html"
-         class="text-2xl font-black tracking-tight">
-         TABCON
-      </a>
-
-      <!-- DESKTOP -->
-      <div class="hidden md:flex items-center space-x-8 font-medium">
-
-        <a href="index.html"
-           class="text-[#1c6282] border-b-2 border-[#006e1c] pb-1">
-           Home
-        </a>
-
-        <a href="services.html"
-           class="hover:text-[#1c6282] transition">
-           Services
-        </a>
-
-        <a href="projects.html"
-           class="hover:text-[#1c6282] transition">
-           Projects
-        </a>
-
-       
-        <a href="about_us.html"
-           class="hover:text-[#1c6282] transition">
-           About Us
-        </a>
-
-
-      </div>
-
-      <!-- CTA -->
-      <a href="contact.html"
-         class="hidden md:flex bg-[#1c6282] text-white px-5 py-2 rounded-md font-semibold hover:scale-105 transition duration-300">
-         Get In Touch
-      </a>
-
-      <!-- MOBILE BTN -->
-      <button id="menu-btn"
-              class="md:hidden">
-
-        <span id="menu-icon"
-              class="material-symbols-outlined text-4xl">
-          menu
-        </span>
-
-      </button>
-
-    </div>
-
-    <!-- MOBILE MENU -->
-    <div id="mobile-menu"
-         class="hidden md:hidden bg-white border-t border-[#ece8e7] px-6 py-6 shadow-2xl">
-
-      <div class="flex flex-col space-y-6 text-lg font-medium">
-
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="projects.html">Projects</a>
-       
-        <a href="about_us.html">About Us</a>
-       
-        <a href="contact.html"
-           class="bg-[#1c6282] text-white text-center py-3 rounded-md">
-           Get In Touch
-        </a>
-
-      </div>
-
-    </div>
-
-  </nav>
-
- <!-- HERO -->
-<section class="relative min-h-[100svh] pt-20">
-
-  <!-- SLIDESHOW -->
-  <div class="absolute inset-0">
-    <img src="assets/img/uploads/AREA.jpg"
-         class="hero-slide active absolute inset-0 w-full h-full object-cover">
-
-    <img src="assets/img/uploads/plant.jpg"
-         class="hero-slide absolute inset-0 w-full h-full object-cover">
-
-    <img src="assets/img/uploads/newpic3.jpg"
-         class="hero-slide absolute inset-0 w-full h-full object-cover">
-
-    <img src="assets/img/uploads/pic11.jpg"
-         class="hero-slide absolute inset-0 w-full h-full object-cover">
-
-    <img src="assets/img/uploads/newpic5.jpg"
-         class="hero-slide absolute inset-0 w-full h-full object-cover">
+<body class="bg-paper text-ink">
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:z-[100] focus:top-3 focus:left-3 focus:bg-lime focus:text-ink focus:px-4 focus:py-2">Skip to content</a>
+<header id="site-header" data-solid="false" class="fixed top-0 inset-x-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="font-display font-extrabold text-3xl tracking-tight leading-none" aria-label="Tabcon home">TABCON</a>
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Primary"><a class="nav-link" href="index.html" aria-current="page">Home</a><a class="nav-link" href="services.html">Services</a><a class="nav-link" href="projects.html">Projects</a><a class="nav-link" href="news.html">News</a><a class="nav-link" href="about_us.html">About</a></nav>
+    <a href="contact.html" class="hidden lg:inline-flex btn btn-lime !py-3 !px-6 !text-sm">Get in touch</a>
+    <button id="menu-toggle" class="lg:hidden w-11 h-11 grid place-items-center" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
   </div>
-
-  <!-- DARK OVERLAY -->
-  <div class="absolute inset-0 bg-black/50"></div>
-
-  <!-- CONTENT -->
-  <div class="relative z-10 min-h-[100svh] flex items-center">
-    <div class="max-w-7xl mx-auto w-full px-6 md:px-8">
-
-      <div class="max-w-3xl">
-
-        <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight md:leading-[0.95] tracking-tight mb-6">
-          Building Africa's Future Through Innovation and
-          <span class="text-[#9FE870]">Sustainability</span>
-        </h1>
-
-        <p class="mt-6 text-base sm:text-lg md:text-xl text-white/85 leading-7 md:leading-8 max-w-2xl">
-          Tabcon Development Consultants delivers roads, solar systems,
-          engineering solutions and infrastructure projects shaping Africa's next era.
-        </p>
-
-        <div class="mt-8 flex flex-col sm:flex-row gap-4">
-
-          <a href="track-record.html"
-             class="bg-[#006e1c] text-white px-8 py-4 rounded-md font-semibold text-center hover:scale-105 transition duration-300">
-            Track Record
-          </a>
-
-          <div class="bg-[#f6f3f2] px-5 py-4 rounded-full font-semibold text-center">
-            Since 1983
-          </div>
-
-        </div>
-
-        </div>
-
-</section>
-      </div>
-
-   </section>
-
-<style>
-
-.hero-slide {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  opacity: 0;
-
-  transition: opacity 2s ease-in-out;
-}
-
-.hero-slide.active {
-  opacity: 1;
-}
-
-</style>
-
-<script>
-
-const slides = document.querySelectorAll('.hero-slide');
-
-let currentSlide = 0;
-
-function changeSlide() {
-
-  slides[currentSlide].classList.remove('active');
-
-  currentSlide++;
-
-  if (currentSlide >= slides.length) {
-    currentSlide = 0;
-  }
-
-  slides[currentSlide].classList.add('active');
-}
-
-setInterval(changeSlide, 4000);
-
-</script>
-
+</header>
+<div id="drawer" class="fixed inset-0 z-40 bg-ink blueprint lg:hidden" inert>
+  <div class="h-full flex flex-col justify-center px-8 pt-20">
+    <a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:120ms" href="index.html">Home</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:180ms" href="services.html">Services</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:240ms" href="projects.html">Projects</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:300ms" href="news.html">News</a><a class="drawer-link font-display text-4xl font-extrabold text-white py-2" style="transition-delay:360ms" href="about_us.html">About</a>
+    <a class="drawer-link btn btn-lime self-start mt-8" style="transition-delay:560ms" href="contact.html">Get in touch</a>
   </div>
-
+</div>
+<main id="main">
+<section class="relative min-h-[100svh] flex items-end overflow-hidden bg-ink text-white">
+  <div class="absolute inset-0"><div class="hero-slide"><img src="assets/img/uploads/gh-solar-rooftop.jpg" alt=""></div><div class="hero-slide"><img src="assets/img/uploads/gh-hydro-dam.jpg" alt="" loading="lazy"></div><div class="hero-slide"><img src="assets/img/uploads/gh-interchange.jpg" alt="" loading="lazy"></div><div class="hero-slide"><img src="assets/img/uploads/R.jPG" alt="" loading="lazy"></div><div class="hero-slide"><img src="assets/img/uploads/oooo.jpg" alt="" loading="lazy"></div></div>
+  <div class="hero-shade absolute inset-0"></div>
+  <div class="relative max-w-7xl mx-auto w-full px-6 lg:px-8 pb-28 md:pb-32 pt-40">
+    <div><span class="eyebrow text-lime">Since 1983 · Accra, Ghana</span></div>
+    <h1 class="font-display font-extrabold text-[2.9rem] sm:text-6xl md:text-8xl lg:text-[8.5rem] leading-[.9] mt-6 max-w-5xl">Building Africa's future, <span class="text-lime">sustainably.</span></h1>
+    <p class="mt-8 text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">Roads, solar, hydropower and engineering solutions shaping the continent's next era of growth.</p>
+    <div class="mt-10 flex flex-wrap gap-4"><a class="btn btn-lime" href="projects.html">Explore our projects <span class="material-symbols-outlined">arrow_forward</span></a><a class="btn btn-ghost" href="track-record.html">Track record</a></div>
+  </div>
+  <div class="absolute bottom-8 inset-x-0"><div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between"><div class="flex gap-2"><button class="hero-dot" aria-label="Show slide 1"><i></i></button><button class="hero-dot" aria-label="Show slide 2"><i></i></button><button class="hero-dot" aria-label="Show slide 3"><i></i></button><button class="hero-dot" aria-label="Show slide 4"><i></i></button><button class="hero-dot" aria-label="Show slide 5"><i></i></button></div><span id="hero-counter" class="font-display font-bold text-white/70 text-sm tracking-widest">01 / 05</span></div></div>
 </section>
-            </a>
 
-          </div>
+<section class="bg-lime text-ink py-5 overflow-hidden" aria-hidden="true"><div class="marquee"><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">Highways & Roads</span><span class="text-3xl md:text-5xl">✦</span><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">Rural Water Systems</span><span class="text-3xl md:text-5xl">✦</span><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">Solar PV</span><span class="text-3xl md:text-5xl">✦</span><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">Hydropower</span><span class="text-3xl md:text-5xl">✦</span><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">Battery Storage</span><span class="text-3xl md:text-5xl">✦</span><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">Feasibility Studies</span><span class="text-3xl md:text-5xl">✦</span><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">PPP Advisory</span><span class="text-3xl md:text-5xl">✦</span><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">Construction Supervision</span><span class="text-3xl md:text-5xl">✦</span><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">Highways & Roads</span><span class="text-3xl md:text-5xl">✦</span><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">Rural Water Systems</span><span class="text-3xl md:text-5xl">✦</span><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">Solar PV</span><span class="text-3xl md:text-5xl">✦</span><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">Hydropower</span><span class="text-3xl md:text-5xl">✦</span><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">Battery Storage</span><span class="text-3xl md:text-5xl">✦</span><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">Feasibility Studies</span><span class="text-3xl md:text-5xl">✦</span><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">PPP Advisory</span><span class="text-3xl md:text-5xl">✦</span><span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">Construction Supervision</span><span class="text-3xl md:text-5xl">✦</span></div></section>
 
-        </div>
-
-      </div>
-
+<section class="py-28 md:py-40">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-16 items-center">
+    <div class="lg:col-span-6 relative">
+      <div class="reveal-img overflow-hidden"><img class="w-full aspect-[4/5] object-cover" src="assets/img/uploads/ix.jpg" alt="Engineer inspecting solar panels" loading="lazy"></div>
+      <div class="reveal-img absolute -top-8 -right-2 md:-right-10 w-40 md:w-56 border-8 border-paper shadow-2xl overflow-hidden" style="--d:.2s"><img class="w-full aspect-square object-cover" src="assets/img/uploads/newpic3.jpg" alt="Field team installing equipment" loading="lazy"></div>
+      <div class="reveal absolute -bottom-8 left-6 md:left-8 bg-ink text-white p-8 shadow-2xl max-w-[16rem]"><p class="font-display font-extrabold text-6xl text-lime">40+</p><p class="text-sm uppercase tracking-widest font-bold mt-2 text-white/70">Years of engineering across Africa</p></div>
     </div>
-
-  </section>
-
-  <!-- ABOUT -->
-  <section class="py-24">
-
-    <div class="max-w-7xl mx-auto px-6 md:px-8 grid md:grid-cols-2 gap-16 items-center">
-
-      <div class="fade-up">
-
-        <p class="uppercase tracking-[0.25em] text-[#1c6282] text-sm mb-4">
-          About Tabcon
-        </p>
-
-        <h2 class="text-4xl md:text-5xl font-black leading-tight">
-          Engineering Development With African Vision
-        </h2>
-
-        <p class="mt-8 text-lg text-[#40484d] leading-relaxed">
-          Tabcon Development Consultants focuses on infrastructure,
-          consulting, renewable energy and engineering projects
-          across Ghana and Africa.
-        </p>
-
-        <p class="mt-6 text-[#40484d] leading-relaxed">
-          From solar systems and highways to modern structural developments,
-          Tabcon combines innovation, execution and long-term thinking.
-        </p>
-
-      </div>
-
-      <div class="fade-up">
-
-        <img src="assets/img/uploads/backgg1.jpg"
-             class="rounded-3xl shadow-2xl w-full object-cover"
-             alt="Solar">
-
-      </div>
-
+    <div class="lg:col-span-6 lg:pl-8">
+      <div class="reveal"><span class="eyebrow text-brand">About Tabcon</span></div>
+      <h2 class="reveal font-display font-extrabold text-4xl md:text-6xl leading-[1] mt-6" style="--d:.1s">Engineering development with African vision.</h2>
+      <p class="reveal mt-8 text-lg text-mute leading-relaxed" style="--d:.15s">Tabcon Development Consultants focuses on infrastructure, consulting, renewable energy and engineering projects across Ghana and Africa.</p>
+      <p class="reveal mt-5 text-mute leading-relaxed" style="--d:.2s">From solar systems and highways to modern structural developments, we combine innovation, execution and long-term thinking.</p>
+      <a class="reveal btn btn-dark mt-10" style="--d:.25s" href="about_us.html">Our story <span class="material-symbols-outlined">arrow_forward</span></a>
     </div>
-
-  </section>
-<!-- Impact Stats -->
-<section class="bg-on-background py-24 text-surface overflow-hidden relative">
-<div class="max-w-7xl mx-auto px-8 relative z-10">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center md:text-left">
-<div class="">
-<p class="text-5xl md:text-7xl font-black text-secondary-container tracking-tighter">40+</p>
-<p class="text-sm uppercase tracking-widest font-bold mt-4 opacity-70">Years Built infrastructure</p>
-</div>
-<div class="">
-<p class="text-5xl md:text-7xl font-black text-secondary-container tracking-tighter">250+</p>
-<p class="text-sm uppercase tracking-widest font-bold mt-4 opacity-70">KM Highways Built</p>
-</div>
-<div class="">
-<p class="text-5xl md:text-7xl font-black text-secondary-container tracking-tighter">300+</p>
-<p class="text-sm uppercase tracking-widest font-bold mt-4 opacity-70">RURAL WATER SUPPLY&nbsp;</p>
-</div>
-<div>
-<p class="text-5xl md:text-7xl font-black text-secondary-container tracking-tighter">12</p>
-<p class="text-sm uppercase tracking-widest font-bold mt-4 opacity-70">African Nations</p>
-</div>
-</div>
-</div>
-<div class="absolute top-0 right-0 h-full w-1/3 bg-primary/10 -skew-x-12 transform translate-x-1/2"></div>
+  </div>
 </section>
 
- <!-- Flagship Project Spotlight -->
-<section class="py-32 bg-surface-container-low" id="projects">
-<div class="max-w-7xl mx-auto px-8">
-<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-<div class="max-w-2xl">
-<span class="text-secondary font-bold tracking-widest uppercase text-sm">Tabcon Energy Limited</span>
-<h2 class="text-4xl md:text-6xl font-black tracking-tighter mt-4 leading-none">
-                         Tain Hybrid Hydro-Solar Energy Project
-                    </h2>
-</div>
-<div class="pb-2">
-<a class="text-primary font-bold border-b-2 border-secondary pb-1 hover:text-secondary transition-colors inline-flex items-center" href="projects.html">
-                        View All Projects <span class="material-symbols-outlined ml-2">arrow_outward</span>
-</a>
-</div>
-</div>
-<div class="bg-surface-container-lowest overflow-hidden">
-<div class="grid grid-cols-1 lg:grid-cols-12">
-<div class="lg:col-span-7 h-[500px]">
-<img class="w-full h-full object-cover" data-alt="modern hybrid energy facility with large solar panel arrays and water hydroelectric turbines integrated into a landscape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWOzNIziLNsuq6kNLmQspGNcP7p4HhgAKVvFcmmMPbD67tF-OWA6wlVaO-dmKRYbyTNGd4uEoS2mmkHeFuu_ywTC1_xQV81aiQidKdo4cPr4fayAZu2KXRBDYM3nvi_CTwq9spExnFPkELKiXbR9JeHoytIUeQ_NSxyOc4B8Kg4hUERR_hQ9C_HCvwm1J43P0rwPaR5sY2tLGLZ5qJC4s5NEISbl5ke3v6ZDPx2bQM8CoHc_q0vQijYXvPASEmrP_nORQC0cBgSbLa">
-</div>
-<div class="lg:col-span-5 p-12 flex flex-col justify-center">
-<div class="space-y-8">
-<div class="">
-<h3 class="text-2xl font-bold mb-4">Innovation in Power</h3>
-<p class="text-on-surface-variant leading-relaxed"><span style="caret-color: rgb(93, 111, 138); color: rgb(93, 111, 138); font-size: 18px; background-color: rgb(248, 255, 255);" class="">A pioneering initiative that harmonizes the reliability of hydroelectric power with the scalability of solar energy. This project represents a new paradigm in African energy independence, providing clean, 24/7 power to regional grids.</span></p>
-</div>
-<div class="bg-surface-container-low p-6">
-<ul class="space-y-4">
-<li class="flex items-start">
-<span class="material-symbols-outlined text-secondary mr-3" data-weight="fill">check_circle</span>
-<span class="text-sm font-medium">Zero-Emmissions Infrastucture</span>
-</li>
-<li class="flex items-start">
-<span class="material-symbols-outlined text-secondary mr-3" data-weight="fill">check_circle</span>
-<span class="text-sm font-medium">Community Impact Programmes<br></span>
-</li>
-<li class="flex items-start">
-<span class="material-symbols-outlined text-secondary mr-3" data-weight="fill">check_circle</span>
-<span class="text-sm font-medium">Sustainable, Secure and Reliable</span>
-</li>
-</ul>
-</div>
-<button class="w-full bg-primary text-on-primary py-4 font-bold rounded-DEFAULT hover:bg-primary-container transition-all">
-                              <a href="tain-project.html" class="btn btn-primary">
-   Learn More about the Tain Project
-</a>  
-                            </button>
-</div>
-</div>
-</div>
-</div>
-</div>
+<section class="relative bg-ink text-white py-24 md:py-32 overflow-hidden"><img class="absolute inset-0 w-full h-full object-cover opacity-[.18]" src="assets/img/uploads/pic10.jpg" alt="" loading="lazy"><div class="blueprint absolute inset-0"></div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-14"><div class="reveal border-t border-white/15 pt-6"><p class="font-display font-extrabold text-6xl md:text-8xl tracking-tighter text-lime"><span data-count="40" data-suffix="+">0+</span></p><p class="mt-4 text-xs md:text-sm uppercase tracking-[.2em] font-bold text-white/65">Years building infrastructure</p></div><div class="reveal border-t border-white/15 pt-6"><p class="font-display font-extrabold text-6xl md:text-8xl tracking-tighter text-lime"><span data-count="250" data-suffix="+">0+</span></p><p class="mt-4 text-xs md:text-sm uppercase tracking-[.2em] font-bold text-white/65">KM of highways built</p></div><div class="reveal border-t border-white/15 pt-6"><p class="font-display font-extrabold text-6xl md:text-8xl tracking-tighter text-lime"><span data-count="300" data-suffix="+">0+</span></p><p class="mt-4 text-xs md:text-sm uppercase tracking-[.2em] font-bold text-white/65">Rural water supply systems</p></div><div class="reveal border-t border-white/15 pt-6"><p class="font-display font-extrabold text-6xl md:text-8xl tracking-tighter text-lime"><span data-count="12" data-suffix="">0</span></p><p class="mt-4 text-xs md:text-sm uppercase tracking-[.2em] font-bold text-white/65">African nations</p></div></div></section>
+
+
+<section class="py-28 md:py-36 bg-stone">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+      <div><div class="reveal"><span class="eyebrow text-brand">What we do</span></div><h2 class="reveal font-display font-extrabold text-4xl md:text-6xl leading-[1] mt-6 max-w-2xl" style="--d:.1s">Capabilities built for scale.</h2></div>
+      <a class="reveal font-bold text-brand border-b-2 border-leaf pb-1 hover:text-leaf transition-colors self-start md:self-auto" href="services.html">All services →</a>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6"><a href="services.html" class="reveal lift zoom group block relative h-[28rem] overflow-hidden bg-ink text-white" style="--d:0.0s">
+      <img class="absolute inset-0 w-full h-full object-cover" src="assets/img/uploads/3.jpg" alt="" loading="lazy">
+      <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent"></div>
+      <div class="absolute inset-x-0 bottom-0 p-8"><span class="font-display text-lime text-lg font-bold">01</span><h3 class="font-display font-extrabold text-3xl mt-2 leading-tight">Engineering & Infrastructure</h3><p class="mt-3 text-white/75 text-[15px] leading-relaxed">Highways, water systems, transport networks and structural developments designed to last.</p><span class="mt-5 inline-flex items-center gap-2 font-bold text-lime">Explore <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span></span></div>
+    </a><a href="services.html" class="reveal lift zoom group block relative h-[28rem] overflow-hidden bg-ink text-white" style="--d:0.12s">
+      <img class="absolute inset-0 w-full h-full object-cover" src="assets/img/uploads/SOLARINST.jpg" alt="" loading="lazy">
+      <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent"></div>
+      <div class="absolute inset-x-0 bottom-0 p-8"><span class="font-display text-lime text-lg font-bold">02</span><h3 class="font-display font-extrabold text-3xl mt-2 leading-tight">Renewable Energy</h3><p class="mt-3 text-white/75 text-[15px] leading-relaxed">Solar, hydro and storage systems for energy security and industrial growth.</p><span class="mt-5 inline-flex items-center gap-2 font-bold text-lime">Explore <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span></span></div>
+    </a><a href="services.html" class="reveal lift zoom group block relative h-[28rem] overflow-hidden bg-ink text-white" style="--d:0.24s">
+      <img class="absolute inset-0 w-full h-full object-cover" src="assets/img/uploads/WORKERS.jpg" alt="" loading="lazy">
+      <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent"></div>
+      <div class="absolute inset-x-0 bottom-0 p-8"><span class="font-display text-lime text-lg font-bold">03</span><h3 class="font-display font-extrabold text-3xl mt-2 leading-tight">Project Delivery</h3><p class="mt-3 text-white/75 text-[15px] leading-relaxed">Feasibility to commissioning: planning, procurement and supervision under one roof.</p><span class="mt-5 inline-flex items-center gap-2 font-bold text-lime">Explore <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span></span></div>
+    </a></div>
+  </div>
 </section>
-<!-- Footer -->
-<footer class="w-full pt-16 pb-8 bg-[#f6f3f2] dark:bg-[#1b1c1c]">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8">
-<div class="space-y-6">
-<div class="text-xl font-bold text-[#1b1c1c] dark:text-[#fbf9f8]">Tabcon</div>
-<p class="text-[#40484d] dark:text-[#c0c7ce] font-['Inter'] text-sm">
-                    Strategic infrastructure advisory and engineering consultants focused on sustainable development across the African continent.
-                </p>
-<div class="flex space-x-4">
-<a class="w-10 h-10 flex items-center justify-center bg-surface-container-high rounded-full hover:bg-secondary hover:text-white transition-all" href="#">
-<span class="material-symbols-outlined text-xl">language</span>
-</a>
-<a class="w-10 h-10 flex items-center justify-center bg-surface-container-high rounded-full hover:bg-secondary hover:text-white transition-all" href="#">
-<span class="material-symbols-outlined text-xl">contact_support</span>
-</a>
-</div>
-</div>
-<div class="">
-<h4 class="font-bold mb-6 text-on-surface">Head Office</h4>
-<div class="space-y-4 font-['Inter'] text-sm text-[#40484d] dark:text-[#c0c7ce]">
-<div class="flex items-start">
-<span class="material-symbols-outlined text-secondary mr-3 text-lg">location_on</span>
-<span class="">Accra, Ghana<br>Greater Accra Region</span>
-</div>
-<div class="flex items-center">
-<span class="material-symbols-outlined text-secondary mr-3 text-lg">call</span>
-<span class="">0509895777</span>
-</div>
-<div class="flex items-center">
-<span class="material-symbols-outlined text-secondary mr-3 text-lg">mail</span>
-<span class="">Office@tabcongh.com</span>
-</div>
-</div>
-</div>
-<div class="">
-<h4 class="font-bold mb-6 text-on-surface">Quick Links</h4>
-<ul class="space-y-3 font-['Inter'] text-sm">
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Expertise</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Sustainability Report</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Careers</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Privacy Policy</a></li>
-<li class=""><a class="text-[#40484d] dark:text-[#c0c7ce] hover:text-[#1c6282] dark:hover:text-[#3c7b9c] transition-colors" href="#">Office Locations</a></li>
-</ul>
-</div>
-<div class="">
-<h4 class="font-bold mb-6 text-on-surface">Newsletter</h4>
-<p class="text-xs text-[#40484d] dark:text-[#c0c7ce] mb-4">Stay updated with our latest infrastructure projects and reports.</p>
-<div class="flex flex-col gap-2">
-<input class="bg-surface-container-high border-none border-b border-outline-variant p-3 text-sm focus:ring-0 focus:border-primary transition-all" placeholder="Email Address" type="email">
-<button class="bg-on-background text-surface py-3 text-xs font-bold uppercase tracking-widest hover:bg-primary transition-all">Subscribe</button>
-</div>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="font-['Inter'] text-sm text-[#40484d] dark:text-[#c0c7ce]">
-                © 2024 Tabcon Development Consultants. Built for Sustainability.
-            </p>
-<div class="flex space-x-6 text-xs font-medium text-[#40484d] dark:text-[#c0c7ce]">
-<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
-<a class="hover:text-primary transition-colors" href="#">Cookie Policy</a>
-</div>
-</div>
+
+<section class="relative bg-ink text-white overflow-hidden">
+  <div class="grid lg:grid-cols-2 min-h-[34rem]">
+    <div class="relative min-h-[22rem] reveal-img overflow-hidden"><img class="absolute inset-0 w-full h-full object-cover object-[30%_75%]" src="assets/img/uploads/AREA.jpg" alt="Floating solar beside a hydropower reservoir" loading="lazy"><div class="absolute inset-0 bg-gradient-to-r from-transparent to-ink/80 hidden lg:block"></div></div>
+    <div class="relative px-6 lg:px-16 py-20 md:py-28 flex flex-col justify-center">
+      <div class="reveal"><span class="eyebrow text-lime">Flagship · Tabcon Energy Limited</span></div>
+      <h2 class="reveal font-display font-extrabold text-4xl md:text-6xl leading-[1] mt-6" style="--d:.1s">Tain Hybrid <span class="text-lime">Hydro-Solar</span> Energy Project</h2>
+      <p class="reveal mt-8 text-white/75 text-lg leading-relaxed max-w-xl" style="--d:.15s">Hydropower reliability with solar scale: 70 MW of clean, dispatchable power for the Bono Region and the national grid.</p>
+      <div class="reveal mt-10 flex gap-10" style="--d:.2s"><div><p class="font-display font-extrabold text-5xl text-lime">70 MW</p><p class="text-xs uppercase tracking-widest text-white/60 mt-1">Total capacity</p></div><div><p class="font-display font-extrabold text-5xl text-lime">2</p><p class="text-xs uppercase tracking-widest text-white/60 mt-1">Development phases</p></div></div>
+      <a class="reveal btn btn-lime mt-12 self-start" style="--d:.25s" href="tain-project.html">Discover the project <span class="material-symbols-outlined">arrow_forward</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="py-28 md:py-36">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+      <div><div class="reveal"><span class="eyebrow text-brand">Featured work</span></div><h2 class="reveal font-display font-extrabold text-4xl md:text-6xl leading-[1] mt-6" style="--d:.1s">Projects that move nations.</h2></div>
+      <a class="reveal font-bold text-brand border-b-2 border-leaf pb-1 hover:text-leaf transition-colors self-start md:self-auto" href="projects.html">View all projects →</a>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6"><a href="projects.html" class="reveal lift zoom block bg-white overflow-hidden" style="--d:0.0s"><div class="aspect-[4/3] overflow-hidden"><img class="w-full h-full object-cover" src="assets/img/uploads/pic13.jpg" alt="Urban Road Expansion" loading="lazy"></div><div class="p-7"><h3 class="font-display font-extrabold text-2xl">Urban Road Expansion</h3><p class="mt-2 text-mute">Mobility, logistics and urban connectivity.</p></div></a><a href="projects.html" class="reveal lift zoom block bg-white overflow-hidden" style="--d:0.12s"><div class="aspect-[4/3] overflow-hidden"><img class="w-full h-full object-cover" src="assets/img/uploads/ROADCONS.jpg" alt="Accra–Kumasi Highway" loading="lazy"></div><div class="p-7"><h3 class="font-display font-extrabold text-2xl">Accra–Kumasi Highway</h3><p class="mt-2 text-mute">Road infrastructure for regional growth.</p></div></a><a href="projects.html" class="reveal lift zoom block bg-white overflow-hidden" style="--d:0.24s"><div class="aspect-[4/3] overflow-hidden"><img class="w-full h-full object-cover" src="assets/img/uploads/viii.jPG" alt="Renewable Energy Systems" loading="lazy"></div><div class="p-7"><h3 class="font-display font-extrabold text-2xl">Renewable Energy Systems</h3><p class="mt-2 text-mute">Utility-scale solar for resilient power.</p></div></a></div>
+  </div>
+</section>
+
+<section class="py-28 md:py-36 bg-stone">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <div class="lg:col-span-5 order-2 lg:order-1">
+      <div class="reveal"><span class="eyebrow text-brand">Beyond infrastructure</span></div>
+      <h2 class="reveal font-display font-extrabold text-4xl md:text-6xl leading-[1] mt-6" style="--d:.1s">Clean water. Reliable power. <span class="text-leaf">Real lives.</span></h2>
+      <p class="reveal mt-8 text-lg text-mute leading-relaxed" style="--d:.15s">Every road, borehole and solar array we deliver is measured by what it changes for the communities around it: safer journeys, safe drinking water and energy that keeps clinics, schools and businesses running.</p>
+      <div class="reveal mt-10 grid grid-cols-2 gap-8" style="--d:.2s"><div class="border-t-2 border-leaf pt-4"><p class="font-display font-extrabold text-5xl text-ink">300+</p><p class="text-sm text-mute mt-1">Rural water systems</p></div><div class="border-t-2 border-leaf pt-4"><p class="font-display font-extrabold text-5xl text-ink">250+</p><p class="text-sm text-mute mt-1">KM of highways built</p></div></div>
+      <a class="reveal btn btn-green mt-10" style="--d:.25s" href="track-record.html">See the track record <span class="material-symbols-outlined">arrow_forward</span></a>
+    </div>
+    <div class="lg:col-span-7 order-1 lg:order-2 grid grid-cols-12 gap-4 md:gap-6">
+      <div class="reveal-img col-span-7 row-span-2 overflow-hidden"><img class="w-full h-full min-h-[26rem] object-cover" src="assets/img/uploads/Picture1.jpg" alt="Clean water flowing from a community tap" loading="lazy"></div>
+      <div class="reveal-img col-span-5 overflow-hidden" style="--d:.15s"><img class="w-full h-full aspect-square object-cover" src="assets/img/uploads/Picture8.jpg" alt="Child drinking from a standpipe" loading="lazy"></div>
+      <div class="reveal-img col-span-5 overflow-hidden" style="--d:.3s"><img class="w-full h-full aspect-square object-cover" src="assets/img/uploads/backgg2.jpg" alt="Hands under flowing water" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-ink">
+  <div class="grid grid-cols-2 md:grid-cols-4">
+    <div class="reveal-img relative h-56 md:h-72 overflow-hidden"><img class="absolute inset-0 w-full h-full object-cover" src="assets/img/uploads/newpic4.jpg" alt="Floating solar on a reservoir" loading="lazy"></div>
+    <div class="reveal-img relative h-56 md:h-72 overflow-hidden" style="--d:.1s"><img class="absolute inset-0 w-full h-full object-cover" src="assets/img/uploads/newpic6.jpg" alt="Road crew at work" loading="lazy"></div>
+    <div class="reveal-img relative h-56 md:h-72 overflow-hidden" style="--d:.2s"><img class="absolute inset-0 w-full h-full object-cover" src="assets/img/uploads/workkk.jpg" alt="Technicians fitting solar panels" loading="lazy"></div>
+    <div class="reveal-img relative h-56 md:h-72 overflow-hidden" style="--d:.3s"><img class="absolute inset-0 w-full h-full object-cover" src="assets/img/uploads/picture9.jpg" alt="Road roller on a new highway" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="py-28 md:py-36 bg-ink text-white relative overflow-hidden">
+  <div class="blueprint absolute inset-0"></div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-3xl mb-14"><div class="reveal"><span class="eyebrow text-lime">Solar in Ghana</span></div><h2 class="reveal font-display font-extrabold text-4xl md:text-6xl leading-[1] mt-6" style="--d:.1s">Ghana is powering up.</h2><p class="reveal mt-6 text-white/70 text-lg leading-relaxed" style="--d:.15s">From rooftop arrays on city buildings to solar-powered street lighting, clean energy is already at work across Ghana. This is the future Tabcon is engineering.</p></div>
+    <div class="grid md:grid-cols-12 gap-4 md:gap-6">
+      <figure class="reveal-img md:col-span-7 relative overflow-hidden group"><img class="w-full h-full min-h-[22rem] object-cover transition-transform duration-700 group-hover:scale-105" src="assets/img/uploads/gh-solar-house.jpg" alt="Rooftop solar panels on a building in Ghana" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-ink/90 to-transparent"><p class="font-display font-extrabold text-2xl">Rooftop solar</p><p class="text-sm text-white/70">Clean power for institutions and homes</p></figcaption></figure>
+      <figure class="reveal-img md:col-span-5 relative overflow-hidden group" style="--d:.15s"><img class="w-full h-full min-h-[22rem] object-cover transition-transform duration-700 group-hover:scale-105" src="assets/img/uploads/gh-solar-streetlight.jpg" alt="Solar-powered street light in Ghana" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-ink/90 to-transparent"><p class="font-display font-extrabold text-2xl">Solar street lighting</p><p class="text-sm text-white/70">Safer streets, off the grid</p></figcaption></figure>
+      <figure class="reveal-img md:col-span-12 relative overflow-hidden group" style="--d:.3s"><img class="w-full h-72 md:h-[26rem] object-cover transition-transform duration-700 group-hover:scale-105" src="assets/img/uploads/gh-solar-panel.jpg" alt="Commercial rooftop solar arrays in Accra, Ghana" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-ink/90 to-transparent"><p class="font-display font-extrabold text-2xl">Commercial solar arrays</p><p class="text-sm text-white/70">Large-scale rooftop generation in the city</p></figcaption></figure>
+    </div>
+    <p class="mt-6 text-xs text-white/40">Photos: Esthee2010 via Wikimedia Commons (CC BY 4.0 / CC BY-SA 4.0).</p>
+  </div>
+</section>
+
+<section class="py-20 bg-stone">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-end justify-between mb-10"><div class="reveal"><span class="eyebrow text-brand">Trusted by</span></div><a class="font-bold text-brand hover:text-leaf" href="partners.html">All partners →</a></div>
+    <div class="reveal grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"><div class="logo-tile h-24 bg-white grid place-items-center p-5"><img class="max-h-full max-w-full object-contain" src="assets/img/partners/Partners/Bui-power-authority.jpg" alt="Bui Power Authority" loading="lazy"></div><div class="logo-tile h-24 bg-white grid place-items-center p-5"><img class="max-h-full max-w-full object-contain" src="assets/img/partners/Partners/Voith.jpg" alt="Voith" loading="lazy"></div><div class="logo-tile h-24 bg-white grid place-items-center p-5"><img class="max-h-full max-w-full object-contain" src="assets/img/partners/Partners/stanbic.jpg" alt="Stanbic Bank" loading="lazy"></div><div class="logo-tile h-24 bg-white grid place-items-center p-5"><img class="max-h-full max-w-full object-contain" src="assets/img/partners/Partners/Wenco.jpg" alt="Wenco" loading="lazy"></div><div class="logo-tile h-24 bg-white grid place-items-center p-5"><img class="max-h-full max-w-full object-contain" src="assets/img/partners/Partners/LVS.jpg" alt="LVS" loading="lazy"></div><div class="logo-tile h-24 bg-white grid place-items-center p-5"><img class="max-h-full max-w-full object-contain" src="assets/img/partners/Partners/SF.JPG" alt="SF" loading="lazy"></div></div>
+  </div>
+</section>
+<section class="relative overflow-hidden bg-ink text-white py-28 md:py-40">
+  <img class="absolute inset-0 w-full h-full object-cover opacity-35" src="assets/img/uploads/newpic5.jpg" alt="" loading="lazy">
+  <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/40"></div>
+  <div class="relative max-w-5xl mx-auto px-6 lg:px-8 text-center">
+    <div class="reveal"><span class="eyebrow text-lime">Work with Tabcon</span></div>
+    <h2 class="reveal font-display font-extrabold text-5xl md:text-8xl leading-[.95] mt-6" style="--d:.1s">Let's build what matters.</h2>
+    <p class="reveal mt-8 text-lg md:text-xl text-white/75 max-w-2xl mx-auto" style="--d:.2s">Infrastructure is civilisation in physical form. Tell us about your next project.</p>
+    <div class="reveal mt-12 flex flex-wrap justify-center gap-4" style="--d:.3s"><a class="btn btn-lime" href="contact.html">Start a conversation <span class="material-symbols-outlined">arrow_forward</span></a><a class="btn btn-ghost" href="projects.html">See our projects</a></div>
+  </div>
+</section>
+</main>
+<footer class="bg-ink text-white relative overflow-hidden">
+  <div class="blueprint absolute inset-0 opacity-60"></div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-10">
+    <div class="grid gap-14 md:grid-cols-12">
+      <div class="md:col-span-5">
+        <p class="font-display font-extrabold text-4xl tracking-tight mb-6">TABCON</p>
+        <p class="text-white/65 leading-relaxed max-w-md">Infrastructure, engineering and renewable energy consultants delivering sustainable development across Ghana and Africa since 1983.</p>
+        <a href="contact.html" class="btn btn-lime mt-8">Start a conversation <span class="material-symbols-outlined">arrow_forward</span></a>
+      </div>
+      <div class="md:col-span-3">
+        <h4 class="text-xs font-bold tracking-[.25em] uppercase text-lime mb-6">Explore</h4>
+        <ul class="space-y-3 text-white/75"><li><a class="hover:text-lime transition-colors" href="index.html">Home</a></li><li><a class="hover:text-lime transition-colors" href="services.html">Services</a></li><li><a class="hover:text-lime transition-colors" href="projects.html">Projects</a></li><li><a class="hover:text-lime transition-colors" href="news.html">News</a></li><li><a class="hover:text-lime transition-colors" href="about_us.html">About</a></li><li><a class="hover:text-lime transition-colors" href="track-record.html">Track Record</a></li><li><a class="hover:text-lime transition-colors" href="gallery.html">Gallery</a></li><li><a class="hover:text-lime transition-colors" href="tain-project.html">Tain Project</a></li><li><a class="hover:text-lime transition-colors" href="partners.html">Partners</a></li></ul>
+      </div>
+      <div class="md:col-span-4">
+        <h4 class="text-xs font-bold tracking-[.25em] uppercase text-lime mb-6">Head office</h4>
+        <ul class="space-y-4 text-white/75">
+          <li class="flex gap-3"><span class="material-symbols-outlined text-lime">location_on</span><span>Accra, Greater Accra Region<br>Ghana</span></li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-lime">call</span><span><a class="hover:text-lime" href="tel:+233208116401">+233 (0)20 811 6401</a><br><a class="hover:text-lime" href="tel:+233509895777">050 989 5777</a></span></li>
+          <li class="flex gap-3"><span class="material-symbols-outlined text-lime">mail</span><span><a class="hover:text-lime" href="mailto:info@tabcongh.com">info@tabcongh.com</a><br><a class="hover:text-lime" href="mailto:Office@tabcongh.com">Office@tabcongh.com</a></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="font-display font-extrabold outline-text text-[22vw] leading-none mt-16 -mb-4 select-none pointer-events-none" aria-hidden="true">TABCON</div>
+    <div class="border-t border-white/10 mt-6 pt-6 text-sm text-white/50">© <span data-year>2025</span> Tabcon Development Consultants. All rights reserved.<br><span class="text-white/35 text-xs">Some photos via Wikimedia Commons (CC BY / CC BY-SA): Esthee2010, Wtshymanski, Joseph Archibald Whadji and the Pokuase Interchange photographer.</span></div>
+  </div>
 </footer>
-<!-- SCRIPT -->
-<script>
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* MOBILE MENU */
-
-  const menuBtn = document.getElementById("menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const navbar = document.getElementById("navbar");
-
-  if (menuBtn && mobileMenu) {
-
-    menuBtn.addEventListener("click", () => {
-
-      mobileMenu.classList.toggle("hidden");
-
-    });
-
-  }
-
-  /* NAVBAR SHADOW */
-
-  window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 20) {
-      navbar.classList.add("nav-shadow");
-    } else {
-      navbar.classList.remove("nav-shadow");
-    }
-
-  });
-
-  /* HERO SLIDESHOW */
-
-  const slides = document.querySelectorAll(".hero-slide");
-
-  let currentSlide = 0;
-
-  if (slides.length > 0) {
-
-    setInterval(() => {
-
-      slides[currentSlide].classList.remove("active");
-
-      currentSlide = (currentSlide + 1) % slides.length;
-
-      slides[currentSlide].classList.add("active");
-
-    }, 5000);
-
-  }
-
-});
-
-</script>
+<script src="assets/js/app.js" defer></script>
 </body>
 </html>
