@@ -57,8 +57,10 @@ body { font-family:'Inter',system-ui,sans-serif; overflow-x:hidden; -webkit-font
 @keyframes kenburns { to { transform:scale(1.14); } }
 .page-hero img.hero-img { animation:kenburns 14s ease-out forwards; }
 .hero-shade { background:linear-gradient(100deg,rgba(8,14,12,.88) 0%,rgba(8,14,12,.55) 48%,rgba(8,14,12,.15) 100%), linear-gradient(0deg,rgba(8,14,12,.7) 0%,transparent 38%); }
-.hero-dot { height:3px; width:2.5rem; background:rgba(255,255,255,.3); overflow:hidden; border-radius:2px; }
-.hero-dot i { display:block; height:100%; width:0; background:var(--lime); }
+.hero-dot { position:relative; height:2.75rem; width:2.5rem; background:transparent; }
+.hero-dot::before { content:""; position:absolute; left:0; right:0; top:50%; height:3px; background:rgba(255,255,255,.3); border-radius:2px; }
+.hero-dot i { position:absolute; left:0; top:50%; display:block; height:3px; width:0; background:var(--lime); }
+.hero-dot:focus-visible { outline:2px solid var(--lime); outline-offset:3px; }
 .hero-dot.is-active i { animation:fill 6s linear forwards; }
 @keyframes fill { to { width:100%; } }
 .scroll-cue { animation:bob 2s ease-in-out infinite; }
@@ -115,4 +117,5 @@ dialog::backdrop { background:rgba(8,14,12,.88); backdrop-filter:blur(6px); }
   *,*::before,*::after { animation:none !important; transition-duration:.01ms !important; }
   .js .reveal,.js .reveal-img { opacity:1; transform:none; }
   .js .reveal-img img { transform:none; }
+  .hero-dot.is-active i { width:100%; }
 }
