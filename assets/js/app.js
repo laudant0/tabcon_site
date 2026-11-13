@@ -89,10 +89,11 @@
       dots[cur] && dots[cur].classList.remove('is-active');
       cur = (i + slides.length) % slides.length;
       slides[cur].classList.add('is-active');
+      dots.forEach((dot, index) => dot.setAttribute('aria-pressed', String(index === cur)));
       if (dots[cur]) { void dots[cur].offsetWidth; dots[cur].classList.add('is-active'); }
       if (counter) counter.textContent = String(cur + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
     };
-    const start = () => { clearInterval(timer); timer = setInterval(() => show(cur + 1), 6000); };
+    const start = () => { clearInterval(timer); if (!reduce && !document.hidden) timer = setInterval(() => show(cur + 1), 6000); };
     dots.forEach((d, i) => d.addEventListener('click', () => { show(i); start(); }));
     document.addEventListener('visibilitychange', () => document.hidden ? clearInterval(timer) : start());
     show(0); start();

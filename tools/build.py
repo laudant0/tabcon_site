@@ -1,6 +1,8 @@
 ﻿"""Generates the Tabcon static pages. Run from the repo root: python tools/build.py"""
 import json
 import pathlib
+from html import escape
+from urllib.parse import quote
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 IMG = "assets/img/uploads/"
@@ -111,7 +113,7 @@ def footer():
       </div>
     </div>
     <div class="font-display font-extrabold outline-text text-[22vw] leading-none mt-16 -mb-4 select-none pointer-events-none" aria-hidden="true">TABCON</div>
-    <div class="border-t border-white/10 mt-6 pt-6 text-sm text-white/50">© <span data-year>2025</span> Tabcon Development Consultants. All rights reserved.<br><span class="text-white/35 text-xs">Some photos via Wikimedia Commons (CC BY / CC BY-SA): Esthee2010, Wtshymanski, Joseph Archibald Whadji and the Pokuase Interchange photographer.</span></div>
+    <div class="border-t border-white/10 mt-6 pt-6 flex flex-wrap items-center justify-between gap-4 text-sm text-white/50"><span>© <span data-year>2025</span> Tabcon Development Consultants. All rights reserved.</span><a class="hover:text-lime transition-colors" href="photo-credits.html">Photo credits</a></div>
   </div>
 </footer>
 <script src="assets/js/app.js" defer></script>
@@ -167,6 +169,42 @@ def write(name, html):
     (ROOT / name).write_text(html, encoding="utf-8", newline="\n")
 
 
+def photo_credits():
+    photos = [
+        ("Solar Panels on Rooftop.jpg", "Esthee2010", "by-sa", "4.0"),
+        ("Solar Panel 3.jpg", "Esthee2010", "by", "4.0"),
+        ("Solar Panel - 5.jpg", "Esthee2010", "by", "4.0"),
+        ("Solar Panel 5.jpg", "Esthee2010", "by", "4.0"),
+        ("Bui Dam Nov 2013.JPG", "Wtshymanski", "by-sa", "3.0"),
+        ("Construction of Bui Dam.jpg", "ZSM", "by", "3.0"),
+        ("Tamale interchange or Overhead.jpg", "Samaru Samaru", "by-sa", "4.0"),
+        ("Highway, Tamale.jpg", "Hiroo Yamagata", "by-sa", "2.0"),
+        ("Aflao road construction.jpeg", "Enock4seth", "by-sa", "3.0"),
+        ("Accra - Tema Motorway by Blaise Daniel Korley Ahumah.jpg", "Blaise Daniel Korley Ahumah", "by-sa", "4.0"),
+        ("Construction of a road in Tamale Airport (Northern Ghana) 01.jpg", "Sir Amugi", "by-sa", "4.0"),
+        ("Pokuase Interchange5030.jpg", "Amuzujoe", "by-sa", "4.0"),
+        ("Pokuase Interchange5062.jpg", "Amuzujoe", "by-sa", "4.0"),
+        ("Pokuase Interchange5083.jpg", "Amuzujoe", "by-sa", "4.0"),
+    ]
+    entries = "".join(
+        f'<li class="border-t border-ink/10 py-5"><a class="font-semibold text-leaf hover:underline" href="https://commons.wikimedia.org/wiki/File:{quote(title.replace(" ", "_"))}">{escape(title)}</a>'
+        f'<span class="block text-mute mt-1">By {escape(author)} · <a class="underline hover:text-leaf" href="https://creativecommons.org/licenses/{kind}/{version}/">CC {kind.upper()} {version}</a></span></li>'
+        for title, author, kind, version in photos
+    )
+    return (
+        head("Photo credits | Tabcon Ghana", "Credits and licences for photography used on the Tabcon website.")
+        + header("", solid=True)
+        + f"""<section class="pt-36 pb-24 md:pb-32"><div class="max-w-4xl mx-auto px-6 lg:px-8">
+  <div>{eyebrow("Photography")}</div>
+  <h1 class="font-display font-extrabold text-5xl md:text-7xl leading-[.95] mt-6">Photo credits.</h1>
+  <p class="mt-8 text-lg text-mute leading-relaxed">The photographs below are used via Wikimedia Commons. Images have been resized and may be cropped for display. Follow the links for the original works and licence details.</p>
+  <ul class="mt-12">{entries}</ul>
+  <p class="border-t border-ink/10 pt-5 text-mute"><a class="text-leaf font-semibold hover:underline" href="https://commons.wikimedia.org/wiki/File:10Construction_of_a_road.jpg">10Construction of a road.jpg</a> by IRANKUNDA Belyse is available under <a class="underline hover:text-leaf" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>.</p>
+</div></section>"""
+        + footer()
+    )
+
+
 # ---------------------------------------------------------------- HOME
 def home():
     hero_imgs = ["gh-solar-rooftop.jpg", "gh-hydro-dam.jpg", "gh-interchange.jpg", "R.jPG", "gh-solar-house.jpg"]
@@ -174,7 +212,7 @@ def home():
         '<div class="hero-slide"><img src="%s%s" alt=""%s></div>' % (IMG, i, "" if k == 0 else ' loading="lazy"')
         for k, i in enumerate(hero_imgs)
     )
-    dots = "".join(f'<button class="hero-dot" aria-label="Show slide {k+1}"><i></i></button>' for k in range(len(hero_imgs)))
+    dots = "".join(f'<button class="hero-dot" type="button" aria-label="Show slide {k+1}" aria-pressed="false"><i></i></button>' for k in range(len(hero_imgs)))
     ticker_items = ["Highways & Roads", "Rural Water Systems", "Solar PV", "Hydropower", "Battery Storage", "Feasibility Studies", "PPP Advisory", "Construction Supervision"]
     ticker = "".join(f'<span class="font-display font-extrabold text-3xl md:text-5xl px-8 whitespace-nowrap">{t}</span><span class="text-3xl md:text-5xl">✦</span>' for t in ticker_items) * 2
     svc = [
@@ -307,7 +345,7 @@ def home():
       <figure class="reveal-img md:col-span-5 relative overflow-hidden group" style="--d:.15s"><img class="w-full h-full min-h-[22rem] object-cover transition-transform duration-700 group-hover:scale-105" src="{IMG}JYT.jpg" alt="Solar panel array" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-ink/90 to-transparent"><p class="font-display font-extrabold text-2xl">Solar generation</p><p class="text-sm text-white/70">Clean power at scale</p></figcaption></figure>
       <figure class="reveal-img md:col-span-12 relative overflow-hidden group" style="--d:.3s"><img class="w-full h-72 md:h-[26rem] object-cover transition-transform duration-700 group-hover:scale-105" src="{IMG}gh-solar-streetlight.jpg" alt="Solar-powered street light in Ghana" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-ink/90 to-transparent"><p class="font-display font-extrabold text-2xl">Solar street lighting</p><p class="text-sm text-white/70">Safer streets, off the grid</p></figcaption></figure>
     </div>
-    <p class="mt-6 text-xs text-white/40">Photos: Esthee2010 via Wikimedia Commons (CC BY 4.0 / CC BY-SA 4.0).</p>
+    <p class="mt-6 text-xs text-white/60"><a class="underline hover:text-lime" href="photo-credits.html">Photo credits</a></p>
   </div>
 </section>
 
@@ -667,7 +705,7 @@ if __name__ == "__main__":
     pages = {
         "index.html": home, "about_us.html": about, "services.html": services, "projects.html": projects,
         "track-record.html": track, "tain-project.html": tain, "gallery.html": gallery, "news.html": news,
-        "partners.html": partners, "contact.html": contact,
+        "partners.html": partners, "contact.html": contact, "photo-credits.html": photo_credits,
     }
     for name, fn in pages.items():
         write(name, fn())
