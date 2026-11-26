@@ -237,10 +237,6 @@ def home():
         f"""<a href="projects.html" class="reveal lift zoom block bg-white overflow-hidden" style="--d:{k*.12}s"><div class="aspect-[4/3] overflow-hidden"><img class="w-full h-full object-cover" src="{IMG}{im}" alt="{t}" loading="lazy"></div><div class="p-7"><h3 class="font-display font-extrabold text-2xl">{t}</h3><p class="mt-2 text-mute">{d}</p></div></a>"""
         for k, (im, t, d) in enumerate(proj)
     )
-    logos = "".join(
-        f'<div class="logo-tile h-24 bg-white grid place-items-center p-5"><img class="max-h-full max-w-full object-contain" src="{PARTNERS}{f}" alt="{n}" loading="lazy"></div>'
-        for f, n in PARTNER_FILES[:6]
-    )
     return (
         head("Tabcon Ghana | Infrastructure, Engineering & Renewable Energy", "Tabcon Development Consultants delivers roads, solar systems, hydropower and infrastructure projects across Ghana and Africa since 1983.")
         + header("index.html")
@@ -345,16 +341,9 @@ def home():
       <figure class="reveal-img md:col-span-5 relative overflow-hidden group" style="--d:.15s"><img class="w-full h-full min-h-[22rem] object-cover transition-transform duration-700 group-hover:scale-105" src="{IMG}JYT.jpg" alt="Solar panel array" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-ink/90 to-transparent"><p class="font-display font-extrabold text-2xl">Solar generation</p><p class="text-sm text-white/70">Clean power at scale</p></figcaption></figure>
       <figure class="reveal-img md:col-span-12 relative overflow-hidden group" style="--d:.3s"><img class="w-full h-72 md:h-[26rem] object-cover transition-transform duration-700 group-hover:scale-105" src="{IMG}gh-solar-streetlight.jpg" alt="Solar-powered street light in Ghana" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-ink/90 to-transparent"><p class="font-display font-extrabold text-2xl">Solar street lighting</p><p class="text-sm text-white/70">Safer streets, off the grid</p></figcaption></figure>
     </div>
-    <p class="mt-6 text-xs text-white/60"><a class="underline hover:text-lime" href="photo-credits.html">Photo credits</a></p>
   </div>
 </section>
 
-<section class="py-20 bg-stone">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="flex items-end justify-between mb-10"><div class="reveal">{eyebrow("Trusted by")}</div><a class="font-bold text-brand hover:text-leaf" href="partners.html">All partners →</a></div>
-    <div class="reveal grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">{logos}</div>
-  </div>
-</section>
 """
         + cta("Work with Tabcon", "Let's build what matters.", "Infrastructure is civilisation in physical form. Tell us about your next project.", "newpic5.jpg")
         + footer()
